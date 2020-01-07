@@ -1,3 +1,9 @@
+// NOTE: This is a workaround to allow types to be re-export while still using create-react-app's
+// toolchain, which uses babel under the hood. See:
+// https://github.com/facebook/create-react-app/issues/6054
+import {LineageResource as LineageResourceType} from './mlmd/LineageTypes'
+export type LineageResource = LineageResourceType
+
 export {
   Artifact,
   ArtifactType,
@@ -37,4 +43,3 @@ export {
 export {getArtifactTypes} from './mlmd/LineageApi'
 export {getMetadataValue, getTypeName} from './mlmd/Utils'
 export {LineageView} from './mlmd/LineageView'
-export {LineageResource} from './mlmd/LineageTypes'
