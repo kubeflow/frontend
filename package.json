@@ -30,6 +30,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslintIgnore": [
+    "src/__mocks__",
+    "src/generated"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
