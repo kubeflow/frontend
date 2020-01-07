@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import {Artifact, Value} from './generated/src/apis/metadata/metadata_store_pb';
-import {ArtifactCustomProperties, ArtifactProperties} from "./mlmd/Api";
+import {Artifact, Value} from '..';
+import {ArtifactCustomProperties, ArtifactProperties} from "./Api";
 
 export const doubleValue = (number: number) => {
   const value = new Value();
