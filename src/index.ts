@@ -1,8 +1,11 @@
 // NOTE: This is a workaround to allow types to be re-export while still using create-react-app's
 // toolchain, which uses babel under the hood. See:
 // https://github.com/facebook/create-react-app/issues/6054
+import {ListRequest as ListRequestType} from './common/ListRequest'
 import {LineageResource as LineageResourceType} from './mlmd/LineageTypes'
+
 export type LineageResource = LineageResourceType
+export type ListRequest = ListRequestType
 
 export {
   Artifact,
