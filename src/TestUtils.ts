@@ -14,36 +14,8 @@
  * limitations under the License.
  */
 
-import {mount, ReactWrapper} from 'enzyme';
-import {object} from 'prop-types';
-import * as React from 'react';
-// @ts-ignore
-import createRouterContext from 'react-router-test-context';
 import {Artifact, Value} from './generated/src/apis/metadata/metadata_store_pb';
 import {ArtifactCustomProperties, ArtifactProperties} from "./mlmd/Api";
-
-
-/**
- * Mounts the given component with a fake router and returns the mounted tree
- */
-export function mountWithRouter(component: React.ReactElement<any>):
-  ReactWrapper {
-  const childContextTypes = {
-    router: object,
-  };
-  const context = createRouterContext();
-  const tree = mount(component, {context, childContextTypes});
-  return tree;
-}
-
-/**
- * Flushes all already queued promises and returns a promise. Note this will
- * only work if the promises have already been queued, so it cannot be used to
- * wait on a promise that hasn't been dispatched yet.
- */
-export function flushPromises(): Promise<void> {
-  return new Promise(resolve => setImmediate(resolve));
-}
 
 export const doubleValue = (number: number) => {
   const value = new Value();
@@ -61,11 +33,6 @@ export const stringValue = (string: String) => {
   const value = new Value();
   value.setStringValue(String(string));
   return value;
-};
-
-export const serviceError = {
-  code: 0,
-  message: '',
 };
 
 export const buildTestModel = () => {

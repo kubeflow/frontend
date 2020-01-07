@@ -21,6 +21,7 @@ import {
   ExecutionProperties,
 } from './Api';
 import {LineageResource} from "./LineageTypes";
+import {ArtifactTypeMap} from "./LineageApi";
 import {Artifact, Execution, Value} from '..';
 
 export const logger = {
@@ -59,23 +60,6 @@ export function getResourceProperty(resource: Artifact | Execution,
       || null;
 }
 
-export function getMetadataValue(value?: Value): string | number {
-  if (!value) {
-    return '';
-  }
-
-  switch (value.getValueCase()) {
-    case Value.ValueCase.DOUBLE_VALUE:
-      return value.getDoubleValue();
-    case Value.ValueCase.INT_VALUE:
-      return value.getIntValue();
-    case Value.ValueCase.STRING_VALUE:
-      return value.getStringValue();
-    case Value.ValueCase.VALUE_NOT_SET:
-      return '';
-  }
-}
-
 function getArtifactName(artifact: Artifact): string {
   return String(getResourceProperty(artifact, ArtifactProperties.NAME))
 }
@@ -101,4 +85,26 @@ export function getResourceDescription(resource: LineageResource): string {
       || getResourceProperty(resource, ExecutionCustomProperties.WORKSPACE, true);
   }
   return String(description) || '';
+}
+
+export function getTypeName(typeId: number, artifactTypes: ArtifactTypeMap): string {
+  return artifactTypes && artifactTypes.get(typeId!) ?
+    artifactTypes.get(typeId!)!.getName() : String(typeId);
+}
+
+export function getMetadataValue(value?: Value): string | number {
+  if (!value) {
+    return '';
+  }
+
+  switch (value.getValueCase()) {
+    case Value.ValueCase.DOUBLE_VALUE:
+      return value.getDoubleValue();
+    case Value.ValueCase.INT_VALUE:
+      return value.getIntValue();
+    case Value.ValueCase.STRING_VALUE:
+      return value.getStringValue();
+    case Value.ValueCase.VALUE_NOT_SET:
+      return '';
+  }
 }

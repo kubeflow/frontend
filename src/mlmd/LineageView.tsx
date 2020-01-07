@@ -34,7 +34,7 @@ import {
 } from '..';
 import {RefObject} from 'react';
 import {getArtifactTypes} from './LineageApi';
-import {getTypeName} from './LineageUtils';
+import {getTypeName} from './Utils';
 import {Api} from "./Api";
 
 const isInputEvent = (event: Event) =>

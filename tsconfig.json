@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "noEmit": true,

@@ -30,9 +30,11 @@ export {
 export {
   Api,
   ArtifactCustomProperties,
-  ArtifactProperties
+  ArtifactProperties,
+  ExecutionProperties,
+  ExecutionCustomProperties,
 } from './mlmd/Api'
 export {getArtifactTypes} from './mlmd/LineageApi'
-export {getTypeName} from './mlmd/LineageUtils'
+export {getMetadataValue, getTypeName} from './mlmd/Utils'
 export {LineageView} from './mlmd/LineageView'
 export {LineageResource} from './mlmd/LineageTypes'
