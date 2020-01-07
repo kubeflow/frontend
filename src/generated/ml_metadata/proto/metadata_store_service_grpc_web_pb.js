@@ -12,7 +12,7 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
-var src_apis_metadata_metadata_store_pb = require('../../../src/apis/metadata/metadata_store_pb.js')
+var ml_metadata_proto_metadata_store_pb = require('../../ml_metadata/proto/metadata_store_pb.js')
 const proto = {};
 proto.ml_metadata = require('./metadata_store_service_pb.js');
 

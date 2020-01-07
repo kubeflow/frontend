@@ -1,6 +1,6 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as src_apis_metadata_metadata_store_pb from '../../../src/apis/metadata/metadata_store_pb';
+import * as ml_metadata_proto_metadata_store_pb from '../../ml_metadata/proto/metadata_store_pb';
 
 import {
   GetArtifactTypeRequest,

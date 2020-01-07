@@ -15,7 +15,7 @@ syntax = "proto2";
 
 package ml_metadata;
 
-import "src/apis/metadata/metadata_store.proto";
+import "ml_metadata/proto/metadata_store.proto";
 
 // An artifact and type pair. Part of an artifact struct.
 message ArtifactAndType {

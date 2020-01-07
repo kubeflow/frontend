@@ -1,15 +1,15 @@
 import * as jspb from "google-protobuf"
 
-import * as src_apis_metadata_metadata_store_pb from '../../../src/apis/metadata/metadata_store_pb';
+import * as ml_metadata_proto_metadata_store_pb from '../../ml_metadata/proto/metadata_store_pb';
 
 export class ArtifactAndType extends jspb.Message {
-  getArtifact(): src_apis_metadata_metadata_store_pb.Artifact | undefined;
-  setArtifact(value?: src_apis_metadata_metadata_store_pb.Artifact): void;
+  getArtifact(): ml_metadata_proto_metadata_store_pb.Artifact | undefined;
+  setArtifact(value?: ml_metadata_proto_metadata_store_pb.Artifact): void;
   hasArtifact(): boolean;
   clearArtifact(): void;
 
-  getType(): src_apis_metadata_metadata_store_pb.ArtifactType | undefined;
-  setType(value?: src_apis_metadata_metadata_store_pb.ArtifactType): void;
+  getType(): ml_metadata_proto_metadata_store_pb.ArtifactType | undefined;
+  setType(value?: ml_metadata_proto_metadata_store_pb.ArtifactType): void;
   hasType(): boolean;
   clearType(): void;
 
@@ -23,8 +23,8 @@ export class ArtifactAndType extends jspb.Message {
 
 export namespace ArtifactAndType {
   export type AsObject = {
-    artifact?: src_apis_metadata_metadata_store_pb.Artifact.AsObject,
-    type?: src_apis_metadata_metadata_store_pb.ArtifactType.AsObject,
+    artifact?: ml_metadata_proto_metadata_store_pb.Artifact.AsObject,
+    type?: ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject,
   }
 }
 
@@ -108,10 +108,10 @@ export namespace ArtifactStruct {
 }
 
 export class PutArtifactsRequest extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutArtifactsRequest.AsObject;
@@ -123,7 +123,7 @@ export class PutArtifactsRequest extends jspb.Message {
 
 export namespace PutArtifactsRequest {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -148,8 +148,8 @@ export namespace PutArtifactsResponse {
 }
 
 export class PutArtifactTypeRequest extends jspb.Message {
-  getArtifactType(): src_apis_metadata_metadata_store_pb.ArtifactType | undefined;
-  setArtifactType(value?: src_apis_metadata_metadata_store_pb.ArtifactType): void;
+  getArtifactType(): ml_metadata_proto_metadata_store_pb.ArtifactType | undefined;
+  setArtifactType(value?: ml_metadata_proto_metadata_store_pb.ArtifactType): void;
   hasArtifactType(): boolean;
   clearArtifactType(): void;
 
@@ -172,7 +172,7 @@ export class PutArtifactTypeRequest extends jspb.Message {
 
 export namespace PutArtifactTypeRequest {
   export type AsObject = {
-    artifactType?: src_apis_metadata_metadata_store_pb.ArtifactType.AsObject,
+    artifactType?: ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject,
     canAddFields: boolean,
     canDeleteFields: boolean,
     allFieldsMatch: boolean,
@@ -198,10 +198,10 @@ export namespace PutArtifactTypeResponse {
 }
 
 export class PutExecutionsRequest extends jspb.Message {
-  getExecutionsList(): Array<src_apis_metadata_metadata_store_pb.Execution>;
-  setExecutionsList(value: Array<src_apis_metadata_metadata_store_pb.Execution>): void;
+  getExecutionsList(): Array<ml_metadata_proto_metadata_store_pb.Execution>;
+  setExecutionsList(value: Array<ml_metadata_proto_metadata_store_pb.Execution>): void;
   clearExecutionsList(): void;
-  addExecutions(value?: src_apis_metadata_metadata_store_pb.Execution, index?: number): src_apis_metadata_metadata_store_pb.Execution;
+  addExecutions(value?: ml_metadata_proto_metadata_store_pb.Execution, index?: number): ml_metadata_proto_metadata_store_pb.Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutExecutionsRequest.AsObject;
@@ -213,7 +213,7 @@ export class PutExecutionsRequest extends jspb.Message {
 
 export namespace PutExecutionsRequest {
   export type AsObject = {
-    executionsList: Array<src_apis_metadata_metadata_store_pb.Execution.AsObject>,
+    executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
   }
 }
 
@@ -238,8 +238,8 @@ export namespace PutExecutionsResponse {
 }
 
 export class PutExecutionTypeRequest extends jspb.Message {
-  getExecutionType(): src_apis_metadata_metadata_store_pb.ExecutionType | undefined;
-  setExecutionType(value?: src_apis_metadata_metadata_store_pb.ExecutionType): void;
+  getExecutionType(): ml_metadata_proto_metadata_store_pb.ExecutionType | undefined;
+  setExecutionType(value?: ml_metadata_proto_metadata_store_pb.ExecutionType): void;
   hasExecutionType(): boolean;
   clearExecutionType(): void;
 
@@ -262,7 +262,7 @@ export class PutExecutionTypeRequest extends jspb.Message {
 
 export namespace PutExecutionTypeRequest {
   export type AsObject = {
-    executionType?: src_apis_metadata_metadata_store_pb.ExecutionType.AsObject,
+    executionType?: ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject,
     canAddFields: boolean,
     canDeleteFields: boolean,
     allFieldsMatch: boolean,
@@ -288,10 +288,10 @@ export namespace PutExecutionTypeResponse {
 }
 
 export class PutEventsRequest extends jspb.Message {
-  getEventsList(): Array<src_apis_metadata_metadata_store_pb.Event>;
-  setEventsList(value: Array<src_apis_metadata_metadata_store_pb.Event>): void;
+  getEventsList(): Array<ml_metadata_proto_metadata_store_pb.Event>;
+  setEventsList(value: Array<ml_metadata_proto_metadata_store_pb.Event>): void;
   clearEventsList(): void;
-  addEvents(value?: src_apis_metadata_metadata_store_pb.Event, index?: number): src_apis_metadata_metadata_store_pb.Event;
+  addEvents(value?: ml_metadata_proto_metadata_store_pb.Event, index?: number): ml_metadata_proto_metadata_store_pb.Event;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutEventsRequest.AsObject;
@@ -303,7 +303,7 @@ export class PutEventsRequest extends jspb.Message {
 
 export namespace PutEventsRequest {
   export type AsObject = {
-    eventsList: Array<src_apis_metadata_metadata_store_pb.Event.AsObject>,
+    eventsList: Array<ml_metadata_proto_metadata_store_pb.Event.AsObject>,
   }
 }
 
@@ -322,8 +322,8 @@ export namespace PutEventsResponse {
 }
 
 export class PutExecutionRequest extends jspb.Message {
-  getExecution(): src_apis_metadata_metadata_store_pb.Execution | undefined;
-  setExecution(value?: src_apis_metadata_metadata_store_pb.Execution): void;
+  getExecution(): ml_metadata_proto_metadata_store_pb.Execution | undefined;
+  setExecution(value?: ml_metadata_proto_metadata_store_pb.Execution): void;
   hasExecution(): boolean;
   clearExecution(): void;
 
@@ -342,18 +342,18 @@ export class PutExecutionRequest extends jspb.Message {
 
 export namespace PutExecutionRequest {
   export type AsObject = {
-    execution?: src_apis_metadata_metadata_store_pb.Execution.AsObject,
+    execution?: ml_metadata_proto_metadata_store_pb.Execution.AsObject,
     artifactEventPairsList: Array<PutExecutionRequest.ArtifactAndEvent.AsObject>,
   }
 
   export class ArtifactAndEvent extends jspb.Message {
-    getArtifact(): src_apis_metadata_metadata_store_pb.Artifact | undefined;
-    setArtifact(value?: src_apis_metadata_metadata_store_pb.Artifact): void;
+    getArtifact(): ml_metadata_proto_metadata_store_pb.Artifact | undefined;
+    setArtifact(value?: ml_metadata_proto_metadata_store_pb.Artifact): void;
     hasArtifact(): boolean;
     clearArtifact(): void;
 
-    getEvent(): src_apis_metadata_metadata_store_pb.Event | undefined;
-    setEvent(value?: src_apis_metadata_metadata_store_pb.Event): void;
+    getEvent(): ml_metadata_proto_metadata_store_pb.Event | undefined;
+    setEvent(value?: ml_metadata_proto_metadata_store_pb.Event): void;
     hasEvent(): boolean;
     clearEvent(): void;
 
@@ -367,8 +367,8 @@ export namespace PutExecutionRequest {
 
   export namespace ArtifactAndEvent {
     export type AsObject = {
-      artifact?: src_apis_metadata_metadata_store_pb.Artifact.AsObject,
-      event?: src_apis_metadata_metadata_store_pb.Event.AsObject,
+      artifact?: ml_metadata_proto_metadata_store_pb.Artifact.AsObject,
+      event?: ml_metadata_proto_metadata_store_pb.Event.AsObject,
     }
   }
 
@@ -399,15 +399,15 @@ export namespace PutExecutionResponse {
 }
 
 export class PutTypesRequest extends jspb.Message {
-  getArtifactTypesList(): Array<src_apis_metadata_metadata_store_pb.ArtifactType>;
-  setArtifactTypesList(value: Array<src_apis_metadata_metadata_store_pb.ArtifactType>): void;
+  getArtifactTypesList(): Array<ml_metadata_proto_metadata_store_pb.ArtifactType>;
+  setArtifactTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ArtifactType>): void;
   clearArtifactTypesList(): void;
-  addArtifactTypes(value?: src_apis_metadata_metadata_store_pb.ArtifactType, index?: number): src_apis_metadata_metadata_store_pb.ArtifactType;
+  addArtifactTypes(value?: ml_metadata_proto_metadata_store_pb.ArtifactType, index?: number): ml_metadata_proto_metadata_store_pb.ArtifactType;
 
-  getExecutionTypesList(): Array<src_apis_metadata_metadata_store_pb.ExecutionType>;
-  setExecutionTypesList(value: Array<src_apis_metadata_metadata_store_pb.ExecutionType>): void;
+  getExecutionTypesList(): Array<ml_metadata_proto_metadata_store_pb.ExecutionType>;
+  setExecutionTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ExecutionType>): void;
   clearExecutionTypesList(): void;
-  addExecutionTypes(value?: src_apis_metadata_metadata_store_pb.ExecutionType, index?: number): src_apis_metadata_metadata_store_pb.ExecutionType;
+  addExecutionTypes(value?: ml_metadata_proto_metadata_store_pb.ExecutionType, index?: number): ml_metadata_proto_metadata_store_pb.ExecutionType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutTypesRequest.AsObject;
@@ -419,8 +419,8 @@ export class PutTypesRequest extends jspb.Message {
 
 export namespace PutTypesRequest {
   export type AsObject = {
-    artifactTypesList: Array<src_apis_metadata_metadata_store_pb.ArtifactType.AsObject>,
-    executionTypesList: Array<src_apis_metadata_metadata_store_pb.ExecutionType.AsObject>,
+    artifactTypesList: Array<ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject>,
+    executionTypesList: Array<ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject>,
   }
 }
 
@@ -451,8 +451,8 @@ export namespace PutTypesResponse {
 }
 
 export class PutContextTypeRequest extends jspb.Message {
-  getContextType(): src_apis_metadata_metadata_store_pb.ContextType | undefined;
-  setContextType(value?: src_apis_metadata_metadata_store_pb.ContextType): void;
+  getContextType(): ml_metadata_proto_metadata_store_pb.ContextType | undefined;
+  setContextType(value?: ml_metadata_proto_metadata_store_pb.ContextType): void;
   hasContextType(): boolean;
   clearContextType(): void;
 
@@ -475,7 +475,7 @@ export class PutContextTypeRequest extends jspb.Message {
 
 export namespace PutContextTypeRequest {
   export type AsObject = {
-    contextType?: src_apis_metadata_metadata_store_pb.ContextType.AsObject,
+    contextType?: ml_metadata_proto_metadata_store_pb.ContextType.AsObject,
     canAddFields: boolean,
     canDeleteFields: boolean,
     allFieldsMatch: boolean,
@@ -501,10 +501,10 @@ export namespace PutContextTypeResponse {
 }
 
 export class PutContextsRequest extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutContextsRequest.AsObject;
@@ -516,7 +516,7 @@ export class PutContextsRequest extends jspb.Message {
 
 export namespace PutContextsRequest {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -541,15 +541,15 @@ export namespace PutContextsResponse {
 }
 
 export class PutAttributionsAndAssociationsRequest extends jspb.Message {
-  getAttributionsList(): Array<src_apis_metadata_metadata_store_pb.Attribution>;
-  setAttributionsList(value: Array<src_apis_metadata_metadata_store_pb.Attribution>): void;
+  getAttributionsList(): Array<ml_metadata_proto_metadata_store_pb.Attribution>;
+  setAttributionsList(value: Array<ml_metadata_proto_metadata_store_pb.Attribution>): void;
   clearAttributionsList(): void;
-  addAttributions(value?: src_apis_metadata_metadata_store_pb.Attribution, index?: number): src_apis_metadata_metadata_store_pb.Attribution;
+  addAttributions(value?: ml_metadata_proto_metadata_store_pb.Attribution, index?: number): ml_metadata_proto_metadata_store_pb.Attribution;
 
-  getAssociationsList(): Array<src_apis_metadata_metadata_store_pb.Association>;
-  setAssociationsList(value: Array<src_apis_metadata_metadata_store_pb.Association>): void;
+  getAssociationsList(): Array<ml_metadata_proto_metadata_store_pb.Association>;
+  setAssociationsList(value: Array<ml_metadata_proto_metadata_store_pb.Association>): void;
   clearAssociationsList(): void;
-  addAssociations(value?: src_apis_metadata_metadata_store_pb.Association, index?: number): src_apis_metadata_metadata_store_pb.Association;
+  addAssociations(value?: ml_metadata_proto_metadata_store_pb.Association, index?: number): ml_metadata_proto_metadata_store_pb.Association;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutAttributionsAndAssociationsRequest.AsObject;
@@ -561,8 +561,8 @@ export class PutAttributionsAndAssociationsRequest extends jspb.Message {
 
 export namespace PutAttributionsAndAssociationsRequest {
   export type AsObject = {
-    attributionsList: Array<src_apis_metadata_metadata_store_pb.Attribution.AsObject>,
-    associationsList: Array<src_apis_metadata_metadata_store_pb.Association.AsObject>,
+    attributionsList: Array<ml_metadata_proto_metadata_store_pb.Attribution.AsObject>,
+    associationsList: Array<ml_metadata_proto_metadata_store_pb.Association.AsObject>,
   }
 }
 
@@ -581,10 +581,10 @@ export namespace PutAttributionsAndAssociationsResponse {
 }
 
 export class PutParentContextsRequest extends jspb.Message {
-  getParentContextsList(): Array<src_apis_metadata_metadata_store_pb.ParentContext>;
-  setParentContextsList(value: Array<src_apis_metadata_metadata_store_pb.ParentContext>): void;
+  getParentContextsList(): Array<ml_metadata_proto_metadata_store_pb.ParentContext>;
+  setParentContextsList(value: Array<ml_metadata_proto_metadata_store_pb.ParentContext>): void;
   clearParentContextsList(): void;
-  addParentContexts(value?: src_apis_metadata_metadata_store_pb.ParentContext, index?: number): src_apis_metadata_metadata_store_pb.ParentContext;
+  addParentContexts(value?: ml_metadata_proto_metadata_store_pb.ParentContext, index?: number): ml_metadata_proto_metadata_store_pb.ParentContext;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutParentContextsRequest.AsObject;
@@ -596,7 +596,7 @@ export class PutParentContextsRequest extends jspb.Message {
 
 export namespace PutParentContextsRequest {
   export type AsObject = {
-    parentContextsList: Array<src_apis_metadata_metadata_store_pb.ParentContext.AsObject>,
+    parentContextsList: Array<ml_metadata_proto_metadata_store_pb.ParentContext.AsObject>,
   }
 }
 
@@ -633,10 +633,10 @@ export namespace GetArtifactsByTypeRequest {
 }
 
 export class GetArtifactsByTypeResponse extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByTypeResponse.AsObject;
@@ -648,7 +648,7 @@ export class GetArtifactsByTypeResponse extends jspb.Message {
 
 export namespace GetArtifactsByTypeResponse {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -673,10 +673,10 @@ export namespace GetArtifactsByIDRequest {
 }
 
 export class GetArtifactsByIDResponse extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByIDResponse.AsObject;
@@ -688,7 +688,7 @@ export class GetArtifactsByIDResponse extends jspb.Message {
 
 export namespace GetArtifactsByIDResponse {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -707,10 +707,10 @@ export namespace GetArtifactsRequest {
 }
 
 export class GetArtifactsResponse extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsResponse.AsObject;
@@ -722,7 +722,7 @@ export class GetArtifactsResponse extends jspb.Message {
 
 export namespace GetArtifactsResponse {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -745,10 +745,10 @@ export namespace GetArtifactsByURIRequest {
 }
 
 export class GetArtifactsByURIResponse extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByURIResponse.AsObject;
@@ -760,7 +760,7 @@ export class GetArtifactsByURIResponse extends jspb.Message {
 
 export namespace GetArtifactsByURIResponse {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -779,10 +779,10 @@ export namespace GetExecutionsRequest {
 }
 
 export class GetExecutionsResponse extends jspb.Message {
-  getExecutionsList(): Array<src_apis_metadata_metadata_store_pb.Execution>;
-  setExecutionsList(value: Array<src_apis_metadata_metadata_store_pb.Execution>): void;
+  getExecutionsList(): Array<ml_metadata_proto_metadata_store_pb.Execution>;
+  setExecutionsList(value: Array<ml_metadata_proto_metadata_store_pb.Execution>): void;
   clearExecutionsList(): void;
-  addExecutions(value?: src_apis_metadata_metadata_store_pb.Execution, index?: number): src_apis_metadata_metadata_store_pb.Execution;
+  addExecutions(value?: ml_metadata_proto_metadata_store_pb.Execution, index?: number): ml_metadata_proto_metadata_store_pb.Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionsResponse.AsObject;
@@ -794,7 +794,7 @@ export class GetExecutionsResponse extends jspb.Message {
 
 export namespace GetExecutionsResponse {
   export type AsObject = {
-    executionsList: Array<src_apis_metadata_metadata_store_pb.Execution.AsObject>,
+    executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
   }
 }
 
@@ -817,8 +817,8 @@ export namespace GetArtifactTypeRequest {
 }
 
 export class GetArtifactTypeResponse extends jspb.Message {
-  getArtifactType(): src_apis_metadata_metadata_store_pb.ArtifactType | undefined;
-  setArtifactType(value?: src_apis_metadata_metadata_store_pb.ArtifactType): void;
+  getArtifactType(): ml_metadata_proto_metadata_store_pb.ArtifactType | undefined;
+  setArtifactType(value?: ml_metadata_proto_metadata_store_pb.ArtifactType): void;
   hasArtifactType(): boolean;
   clearArtifactType(): void;
 
@@ -832,7 +832,7 @@ export class GetArtifactTypeResponse extends jspb.Message {
 
 export namespace GetArtifactTypeResponse {
   export type AsObject = {
-    artifactType?: src_apis_metadata_metadata_store_pb.ArtifactType.AsObject,
+    artifactType?: ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject,
   }
 }
 
@@ -851,10 +851,10 @@ export namespace GetArtifactTypesRequest {
 }
 
 export class GetArtifactTypesResponse extends jspb.Message {
-  getArtifactTypesList(): Array<src_apis_metadata_metadata_store_pb.ArtifactType>;
-  setArtifactTypesList(value: Array<src_apis_metadata_metadata_store_pb.ArtifactType>): void;
+  getArtifactTypesList(): Array<ml_metadata_proto_metadata_store_pb.ArtifactType>;
+  setArtifactTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ArtifactType>): void;
   clearArtifactTypesList(): void;
-  addArtifactTypes(value?: src_apis_metadata_metadata_store_pb.ArtifactType, index?: number): src_apis_metadata_metadata_store_pb.ArtifactType;
+  addArtifactTypes(value?: ml_metadata_proto_metadata_store_pb.ArtifactType, index?: number): ml_metadata_proto_metadata_store_pb.ArtifactType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactTypesResponse.AsObject;
@@ -866,7 +866,7 @@ export class GetArtifactTypesResponse extends jspb.Message {
 
 export namespace GetArtifactTypesResponse {
   export type AsObject = {
-    artifactTypesList: Array<src_apis_metadata_metadata_store_pb.ArtifactType.AsObject>,
+    artifactTypesList: Array<ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject>,
   }
 }
 
@@ -885,10 +885,10 @@ export namespace GetExecutionTypesRequest {
 }
 
 export class GetExecutionTypesResponse extends jspb.Message {
-  getExecutionTypesList(): Array<src_apis_metadata_metadata_store_pb.ExecutionType>;
-  setExecutionTypesList(value: Array<src_apis_metadata_metadata_store_pb.ExecutionType>): void;
+  getExecutionTypesList(): Array<ml_metadata_proto_metadata_store_pb.ExecutionType>;
+  setExecutionTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ExecutionType>): void;
   clearExecutionTypesList(): void;
-  addExecutionTypes(value?: src_apis_metadata_metadata_store_pb.ExecutionType, index?: number): src_apis_metadata_metadata_store_pb.ExecutionType;
+  addExecutionTypes(value?: ml_metadata_proto_metadata_store_pb.ExecutionType, index?: number): ml_metadata_proto_metadata_store_pb.ExecutionType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionTypesResponse.AsObject;
@@ -900,7 +900,7 @@ export class GetExecutionTypesResponse extends jspb.Message {
 
 export namespace GetExecutionTypesResponse {
   export type AsObject = {
-    executionTypesList: Array<src_apis_metadata_metadata_store_pb.ExecutionType.AsObject>,
+    executionTypesList: Array<ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject>,
   }
 }
 
@@ -923,10 +923,10 @@ export namespace GetExecutionsByTypeRequest {
 }
 
 export class GetExecutionsByTypeResponse extends jspb.Message {
-  getExecutionsList(): Array<src_apis_metadata_metadata_store_pb.Execution>;
-  setExecutionsList(value: Array<src_apis_metadata_metadata_store_pb.Execution>): void;
+  getExecutionsList(): Array<ml_metadata_proto_metadata_store_pb.Execution>;
+  setExecutionsList(value: Array<ml_metadata_proto_metadata_store_pb.Execution>): void;
   clearExecutionsList(): void;
-  addExecutions(value?: src_apis_metadata_metadata_store_pb.Execution, index?: number): src_apis_metadata_metadata_store_pb.Execution;
+  addExecutions(value?: ml_metadata_proto_metadata_store_pb.Execution, index?: number): ml_metadata_proto_metadata_store_pb.Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionsByTypeResponse.AsObject;
@@ -938,7 +938,7 @@ export class GetExecutionsByTypeResponse extends jspb.Message {
 
 export namespace GetExecutionsByTypeResponse {
   export type AsObject = {
-    executionsList: Array<src_apis_metadata_metadata_store_pb.Execution.AsObject>,
+    executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
   }
 }
 
@@ -963,10 +963,10 @@ export namespace GetExecutionsByIDRequest {
 }
 
 export class GetExecutionsByIDResponse extends jspb.Message {
-  getExecutionsList(): Array<src_apis_metadata_metadata_store_pb.Execution>;
-  setExecutionsList(value: Array<src_apis_metadata_metadata_store_pb.Execution>): void;
+  getExecutionsList(): Array<ml_metadata_proto_metadata_store_pb.Execution>;
+  setExecutionsList(value: Array<ml_metadata_proto_metadata_store_pb.Execution>): void;
   clearExecutionsList(): void;
-  addExecutions(value?: src_apis_metadata_metadata_store_pb.Execution, index?: number): src_apis_metadata_metadata_store_pb.Execution;
+  addExecutions(value?: ml_metadata_proto_metadata_store_pb.Execution, index?: number): ml_metadata_proto_metadata_store_pb.Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionsByIDResponse.AsObject;
@@ -978,7 +978,7 @@ export class GetExecutionsByIDResponse extends jspb.Message {
 
 export namespace GetExecutionsByIDResponse {
   export type AsObject = {
-    executionsList: Array<src_apis_metadata_metadata_store_pb.Execution.AsObject>,
+    executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
   }
 }
 
@@ -1001,8 +1001,8 @@ export namespace GetExecutionTypeRequest {
 }
 
 export class GetExecutionTypeResponse extends jspb.Message {
-  getExecutionType(): src_apis_metadata_metadata_store_pb.ExecutionType | undefined;
-  setExecutionType(value?: src_apis_metadata_metadata_store_pb.ExecutionType): void;
+  getExecutionType(): ml_metadata_proto_metadata_store_pb.ExecutionType | undefined;
+  setExecutionType(value?: ml_metadata_proto_metadata_store_pb.ExecutionType): void;
   hasExecutionType(): boolean;
   clearExecutionType(): void;
 
@@ -1016,7 +1016,7 @@ export class GetExecutionTypeResponse extends jspb.Message {
 
 export namespace GetExecutionTypeResponse {
   export type AsObject = {
-    executionType?: src_apis_metadata_metadata_store_pb.ExecutionType.AsObject,
+    executionType?: ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject,
   }
 }
 
@@ -1041,10 +1041,10 @@ export namespace GetEventsByExecutionIDsRequest {
 }
 
 export class GetEventsByExecutionIDsResponse extends jspb.Message {
-  getEventsList(): Array<src_apis_metadata_metadata_store_pb.Event>;
-  setEventsList(value: Array<src_apis_metadata_metadata_store_pb.Event>): void;
+  getEventsList(): Array<ml_metadata_proto_metadata_store_pb.Event>;
+  setEventsList(value: Array<ml_metadata_proto_metadata_store_pb.Event>): void;
   clearEventsList(): void;
-  addEvents(value?: src_apis_metadata_metadata_store_pb.Event, index?: number): src_apis_metadata_metadata_store_pb.Event;
+  addEvents(value?: ml_metadata_proto_metadata_store_pb.Event, index?: number): ml_metadata_proto_metadata_store_pb.Event;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetEventsByExecutionIDsResponse.AsObject;
@@ -1056,7 +1056,7 @@ export class GetEventsByExecutionIDsResponse extends jspb.Message {
 
 export namespace GetEventsByExecutionIDsResponse {
   export type AsObject = {
-    eventsList: Array<src_apis_metadata_metadata_store_pb.Event.AsObject>,
+    eventsList: Array<ml_metadata_proto_metadata_store_pb.Event.AsObject>,
   }
 }
 
@@ -1081,10 +1081,10 @@ export namespace GetEventsByArtifactIDsRequest {
 }
 
 export class GetEventsByArtifactIDsResponse extends jspb.Message {
-  getEventsList(): Array<src_apis_metadata_metadata_store_pb.Event>;
-  setEventsList(value: Array<src_apis_metadata_metadata_store_pb.Event>): void;
+  getEventsList(): Array<ml_metadata_proto_metadata_store_pb.Event>;
+  setEventsList(value: Array<ml_metadata_proto_metadata_store_pb.Event>): void;
   clearEventsList(): void;
-  addEvents(value?: src_apis_metadata_metadata_store_pb.Event, index?: number): src_apis_metadata_metadata_store_pb.Event;
+  addEvents(value?: ml_metadata_proto_metadata_store_pb.Event, index?: number): ml_metadata_proto_metadata_store_pb.Event;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetEventsByArtifactIDsResponse.AsObject;
@@ -1096,7 +1096,7 @@ export class GetEventsByArtifactIDsResponse extends jspb.Message {
 
 export namespace GetEventsByArtifactIDsResponse {
   export type AsObject = {
-    eventsList: Array<src_apis_metadata_metadata_store_pb.Event.AsObject>,
+    eventsList: Array<ml_metadata_proto_metadata_store_pb.Event.AsObject>,
   }
 }
 
@@ -1121,10 +1121,10 @@ export namespace GetArtifactTypesByIDRequest {
 }
 
 export class GetArtifactTypesByIDResponse extends jspb.Message {
-  getArtifactTypesList(): Array<src_apis_metadata_metadata_store_pb.ArtifactType>;
-  setArtifactTypesList(value: Array<src_apis_metadata_metadata_store_pb.ArtifactType>): void;
+  getArtifactTypesList(): Array<ml_metadata_proto_metadata_store_pb.ArtifactType>;
+  setArtifactTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ArtifactType>): void;
   clearArtifactTypesList(): void;
-  addArtifactTypes(value?: src_apis_metadata_metadata_store_pb.ArtifactType, index?: number): src_apis_metadata_metadata_store_pb.ArtifactType;
+  addArtifactTypes(value?: ml_metadata_proto_metadata_store_pb.ArtifactType, index?: number): ml_metadata_proto_metadata_store_pb.ArtifactType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactTypesByIDResponse.AsObject;
@@ -1136,7 +1136,7 @@ export class GetArtifactTypesByIDResponse extends jspb.Message {
 
 export namespace GetArtifactTypesByIDResponse {
   export type AsObject = {
-    artifactTypesList: Array<src_apis_metadata_metadata_store_pb.ArtifactType.AsObject>,
+    artifactTypesList: Array<ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject>,
   }
 }
 
@@ -1161,10 +1161,10 @@ export namespace GetExecutionTypesByIDRequest {
 }
 
 export class GetExecutionTypesByIDResponse extends jspb.Message {
-  getExecutionTypesList(): Array<src_apis_metadata_metadata_store_pb.ExecutionType>;
-  setExecutionTypesList(value: Array<src_apis_metadata_metadata_store_pb.ExecutionType>): void;
+  getExecutionTypesList(): Array<ml_metadata_proto_metadata_store_pb.ExecutionType>;
+  setExecutionTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ExecutionType>): void;
   clearExecutionTypesList(): void;
-  addExecutionTypes(value?: src_apis_metadata_metadata_store_pb.ExecutionType, index?: number): src_apis_metadata_metadata_store_pb.ExecutionType;
+  addExecutionTypes(value?: ml_metadata_proto_metadata_store_pb.ExecutionType, index?: number): ml_metadata_proto_metadata_store_pb.ExecutionType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionTypesByIDResponse.AsObject;
@@ -1176,7 +1176,7 @@ export class GetExecutionTypesByIDResponse extends jspb.Message {
 
 export namespace GetExecutionTypesByIDResponse {
   export type AsObject = {
-    executionTypesList: Array<src_apis_metadata_metadata_store_pb.ExecutionType.AsObject>,
+    executionTypesList: Array<ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject>,
   }
 }
 
@@ -1199,8 +1199,8 @@ export namespace GetContextTypeRequest {
 }
 
 export class GetContextTypeResponse extends jspb.Message {
-  getContextType(): src_apis_metadata_metadata_store_pb.ContextType | undefined;
-  setContextType(value?: src_apis_metadata_metadata_store_pb.ContextType): void;
+  getContextType(): ml_metadata_proto_metadata_store_pb.ContextType | undefined;
+  setContextType(value?: ml_metadata_proto_metadata_store_pb.ContextType): void;
   hasContextType(): boolean;
   clearContextType(): void;
 
@@ -1214,7 +1214,7 @@ export class GetContextTypeResponse extends jspb.Message {
 
 export namespace GetContextTypeResponse {
   export type AsObject = {
-    contextType?: src_apis_metadata_metadata_store_pb.ContextType.AsObject,
+    contextType?: ml_metadata_proto_metadata_store_pb.ContextType.AsObject,
   }
 }
 
@@ -1239,10 +1239,10 @@ export namespace GetContextTypesByIDRequest {
 }
 
 export class GetContextTypesByIDResponse extends jspb.Message {
-  getContextTypesList(): Array<src_apis_metadata_metadata_store_pb.ContextType>;
-  setContextTypesList(value: Array<src_apis_metadata_metadata_store_pb.ContextType>): void;
+  getContextTypesList(): Array<ml_metadata_proto_metadata_store_pb.ContextType>;
+  setContextTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ContextType>): void;
   clearContextTypesList(): void;
-  addContextTypes(value?: src_apis_metadata_metadata_store_pb.ContextType, index?: number): src_apis_metadata_metadata_store_pb.ContextType;
+  addContextTypes(value?: ml_metadata_proto_metadata_store_pb.ContextType, index?: number): ml_metadata_proto_metadata_store_pb.ContextType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextTypesByIDResponse.AsObject;
@@ -1254,7 +1254,7 @@ export class GetContextTypesByIDResponse extends jspb.Message {
 
 export namespace GetContextTypesByIDResponse {
   export type AsObject = {
-    contextTypesList: Array<src_apis_metadata_metadata_store_pb.ContextType.AsObject>,
+    contextTypesList: Array<ml_metadata_proto_metadata_store_pb.ContextType.AsObject>,
   }
 }
 
@@ -1273,10 +1273,10 @@ export namespace GetContextsRequest {
 }
 
 export class GetContextsResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsResponse.AsObject;
@@ -1288,7 +1288,7 @@ export class GetContextsResponse extends jspb.Message {
 
 export namespace GetContextsResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1311,10 +1311,10 @@ export namespace GetContextsByTypeRequest {
 }
 
 export class GetContextsByTypeResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByTypeResponse.AsObject;
@@ -1326,7 +1326,7 @@ export class GetContextsByTypeResponse extends jspb.Message {
 
 export namespace GetContextsByTypeResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1351,10 +1351,10 @@ export namespace GetContextsByIDRequest {
 }
 
 export class GetContextsByIDResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByIDResponse.AsObject;
@@ -1366,7 +1366,7 @@ export class GetContextsByIDResponse extends jspb.Message {
 
 export namespace GetContextsByIDResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1389,10 +1389,10 @@ export namespace GetContextsByArtifactRequest {
 }
 
 export class GetContextsByArtifactResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByArtifactResponse.AsObject;
@@ -1404,7 +1404,7 @@ export class GetContextsByArtifactResponse extends jspb.Message {
 
 export namespace GetContextsByArtifactResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1427,10 +1427,10 @@ export namespace GetContextsByExecutionRequest {
 }
 
 export class GetContextsByExecutionResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByExecutionResponse.AsObject;
@@ -1442,7 +1442,7 @@ export class GetContextsByExecutionResponse extends jspb.Message {
 
 export namespace GetContextsByExecutionResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1465,10 +1465,10 @@ export namespace GetParentContextsByContextRequest {
 }
 
 export class GetParentContextsByContextResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetParentContextsByContextResponse.AsObject;
@@ -1480,7 +1480,7 @@ export class GetParentContextsByContextResponse extends jspb.Message {
 
 export namespace GetParentContextsByContextResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1503,10 +1503,10 @@ export namespace GetChildrenContextsByContextRequest {
 }
 
 export class GetChildrenContextsByContextResponse extends jspb.Message {
-  getContextsList(): Array<src_apis_metadata_metadata_store_pb.Context>;
-  setContextsList(value: Array<src_apis_metadata_metadata_store_pb.Context>): void;
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
   clearContextsList(): void;
-  addContexts(value?: src_apis_metadata_metadata_store_pb.Context, index?: number): src_apis_metadata_metadata_store_pb.Context;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetChildrenContextsByContextResponse.AsObject;
@@ -1518,7 +1518,7 @@ export class GetChildrenContextsByContextResponse extends jspb.Message {
 
 export namespace GetChildrenContextsByContextResponse {
   export type AsObject = {
-    contextsList: Array<src_apis_metadata_metadata_store_pb.Context.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 }
 
@@ -1541,10 +1541,10 @@ export namespace GetArtifactsByContextRequest {
 }
 
 export class GetArtifactsByContextResponse extends jspb.Message {
-  getArtifactsList(): Array<src_apis_metadata_metadata_store_pb.Artifact>;
-  setArtifactsList(value: Array<src_apis_metadata_metadata_store_pb.Artifact>): void;
+  getArtifactsList(): Array<ml_metadata_proto_metadata_store_pb.Artifact>;
+  setArtifactsList(value: Array<ml_metadata_proto_metadata_store_pb.Artifact>): void;
   clearArtifactsList(): void;
-  addArtifacts(value?: src_apis_metadata_metadata_store_pb.Artifact, index?: number): src_apis_metadata_metadata_store_pb.Artifact;
+  addArtifacts(value?: ml_metadata_proto_metadata_store_pb.Artifact, index?: number): ml_metadata_proto_metadata_store_pb.Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByContextResponse.AsObject;
@@ -1556,7 +1556,7 @@ export class GetArtifactsByContextResponse extends jspb.Message {
 
 export namespace GetArtifactsByContextResponse {
   export type AsObject = {
-    artifactsList: Array<src_apis_metadata_metadata_store_pb.Artifact.AsObject>,
+    artifactsList: Array<ml_metadata_proto_metadata_store_pb.Artifact.AsObject>,
   }
 }
 
@@ -1579,10 +1579,10 @@ export namespace GetExecutionsByContextRequest {
 }
 
 export class GetExecutionsByContextResponse extends jspb.Message {
-  getExecutionsList(): Array<src_apis_metadata_metadata_store_pb.Execution>;
-  setExecutionsList(value: Array<src_apis_metadata_metadata_store_pb.Execution>): void;
+  getExecutionsList(): Array<ml_metadata_proto_metadata_store_pb.Execution>;
+  setExecutionsList(value: Array<ml_metadata_proto_metadata_store_pb.Execution>): void;
   clearExecutionsList(): void;
-  addExecutions(value?: src_apis_metadata_metadata_store_pb.Execution, index?: number): src_apis_metadata_metadata_store_pb.Execution;
+  addExecutions(value?: ml_metadata_proto_metadata_store_pb.Execution, index?: number): ml_metadata_proto_metadata_store_pb.Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionsByContextResponse.AsObject;
@@ -1594,7 +1594,7 @@ export class GetExecutionsByContextResponse extends jspb.Message {
 
 export namespace GetExecutionsByContextResponse {
   export type AsObject = {
-    executionsList: Array<src_apis_metadata_metadata_store_pb.Execution.AsObject>,
+    executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
   }
 }
 

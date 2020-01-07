@@ -14,10 +14,10 @@ export {
   Execution,
   ExecutionType,
   Value,
-} from './generated/src/apis/metadata/metadata_store_pb';
+} from './generated/ml_metadata/proto/metadata_store_pb';
 export {
   MetadataStoreServicePromiseClient
-} from './generated/src/apis/metadata/metadata_store_service_grpc_web_pb';
+} from './generated/ml_metadata/proto/metadata_store_service_grpc_web_pb';
 export {
   GetArtifactTypesRequest,
   GetArtifactTypesResponse,
@@ -35,7 +35,7 @@ export {
   GetExecutionsByIDResponse,
   GetExecutionsRequest,
   GetExecutionsResponse,
-} from './generated/src/apis/metadata/metadata_store_service_pb'
+} from './generated/ml_metadata/proto/metadata_store_service_pb'
 export {
   Api,
   ArtifactCustomProperties,

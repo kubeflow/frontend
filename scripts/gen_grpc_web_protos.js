@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {spawn} = require('child_process');
 
-const OUT_DIR = path.join(__dirname, 'src', 'generated');
+const OUT_DIR = path.join(__dirname, '..', 'src', 'generated');
 
 if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, {
@@ -19,7 +19,8 @@ const protocProcess = spawn(
     'protoc', [
       `--js_out="import_style=commonjs,binary:${OUT_DIR}"`,
       `--grpc-web_out="import_style=commonjs+dts,mode=grpcweb:${OUT_DIR}"`,
-      'src/apis/metadata/*.proto'
+      `--proto_path="./proto"`,
+      'proto/ml_metadata/**/*.proto'
     ], {
       // Allow wildcards in glob to be interpreted
       shell: true
@@ -28,7 +29,7 @@ const protocProcess = spawn(
 protocProcess.stdout.on('data', buffer => console.log(buffer.toString()));
 protocProcess.stderr.on('data', buffer => console.error(buffer.toString()));
 protocProcess.on('close', code => {
-  if (code) return
+  if (code) return;
   console.log(`Protos succesfully generated.`)
 });
 

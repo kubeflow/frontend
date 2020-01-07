@@ -20,10 +20,10 @@
     "typestyle": "^2.0.4"
   },
   "scripts": {
-    "apis:metadata": "node ./gen_grpc_web_protos.js",
-    "build": "npx tsc --project tsconfig.lib.json",
+    "build": "npm run protos:ml_metadata && npx tsc --project tsconfig.lib.json",
     "build:watch": "npx tsc --project tsconfig.lib.json --watch",
     "eject": "cross-env EXTEND_ESLINT=true react-scripts eject",
+    "protos:ml_metadata": "node scripts/gen_grpc_web_protos.js",
     "test": "cross-env TZ='America/New_York' EXTEND_ESLINT=true react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage --watchAll=false"
   },
