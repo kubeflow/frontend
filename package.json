@@ -23,7 +23,6 @@
     "build": "npx tsc --project tsconfig.lib.json",
     "build:watch": "npx tsc --project tsconfig.lib.json --watch",
     "eject": "cross-env EXTEND_ESLINT=true react-scripts eject",
-    "postinstall": "npm run build",
     "test": "cross-env TZ='America/New_York' EXTEND_ESLINT=true react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage --watchAll=false"
   },
