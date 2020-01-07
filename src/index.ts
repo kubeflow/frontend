@@ -1,4 +1,4 @@
-// NOTE: This is a workaround to allow types to be re-export while still using create-react-app's
+// NOTE: This is a workaround to allow types to be re-exported while still using create-react-app's
 // toolchain, which uses babel under the hood. See:
 // https://github.com/facebook/create-react-app/issues/6054
 import {ListRequest as ListRequestType} from './common/ListRequest'
