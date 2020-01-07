@@ -27,7 +27,12 @@ export {
   GetExecutionsRequest,
   GetExecutionsResponse,
 } from './generated/src/apis/metadata/metadata_store_service_pb'
-export {Api, ArtifactProperties} from './mlmd/Api'
+export {
+  Api,
+  ArtifactCustomProperties,
+  ArtifactProperties
+} from './mlmd/Api'
 export {getArtifactTypes} from './mlmd/LineageApi'
+export {getTypeName} from './mlmd/LineageUtils'
 export {LineageView} from './mlmd/LineageView'
 export {LineageResource} from './mlmd/LineageTypes'
