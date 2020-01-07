@@ -5,7 +5,7 @@ import {
   LineageActionBarProps,
   LineageActionBarState
 } from "./LineageActionBar";
-import {buildTestModel, testModel} from "../TestUtils";
+import {buildTestModel, testModel} from "./TestUtils";
 import {Artifact} from "..";
 
 describe('LineageActionBar', () => {

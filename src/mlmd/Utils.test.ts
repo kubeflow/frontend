@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {doubleValue, intValue, stringValue} from '../TestUtils';
+import {doubleValue, intValue, stringValue} from './TestUtils';
 import {Artifact, Value} from "..";
 import {formatDateString, getMetadataValue, getResourceProperty, logger, titleCase} from "./Utils";
 
