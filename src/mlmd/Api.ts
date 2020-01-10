@@ -18,7 +18,8 @@ export enum ArtifactCustomProperties {
 
 /** Known Execution properties */
 export enum ExecutionProperties {
-  NAME = 'name',
+  NAME = 'name', // currently not available in api, use component_id instead
+  COMPONENT_ID = 'component_id',
   PIPELINE_NAME = 'pipeline_name',
   STATE = 'state',
 }
