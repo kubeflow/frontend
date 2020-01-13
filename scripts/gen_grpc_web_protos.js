@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {spawn} = require('child_process');
 
-const OUT_DIR = path.join(__dirname, '..', 'src', 'generated');
+const OUT_DIR = path.join(__dirname, '..', 'src', 'mlmd', 'generated');
 
 if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, {

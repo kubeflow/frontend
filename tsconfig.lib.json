@@ -6,6 +6,8 @@
     "noEmit": false
   },
   "exclude": [
+    "src/setupTests.ts",
+    "src/mlmd/TestUtils.ts",
     "**/*.test.ts*"
   ]
 }

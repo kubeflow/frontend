@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "kubeflow-frontend",
   "version": "0.1.0",
   "description": "Shared libraries and components used by Kubeflow frontend projects.",
   "private": true,
@@ -20,9 +20,10 @@
     "typestyle": "^2.0.4"
   },
   "scripts": {
-    "build": "npm run protos:ml_metadata && npx tsc --project tsconfig.lib.json",
+    "build": "npx tsc --project tsconfig.lib.json",
     "build:watch": "npx tsc --project tsconfig.lib.json --watch",
     "eject": "cross-env EXTEND_ESLINT=true react-scripts eject",
+    "postinstall": "npm run build",
     "protos:ml_metadata": "node scripts/gen_grpc_web_protos.js",
     "test": "cross-env TZ='America/New_York' EXTEND_ESLINT=true react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage --watchAll=false"
