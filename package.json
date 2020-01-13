@@ -77,5 +77,8 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
     "typescript": "^3.7.4"
+  },
+  "peerDependencies": {
+    "typescript": "^3.7.4"
   }
 }

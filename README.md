@@ -21,13 +21,14 @@ npm run build
 ## Generated Protocol Buffers
 
 This project contains classes generated from Protocol Buffer message definitions from the
-`ml_metadata` proto package. A the proto files can be found in `proto/`. 
+`ml_metadata` proto package. The proto files were taken from an earlier commit hash of the
+[google/ml-metadata](https://github.com/google/ml-metadata/tree/master/ml_metadata/proto) protos.
 
 Generated copies are included with `src/` to allow `postinstall` to succeed without a dependency on 
 `protoc` being in the system PATH. 
 
-If any file in `proto/` is modified, you'll need to add `protoc` to your system path and generate
-new compiled protos by running:
+If a file in `proto/` is modified or you need to manually re-generate the protos, you'll need to
+add `protoc` to your system's PATH and generate new compiled protos by running:
 
 ```bash
 npm run build:ml_metadata
