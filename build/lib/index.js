@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var metadata_store_pb_1 = require("./generated/src/apis/metadata/metadata_store_pb");
+var metadata_store_pb_1 = require("./generated/ml_metadata/proto/metadata_store_pb");
 exports.Artifact = metadata_store_pb_1.Artifact;
 exports.ArtifactType = metadata_store_pb_1.ArtifactType;
 exports.Event = metadata_store_pb_1.Event;
 exports.Execution = metadata_store_pb_1.Execution;
 exports.ExecutionType = metadata_store_pb_1.ExecutionType;
 exports.Value = metadata_store_pb_1.Value;
-var metadata_store_service_grpc_web_pb_1 = require("./generated/src/apis/metadata/metadata_store_service_grpc_web_pb");
+var metadata_store_service_grpc_web_pb_1 = require("./generated/ml_metadata/proto/metadata_store_service_grpc_web_pb");
 exports.MetadataStoreServicePromiseClient = metadata_store_service_grpc_web_pb_1.MetadataStoreServicePromiseClient;
-var metadata_store_service_pb_1 = require("./generated/src/apis/metadata/metadata_store_service_pb");
+var metadata_store_service_pb_1 = require("./generated/ml_metadata/proto/metadata_store_service_pb");
 exports.GetArtifactTypesRequest = metadata_store_service_pb_1.GetArtifactTypesRequest;
 exports.GetArtifactTypesResponse = metadata_store_service_pb_1.GetArtifactTypesResponse;
 exports.GetArtifactsByIDRequest = metadata_store_service_pb_1.GetArtifactsByIDRequest;

@@ -21,6 +21,7 @@ var ArtifactCustomProperties;
 var ExecutionProperties;
 (function (ExecutionProperties) {
     ExecutionProperties["NAME"] = "name";
+    ExecutionProperties["COMPONENT_ID"] = "component_id";
     ExecutionProperties["PIPELINE_NAME"] = "pipeline_name";
     ExecutionProperties["STATE"] = "state";
 })(ExecutionProperties = exports.ExecutionProperties || (exports.ExecutionProperties = {}));

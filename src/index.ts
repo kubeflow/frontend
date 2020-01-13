@@ -44,5 +44,5 @@ export {
   ExecutionCustomProperties,
 } from './mlmd/Api'
 export {getArtifactTypes} from './mlmd/LineageApi'
-export {getMetadataValue, getTypeName} from './mlmd/Utils'
 export {LineageView} from './mlmd/LineageView'
+export {getMetadataValue, getTypeName} from './mlmd/Utils'

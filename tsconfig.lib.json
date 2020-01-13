@@ -4,5 +4,9 @@
     "jsx": "react",
     "module": "commonjs",
     "noEmit": false
-  }
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

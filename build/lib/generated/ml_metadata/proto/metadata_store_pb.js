@@ -1,4 +1,4 @@
-// source: src/apis/metadata/metadata_store.proto
+// source: ml_metadata/proto/metadata_store.proto
 /**
  * @fileoverview
  * @enhanceable

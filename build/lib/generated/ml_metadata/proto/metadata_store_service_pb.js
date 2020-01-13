@@ -1,4 +1,4 @@
-// source: src/apis/metadata/metadata_store_service.proto
+// source: ml_metadata/proto/metadata_store_service.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -10,8 +10,8 @@
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
-var src_apis_metadata_metadata_store_pb = require('../../../src/apis/metadata/metadata_store_pb.js');
-goog.object.extend(proto, src_apis_metadata_metadata_store_pb);
+var ml_metadata_proto_metadata_store_pb = require('../../ml_metadata/proto/metadata_store_pb.js');
+goog.object.extend(proto, ml_metadata_proto_metadata_store_pb);
 goog.exportSymbol('proto.ml_metadata.ArtifactAndType', null, global);
 goog.exportSymbol('proto.ml_metadata.ArtifactStruct', null, global);
 goog.exportSymbol('proto.ml_metadata.ArtifactStruct.ValueCase', null, global);
@@ -1778,8 +1778,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.ArtifactAndType.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifact: (f = msg.getArtifact()) && src_apis_metadata_metadata_store_pb.Artifact.toObject(includeInstance, f),
-            type: (f = msg.getType()) && src_apis_metadata_metadata_store_pb.ArtifactType.toObject(includeInstance, f)
+            artifact: (f = msg.getArtifact()) && ml_metadata_proto_metadata_store_pb.Artifact.toObject(includeInstance, f),
+            type: (f = msg.getType()) && ml_metadata_proto_metadata_store_pb.ArtifactType.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -1812,13 +1812,13 @@ proto.ml_metadata.ArtifactAndType.deserializeBinaryFromReader = function (msg, r
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.setArtifact(value);
                 break;
             case 2:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.setType(value);
                 break;
             default:
@@ -1848,11 +1848,11 @@ proto.ml_metadata.ArtifactAndType.serializeBinaryToWriter = function (message, w
     var f = undefined;
     f = message.getArtifact();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
     f = message.getType();
     if (f != null) {
-        writer.writeMessage(2, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeMessage(2, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
 };
 /**
@@ -1860,7 +1860,7 @@ proto.ml_metadata.ArtifactAndType.serializeBinaryToWriter = function (message, w
  * @return {?proto.ml_metadata.Artifact}
  */
 proto.ml_metadata.ArtifactAndType.prototype.getArtifact = function () {
-    return /** @type{?proto.ml_metadata.Artifact} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{?proto.ml_metadata.Artifact} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {?proto.ml_metadata.Artifact|undefined} value
@@ -1888,7 +1888,7 @@ proto.ml_metadata.ArtifactAndType.prototype.hasArtifact = function () {
  * @return {?proto.ml_metadata.ArtifactType}
  */
 proto.ml_metadata.ArtifactAndType.prototype.getType = function () {
-    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 2));
+    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 2));
 };
 /**
  * @param {?proto.ml_metadata.ArtifactType|undefined} value
@@ -2407,7 +2407,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutArtifactsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -2440,8 +2440,8 @@ proto.ml_metadata.PutArtifactsRequest.deserializeBinaryFromReader = function (ms
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -2471,7 +2471,7 @@ proto.ml_metadata.PutArtifactsRequest.serializeBinaryToWriter = function (messag
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -2479,7 +2479,7 @@ proto.ml_metadata.PutArtifactsRequest.serializeBinaryToWriter = function (messag
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.PutArtifactsRequest.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -2658,7 +2658,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutArtifactTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactType: (f = msg.getArtifactType()) && src_apis_metadata_metadata_store_pb.ArtifactType.toObject(includeInstance, f),
+            artifactType: (f = msg.getArtifactType()) && ml_metadata_proto_metadata_store_pb.ArtifactType.toObject(includeInstance, f),
             canAddFields: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
             canDeleteFields: (f = jspb.Message.getBooleanField(msg, 3)) == null ? undefined : f,
             allFieldsMatch: (f = jspb.Message.getBooleanField(msg, 4)) == null ? undefined : f
@@ -2694,8 +2694,8 @@ proto.ml_metadata.PutArtifactTypeRequest.deserializeBinaryFromReader = function 
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.setArtifactType(value);
                 break;
             case 2:
@@ -2737,7 +2737,7 @@ proto.ml_metadata.PutArtifactTypeRequest.serializeBinaryToWriter = function (mes
     var f = undefined;
     f = message.getArtifactType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
     f = /** @type {boolean} */ (jspb.Message.getField(message, 2));
     if (f != null) {
@@ -2757,7 +2757,7 @@ proto.ml_metadata.PutArtifactTypeRequest.serializeBinaryToWriter = function (mes
  * @return {?proto.ml_metadata.ArtifactType}
  */
 proto.ml_metadata.PutArtifactTypeRequest.prototype.getArtifactType = function () {
-    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 1));
+    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ArtifactType|undefined} value
@@ -3018,7 +3018,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutExecutionsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), src_apis_metadata_metadata_store_pb.Execution.toObject, includeInstance)
+            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), ml_metadata_proto_metadata_store_pb.Execution.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -3051,8 +3051,8 @@ proto.ml_metadata.PutExecutionsRequest.deserializeBinaryFromReader = function (m
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.addExecutions(value);
                 break;
             default:
@@ -3082,7 +3082,7 @@ proto.ml_metadata.PutExecutionsRequest.serializeBinaryToWriter = function (messa
     var f = undefined;
     f = message.getExecutionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
 };
 /**
@@ -3090,7 +3090,7 @@ proto.ml_metadata.PutExecutionsRequest.serializeBinaryToWriter = function (messa
  * @return {!Array<!proto.ml_metadata.Execution>}
  */
 proto.ml_metadata.PutExecutionsRequest.prototype.getExecutionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Execution>} value
@@ -3269,7 +3269,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutExecutionTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionType: (f = msg.getExecutionType()) && src_apis_metadata_metadata_store_pb.ExecutionType.toObject(includeInstance, f),
+            executionType: (f = msg.getExecutionType()) && ml_metadata_proto_metadata_store_pb.ExecutionType.toObject(includeInstance, f),
             canAddFields: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
             canDeleteFields: (f = jspb.Message.getBooleanField(msg, 3)) == null ? undefined : f,
             allFieldsMatch: (f = jspb.Message.getBooleanField(msg, 4)) == null ? undefined : f
@@ -3305,8 +3305,8 @@ proto.ml_metadata.PutExecutionTypeRequest.deserializeBinaryFromReader = function
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ExecutionType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ExecutionType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
                 msg.setExecutionType(value);
                 break;
             case 2:
@@ -3348,7 +3348,7 @@ proto.ml_metadata.PutExecutionTypeRequest.serializeBinaryToWriter = function (me
     var f = undefined;
     f = message.getExecutionType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
     }
     f = /** @type {boolean} */ (jspb.Message.getField(message, 2));
     if (f != null) {
@@ -3368,7 +3368,7 @@ proto.ml_metadata.PutExecutionTypeRequest.serializeBinaryToWriter = function (me
  * @return {?proto.ml_metadata.ExecutionType}
  */
 proto.ml_metadata.PutExecutionTypeRequest.prototype.getExecutionType = function () {
-    return /** @type{?proto.ml_metadata.ExecutionType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ExecutionType, 1));
+    return /** @type{?proto.ml_metadata.ExecutionType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ExecutionType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ExecutionType|undefined} value
@@ -3629,7 +3629,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutEventsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            eventsList: jspb.Message.toObjectList(msg.getEventsList(), src_apis_metadata_metadata_store_pb.Event.toObject, includeInstance)
+            eventsList: jspb.Message.toObjectList(msg.getEventsList(), ml_metadata_proto_metadata_store_pb.Event.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -3662,8 +3662,8 @@ proto.ml_metadata.PutEventsRequest.deserializeBinaryFromReader = function (msg, 
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Event;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Event.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Event;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Event.deserializeBinaryFromReader);
                 msg.addEvents(value);
                 break;
             default:
@@ -3693,7 +3693,7 @@ proto.ml_metadata.PutEventsRequest.serializeBinaryToWriter = function (message, 
     var f = undefined;
     f = message.getEventsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Event.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Event.serializeBinaryToWriter);
     }
 };
 /**
@@ -3701,7 +3701,7 @@ proto.ml_metadata.PutEventsRequest.serializeBinaryToWriter = function (message, 
  * @return {!Array<!proto.ml_metadata.Event>}
  */
 proto.ml_metadata.PutEventsRequest.prototype.getEventsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Event, 1));
+    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Event, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Event>} value
@@ -3841,7 +3841,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutExecutionRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            execution: (f = msg.getExecution()) && src_apis_metadata_metadata_store_pb.Execution.toObject(includeInstance, f),
+            execution: (f = msg.getExecution()) && ml_metadata_proto_metadata_store_pb.Execution.toObject(includeInstance, f),
             artifactEventPairsList: jspb.Message.toObjectList(msg.getArtifactEventPairsList(), proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.toObject, includeInstance)
         };
         if (includeInstance) {
@@ -3875,8 +3875,8 @@ proto.ml_metadata.PutExecutionRequest.deserializeBinaryFromReader = function (ms
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.setExecution(value);
                 break;
             case 2:
@@ -3911,7 +3911,7 @@ proto.ml_metadata.PutExecutionRequest.serializeBinaryToWriter = function (messag
     var f = undefined;
     f = message.getExecution();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
     f = message.getArtifactEventPairsList();
     if (f.length > 0) {
@@ -3945,8 +3945,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifact: (f = msg.getArtifact()) && src_apis_metadata_metadata_store_pb.Artifact.toObject(includeInstance, f),
-            event: (f = msg.getEvent()) && src_apis_metadata_metadata_store_pb.Event.toObject(includeInstance, f)
+            artifact: (f = msg.getArtifact()) && ml_metadata_proto_metadata_store_pb.Artifact.toObject(includeInstance, f),
+            event: (f = msg.getEvent()) && ml_metadata_proto_metadata_store_pb.Event.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -3979,13 +3979,13 @@ proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.deserializeBinaryFromRead
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.setArtifact(value);
                 break;
             case 2:
-                var value = new src_apis_metadata_metadata_store_pb.Event;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Event.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Event;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Event.deserializeBinaryFromReader);
                 msg.setEvent(value);
                 break;
             default:
@@ -4015,11 +4015,11 @@ proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.serializeBinaryToWriter =
     var f = undefined;
     f = message.getArtifact();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
     f = message.getEvent();
     if (f != null) {
-        writer.writeMessage(2, f, src_apis_metadata_metadata_store_pb.Event.serializeBinaryToWriter);
+        writer.writeMessage(2, f, ml_metadata_proto_metadata_store_pb.Event.serializeBinaryToWriter);
     }
 };
 /**
@@ -4027,7 +4027,7 @@ proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.serializeBinaryToWriter =
  * @return {?proto.ml_metadata.Artifact}
  */
 proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.prototype.getArtifact = function () {
-    return /** @type{?proto.ml_metadata.Artifact} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{?proto.ml_metadata.Artifact} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {?proto.ml_metadata.Artifact|undefined} value
@@ -4055,7 +4055,7 @@ proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.prototype.hasArtifact = f
  * @return {?proto.ml_metadata.Event}
  */
 proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.prototype.getEvent = function () {
-    return /** @type{?proto.ml_metadata.Event} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.Event, 2));
+    return /** @type{?proto.ml_metadata.Event} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.Event, 2));
 };
 /**
  * @param {?proto.ml_metadata.Event|undefined} value
@@ -4083,7 +4083,7 @@ proto.ml_metadata.PutExecutionRequest.ArtifactAndEvent.prototype.hasEvent = func
  * @return {?proto.ml_metadata.Execution}
  */
 proto.ml_metadata.PutExecutionRequest.prototype.getExecution = function () {
-    return /** @type{?proto.ml_metadata.Execution} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{?proto.ml_metadata.Execution} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {?proto.ml_metadata.Execution|undefined} value
@@ -4333,8 +4333,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutTypesRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), src_apis_metadata_metadata_store_pb.ArtifactType.toObject, includeInstance),
-            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), src_apis_metadata_metadata_store_pb.ExecutionType.toObject, includeInstance)
+            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), ml_metadata_proto_metadata_store_pb.ArtifactType.toObject, includeInstance),
+            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), ml_metadata_proto_metadata_store_pb.ExecutionType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -4367,13 +4367,13 @@ proto.ml_metadata.PutTypesRequest.deserializeBinaryFromReader = function (msg, r
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.addArtifactTypes(value);
                 break;
             case 2:
-                var value = new src_apis_metadata_metadata_store_pb.ExecutionType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ExecutionType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
                 msg.addExecutionTypes(value);
                 break;
             default:
@@ -4403,11 +4403,11 @@ proto.ml_metadata.PutTypesRequest.serializeBinaryToWriter = function (message, w
     var f = undefined;
     f = message.getArtifactTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
     f = message.getExecutionTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(2, f, src_apis_metadata_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(2, f, ml_metadata_proto_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
     }
 };
 /**
@@ -4415,7 +4415,7 @@ proto.ml_metadata.PutTypesRequest.serializeBinaryToWriter = function (message, w
  * @return {!Array<!proto.ml_metadata.ArtifactType>}
  */
 proto.ml_metadata.PutTypesRequest.prototype.getArtifactTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ArtifactType>} value
@@ -4444,7 +4444,7 @@ proto.ml_metadata.PutTypesRequest.prototype.clearArtifactTypesList = function ()
  * @return {!Array<!proto.ml_metadata.ExecutionType>}
  */
 proto.ml_metadata.PutTypesRequest.prototype.getExecutionTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ExecutionType, 2));
+    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ExecutionType, 2));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ExecutionType>} value
@@ -4661,7 +4661,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutContextTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextType: (f = msg.getContextType()) && src_apis_metadata_metadata_store_pb.ContextType.toObject(includeInstance, f),
+            contextType: (f = msg.getContextType()) && ml_metadata_proto_metadata_store_pb.ContextType.toObject(includeInstance, f),
             canAddFields: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
             canDeleteFields: (f = jspb.Message.getBooleanField(msg, 3)) == null ? undefined : f,
             allFieldsMatch: (f = jspb.Message.getBooleanField(msg, 4)) == null ? undefined : f
@@ -4697,8 +4697,8 @@ proto.ml_metadata.PutContextTypeRequest.deserializeBinaryFromReader = function (
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ContextType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ContextType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ContextType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ContextType.deserializeBinaryFromReader);
                 msg.setContextType(value);
                 break;
             case 2:
@@ -4740,7 +4740,7 @@ proto.ml_metadata.PutContextTypeRequest.serializeBinaryToWriter = function (mess
     var f = undefined;
     f = message.getContextType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ContextType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ContextType.serializeBinaryToWriter);
     }
     f = /** @type {boolean} */ (jspb.Message.getField(message, 2));
     if (f != null) {
@@ -4760,7 +4760,7 @@ proto.ml_metadata.PutContextTypeRequest.serializeBinaryToWriter = function (mess
  * @return {?proto.ml_metadata.ContextType}
  */
 proto.ml_metadata.PutContextTypeRequest.prototype.getContextType = function () {
-    return /** @type{?proto.ml_metadata.ContextType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ContextType, 1));
+    return /** @type{?proto.ml_metadata.ContextType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ContextType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ContextType|undefined} value
@@ -5021,7 +5021,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutContextsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -5054,8 +5054,8 @@ proto.ml_metadata.PutContextsRequest.deserializeBinaryFromReader = function (msg
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -5085,7 +5085,7 @@ proto.ml_metadata.PutContextsRequest.serializeBinaryToWriter = function (message
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -5093,7 +5093,7 @@ proto.ml_metadata.PutContextsRequest.serializeBinaryToWriter = function (message
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.PutContextsRequest.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -5278,8 +5278,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutAttributionsAndAssociationsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            attributionsList: jspb.Message.toObjectList(msg.getAttributionsList(), src_apis_metadata_metadata_store_pb.Attribution.toObject, includeInstance),
-            associationsList: jspb.Message.toObjectList(msg.getAssociationsList(), src_apis_metadata_metadata_store_pb.Association.toObject, includeInstance)
+            attributionsList: jspb.Message.toObjectList(msg.getAttributionsList(), ml_metadata_proto_metadata_store_pb.Attribution.toObject, includeInstance),
+            associationsList: jspb.Message.toObjectList(msg.getAssociationsList(), ml_metadata_proto_metadata_store_pb.Association.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -5312,13 +5312,13 @@ proto.ml_metadata.PutAttributionsAndAssociationsRequest.deserializeBinaryFromRea
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Attribution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Attribution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Attribution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Attribution.deserializeBinaryFromReader);
                 msg.addAttributions(value);
                 break;
             case 2:
-                var value = new src_apis_metadata_metadata_store_pb.Association;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Association.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Association;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Association.deserializeBinaryFromReader);
                 msg.addAssociations(value);
                 break;
             default:
@@ -5348,11 +5348,11 @@ proto.ml_metadata.PutAttributionsAndAssociationsRequest.serializeBinaryToWriter 
     var f = undefined;
     f = message.getAttributionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Attribution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Attribution.serializeBinaryToWriter);
     }
     f = message.getAssociationsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(2, f, src_apis_metadata_metadata_store_pb.Association.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(2, f, ml_metadata_proto_metadata_store_pb.Association.serializeBinaryToWriter);
     }
 };
 /**
@@ -5360,7 +5360,7 @@ proto.ml_metadata.PutAttributionsAndAssociationsRequest.serializeBinaryToWriter 
  * @return {!Array<!proto.ml_metadata.Attribution>}
  */
 proto.ml_metadata.PutAttributionsAndAssociationsRequest.prototype.getAttributionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Attribution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Attribution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Attribution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Attribution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Attribution>} value
@@ -5389,7 +5389,7 @@ proto.ml_metadata.PutAttributionsAndAssociationsRequest.prototype.clearAttributi
  * @return {!Array<!proto.ml_metadata.Association>}
  */
 proto.ml_metadata.PutAttributionsAndAssociationsRequest.prototype.getAssociationsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Association>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Association, 2));
+    return /** @type{!Array<!proto.ml_metadata.Association>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Association, 2));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Association>} value
@@ -5529,7 +5529,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.PutParentContextsRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            parentContextsList: jspb.Message.toObjectList(msg.getParentContextsList(), src_apis_metadata_metadata_store_pb.ParentContext.toObject, includeInstance)
+            parentContextsList: jspb.Message.toObjectList(msg.getParentContextsList(), ml_metadata_proto_metadata_store_pb.ParentContext.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -5562,8 +5562,8 @@ proto.ml_metadata.PutParentContextsRequest.deserializeBinaryFromReader = functio
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ParentContext;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ParentContext.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ParentContext;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ParentContext.deserializeBinaryFromReader);
                 msg.addParentContexts(value);
                 break;
             default:
@@ -5593,7 +5593,7 @@ proto.ml_metadata.PutParentContextsRequest.serializeBinaryToWriter = function (m
     var f = undefined;
     f = message.getParentContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ParentContext.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ParentContext.serializeBinaryToWriter);
     }
 };
 /**
@@ -5601,7 +5601,7 @@ proto.ml_metadata.PutParentContextsRequest.serializeBinaryToWriter = function (m
  * @return {!Array<!proto.ml_metadata.ParentContext>}
  */
 proto.ml_metadata.PutParentContextsRequest.prototype.getParentContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ParentContext>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ParentContext, 1));
+    return /** @type{!Array<!proto.ml_metadata.ParentContext>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ParentContext, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ParentContext>} value
@@ -5862,7 +5862,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsByTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -5895,8 +5895,8 @@ proto.ml_metadata.GetArtifactsByTypeResponse.deserializeBinaryFromReader = funct
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -5926,7 +5926,7 @@ proto.ml_metadata.GetArtifactsByTypeResponse.serializeBinaryToWriter = function 
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -5934,7 +5934,7 @@ proto.ml_metadata.GetArtifactsByTypeResponse.serializeBinaryToWriter = function 
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.GetArtifactsByTypeResponse.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -6119,7 +6119,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -6152,8 +6152,8 @@ proto.ml_metadata.GetArtifactsByIDResponse.deserializeBinaryFromReader = functio
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -6183,7 +6183,7 @@ proto.ml_metadata.GetArtifactsByIDResponse.serializeBinaryToWriter = function (m
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -6191,7 +6191,7 @@ proto.ml_metadata.GetArtifactsByIDResponse.serializeBinaryToWriter = function (m
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.GetArtifactsByIDResponse.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -6331,7 +6331,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -6364,8 +6364,8 @@ proto.ml_metadata.GetArtifactsResponse.deserializeBinaryFromReader = function (m
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -6395,7 +6395,7 @@ proto.ml_metadata.GetArtifactsResponse.serializeBinaryToWriter = function (messa
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -6403,7 +6403,7 @@ proto.ml_metadata.GetArtifactsResponse.serializeBinaryToWriter = function (messa
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.GetArtifactsResponse.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -6581,7 +6581,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsByURIResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -6614,8 +6614,8 @@ proto.ml_metadata.GetArtifactsByURIResponse.deserializeBinaryFromReader = functi
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -6645,7 +6645,7 @@ proto.ml_metadata.GetArtifactsByURIResponse.serializeBinaryToWriter = function (
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -6653,7 +6653,7 @@ proto.ml_metadata.GetArtifactsByURIResponse.serializeBinaryToWriter = function (
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.GetArtifactsByURIResponse.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -6793,7 +6793,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionsResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), src_apis_metadata_metadata_store_pb.Execution.toObject, includeInstance)
+            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), ml_metadata_proto_metadata_store_pb.Execution.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -6826,8 +6826,8 @@ proto.ml_metadata.GetExecutionsResponse.deserializeBinaryFromReader = function (
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.addExecutions(value);
                 break;
             default:
@@ -6857,7 +6857,7 @@ proto.ml_metadata.GetExecutionsResponse.serializeBinaryToWriter = function (mess
     var f = undefined;
     f = message.getExecutionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
 };
 /**
@@ -6865,7 +6865,7 @@ proto.ml_metadata.GetExecutionsResponse.serializeBinaryToWriter = function (mess
  * @return {!Array<!proto.ml_metadata.Execution>}
  */
 proto.ml_metadata.GetExecutionsResponse.prototype.getExecutionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Execution>} value
@@ -7037,7 +7037,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactType: (f = msg.getArtifactType()) && src_apis_metadata_metadata_store_pb.ArtifactType.toObject(includeInstance, f)
+            artifactType: (f = msg.getArtifactType()) && ml_metadata_proto_metadata_store_pb.ArtifactType.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -7070,8 +7070,8 @@ proto.ml_metadata.GetArtifactTypeResponse.deserializeBinaryFromReader = function
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.setArtifactType(value);
                 break;
             default:
@@ -7101,7 +7101,7 @@ proto.ml_metadata.GetArtifactTypeResponse.serializeBinaryToWriter = function (me
     var f = undefined;
     f = message.getArtifactType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
 };
 /**
@@ -7109,7 +7109,7 @@ proto.ml_metadata.GetArtifactTypeResponse.serializeBinaryToWriter = function (me
  * @return {?proto.ml_metadata.ArtifactType}
  */
 proto.ml_metadata.GetArtifactTypeResponse.prototype.getArtifactType = function () {
-    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 1));
+    return /** @type{?proto.ml_metadata.ArtifactType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ArtifactType|undefined} value
@@ -7248,7 +7248,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactTypesResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), src_apis_metadata_metadata_store_pb.ArtifactType.toObject, includeInstance)
+            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), ml_metadata_proto_metadata_store_pb.ArtifactType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -7281,8 +7281,8 @@ proto.ml_metadata.GetArtifactTypesResponse.deserializeBinaryFromReader = functio
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.addArtifactTypes(value);
                 break;
             default:
@@ -7312,7 +7312,7 @@ proto.ml_metadata.GetArtifactTypesResponse.serializeBinaryToWriter = function (m
     var f = undefined;
     f = message.getArtifactTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
 };
 /**
@@ -7320,7 +7320,7 @@ proto.ml_metadata.GetArtifactTypesResponse.serializeBinaryToWriter = function (m
  * @return {!Array<!proto.ml_metadata.ArtifactType>}
  */
 proto.ml_metadata.GetArtifactTypesResponse.prototype.getArtifactTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ArtifactType>} value
@@ -7460,7 +7460,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionTypesResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), src_apis_metadata_metadata_store_pb.ExecutionType.toObject, includeInstance)
+            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), ml_metadata_proto_metadata_store_pb.ExecutionType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -7493,8 +7493,8 @@ proto.ml_metadata.GetExecutionTypesResponse.deserializeBinaryFromReader = functi
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ExecutionType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ExecutionType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
                 msg.addExecutionTypes(value);
                 break;
             default:
@@ -7524,7 +7524,7 @@ proto.ml_metadata.GetExecutionTypesResponse.serializeBinaryToWriter = function (
     var f = undefined;
     f = message.getExecutionTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
     }
 };
 /**
@@ -7532,7 +7532,7 @@ proto.ml_metadata.GetExecutionTypesResponse.serializeBinaryToWriter = function (
  * @return {!Array<!proto.ml_metadata.ExecutionType>}
  */
 proto.ml_metadata.GetExecutionTypesResponse.prototype.getExecutionTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ExecutionType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ExecutionType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ExecutionType>} value
@@ -7710,7 +7710,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionsByTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), src_apis_metadata_metadata_store_pb.Execution.toObject, includeInstance)
+            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), ml_metadata_proto_metadata_store_pb.Execution.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -7743,8 +7743,8 @@ proto.ml_metadata.GetExecutionsByTypeResponse.deserializeBinaryFromReader = func
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.addExecutions(value);
                 break;
             default:
@@ -7774,7 +7774,7 @@ proto.ml_metadata.GetExecutionsByTypeResponse.serializeBinaryToWriter = function
     var f = undefined;
     f = message.getExecutionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
 };
 /**
@@ -7782,7 +7782,7 @@ proto.ml_metadata.GetExecutionsByTypeResponse.serializeBinaryToWriter = function
  * @return {!Array<!proto.ml_metadata.Execution>}
  */
 proto.ml_metadata.GetExecutionsByTypeResponse.prototype.getExecutionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Execution>} value
@@ -7967,7 +7967,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionsByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), src_apis_metadata_metadata_store_pb.Execution.toObject, includeInstance)
+            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), ml_metadata_proto_metadata_store_pb.Execution.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -8000,8 +8000,8 @@ proto.ml_metadata.GetExecutionsByIDResponse.deserializeBinaryFromReader = functi
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.addExecutions(value);
                 break;
             default:
@@ -8031,7 +8031,7 @@ proto.ml_metadata.GetExecutionsByIDResponse.serializeBinaryToWriter = function (
     var f = undefined;
     f = message.getExecutionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
 };
 /**
@@ -8039,7 +8039,7 @@ proto.ml_metadata.GetExecutionsByIDResponse.serializeBinaryToWriter = function (
  * @return {!Array<!proto.ml_metadata.Execution>}
  */
 proto.ml_metadata.GetExecutionsByIDResponse.prototype.getExecutionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Execution>} value
@@ -8211,7 +8211,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionType: (f = msg.getExecutionType()) && src_apis_metadata_metadata_store_pb.ExecutionType.toObject(includeInstance, f)
+            executionType: (f = msg.getExecutionType()) && ml_metadata_proto_metadata_store_pb.ExecutionType.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -8244,8 +8244,8 @@ proto.ml_metadata.GetExecutionTypeResponse.deserializeBinaryFromReader = functio
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ExecutionType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ExecutionType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
                 msg.setExecutionType(value);
                 break;
             default:
@@ -8275,7 +8275,7 @@ proto.ml_metadata.GetExecutionTypeResponse.serializeBinaryToWriter = function (m
     var f = undefined;
     f = message.getExecutionType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
     }
 };
 /**
@@ -8283,7 +8283,7 @@ proto.ml_metadata.GetExecutionTypeResponse.serializeBinaryToWriter = function (m
  * @return {?proto.ml_metadata.ExecutionType}
  */
 proto.ml_metadata.GetExecutionTypeResponse.prototype.getExecutionType = function () {
-    return /** @type{?proto.ml_metadata.ExecutionType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ExecutionType, 1));
+    return /** @type{?proto.ml_metadata.ExecutionType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ExecutionType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ExecutionType|undefined} value
@@ -8467,7 +8467,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetEventsByExecutionIDsResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            eventsList: jspb.Message.toObjectList(msg.getEventsList(), src_apis_metadata_metadata_store_pb.Event.toObject, includeInstance)
+            eventsList: jspb.Message.toObjectList(msg.getEventsList(), ml_metadata_proto_metadata_store_pb.Event.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -8500,8 +8500,8 @@ proto.ml_metadata.GetEventsByExecutionIDsResponse.deserializeBinaryFromReader = 
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Event;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Event.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Event;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Event.deserializeBinaryFromReader);
                 msg.addEvents(value);
                 break;
             default:
@@ -8531,7 +8531,7 @@ proto.ml_metadata.GetEventsByExecutionIDsResponse.serializeBinaryToWriter = func
     var f = undefined;
     f = message.getEventsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Event.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Event.serializeBinaryToWriter);
     }
 };
 /**
@@ -8539,7 +8539,7 @@ proto.ml_metadata.GetEventsByExecutionIDsResponse.serializeBinaryToWriter = func
  * @return {!Array<!proto.ml_metadata.Event>}
  */
 proto.ml_metadata.GetEventsByExecutionIDsResponse.prototype.getEventsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Event, 1));
+    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Event, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Event>} value
@@ -8724,7 +8724,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetEventsByArtifactIDsResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            eventsList: jspb.Message.toObjectList(msg.getEventsList(), src_apis_metadata_metadata_store_pb.Event.toObject, includeInstance)
+            eventsList: jspb.Message.toObjectList(msg.getEventsList(), ml_metadata_proto_metadata_store_pb.Event.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -8757,8 +8757,8 @@ proto.ml_metadata.GetEventsByArtifactIDsResponse.deserializeBinaryFromReader = f
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Event;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Event.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Event;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Event.deserializeBinaryFromReader);
                 msg.addEvents(value);
                 break;
             default:
@@ -8788,7 +8788,7 @@ proto.ml_metadata.GetEventsByArtifactIDsResponse.serializeBinaryToWriter = funct
     var f = undefined;
     f = message.getEventsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Event.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Event.serializeBinaryToWriter);
     }
 };
 /**
@@ -8796,7 +8796,7 @@ proto.ml_metadata.GetEventsByArtifactIDsResponse.serializeBinaryToWriter = funct
  * @return {!Array<!proto.ml_metadata.Event>}
  */
 proto.ml_metadata.GetEventsByArtifactIDsResponse.prototype.getEventsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Event, 1));
+    return /** @type{!Array<!proto.ml_metadata.Event>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Event, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Event>} value
@@ -8981,7 +8981,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactTypesByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), src_apis_metadata_metadata_store_pb.ArtifactType.toObject, includeInstance)
+            artifactTypesList: jspb.Message.toObjectList(msg.getArtifactTypesList(), ml_metadata_proto_metadata_store_pb.ArtifactType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9014,8 +9014,8 @@ proto.ml_metadata.GetArtifactTypesByIDResponse.deserializeBinaryFromReader = fun
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ArtifactType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ArtifactType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ArtifactType.deserializeBinaryFromReader);
                 msg.addArtifactTypes(value);
                 break;
             default:
@@ -9045,7 +9045,7 @@ proto.ml_metadata.GetArtifactTypesByIDResponse.serializeBinaryToWriter = functio
     var f = undefined;
     f = message.getArtifactTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ArtifactType.serializeBinaryToWriter);
     }
 };
 /**
@@ -9053,7 +9053,7 @@ proto.ml_metadata.GetArtifactTypesByIDResponse.serializeBinaryToWriter = functio
  * @return {!Array<!proto.ml_metadata.ArtifactType>}
  */
 proto.ml_metadata.GetArtifactTypesByIDResponse.prototype.getArtifactTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ArtifactType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ArtifactType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ArtifactType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ArtifactType>} value
@@ -9238,7 +9238,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionTypesByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), src_apis_metadata_metadata_store_pb.ExecutionType.toObject, includeInstance)
+            executionTypesList: jspb.Message.toObjectList(msg.getExecutionTypesList(), ml_metadata_proto_metadata_store_pb.ExecutionType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9271,8 +9271,8 @@ proto.ml_metadata.GetExecutionTypesByIDResponse.deserializeBinaryFromReader = fu
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ExecutionType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ExecutionType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ExecutionType.deserializeBinaryFromReader);
                 msg.addExecutionTypes(value);
                 break;
             default:
@@ -9302,7 +9302,7 @@ proto.ml_metadata.GetExecutionTypesByIDResponse.serializeBinaryToWriter = functi
     var f = undefined;
     f = message.getExecutionTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ExecutionType.serializeBinaryToWriter);
     }
 };
 /**
@@ -9310,7 +9310,7 @@ proto.ml_metadata.GetExecutionTypesByIDResponse.serializeBinaryToWriter = functi
  * @return {!Array<!proto.ml_metadata.ExecutionType>}
  */
 proto.ml_metadata.GetExecutionTypesByIDResponse.prototype.getExecutionTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ExecutionType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ExecutionType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ExecutionType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ExecutionType>} value
@@ -9482,7 +9482,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextType: (f = msg.getContextType()) && src_apis_metadata_metadata_store_pb.ContextType.toObject(includeInstance, f)
+            contextType: (f = msg.getContextType()) && ml_metadata_proto_metadata_store_pb.ContextType.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9515,8 +9515,8 @@ proto.ml_metadata.GetContextTypeResponse.deserializeBinaryFromReader = function 
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ContextType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ContextType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ContextType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ContextType.deserializeBinaryFromReader);
                 msg.setContextType(value);
                 break;
             default:
@@ -9546,7 +9546,7 @@ proto.ml_metadata.GetContextTypeResponse.serializeBinaryToWriter = function (mes
     var f = undefined;
     f = message.getContextType();
     if (f != null) {
-        writer.writeMessage(1, f, src_apis_metadata_metadata_store_pb.ContextType.serializeBinaryToWriter);
+        writer.writeMessage(1, f, ml_metadata_proto_metadata_store_pb.ContextType.serializeBinaryToWriter);
     }
 };
 /**
@@ -9554,7 +9554,7 @@ proto.ml_metadata.GetContextTypeResponse.serializeBinaryToWriter = function (mes
  * @return {?proto.ml_metadata.ContextType}
  */
 proto.ml_metadata.GetContextTypeResponse.prototype.getContextType = function () {
-    return /** @type{?proto.ml_metadata.ContextType} */ (jspb.Message.getWrapperField(this, src_apis_metadata_metadata_store_pb.ContextType, 1));
+    return /** @type{?proto.ml_metadata.ContextType} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ContextType, 1));
 };
 /**
  * @param {?proto.ml_metadata.ContextType|undefined} value
@@ -9738,7 +9738,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextTypesByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextTypesList: jspb.Message.toObjectList(msg.getContextTypesList(), src_apis_metadata_metadata_store_pb.ContextType.toObject, includeInstance)
+            contextTypesList: jspb.Message.toObjectList(msg.getContextTypesList(), ml_metadata_proto_metadata_store_pb.ContextType.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9771,8 +9771,8 @@ proto.ml_metadata.GetContextTypesByIDResponse.deserializeBinaryFromReader = func
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.ContextType;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.ContextType.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.ContextType;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ContextType.deserializeBinaryFromReader);
                 msg.addContextTypes(value);
                 break;
             default:
@@ -9802,7 +9802,7 @@ proto.ml_metadata.GetContextTypesByIDResponse.serializeBinaryToWriter = function
     var f = undefined;
     f = message.getContextTypesList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.ContextType.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.ContextType.serializeBinaryToWriter);
     }
 };
 /**
@@ -9810,7 +9810,7 @@ proto.ml_metadata.GetContextTypesByIDResponse.serializeBinaryToWriter = function
  * @return {!Array<!proto.ml_metadata.ContextType>}
  */
 proto.ml_metadata.GetContextTypesByIDResponse.prototype.getContextTypesList = function () {
-    return /** @type{!Array<!proto.ml_metadata.ContextType>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.ContextType, 1));
+    return /** @type{!Array<!proto.ml_metadata.ContextType>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.ContextType, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.ContextType>} value
@@ -9950,7 +9950,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9983,8 +9983,8 @@ proto.ml_metadata.GetContextsResponse.deserializeBinaryFromReader = function (ms
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -10014,7 +10014,7 @@ proto.ml_metadata.GetContextsResponse.serializeBinaryToWriter = function (messag
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -10022,7 +10022,7 @@ proto.ml_metadata.GetContextsResponse.serializeBinaryToWriter = function (messag
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetContextsResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -10200,7 +10200,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -10233,8 +10233,8 @@ proto.ml_metadata.GetContextsByTypeResponse.deserializeBinaryFromReader = functi
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -10264,7 +10264,7 @@ proto.ml_metadata.GetContextsByTypeResponse.serializeBinaryToWriter = function (
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -10272,7 +10272,7 @@ proto.ml_metadata.GetContextsByTypeResponse.serializeBinaryToWriter = function (
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetContextsByTypeResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -10457,7 +10457,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByIDResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -10490,8 +10490,8 @@ proto.ml_metadata.GetContextsByIDResponse.deserializeBinaryFromReader = function
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -10521,7 +10521,7 @@ proto.ml_metadata.GetContextsByIDResponse.serializeBinaryToWriter = function (me
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -10529,7 +10529,7 @@ proto.ml_metadata.GetContextsByIDResponse.serializeBinaryToWriter = function (me
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetContextsByIDResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -10707,7 +10707,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByArtifactResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -10740,8 +10740,8 @@ proto.ml_metadata.GetContextsByArtifactResponse.deserializeBinaryFromReader = fu
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -10771,7 +10771,7 @@ proto.ml_metadata.GetContextsByArtifactResponse.serializeBinaryToWriter = functi
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -10779,7 +10779,7 @@ proto.ml_metadata.GetContextsByArtifactResponse.serializeBinaryToWriter = functi
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetContextsByArtifactResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -10957,7 +10957,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByExecutionResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -10990,8 +10990,8 @@ proto.ml_metadata.GetContextsByExecutionResponse.deserializeBinaryFromReader = f
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -11021,7 +11021,7 @@ proto.ml_metadata.GetContextsByExecutionResponse.serializeBinaryToWriter = funct
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -11029,7 +11029,7 @@ proto.ml_metadata.GetContextsByExecutionResponse.serializeBinaryToWriter = funct
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetContextsByExecutionResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -11207,7 +11207,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetParentContextsByContextResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -11240,8 +11240,8 @@ proto.ml_metadata.GetParentContextsByContextResponse.deserializeBinaryFromReader
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -11271,7 +11271,7 @@ proto.ml_metadata.GetParentContextsByContextResponse.serializeBinaryToWriter = f
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -11279,7 +11279,7 @@ proto.ml_metadata.GetParentContextsByContextResponse.serializeBinaryToWriter = f
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetParentContextsByContextResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -11457,7 +11457,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetChildrenContextsByContextResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), src_apis_metadata_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -11490,8 +11490,8 @@ proto.ml_metadata.GetChildrenContextsByContextResponse.deserializeBinaryFromRead
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Context;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Context.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Context;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
             default:
@@ -11521,7 +11521,7 @@ proto.ml_metadata.GetChildrenContextsByContextResponse.serializeBinaryToWriter =
     var f = undefined;
     f = message.getContextsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Context.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
     }
 };
 /**
@@ -11529,7 +11529,7 @@ proto.ml_metadata.GetChildrenContextsByContextResponse.serializeBinaryToWriter =
  * @return {!Array<!proto.ml_metadata.Context>}
  */
 proto.ml_metadata.GetChildrenContextsByContextResponse.prototype.getContextsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Context, 1));
+    return /** @type{!Array<!proto.ml_metadata.Context>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Context, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Context>} value
@@ -11707,7 +11707,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsByContextResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), src_apis_metadata_metadata_store_pb.Artifact.toObject, includeInstance)
+            artifactsList: jspb.Message.toObjectList(msg.getArtifactsList(), ml_metadata_proto_metadata_store_pb.Artifact.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -11740,8 +11740,8 @@ proto.ml_metadata.GetArtifactsByContextResponse.deserializeBinaryFromReader = fu
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Artifact;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Artifact.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Artifact;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Artifact.deserializeBinaryFromReader);
                 msg.addArtifacts(value);
                 break;
             default:
@@ -11771,7 +11771,7 @@ proto.ml_metadata.GetArtifactsByContextResponse.serializeBinaryToWriter = functi
     var f = undefined;
     f = message.getArtifactsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Artifact.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Artifact.serializeBinaryToWriter);
     }
 };
 /**
@@ -11779,7 +11779,7 @@ proto.ml_metadata.GetArtifactsByContextResponse.serializeBinaryToWriter = functi
  * @return {!Array<!proto.ml_metadata.Artifact>}
  */
 proto.ml_metadata.GetArtifactsByContextResponse.prototype.getArtifactsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Artifact, 1));
+    return /** @type{!Array<!proto.ml_metadata.Artifact>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Artifact, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Artifact>} value
@@ -11957,7 +11957,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionsByContextResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), src_apis_metadata_metadata_store_pb.Execution.toObject, includeInstance)
+            executionsList: jspb.Message.toObjectList(msg.getExecutionsList(), ml_metadata_proto_metadata_store_pb.Execution.toObject, includeInstance)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -11990,8 +11990,8 @@ proto.ml_metadata.GetExecutionsByContextResponse.deserializeBinaryFromReader = f
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
-                var value = new src_apis_metadata_metadata_store_pb.Execution;
-                reader.readMessage(value, src_apis_metadata_metadata_store_pb.Execution.deserializeBinaryFromReader);
+                var value = new ml_metadata_proto_metadata_store_pb.Execution;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Execution.deserializeBinaryFromReader);
                 msg.addExecutions(value);
                 break;
             default:
@@ -12021,7 +12021,7 @@ proto.ml_metadata.GetExecutionsByContextResponse.serializeBinaryToWriter = funct
     var f = undefined;
     f = message.getExecutionsList();
     if (f.length > 0) {
-        writer.writeRepeatedMessage(1, f, src_apis_metadata_metadata_store_pb.Execution.serializeBinaryToWriter);
+        writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Execution.serializeBinaryToWriter);
     }
 };
 /**
@@ -12029,7 +12029,7 @@ proto.ml_metadata.GetExecutionsByContextResponse.serializeBinaryToWriter = funct
  * @return {!Array<!proto.ml_metadata.Execution>}
  */
 proto.ml_metadata.GetExecutionsByContextResponse.prototype.getExecutionsList = function () {
-    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, src_apis_metadata_metadata_store_pb.Execution, 1));
+    return /** @type{!Array<!proto.ml_metadata.Execution>} */ (jspb.Message.getRepeatedWrapperField(this, ml_metadata_proto_metadata_store_pb.Execution, 1));
 };
 /**
  * @param {!Array<!proto.ml_metadata.Execution>} value
