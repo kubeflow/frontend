@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {spawn} = require('child_process');
 
+// TODO: Build process should remove the existing generated proto definitions.
 const OUT_DIR = path.join(__dirname, '..', 'src', 'mlmd', 'generated');
 
 if (!fs.existsSync(OUT_DIR)) {
