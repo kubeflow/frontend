@@ -33,7 +33,7 @@
   },
   "eslintIgnore": [
     "src/__mocks__",
-    "src/generated"
+    "src/mlmd/generated"
   ],
   "browserslist": {
     "production": [

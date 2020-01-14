@@ -77,6 +77,7 @@ export class LineageCard extends React.Component<LineageCardProps> {
       <LineageCardRow
         key={i}
         resource={r.resource}
+        type={this.props.type}
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}
         isLastRow={i === rows.length-1}

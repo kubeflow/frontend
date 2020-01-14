@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {LineageResource} from "./LineageTypes";
+import {LineageCardType, LineageResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
 import {cssRaw} from "typestyle";
@@ -125,7 +125,8 @@ interface LineageCardRowProps {
   rightAffordance: boolean;
   hideRadio: boolean;
   isLastRow: boolean;
-  resource: LineageResource
+  resource: LineageResource;
+  type: LineageCardType;
   setLineageViewTarget?(artifact: Artifact): void
 }
 
@@ -165,7 +166,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleClick() {
-    if (!this.props.setLineageViewTarget || !(this.props.resource instanceof Artifact)) return;
-    this.props.setLineageViewTarget(this.props.resource);
+    if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
+    this.props.setLineageViewTarget(this.props.resource as Artifact);
   }
 }
