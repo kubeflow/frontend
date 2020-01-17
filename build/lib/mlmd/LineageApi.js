@@ -37,12 +37,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var __1 = require("..");
+var __2 = require("..");
 function getArtifactTypes(metadataStoreService, errorCallback) {
     return __awaiter(this, void 0, void 0, function () {
         var response, artifactTypesMap;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, metadataStoreService.getArtifactTypes(new __1.GetArtifactTypesRequest())];
+                case 0: return [4 /*yield*/, metadataStoreService.getArtifactTypes(new __2.GetArtifactTypesRequest())];
                 case 1:
                     response = _a.sent();
                     if (!response) {
@@ -61,4 +62,28 @@ function getArtifactTypes(metadataStoreService, errorCallback) {
     });
 }
 exports.getArtifactTypes = getArtifactTypes;
+function getExecutionTypes(metadataStoreService, errorCallback) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, executionTypesMap;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, metadataStoreService.getExecutionTypes(new __1.GetExecutionTypesRequest())];
+                case 1:
+                    response = _a.sent();
+                    if (!response) {
+                        if (errorCallback) {
+                            errorCallback('Unable to retrieve Execution Types, some features may not work.');
+                        }
+                        return [2 /*return*/, new Map()];
+                    }
+                    executionTypesMap = new Map();
+                    (response.getExecutionTypesList() || []).forEach(function (executionType) {
+                        executionTypesMap.set(executionType.getId(), executionType);
+                    });
+                    return [2 /*return*/, executionTypesMap];
+            }
+        });
+    });
+}
+exports.getExecutionTypes = getExecutionTypes;
 //# sourceMappingURL=LineageApi.js.map

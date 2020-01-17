@@ -129,7 +129,7 @@ var LineageView = /** @class */ (function (_super) {
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], cardWidth: cardWidth, edgeWidth: edgeWidth, setLineageViewTarget: this.setTargetFromLineageCard }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[1] }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[2] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, skipEdgeCanvas: true /* Edges are drawn by reverse EdgeCanvas on the next column. */, title: "" + columnNames[3] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, reverseBindings: true, title: "" + columnNames[3] }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard }))));
     };
     LineageView.prototype.buildArtifactCards = function (artifacts, isTarget) {
@@ -144,35 +144,40 @@ var LineageView = /** @class */ (function (_super) {
                 elements: artifacts.map(function (artifact) { return ({
                     resource: artifact,
                     prev: !isTarget || _this.state.inputExecutions.length > 0,
-                    next: !isTarget || _this.state.outputExecutions.length > 0
+                    next: !isTarget || _this.state.outputExecutions.length > 0,
                 }); })
             };
         });
     };
     LineageView.prototype.buildExecutionCards = function (executions) {
-        return executions.map(function (execution) { return ({
-            title: 'Execution',
-            elements: [
-                {
+        var _this = this;
+        var executionsByTypeId = lodash_groupby_1.default(executions, function (execution) { return (execution.getTypeId()); });
+        return Object.keys(executionsByTypeId).map(function (typeId) {
+            var title = Utils_1.getTypeName(Number(typeId), _this.executionTypes);
+            var executions = executionsByTypeId[typeId];
+            return {
+                title: title,
+                elements: executions.map(function (execution) { return ({
                     resource: execution,
                     prev: true,
                     next: true,
-                }
-            ]
-        }); });
+                }); })
+            };
+        });
     };
     LineageView.prototype.loadData = function (targetId) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, targetArtifactEvents, artifactTypes, outputExecutionIds, inputExecutionIds, _i, targetArtifactEvents_1, event_1, executionId, _b, outputExecutions, inputExecutions, _c, inputExecutionEvents, outputExecutionEvents, inputExecutionInputArtifactIds, outputExecutionOutputArtifactIds, _d, inputArtifacts, outputArtifacts;
+            var _a, targetArtifactEvents, executionTypes, artifactTypes, outputExecutionIds, inputExecutionIds, _i, targetArtifactEvents_1, event_1, executionId, _b, outputExecutions, inputExecutions, _c, inputExecutionEvents, outputExecutionEvents, inputExecutionInputArtifactIds, outputExecutionOutputArtifactIds, _d, inputArtifacts, outputArtifacts;
             return __generator(this, function (_e) {
                 switch (_e.label) {
                     case 0: return [4 /*yield*/, Promise.all([
                             this.getArtifactEvents([targetId]),
-                            LineageApi_1.getArtifactTypes(this.metadataStoreService)
+                            LineageApi_1.getExecutionTypes(this.metadataStoreService),
+                            LineageApi_1.getArtifactTypes(this.metadataStoreService),
                         ])];
                     case 1:
-                        _a = _e.sent(), targetArtifactEvents = _a[0], artifactTypes = _a[1];
-                        this.artifactTypes = artifactTypes;
+                        _a = _e.sent(), targetArtifactEvents = _a[0], executionTypes = _a[1], artifactTypes = _a[2];
+                        Object.assign(this, { artifactTypes: artifactTypes, executionTypes: executionTypes });
                         outputExecutionIds = [];
                         inputExecutionIds = [];
                         for (_i = 0, targetArtifactEvents_1 = targetArtifactEvents; _i < targetArtifactEvents_1.length; _i++) {
