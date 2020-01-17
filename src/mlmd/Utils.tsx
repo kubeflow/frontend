@@ -65,7 +65,10 @@ function getArtifactName(artifact: Artifact): string {
 }
 
 function getExecutionName(execution: Execution): string {
-  return String(getResourceProperty(execution, ExecutionProperties.NAME))
+  let name;
+  name = getResourceProperty(execution, ExecutionProperties.COMPONENT_ID)
+    || getResourceProperty(execution, ExecutionProperties.NAME);
+  return String(name) || '';
 }
 
 export function getResourceName(resource: LineageResource): string {

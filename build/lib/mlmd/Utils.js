@@ -64,7 +64,10 @@ function getArtifactName(artifact) {
     return String(getResourceProperty(artifact, Api_1.ArtifactProperties.NAME));
 }
 function getExecutionName(execution) {
-    return String(getResourceProperty(execution, Api_1.ExecutionProperties.NAME));
+    var name;
+    name = getResourceProperty(execution, Api_1.ExecutionProperties.COMPONENT_ID)
+        || getResourceProperty(execution, Api_1.ExecutionProperties.NAME);
+    return String(name) || '';
 }
 function getResourceName(resource) {
     if (resource instanceof __1.Artifact) {

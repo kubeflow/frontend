@@ -112,7 +112,9 @@ var LineageActionBar = /** @class */ (function (_super) {
             var onBreadcrumbClicked = function () {
                 _this.sliceHistory(index);
             };
-            breadcrumbs.push(React.createElement("button", { key: "breadcrumb-" + index, className: typestyle_1.classes(isActive ? actionBarCss.breadcrumbActive : actionBarCss.breadcrumbInactive), disabled: isActive, onClick: onBreadcrumbClicked }, Utils_1.getResourceProperty(artifact, Api_1.ArtifactProperties.NAME)));
+            breadcrumbs.push(React.createElement("button", { key: "breadcrumb-" + index, className: typestyle_1.classes(isActive ? actionBarCss.breadcrumbActive : actionBarCss.breadcrumbInactive), disabled: isActive, onClick: onBreadcrumbClicked }, 
+            // TODO: Resolve how to handle Artifacts logged with no name
+            Utils_1.getResourceProperty(artifact, Api_1.ArtifactProperties.NAME) || '(unnamed)'));
             if (!isActive) {
                 breadcrumbs.push(React.createElement(BreadcrumbSeparator, { key: "separator-" + index }));
             }
