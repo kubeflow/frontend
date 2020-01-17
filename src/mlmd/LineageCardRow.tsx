@@ -29,8 +29,8 @@ cssRaw(`
   border: 1px solid var(--grey-400);
   color: var(--blue-500);
   top: 0px;
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   border-radius: 50px;
   cursor: pointer;
   outline: none;
@@ -70,7 +70,7 @@ cssRaw(`
 }
 
 .cardRow .rowTitle {
-  font-size: 13px;
+  font-size: 12px;
   font-family: "PublicSans-SemiBold";
   color: var(--grey-900);
   letter-spacing: 0.2px;

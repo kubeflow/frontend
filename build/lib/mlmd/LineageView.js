@@ -92,9 +92,9 @@ var isOutputEvent = function (event) {
     return [__1.Event.Type.OUTPUT.valueOf(), __1.Event.Type.DECLARED_OUTPUT.valueOf()].includes(event.getType());
 };
 /** Default size used when cardWidth prop is unset. */
-var DEFAULT_CARD_WIDTH = 260;
+var DEFAULT_CARD_WIDTH = 210;
 /** Default size used when edgeWidth prop is unset. */
-var DEFAULT_EDGE_WIDTH = 120;
+var DEFAULT_EDGE_WIDTH = 80;
 var LineageView = /** @class */ (function (_super) {
     __extends(LineageView, _super);
     function LineageView(props) {
