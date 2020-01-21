@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "noEmit": false
+  },
+  "exclude": [
+    "src/setupTests.ts",
+    "src/mlmd/TestUtils.ts",
+    "**/*.test.ts*"
+  ]
+}
