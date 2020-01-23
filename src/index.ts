@@ -45,4 +45,5 @@ export {
 } from './mlmd/Api'
 export {getArtifactTypes} from './mlmd/LineageApi'
 export {LineageView} from './mlmd/LineageView'
-export {getMetadataValue, getTypeName} from './mlmd/Utils'
+export {getMetadataValue, getResourceProperty, getTypeName} from './mlmd/Utils'
+export {logger, formatDateString, titleCase} from './common/Utils'
