@@ -1,7 +1,8 @@
-import {ArtifactType} from "..";
+import {ArtifactType, ExecutionType, GetExecutionTypesRequest} from "..";
 import {GetArtifactTypesRequest, MetadataStoreServicePromiseClient} from "..";
 
 export type ArtifactTypeMap = Map<number, ArtifactType>;
+export type ExecutionTypeMap = Map<number, ExecutionType>;
 
 export async function getArtifactTypes(
   metadataStoreService: MetadataStoreServicePromiseClient,
@@ -24,4 +25,27 @@ export async function getArtifactTypes(
   });
 
   return artifactTypesMap;
+}
+
+export async function getExecutionTypes(
+  metadataStoreService: MetadataStoreServicePromiseClient,
+  errorCallback?: (message: string) => void
+): Promise<ExecutionTypeMap> {
+  const response =
+    await metadataStoreService.getExecutionTypes(new GetExecutionTypesRequest());
+
+  if (!response) {
+    if (errorCallback) {
+      errorCallback('Unable to retrieve Execution Types, some features may not work.');
+    }
+    return new Map();
+  }
+
+  const executionTypesMap = new Map<number, ExecutionType>();
+
+  (response!.getExecutionTypesList() || []).forEach((executionType: ExecutionType) => {
+    executionTypesMap.set(executionType.getId()!, executionType);
+  });
+
+  return executionTypesMap;
 }

@@ -19,13 +19,13 @@ const cardTitleBase: CSSProperties = {
 };
 
 interface LineageCardProps {
-  cardWidth: number,
+  cardWidth: number;
   title: string;
   type: LineageCardType;
   rows: LineageRow[];
   addSpacer: boolean;
   isTarget?: boolean;
-  setLineageViewTarget?(artifact: Artifact): void
+  setLineageViewTarget?(artifact: Artifact): void;
 }
 
 export class LineageCard extends React.Component<LineageCardProps> {
@@ -46,10 +46,10 @@ export class LineageCard extends React.Component<LineageCardProps> {
           h3: {
             color: blue[600],
             fontFamily: 'PublicSans-Medium',
-            fontSize: '10px',
+            fontSize: '9px',
             letterSpacing: '0.8px',
             lineHeight: '42px',
-            paddingLeft: '20px',
+            paddingLeft: '15px',
             textAlign: 'left',
             textTransform: 'uppercase',
           }

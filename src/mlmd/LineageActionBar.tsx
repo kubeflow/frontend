@@ -108,7 +108,10 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
                 disabled={isActive}
                 onClick={onBreadcrumbClicked}
               >
-                  {getResourceProperty(artifact, ArtifactProperties.NAME)}
+                  {
+                      // TODO: Resolve how to handle Artifacts logged with no name
+                      getResourceProperty(artifact, ArtifactProperties.NAME) || '(unnamed)'
+                  }
               </button>
             );
             if (!isActive) {
