@@ -76,6 +76,7 @@ cssRaw(`
   color: var(--grey-900);
   letter-spacing: 0.2px;
   line-height: 24px;
+  text-decoration: none;
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
@@ -128,10 +129,14 @@ interface LineageCardRowProps {
   isLastRow: boolean;
   resource: LineageResource;
   cardType: LineageCardType;
+
+  // The full typeName of the resource's typeId. Used for navigation from title.
+  typeName: string;
+
   setLineageViewTarget?(artifact: Artifact): void
 
   // Constructs the route used when an artifact title is clicked.
-  buildArtifactDetailsRoute(artifactId: number): string
+  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
 }
 
 export class LineageCardRow extends React.Component<LineageCardRowProps> {
@@ -149,18 +154,12 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
 
   public render(): JSX.Element {
     const {isLastRow} = this.props;
-    const linkDestination = this.getResourceDetailsLink() || '';
-    const linkName = getResourceName(this.props.resource);
 
     return (
       <div className={`cardRow ${isLastRow?'lastRow':''}`}>
         {this.checkRadio()}
         <footer>
-          <Link
-            className={'rowTitle'}
-            to={linkDestination}>
-            {linkName}
-          </Link>
+          {this.getResourceDetailsLink()}
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
         </footer>
         {this.checkEdgeAffordances()}
@@ -180,9 +179,16 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
     this.props.setLineageViewTarget(this.props.resource as Artifact);
   }
 
-  private getResourceDetailsLink(): string | undefined {
-    if (!this.props.buildArtifactDetailsRoute || !(this.props.cardType === 'artifact')) return;
-    const artifact = this.props.resource as Artifact;
-    return this.props.buildArtifactDetailsRoute(artifact.getId());
+  private getResourceDetailsLink(): JSX.Element | null {
+    if (!this.props.buildResourceDetailsRoute) return null;
+    const resourceDetailsDestination =
+      this.props.buildResourceDetailsRoute(this.props.resource, this.props.typeName);
+    return (
+      <Link
+        className={'rowTitle'}
+        to={resourceDetailsDestination}>
+        {getResourceName(this.props.resource)}
+      </Link>
+    );
   }
 }

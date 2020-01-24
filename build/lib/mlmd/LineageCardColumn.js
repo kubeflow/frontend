@@ -65,7 +65,7 @@ var LineageCardColumn = /** @class */ (function (_super) {
     };
     LineageCardColumn.prototype.jsxFromCardDetails = function (det, i) {
         var isNotFirstEl = i > 0;
-        return react_1.default.createElement(LineageCard_1.LineageCard, { key: i, cardWidth: this.props.cardWidth, title: det.title, type: this.props.type, addSpacer: isNotFirstEl, rows: det.elements, isTarget: /Target/i.test(this.props.title), setLineageViewTarget: this.props.setLineageViewTarget, buildArtifactDetailsRoute: this.props.buildArtifactDetailsRoute });
+        return react_1.default.createElement(LineageCard_1.LineageCard, { key: i, cardWidth: this.props.cardWidth, title: det.title, type: this.props.type, addSpacer: isNotFirstEl, rows: det.elements, isTarget: /Target/i.test(this.props.title), setLineageViewTarget: this.props.setLineageViewTarget, buildResourceDetailsRoute: this.props.buildResourceDetailsRoute });
     };
     LineageCardColumn.prototype.drawColumnContent = function () {
         var _a = this.props, cards = _a.cards, cardWidth = _a.cardWidth, edgeWidth = _a.edgeWidth, skipEdgeCanvas = _a.skipEdgeCanvas;

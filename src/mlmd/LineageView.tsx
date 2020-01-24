@@ -37,6 +37,7 @@ import {RefObject} from 'react';
 import {getArtifactTypes, getExecutionTypes} from './LineageApi';
 import {getTypeName} from './Utils';
 import {Api} from "./Api";
+import {LineageResource} from "./LineageTypes";
 
 const isInputEvent = (event: Event) =>
   [Event.Type.INPUT.valueOf(), Event.Type.DECLARED_INPUT.valueOf()].includes(event.getType());
@@ -53,7 +54,7 @@ export interface LineageViewProps {
   target: Artifact;
   cardWidth?: number;
   edgeWidth?: number;
-  buildArtifactDetailsRoute(artifactId: number): string
+  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
 }
 
 interface LineageViewState {
@@ -112,7 +113,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             setLineageViewTarget={this.setTargetFromLineageCard}
-            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='execution'
@@ -120,7 +121,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             title={`${columnNames[1]}`}
-            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='artifact'
@@ -128,7 +129,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             title={`${columnNames[2]}`}
-            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='execution'
@@ -137,7 +138,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             edgeWidth={edgeWidth}
             reverseBindings={true}
             title={`${columnNames[3]}`}
-            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='artifact'
@@ -147,7 +148,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             edgeWidth={edgeWidth}
             title={`${columnNames[4]}`}
             setLineageViewTarget={this.setTargetFromLineageCard}
-            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
         </div>
       </div>
@@ -157,14 +158,15 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   private buildArtifactCards(artifacts: Artifact[], isTarget: boolean = false): CardDetails[] {
     const artifactsByTypeId = groupBy(artifacts, (artifact) => (artifact.getTypeId()));
     return Object.keys(artifactsByTypeId).map((typeId) => {
-      const title = getTypeName(Number(typeId), this.artifactTypes);
+      const artifactTypeName = getTypeName(Number(typeId), this.artifactTypes);
       const artifacts = artifactsByTypeId[typeId];
       return {
-        title,
+        title: artifactTypeName,
         elements: artifacts.map((artifact) => ({
-            resource: artifact,
-            prev: !isTarget || this.state.inputExecutions.length > 0,
-            next: !isTarget || this.state.outputExecutions.length > 0,
+          resource: artifact,
+          resourceType: artifactTypeName,
+          prev: !isTarget || this.state.inputExecutions.length > 0,
+          next: !isTarget || this.state.outputExecutions.length > 0,
           })
         )
       };
@@ -174,14 +176,15 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   private buildExecutionCards(executions: Execution[]): CardDetails[] {
     const executionsByTypeId = groupBy(executions, (execution) => (execution.getTypeId()));
     return Object.keys(executionsByTypeId).map((typeId) => {
-      const title = getTypeName(Number(typeId), this.executionTypes);
+      const executionTypeName = getTypeName(Number(typeId), this.executionTypes);
       const executions = executionsByTypeId[typeId];
       return {
-        title,
+        title: executionTypeName,
         elements: executions.map((execution) => ({
-            resource: execution,
-            prev: true,
-            next: true,
+          resource: execution,
+          resourceType: executionTypeName,
+          prev: true,
+          next: true,
           })
         )
       };

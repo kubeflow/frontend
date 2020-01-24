@@ -8,6 +8,9 @@ export interface LineageRow {
     prev?: boolean;
     next?: boolean;
     resource: LineageResource;
+
+    // The full typename for the resource's typeId
+    resourceType: string;
 }
 
 export type LineageResource = Artifact | Execution;
