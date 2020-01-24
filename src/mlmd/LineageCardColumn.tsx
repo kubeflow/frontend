@@ -21,6 +21,7 @@ export interface LineageCardColumnProps {
   reverseBindings?: boolean;
   skipEdgeCanvas?: boolean;
   setLineageViewTarget?(artifact: Artifact): void
+  buildArtifactDetailsRoute(artifactId: number): string
 }
 
 export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
@@ -79,6 +80,7 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
       rows={det.elements}
       isTarget={/Target/i.test(this.props.title)}
       setLineageViewTarget={this.props.setLineageViewTarget}
+      buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
     />;
   }
   private drawColumnContent(): JSX.Element {

@@ -3,6 +3,7 @@ import {LineageCardType, LineageResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
 import {cssRaw} from "typestyle";
+import {Link} from "react-router-dom";
 
 cssRaw(`
 .cardRow {
@@ -126,8 +127,11 @@ interface LineageCardRowProps {
   hideRadio: boolean;
   isLastRow: boolean;
   resource: LineageResource;
-  type: LineageCardType;
+  cardType: LineageCardType;
   setLineageViewTarget?(artifact: Artifact): void
+
+  // Constructs the route used when an artifact title is clicked.
+  buildArtifactDetailsRoute(artifactId: number): string
 }
 
 export class LineageCardRow extends React.Component<LineageCardRowProps> {
@@ -145,12 +149,18 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
 
   public render(): JSX.Element {
     const {isLastRow} = this.props;
+    const linkDestination = this.getResourceDetailsLink() || '';
+    const linkName = getResourceName(this.props.resource);
 
     return (
       <div className={`cardRow ${isLastRow?'lastRow':''}`}>
         {this.checkRadio()}
         <footer>
-          <p className='rowTitle'>{getResourceName(this.props.resource)}</p>
+          <Link
+            className={'rowTitle'}
+            to={linkDestination}>
+            {linkName}
+          </Link>
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
         </footer>
         {this.checkEdgeAffordances()}
@@ -166,7 +176,13 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleClick() {
-    if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
+    if (!this.props.setLineageViewTarget || !(this.props.cardType === 'artifact')) return;
     this.props.setLineageViewTarget(this.props.resource as Artifact);
+  }
+
+  private getResourceDetailsLink(): string | undefined {
+    if (!this.props.buildArtifactDetailsRoute || !(this.props.cardType === 'artifact')) return;
+    const artifact = this.props.resource as Artifact;
+    return this.props.buildArtifactDetailsRoute(artifact.getId());
   }
 }

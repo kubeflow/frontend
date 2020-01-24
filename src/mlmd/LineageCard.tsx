@@ -26,6 +26,7 @@ interface LineageCardProps {
   addSpacer: boolean;
   isTarget?: boolean;
   setLineageViewTarget?(artifact: Artifact): void;
+  buildArtifactDetailsRoute(artifactId: number): string
 }
 
 export class LineageCard extends React.Component<LineageCardProps> {
@@ -77,12 +78,13 @@ export class LineageCard extends React.Component<LineageCardProps> {
       <LineageCardRow
         key={i}
         resource={r.resource}
-        type={this.props.type}
+        cardType={this.props.type}
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}
         isLastRow={i === rows.length-1}
         hideRadio={isExecution || !!isTarget}
         setLineageViewTarget={setLineageViewTarget}
+        buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
       />
     );
 

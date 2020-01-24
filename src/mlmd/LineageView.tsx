@@ -53,6 +53,7 @@ export interface LineageViewProps {
   target: Artifact;
   cardWidth?: number;
   edgeWidth?: number;
+  buildArtifactDetailsRoute(artifactId: number): string
 }
 
 interface LineageViewState {
@@ -111,26 +112,33 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             setLineageViewTarget={this.setTargetFromLineageCard}
+            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
           />
           <LineageCardColumn
             type='execution'
             cards={this.buildExecutionCards(this.state.inputExecutions)}
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
-            title={`${columnNames[1]}`} />
+            title={`${columnNames[1]}`}
+            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+          />
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards([this.state.target], /* isTarget= */ true)}
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
-            title={`${columnNames[2]}`} />
+            title={`${columnNames[2]}`}
+            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+          />
           <LineageCardColumn
             type='execution'
             cards={this.buildExecutionCards(this.state.outputExecutions)}
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             reverseBindings={true}
-            title={`${columnNames[3]}`} />
+            title={`${columnNames[3]}`}
+            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
+          />
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.outputArtifacts)}
@@ -139,6 +147,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             edgeWidth={edgeWidth}
             title={`${columnNames[4]}`}
             setLineageViewTarget={this.setTargetFromLineageCard}
+            buildArtifactDetailsRoute={this.props.buildArtifactDetailsRoute}
           />
         </div>
       </div>
