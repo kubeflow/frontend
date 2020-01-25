@@ -73,6 +73,9 @@ var LineageCard = /** @class */ (function (_super) {
                         paddingLeft: '15px',
                         textAlign: 'left',
                         textTransform: 'uppercase',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
                     }
                 }
             },
@@ -94,7 +97,7 @@ var LineageCard = /** @class */ (function (_super) {
         addSpacer ? css.addSpacer : '', isTarget ? css.target : '');
         return (React.createElement("div", { className: cardContainerClasses },
             React.createElement("div", { className: typestyle_1.classes(isExecution ? css.executionCardTitle : css.cardTitle) },
-                React.createElement("h3", null, title)),
+                React.createElement("h3", { title: title }, title)),
             React.createElement("div", { className: 'cardBody' }, listCardRows())));
     };
     return LineageCard;
