@@ -70,7 +70,10 @@ If you're not a developer on this project, and don't plan on modifying the sourc
 - You are using `PowerShell` or a `bash`-like shell
 - Assuming your `$PWD` is in this repo locally
 - Your parent folder looks like
-<pre lang="bash">> ls ..<br><b>metadata</b>    <b>frontend</b>     <i>other-irrelevant-folders</i></pre>
+```bash
+> ls ..
+metadata    frontend     <other-irrelevant-folder>
+```
 
 #### Linking this libary to metadata
 ```bash
@@ -85,8 +88,8 @@ popd                            # Back to where we were
 #### Development workflow (_in 3 terminals_)
 Start 3 terminals and run:
 
-Components TS Compiler | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
---- | --- | ---
-<pre lang="bash">npm run build:watch</pre> | <pre lang="bash">cd ../metadata/frontend<br>npm start</pre> | <pre lang="bash">cd ../metadata/frontend<br>npm run start:proxy</pre>
+| Components TS Compiler | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
+| --- | --- | ---
+| <pre lang="bash">npm run build:<b>watch</b></pre> | <pre lang="bash">cd ../metadata/frontend; <br>npm start</pre> | <pre lang="bash">cd ../metadata/frontend; <br>npm run start:proxy</pre>
 
 You should now be able to make updates in Frontend-Components (_your local clone of this repo_), and see them update realtime in your browser!
