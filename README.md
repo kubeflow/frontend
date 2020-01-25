@@ -80,11 +80,13 @@ git stash                       # To discard any local changes (don't run this i
 popd                            # Back to where we were
 ```
 
+***Note**: Make sure to remove the symlink in `../metadata/frontend/<this-package>` and running `npm i` again in `../metadata/frontend` to undo the linking*
+
 #### Development workflow (_in 3 terminals_)
 Start 3 terminals and run:
 
-Frontend Server | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
+Components TS Compiler | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
 --- | --- | ---
 <pre lang="bash">npm run build:watch</pre> | <pre lang="bash">cd ../metadata/frontend<br>npm start</pre> | <pre lang="bash">cd ../metadata/frontend<br>npm run start:proxy</pre>
 
-You should now be able to make updates in Frontend-Components (_your local clone of this repo_), and see them update realtime in your browser
+You should now be able to make updates in Frontend-Components (_your local clone of this repo_), and see them update realtime in your browser!
