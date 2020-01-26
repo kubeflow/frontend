@@ -7,7 +7,7 @@ import {classes, stylesheet} from "typestyle";
 import {color, commonCss, fonts, padding} from "./Css";
 import {CSSProperties} from "typestyle/lib/types";
 import {getResourceProperty} from "./Utils";
-import { Artifact } from '..';
+import {Artifact} from '..';
 import {ArtifactProperties} from "./Api";
 
 const baseLinkButton: CSSProperties = {
