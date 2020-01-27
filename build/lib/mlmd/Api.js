@@ -16,6 +16,9 @@ var ArtifactCustomProperties;
 (function (ArtifactCustomProperties) {
     ArtifactCustomProperties["WORKSPACE"] = "__kf_workspace__";
     ArtifactCustomProperties["RUN"] = "__kf_run__";
+    ArtifactCustomProperties["NAME"] = "name";
+    ArtifactCustomProperties["PIPELINE_NAME"] = "pipeline_name";
+    ArtifactCustomProperties["RUN_ID"] = "run_id";
 })(ArtifactCustomProperties = exports.ArtifactCustomProperties || (exports.ArtifactCustomProperties = {}));
 /** Known Execution properties */
 var ExecutionProperties;
@@ -29,6 +32,8 @@ var ExecutionProperties;
 var ExecutionCustomProperties;
 (function (ExecutionCustomProperties) {
     ExecutionCustomProperties["WORKSPACE"] = "__kf_workspace__";
+    ExecutionCustomProperties["RUN_ID"] = "run_id";
+    ExecutionCustomProperties["TASK_ID"] = "task_id";
 })(ExecutionCustomProperties = exports.ExecutionCustomProperties || (exports.ExecutionCustomProperties = {}));
 /**
  * Class to wrap backend APIs.
