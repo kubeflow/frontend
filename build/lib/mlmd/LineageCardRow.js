@@ -43,7 +43,7 @@ var LineageCardRow = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "cardRow " + (isLastRow ? 'lastRow' : '') },
             this.checkRadio(),
             React.createElement("footer", null,
-                this.getResourceDetailsLink(),
+                React.createElement(react_router_dom_1.Link, { className: 'rowTitle', to: this.props.resourceDetailsRoute }, Utils_1.getResourceName(this.props.resource)),
                 React.createElement("p", { className: 'rowDesc' }, Utils_1.getResourceDescription(this.props.resource))),
             this.checkEdgeAffordances()));
     };
@@ -58,12 +58,6 @@ var LineageCardRow = /** @class */ (function (_super) {
         if (!this.props.setLineageViewTarget || !(this.props.cardType === 'artifact'))
             return;
         this.props.setLineageViewTarget(this.props.resource);
-    };
-    LineageCardRow.prototype.getResourceDetailsLink = function () {
-        if (!this.props.buildResourceDetailsRoute)
-            return null;
-        var resourceDetailsDestination = this.props.buildResourceDetailsRoute(this.props.resource, this.props.typeName);
-        return (React.createElement(react_router_dom_1.Link, { className: 'rowTitle', to: resourceDetailsDestination }, Utils_1.getResourceName(this.props.resource)));
     };
     return LineageCardRow;
 }(React.Component));

@@ -126,11 +126,11 @@ var LineageView = /** @class */ (function (_super) {
         return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page) },
             React.createElement(LineageActionBar_1.LineageActionBar, { ref: this.actionBarRef, initialTarget: this.props.target, setLineageViewTarget: this.setTargetFromActionBar }),
             React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, 'LineageExplorer'), style: { flexFlow: 'row', overflow: 'auto', width: '100%', position: 'relative', background: '#f3f2f4', zIndex: 0 } },
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], cardWidth: cardWidth, edgeWidth: edgeWidth, setLineageViewTarget: this.setTargetFromLineageCard, buildResourceDetailsRoute: this.props.buildResourceDetailsRoute }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[1], buildResourceDetailsRoute: this.props.buildResourceDetailsRoute }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[2], buildResourceDetailsRoute: this.props.buildResourceDetailsRoute }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, reverseBindings: true, title: "" + columnNames[3], buildResourceDetailsRoute: this.props.buildResourceDetailsRoute }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard, buildResourceDetailsRoute: this.props.buildResourceDetailsRoute }))));
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], cardWidth: cardWidth, edgeWidth: edgeWidth, setLineageViewTarget: this.setTargetFromLineageCard }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[1] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[2] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, reverseBindings: true, title: "" + columnNames[3] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard }))));
     };
     LineageView.prototype.buildArtifactCards = function (artifacts, isTarget) {
         var _this = this;
@@ -143,7 +143,7 @@ var LineageView = /** @class */ (function (_super) {
                 title: artifactTypeName,
                 elements: artifacts.map(function (artifact) { return ({
                     resource: artifact,
-                    resourceType: artifactTypeName,
+                    resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(artifact, artifactTypeName),
                     prev: !isTarget || _this.state.inputExecutions.length > 0,
                     next: !isTarget || _this.state.outputExecutions.length > 0,
                 }); })
@@ -160,7 +160,7 @@ var LineageView = /** @class */ (function (_super) {
                 title: executionTypeName,
                 elements: executions.map(function (execution) { return ({
                     resource: execution,
-                    resourceType: executionTypeName,
+                    resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
                     prev: true,
                     next: true,
                 }); })

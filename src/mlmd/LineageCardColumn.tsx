@@ -5,7 +5,7 @@ import {LineageCard} from './LineageCard';
 import {px} from './LineageCss';
 import {LineageCardType, LineageRow} from './LineageTypes';
 import {EdgeCanvas} from './EdgeCanvas';
-import {Artifact, LineageResource} from "..";
+import {Artifact} from "..";
 
 export interface CardDetails {
   title: string;
@@ -21,7 +21,6 @@ export interface LineageCardColumnProps {
   reverseBindings?: boolean;
   skipEdgeCanvas?: boolean;
   setLineageViewTarget?(artifact: Artifact): void
-  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
 }
 
 export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
@@ -80,7 +79,6 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
       rows={det.elements}
       isTarget={/Target/i.test(this.props.title)}
       setLineageViewTarget={this.props.setLineageViewTarget}
-      buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
     />;
   }
   private drawColumnContent(): JSX.Element {

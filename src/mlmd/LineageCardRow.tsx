@@ -128,15 +128,9 @@ interface LineageCardRowProps {
   hideRadio: boolean;
   isLastRow: boolean;
   resource: LineageResource;
+  resourceDetailsRoute: string;
   cardType: LineageCardType;
-
-  // The full typeName of the resource's typeId. Used for navigation from title.
-  typeName: string;
-
   setLineageViewTarget?(artifact: Artifact): void
-
-  // Constructs the route used when an artifact title is clicked.
-  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
 }
 
 export class LineageCardRow extends React.Component<LineageCardRowProps> {
@@ -159,7 +153,11 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
       <div className={`cardRow ${isLastRow?'lastRow':''}`}>
         {this.checkRadio()}
         <footer>
-          {this.getResourceDetailsLink()}
+          <Link
+            className={'rowTitle'}
+            to={this.props.resourceDetailsRoute}>
+            {getResourceName(this.props.resource)}
+          </Link>
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
         </footer>
         {this.checkEdgeAffordances()}
@@ -177,18 +175,5 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   private handleClick() {
     if (!this.props.setLineageViewTarget || !(this.props.cardType === 'artifact')) return;
     this.props.setLineageViewTarget(this.props.resource as Artifact);
-  }
-
-  private getResourceDetailsLink(): JSX.Element | null {
-    if (!this.props.buildResourceDetailsRoute) return null;
-    const resourceDetailsDestination =
-      this.props.buildResourceDetailsRoute(this.props.resource, this.props.typeName);
-    return (
-      <Link
-        className={'rowTitle'}
-        to={resourceDetailsDestination}>
-        {getResourceName(this.props.resource)}
-      </Link>
-    );
   }
 }

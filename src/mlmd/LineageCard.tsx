@@ -5,7 +5,7 @@ import {CSSProperties} from 'typestyle/lib/types';
 import {LineageCardRow} from './LineageCardRow';
 import {LineageRow, LineageCardType} from './LineageTypes';
 import {CARD_SPACER_HEIGHT, px} from './LineageCss';
-import {Artifact, LineageResource} from "..";
+import {Artifact} from "..";
 
 const CARD_RADIUS = 6;
 const CARD_TITLE_BASE_HEIGHT = 40;
@@ -26,7 +26,6 @@ interface LineageCardProps {
   addSpacer: boolean;
   isTarget?: boolean;
   setLineageViewTarget?(artifact: Artifact): void;
-  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
 }
 
 export class LineageCard extends React.Component<LineageCardProps> {
@@ -81,14 +80,13 @@ export class LineageCard extends React.Component<LineageCardProps> {
       <LineageCardRow
         key={i}
         resource={r.resource}
+        resourceDetailsRoute={r.resourceDetailsPageRoute}
         cardType={this.props.type}
-        typeName={r.resourceType}
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}
         isLastRow={i === rows.length-1}
         hideRadio={isExecution || !!isTarget}
         setLineageViewTarget={setLineageViewTarget}
-        buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
       />
     );
 

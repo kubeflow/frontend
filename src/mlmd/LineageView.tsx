@@ -54,7 +54,7 @@ export interface LineageViewProps {
   target: Artifact;
   cardWidth?: number;
   edgeWidth?: number;
-  buildResourceDetailsRoute(resource: LineageResource, typeName: string): string
+  buildResourceDetailsPageRoute(resource: LineageResource, typeName: string): string
 }
 
 interface LineageViewState {
@@ -113,7 +113,6 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             setLineageViewTarget={this.setTargetFromLineageCard}
-            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='execution'
@@ -121,7 +120,6 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             title={`${columnNames[1]}`}
-            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='artifact'
@@ -129,7 +127,6 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cardWidth={cardWidth}
             edgeWidth={edgeWidth}
             title={`${columnNames[2]}`}
-            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='execution'
@@ -138,7 +135,6 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             edgeWidth={edgeWidth}
             reverseBindings={true}
             title={`${columnNames[3]}`}
-            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
           <LineageCardColumn
             type='artifact'
@@ -148,7 +144,6 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             edgeWidth={edgeWidth}
             title={`${columnNames[4]}`}
             setLineageViewTarget={this.setTargetFromLineageCard}
-            buildResourceDetailsRoute={this.props.buildResourceDetailsRoute}
           />
         </div>
       </div>
@@ -164,7 +159,8 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
         title: artifactTypeName,
         elements: artifacts.map((artifact) => ({
           resource: artifact,
-          resourceType: artifactTypeName,
+          resourceDetailsPageRoute:
+            this.props.buildResourceDetailsPageRoute(artifact, artifactTypeName),
           prev: !isTarget || this.state.inputExecutions.length > 0,
           next: !isTarget || this.state.outputExecutions.length > 0,
           })
@@ -182,7 +178,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
         title: executionTypeName,
         elements: executions.map((execution) => ({
           resource: execution,
-          resourceType: executionTypeName,
+          resourceDetailsPageRoute: this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
           prev: true,
           next: true,
           })
