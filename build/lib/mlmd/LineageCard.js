@@ -91,7 +91,7 @@ var LineageCard = /** @class */ (function (_super) {
             }
         });
         var listCardRows = function () { return rows.map(function (r, i) {
-            return React.createElement(LineageCardRow_1.LineageCardRow, { key: i, resource: r.resource, type: _this.props.type, leftAffordance: !!r.prev, rightAffordance: !!r.next, isLastRow: i === rows.length - 1, hideRadio: isExecution || !!isTarget, setLineageViewTarget: setLineageViewTarget });
+            return React.createElement(LineageCardRow_1.LineageCardRow, { key: i, resource: r.resource, resourceDetailsRoute: r.resourceDetailsPageRoute, type: _this.props.type, leftAffordance: !!r.prev, rightAffordance: !!r.next, isLastRow: i === rows.length - 1, hideRadio: isExecution || !!isTarget, setLineageViewTarget: setLineageViewTarget });
         }); };
         var cardContainerClasses = typestyle_1.classes(css.cardContainer, css[type], // css.execution
         addSpacer ? css.addSpacer : '', isTarget ? css.target : '');
