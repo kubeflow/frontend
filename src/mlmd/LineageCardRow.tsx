@@ -129,7 +129,7 @@ interface LineageCardRowProps {
   isLastRow: boolean;
   resource: LineageResource;
   resourceDetailsRoute: string;
-  cardType: LineageCardType;
+  type: LineageCardType;
   setLineageViewTarget?(artifact: Artifact): void
 }
 
@@ -173,7 +173,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleClick() {
-    if (!this.props.setLineageViewTarget || !(this.props.cardType === 'artifact')) return;
+    if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
     this.props.setLineageViewTarget(this.props.resource as Artifact);
   }
 }

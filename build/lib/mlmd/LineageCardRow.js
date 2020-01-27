@@ -55,7 +55,7 @@ var LineageCardRow = /** @class */ (function (_super) {
         return React.createElement("div", { className: 'noRadio' });
     };
     LineageCardRow.prototype.handleClick = function () {
-        if (!this.props.setLineageViewTarget || !(this.props.cardType === 'artifact'))
+        if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact'))
             return;
         this.props.setLineageViewTarget(this.props.resource);
     };
