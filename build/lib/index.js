@@ -34,6 +34,7 @@ exports.ExecutionProperties = Api_1.ExecutionProperties;
 exports.ExecutionCustomProperties = Api_1.ExecutionCustomProperties;
 var LineageApi_1 = require("./mlmd/LineageApi");
 exports.getArtifactTypes = LineageApi_1.getArtifactTypes;
+exports.getArtifactCreationTime = LineageApi_1.getArtifactCreationTime;
 var LineageView_1 = require("./mlmd/LineageView");
 exports.LineageView = LineageView_1.LineageView;
 var Utils_1 = require("./mlmd/Utils");

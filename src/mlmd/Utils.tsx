@@ -20,9 +20,10 @@ import {
   ExecutionCustomProperties,
   ExecutionProperties,
 } from './Api';
-import {LineageResource} from "./LineageTypes";
 import {ArtifactTypeMap} from "./LineageApi";
 import {Artifact, Execution, Value} from '..';
+
+const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
 
 export function getResourceProperty(resource: Artifact | Execution,
     propertyName: string, fromCustomProperties = false): string | number | null {
@@ -35,21 +36,25 @@ export function getResourceProperty(resource: Artifact | Execution,
 }
 
 function getArtifactName(artifact: Artifact): string {
-  return String(getResourceProperty(artifact, ArtifactProperties.NAME))
+  const artifactName = getResourceProperty(artifact, ArtifactProperties.NAME) ||
+    getResourceProperty(artifact, ArtifactCustomProperties.NAME, true);
+  return artifactName ? artifactName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 
 function getExecutionName(execution: Execution): string {
-  return String(getResourceProperty(execution, ExecutionProperties.NAME))
+  const executionName = getResourceProperty(execution, ExecutionProperties.COMPONENT_ID) ||
+    getResourceProperty(execution, ExecutionCustomProperties.TASK_ID, true);
+  return executionName ? executionName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 
-export function getResourceName(resource: LineageResource): string {
+export function getResourceName(resource: Artifact | Execution): string {
   if (resource instanceof Artifact) {
     return getArtifactName(resource);
   }
   return getExecutionName(resource);
 }
 
-export function getResourceDescription(resource: LineageResource): string {
+export function getResourceDescription(resource: Artifact | Execution): string {
   let description;
   if (resource instanceof Artifact) {
     description = getResourceProperty(resource, ArtifactProperties.PIPELINE_NAME)

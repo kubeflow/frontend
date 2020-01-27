@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var __1 = require("..");
 var __2 = require("..");
+var EventType = __1.Event.Type;
 function getArtifactTypes(metadataStoreService, errorCallback) {
     return __awaiter(this, void 0, void 0, function () {
         var response, artifactTypesMap;
@@ -86,4 +87,44 @@ function getExecutionTypes(metadataStoreService, errorCallback) {
     });
 }
 exports.getExecutionTypes = getExecutionTypes;
+function getArtifactCreationTime(artifactId, metadataStoreService, errorCallback) {
+    return __awaiter(this, void 0, void 0, function () {
+        var eventsRequest, response, data, lastOutputEvent;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!artifactId) {
+                        throw new Error('artifactId is empty');
+                    }
+                    eventsRequest = new __1.GetEventsByArtifactIDsRequest();
+                    eventsRequest.setArtifactIdsList([artifactId]);
+                    return [4 /*yield*/, metadataStoreService.getEventsByArtifactIDs(eventsRequest)];
+                case 1:
+                    response = _a.sent();
+                    if (!response) {
+                        if (errorCallback) {
+                            errorCallback("Unable to retrieve Events for artifactId: " + artifactId);
+                        }
+                        return [2 /*return*/, ''];
+                    }
+                    data = response.getEventsList().map(function (event) { return ({
+                        time: event.getMillisecondsSinceEpoch(),
+                        type: event.getType() || EventType.UNKNOWN,
+                    }); });
+                    lastOutputEvent = data
+                        .reverse()
+                        .find(function (event) { return event.type === EventType.DECLARED_OUTPUT || event.type === EventType.OUTPUT; });
+                    if (lastOutputEvent && lastOutputEvent.time) {
+                        return [2 /*return*/, __1.formatDateString(new Date(lastOutputEvent.time))];
+                    }
+                    else {
+                        // No valid time found, just return empty
+                        return [2 /*return*/, ''];
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.getArtifactCreationTime = getArtifactCreationTime;
 //# sourceMappingURL=LineageApi.js.map
