@@ -80,6 +80,7 @@ export class LineageCard extends React.Component<LineageCardProps> {
       <LineageCardRow
         key={i}
         resource={r.resource}
+        resourceDetailsRoute={r.resourceDetailsPageRoute}
         type={this.props.type}
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}

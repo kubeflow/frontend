@@ -3,6 +3,7 @@ import {LineageCardType, LineageResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
 import {cssRaw} from "typestyle";
+import {Link} from "react-router-dom";
 
 cssRaw(`
 .cardRow {
@@ -75,6 +76,7 @@ cssRaw(`
   color: var(--grey-900);
   letter-spacing: 0.2px;
   line-height: 24px;
+  text-decoration: none;
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
@@ -126,6 +128,7 @@ interface LineageCardRowProps {
   hideRadio: boolean;
   isLastRow: boolean;
   resource: LineageResource;
+  resourceDetailsRoute: string;
   type: LineageCardType;
   setLineageViewTarget?(artifact: Artifact): void
 }
@@ -150,7 +153,11 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
       <div className={`cardRow ${isLastRow?'lastRow':''}`}>
         {this.checkRadio()}
         <footer>
-          <p className='rowTitle'>{getResourceName(this.props.resource)}</p>
+          <Link
+            className={'rowTitle'}
+            to={this.props.resourceDetailsRoute}>
+            {getResourceName(this.props.resource)}
+          </Link>
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
         </footer>
         {this.checkEdgeAffordances()}

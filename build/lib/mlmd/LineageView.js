@@ -137,12 +137,13 @@ var LineageView = /** @class */ (function (_super) {
         if (isTarget === void 0) { isTarget = false; }
         var artifactsByTypeId = lodash_groupby_1.default(artifacts, function (artifact) { return (artifact.getTypeId()); });
         return Object.keys(artifactsByTypeId).map(function (typeId) {
-            var title = Utils_1.getTypeName(Number(typeId), _this.artifactTypes);
+            var artifactTypeName = Utils_1.getTypeName(Number(typeId), _this.artifactTypes);
             var artifacts = artifactsByTypeId[typeId];
             return {
-                title: title,
+                title: artifactTypeName,
                 elements: artifacts.map(function (artifact) { return ({
                     resource: artifact,
+                    resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(artifact, artifactTypeName),
                     prev: !isTarget || _this.state.inputExecutions.length > 0,
                     next: !isTarget || _this.state.outputExecutions.length > 0,
                 }); })
@@ -153,12 +154,13 @@ var LineageView = /** @class */ (function (_super) {
         var _this = this;
         var executionsByTypeId = lodash_groupby_1.default(executions, function (execution) { return (execution.getTypeId()); });
         return Object.keys(executionsByTypeId).map(function (typeId) {
-            var title = Utils_1.getTypeName(Number(typeId), _this.executionTypes);
+            var executionTypeName = Utils_1.getTypeName(Number(typeId), _this.executionTypes);
             var executions = executionsByTypeId[typeId];
             return {
-                title: title,
+                title: executionTypeName,
                 elements: executions.map(function (execution) { return ({
                     resource: execution,
+                    resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
                     prev: true,
                     next: true,
                 }); })
