@@ -60,3 +60,36 @@ Run:
 ```bash
 npm test
 ```
+
+---
+
+## Development
+If you're not a developer on this project, and don't plan on modifying the source, you can stop reading now :)
+
+#### Assumptions
+- You are using `PowerShell` or a `bash`-like shell
+- Assuming your `$PWD` is in this repo locally
+- Your parent folder looks like
+```bash
+> ls ..
+metadata    frontend     <other-irrelevant-folder>
+```
+
+#### Linking this libary to metadata
+```bash
+pushd ../metadata/frontend      # Change context to the MLMD Repo
+npm i ../../frontend            # NPM link this library locally (will make a symlink)
+git stash                       # To discard any local changes (don't run this if you're also modifying Kubeflow/Metadata)
+popd                            # Back to where we were
+```
+
+***Note**: Make sure to remove the symlink in `../metadata/frontend/<this-package>` and running `npm i` again in `../metadata/frontend` to undo the linking*
+
+#### Development workflow (_in 3 terminals_)
+Start 3 terminals and run:
+
+| Components TS Compiler | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
+| --- | --- | ---
+| <pre lang="bash">npm run build:<b>watch</b></pre> | <pre lang="bash">cd ../metadata/frontend; <br>npm start</pre> | <pre lang="bash">cd ../metadata/frontend; <br>npm run start:proxy</pre>
+
+You should now be able to make updates in Frontend-Components (_your local clone of this repo_), and see them update realtime in your browser!

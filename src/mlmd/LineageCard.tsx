@@ -52,6 +52,9 @@ export class LineageCard extends React.Component<LineageCardProps> {
             paddingLeft: '15px',
             textAlign: 'left',
             textTransform: 'uppercase',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
           }
         }
       },
@@ -97,7 +100,7 @@ export class LineageCard extends React.Component<LineageCardProps> {
     return (
       <div className={cardContainerClasses}>
         <div className={classes(isExecution ? css.executionCardTitle : css.cardTitle)}>
-          <h3>{title}</h3>
+          <h3 title={title}>{title}</h3>
         </div>
         <div className='cardBody'>{listCardRows()}</div>
       </div>
