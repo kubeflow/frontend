@@ -17,6 +17,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Api_1 = require("./Api");
 var __1 = require("..");
+var UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
 function getResourceProperty(resource, propertyName, fromCustomProperties) {
     if (fromCustomProperties === void 0) { fromCustomProperties = false; }
     var props = fromCustomProperties
@@ -27,10 +28,14 @@ function getResourceProperty(resource, propertyName, fromCustomProperties) {
 }
 exports.getResourceProperty = getResourceProperty;
 function getArtifactName(artifact) {
-    return String(getResourceProperty(artifact, Api_1.ArtifactProperties.NAME));
+    var artifactName = getResourceProperty(artifact, Api_1.ArtifactProperties.NAME) ||
+        getResourceProperty(artifact, Api_1.ArtifactCustomProperties.NAME, true);
+    return artifactName ? artifactName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 function getExecutionName(execution) {
-    return String(getResourceProperty(execution, Api_1.ExecutionProperties.NAME));
+    var executionName = getResourceProperty(execution, Api_1.ExecutionProperties.COMPONENT_ID) ||
+        getResourceProperty(execution, Api_1.ExecutionCustomProperties.TASK_ID, true);
+    return executionName ? executionName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 function getResourceName(resource) {
     if (resource instanceof __1.Artifact) {
