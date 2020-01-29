@@ -78,7 +78,7 @@ cssRaw(`
   line-height: 24px;
   text-decoration: none;
   text-overflow: ellipsis;
-  display: block;
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -127,6 +127,7 @@ interface LineageCardRowProps {
   rightAffordance: boolean;
   hideRadio: boolean;
   isLastRow: boolean;
+  isTarget?: boolean;
   resource: LineageResource;
   resourceDetailsRoute: string;
   type: LineageCardType;
@@ -167,7 +168,18 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
 
   private checkRadio(): JSX.Element {
     if (!this.props.hideRadio) {
-      return <div><input type='radio' className='form-radio' name='' value='' onClick={this.handleClick} /></div>;
+      return (
+        <div>
+          <input
+            type='radio'
+            className='form-radio'
+            name=''
+            value=''
+            onClick={this.handleClick}
+            checked={this.props.isTarget}
+          />
+        </div>
+      );
     }
     return <div className='noRadio' />;
   }
