@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Link} from "react-router-dom";
-import {cssRaw} from "typestyle";
+import {classes, cssRaw} from "typestyle";
 import {LineageCardType, LineageResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
@@ -9,11 +9,14 @@ cssRaw(`
 .cardRow {
   align-items: center;
   border-bottom: 1px solid var(--grey-200);
-  cursor: pointer;
   display: flex;
   height: 54px;
   padding: 6px 0px;
   position: relative;
+}
+
+.cardRow.clickTarget {
+  cursor: pointer;
 }
 
 .cardRow .noRadio {
@@ -149,15 +152,15 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   public render(): JSX.Element {
-    const {isLastRow} = this.props;
+    const {isLastRow, type} = this.props;
+    const canTarget = type === 'artifact';
+    const cardRowClasses = classes('cardRow', isLastRow && 'lastRow', canTarget && 'clickTarget');
 
     return (
-      <div className={`cardRow ${isLastRow?'lastRow':''}`}  onClick={this.handleClick}>
+      <div className={cardRowClasses} onClick={this.handleClick}>
         {this.checkRadio()}
         <footer>
-          <Link
-            className={'rowTitle'}
-            to={this.props.resourceDetailsRoute}>
+          <Link className={'rowTitle'} to={this.props.resourceDetailsRoute}>
             {getResourceName(this.props.resource)}
           </Link>
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
@@ -168,22 +171,23 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private checkRadio(): JSX.Element {
-    if (!this.props.hideRadio) {
-      return (
-        <div>
-          <input
-            type='radio'
-            className='form-radio'
-            name=''
-            value=''
-            onClick={this.handleClick}
-            checked={this.props.isTarget}
-            readOnly={true}
-          />
-        </div>
-      );
+    if (this.props.hideRadio) {
+      return <div className='noRadio' />;
     }
-    return <div className='noRadio' />;
+
+    return (
+      <div>
+        <input
+          type='radio'
+          className='form-radio'
+          name=''
+          value=''
+          onClick={this.handleClick}
+          checked={this.props.isTarget}
+          readOnly={true}
+        />
+      </div>
+    );
   }
 
   private handleClick(e: React.MouseEvent) {
