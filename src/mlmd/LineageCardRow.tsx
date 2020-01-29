@@ -1,17 +1,18 @@
 import * as React from 'react';
+import {Link} from "react-router-dom";
+import {cssRaw} from "typestyle";
 import {LineageCardType, LineageResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
-import {cssRaw} from "typestyle";
-import {Link} from "react-router-dom";
 
 cssRaw(`
 .cardRow {
-  display: flex;
   align-items: center;
+  border-bottom: 1px solid var(--grey-200);
+  cursor: pointer;
+  display: flex;
   height: 54px;
   padding: 6px 0px;
-  border-bottom: 1px solid var(--grey-200);
   position: relative;
 }
 
@@ -151,7 +152,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
     const {isLastRow} = this.props;
 
     return (
-      <div className={`cardRow ${isLastRow?'lastRow':''}`}>
+      <div className={`cardRow ${isLastRow?'lastRow':''}`}  onClick={this.handleClick}>
         {this.checkRadio()}
         <footer>
           <Link
@@ -177,6 +178,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
             value=''
             onClick={this.handleClick}
             checked={this.props.isTarget}
+            readOnly={true}
           />
         </div>
       );
@@ -184,7 +186,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
     return <div className='noRadio' />;
   }
 
-  private handleClick() {
+  private handleClick(e: React.MouseEvent) {
     if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
     this.props.setLineageViewTarget(this.props.resource as Artifact);
   }
