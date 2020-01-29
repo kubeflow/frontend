@@ -15,13 +15,17 @@ cssRaw(`
   position: relative;
 }
 
+.cardRow .noRadio {
+  height: 16px;
+  width: 16px;
+}
+
 .cardRow.clickTarget {
   cursor: pointer;
 }
 
-.cardRow .noRadio {
-  height: 16px;
-  width: 16px;
+.cardRow .form-radio-container {
+  position: relative;
 }
 
 .cardRow .form-radio {
@@ -63,6 +67,25 @@ cssRaw(`
 
 .cardRow .form-radio:checked {
   background-color: #fff;
+}
+
+.cardRow .form-radio.hover-hint {
+  color: var(--grey-400);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.cardRow.clickTarget:hover .form-radio.hover-hint {
+  opacity: 1;
+}
+
+.cardRow.clickTarget .form-radio.hover-hint:checked::before {
+  background: currentColor;
+}
+
+.cardRow.clickTarget .form-radio.hover-hint:checked {
+  border: 2px solid var(--grey-400);
 }
 
 .cardRow div {
@@ -126,6 +149,8 @@ cssRaw(`
 
 `);
 
+const CLICK_TARGET_CSS_NAME = 'clickTarget';
+
 interface LineageCardRowProps {
   leftAffordance: boolean;
   rightAffordance: boolean;
@@ -139,6 +164,8 @@ interface LineageCardRowProps {
 }
 
 export class LineageCardRow extends React.Component<LineageCardRowProps> {
+  private rowContainerRef: React.RefObject<HTMLDivElement> = React.createRef();
+
   constructor(props: LineageCardRowProps) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -152,15 +179,19 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   public render(): JSX.Element {
-    const {isLastRow, type} = this.props;
-    const canTarget = type === 'artifact';
+    const {isLastRow, isTarget, type} = this.props;
+    const canTarget = !isTarget && type === 'artifact';
     const cardRowClasses = classes('cardRow', isLastRow && 'lastRow', canTarget && 'clickTarget');
 
     return (
-      <div className={cardRowClasses} onClick={this.handleClick}>
+      <div
+        className={cardRowClasses}
+        ref={this.rowContainerRef}
+        onClick={this.handleClick}
+      >
         {this.checkRadio()}
         <footer>
-          <Link className={'rowTitle'} to={this.props.resourceDetailsRoute}>
+          <Link className={'rowTitle'} to={this.props.resourceDetailsRoute} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
             {getResourceName(this.props.resource)}
           </Link>
           <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
@@ -176,7 +207,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
     }
 
     return (
-      <div>
+      <div className={'form-radio-container'}>
         <input
           type='radio'
           className='form-radio'
@@ -186,12 +217,65 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
           checked={this.props.isTarget}
           readOnly={true}
         />
+        <input
+          type='radio'
+          className='form-radio hover-hint'
+          name=''
+          value=''
+          onClick={this.handleClick}
+          checked={true}
+          readOnly={true}
+        />
       </div>
     );
   }
 
-  private handleClick(e: React.MouseEvent) {
+  private handleClick() {
     if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
     this.props.setLineageViewTarget(this.props.resource as Artifact);
   }
+
+  private handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!e || !e.target) {
+      return
+    }
+
+    const element = e.target as HTMLAnchorElement;
+    if (element.className.match(/\browTitle\b/)) {
+      this.showRadioHint(false);
+    }
+  };
+
+  private handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!e || !e.target) {
+      return
+    }
+
+    const element = e.target as HTMLAnchorElement;
+    if (element.className.match(/\browTitle\b/)) {
+      this.showRadioHint(true);
+    }
+  };
+
+  private showRadioHint = (show: boolean) => {
+    if (this.props.isTarget) {
+      return;
+    }
+
+    if (!this.rowContainerRef.current) {
+      return
+    }
+
+    const rowContainer = this.rowContainerRef.current;
+
+    if (show) {
+      if (!rowContainer.classList.contains(CLICK_TARGET_CSS_NAME)) {
+        rowContainer.classList.add(CLICK_TARGET_CSS_NAME)
+      }
+    } else {
+      if (rowContainer.classList.contains(CLICK_TARGET_CSS_NAME)) {
+        rowContainer.classList.remove(CLICK_TARGET_CSS_NAME)
+      }
+    }
+  };
 }
