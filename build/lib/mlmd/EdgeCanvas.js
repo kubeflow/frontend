@@ -80,6 +80,7 @@ var EdgeCanvas = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             edgeGap: -1,
+            parentWidth: -1,
         };
         return _this;
     }
@@ -89,13 +90,14 @@ var EdgeCanvas = /** @class */ (function (_super) {
         var cardBodyHeight = 67;
         var cardContainerBorders = 2;
         var cardOffset = LineageCss_1.CARD_SPACER_HEIGHT + LineageCard_1.CARD_TITLE_HEIGHT + cardContainerBorders;
-        var edgeGap = this.state.edgeGap;
+        var _b = this.state, edgeGap = _b.edgeGap, parentWidth = _b.parentWidth;
         var viewWidth = Math.max(edgeGap, 0) + 2 * columnPadding;
+        console.log('Rendering with edgeGap', edgeGap);
         var css = typestyle_1.stylesheet({
             edgeCanvas: {
                 border: 0,
                 display: 'block',
-                left: edgeGap,
+                left: parentWidth - edgeGap,
                 top: LineageCss_1.px(LineageCard_1.CARD_TITLE_HEIGHT + cardBodyHeight / 2),
                 overflow: 'visible',
                 position: 'absolute',
@@ -115,7 +117,7 @@ var EdgeCanvas = /** @class */ (function (_super) {
             },
         });
         var lastNode = reverseEdges ? 'y1' : 'y4';
-        var lastNodePositions = { y1: 0, y4: 0, };
+        var lastNodePositions = { y1: 0, y4: 0 };
         var edgeLines = [];
         cards.forEach(function (card, i) {
             card.elements.forEach(function (element, j) {
@@ -135,25 +137,28 @@ var EdgeCanvas = /** @class */ (function (_super) {
             lastNodePositions[lastNode] += cardOffset;
         });
         var edgeCanvasClasses = typestyle_1.classes(css.edgeCanvas, reverseEdges && 'edgeCanvasReverse');
+        Utils_1.sleep(50).then(this.componentDidMount.bind(this));
         return React.createElement("div", { className: edgeCanvasClasses }, edgeLines);
     };
     EdgeCanvas.prototype.componentDidMount = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var $this, _a, $next, $parent, edgeGap;
+            var $this, _a, $next, $parent, parentWidth, edgeGap;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         $this = react_dom_1.findDOMNode(this);
                         _a = [$this.nextSibling, $this.parentElement], $next = _a[0], $parent = _a[1];
                         if (!$next)
-                            return [2 /*return*/];
-                        return [4 /*yield*/, Utils_1.sleep(50)]; // So the browser has time to draw the elements (and have correct scrollWidth values)
+                            return [2 /*return*/, console.log('Gave up', $this)];
+                        return [4 /*yield*/, Utils_1.sleep(50)]; // So the browser has time to draw the elements (and have correct clientWidth values)
                     case 1:
-                        _b.sent(); // So the browser has time to draw the elements (and have correct scrollWidth values)
-                        edgeGap = $parent.scrollWidth - $next.scrollWidth;
+                        _b.sent(); // So the browser has time to draw the elements (and have correct clientWidth values)
+                        parentWidth = $parent.clientWidth;
+                        edgeGap = parentWidth - $next.clientWidth;
+                        console.log('Scroll Width', parentWidth + " - " + $next.clientWidth, edgeGap, $this);
                         if (edgeGap === this.state.edgeGap)
                             return [2 /*return*/];
-                        this.setState({ edgeGap: edgeGap });
+                        this.setState({ edgeGap: edgeGap, parentWidth: parentWidth });
                         return [2 /*return*/];
                 }
             });

@@ -10,15 +10,14 @@ import {sleep} from './Utils'
 
 interface EdgeCanvasProps {
     cards: CardDetails[];
-
+    columnPadding: number;
     // If true edges are drawn from right to left.
     reverseEdges: boolean;
-
-    columnPadding: number;
 }
 
 interface EdgeCanvasState {
     edgeGap: number
+    parentWidth: number
 }
 
 /**
@@ -35,6 +34,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         super(props)
         this.state = {
             edgeGap: -1,
+            parentWidth: -1,
         }
     }
 
@@ -45,14 +45,15 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         const cardBodyHeight = 67;
         const cardContainerBorders = 2;
         const cardOffset = CARD_SPACER_HEIGHT + CARD_TITLE_HEIGHT + cardContainerBorders;
-        const {edgeGap} = this.state
+        const {edgeGap, parentWidth} = this.state
         const viewWidth = Math.max(edgeGap, 0) + 2 * columnPadding;
+        console.log('Rendering with edgeGap', edgeGap)
 
         const css = stylesheet({
             edgeCanvas: {
                 border: 0,
                 display: 'block',
-                left: edgeGap,
+                left: parentWidth - edgeGap,
                 top: px(CARD_TITLE_HEIGHT + cardBodyHeight / 2),
                 overflow: 'visible',
                 position: 'absolute',
@@ -73,7 +74,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         });
 
         const lastNode = reverseEdges ? 'y1' : 'y4';
-        const lastNodePositions = {y1: 0, y4: 0,};
+        const lastNodePositions = {y1: 0, y4: 0};
 
         const edgeLines: JSX.Element[] = [];
         cards.forEach((card, i) => {
@@ -110,16 +111,19 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         });
 
         const edgeCanvasClasses = classes(css.edgeCanvas, reverseEdges && 'edgeCanvasReverse');
+        sleep(50).then(this.componentDidMount.bind(this))
         return <div className={edgeCanvasClasses}>{edgeLines}</div>
     }
 
     async componentDidMount() {
         const $this = findDOMNode(this) as HTMLElement
         const [$next, $parent] = [$this.nextSibling, $this.parentElement] as HTMLElement[]
-        if (!$next) return
-        await sleep(50) // So the browser has time to draw the elements (and have correct scrollWidth values)
-        const edgeGap = $parent.scrollWidth - $next.scrollWidth
+        if (!$next) return console.log('Gave up', $this)
+        await sleep(50) // So the browser has time to draw the elements (and have correct clientWidth values)
+        const parentWidth = $parent.clientWidth
+        const edgeGap = parentWidth - $next.clientWidth
+        console.log('Scroll Width', `${parentWidth} - ${$next.clientWidth}`, edgeGap, $this)
         if (edgeGap === this.state.edgeGap) return
-        this.setState({edgeGap})
+        this.setState({edgeGap, parentWidth})
     }
 }

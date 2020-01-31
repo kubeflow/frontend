@@ -17,7 +17,7 @@
 
 import groupBy from 'lodash.groupby';
 import * as React from 'react';
-import {classes} from 'typestyle';
+import {classes, stylesheet} from 'typestyle';
 import {commonCss} from './Css';
 import {LineageCardColumn, CardDetails} from './LineageCardColumn';
 import {LineageActionBar} from './LineageActionBar';
@@ -92,16 +92,24 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   }
 
   public render(): JSX.Element | null {
-    if (!this.artifactTypes) {
-      return null;
-    }
+    if (!this.artifactTypes) return null;
 
+    const css = stylesheet({
+      LineageExplorer: {
+        $nest: {
+          '&&': {flexFlow: 'row'}
+        },
+        position: 'relative',
+        background: '#f3f2f4',
+        zIndex: 0,
+      },
+    })
     const {columnNames} = this.state;
     const columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
     return (
       <div className={classes(commonCss.page)}>
         <LineageActionBar ref={this.actionBarRef} initialTarget={this.props.target} setLineageViewTarget={this.setTargetFromActionBar} />
-        <div className={classes(commonCss.page, 'LineageExplorer')} style={{flexFlow: 'row', overflow: 'auto', width: '100%', position: 'relative', background: '#f3f2f4', zIndex: 0}}>
+        <div className={classes(commonCss.page, css.LineageExplorer, 'LineageExplorer')}>
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.inputArtifacts)}
