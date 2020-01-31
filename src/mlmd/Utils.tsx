@@ -24,6 +24,7 @@ import {ArtifactTypeMap} from "./LineageApi";
 import {Artifact, Execution, Value} from '..';
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
+type RepoTypes = typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties
 
 export function getResourceProperty(resource: Artifact | Execution,
     propertyName: string, fromCustomProperties = false): string | number | null {
@@ -35,6 +36,17 @@ export function getResourceProperty(resource: Artifact | Execution,
       || null;
 }
 
+export function getResourcePropertyViaFallBack(res: Artifact | Execution,
+    fieldRepos: RepoTypes[],
+    fields: string[]): string {
+    const prop = fields.reduce((value: string, key: string) => {
+      const isCustomProp = key in fieldRepos[1];
+      const repo = fieldRepos[Number(isCustomProp)];
+      return value || getResourceProperty(res, repo[key], isCustomProp)
+    }, '') || ''
+    return prop as string;
+}
+
 function getArtifactName(artifact: Artifact): string {
   const artifactName = getResourceProperty(artifact, ArtifactProperties.NAME) ||
     getResourceProperty(artifact, ArtifactCustomProperties.NAME, true);
@@ -42,9 +54,13 @@ function getArtifactName(artifact: Artifact): string {
 }
 
 function getExecutionName(execution: Execution): string {
-  const executionName = getResourceProperty(execution, ExecutionProperties.COMPONENT_ID) ||
-    getResourceProperty(execution, ExecutionCustomProperties.TASK_ID, true);
-  return executionName ? executionName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
+  const fields = ['COMPONENT_ID', 'TASK_ID', 'NAME']
+  const fieldRepos = [ExecutionProperties, ExecutionCustomProperties]
+  return getResourcePropertyViaFallBack(
+    execution,
+    fieldRepos,
+    fields
+  ) || UNNAMED_RESOURCE_DISPLAY_NAME
 }
 
 export function getResourceName(resource: Artifact | Execution): string {
@@ -55,7 +71,7 @@ export function getResourceName(resource: Artifact | Execution): string {
 }
 
 export function getResourceDescription(resource: Artifact | Execution): string {
-  let fields: string[], fieldRepos: Array<typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties>;
+  let fields: string[], fieldRepos: RepoTypes[];
   if (resource instanceof Artifact) {
     fieldRepos = [ArtifactProperties, ArtifactCustomProperties]
     fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
@@ -63,11 +79,12 @@ export function getResourceDescription(resource: Artifact | Execution): string {
     fieldRepos = [ExecutionProperties, ExecutionCustomProperties]
     fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
   }
-  const description = fields.reduce((value: string, key: string, i: number) => {
-    const repo = fieldRepos[Number(key in fieldRepos[1])]
-    return value || getResourceProperty(resource, repo[key], !!i)
-  }, '')
-  return String(description) || '';
+  const description = getResourcePropertyViaFallBack(
+    resource,
+    fieldRepos,
+    fields,
+  )
+  return description;
 }
 
 export function getTypeName(typeId: number, artifactTypes: ArtifactTypeMap): string {

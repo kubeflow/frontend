@@ -27,15 +27,24 @@ function getResourceProperty(resource, propertyName, fromCustomProperties) {
         || null;
 }
 exports.getResourceProperty = getResourceProperty;
+function getResourcePropertyViaFallBack(res, fieldRepos, fields) {
+    var prop = fields.reduce(function (value, key) {
+        var isCustomProp = key in fieldRepos[1];
+        var repo = fieldRepos[Number(isCustomProp)];
+        return value || getResourceProperty(res, repo[key], isCustomProp);
+    }, '') || '';
+    return prop;
+}
+exports.getResourcePropertyViaFallBack = getResourcePropertyViaFallBack;
 function getArtifactName(artifact) {
     var artifactName = getResourceProperty(artifact, Api_1.ArtifactProperties.NAME) ||
         getResourceProperty(artifact, Api_1.ArtifactCustomProperties.NAME, true);
     return artifactName ? artifactName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 function getExecutionName(execution) {
-    var executionName = getResourceProperty(execution, Api_1.ExecutionProperties.COMPONENT_ID) ||
-        getResourceProperty(execution, Api_1.ExecutionCustomProperties.TASK_ID, true);
-    return executionName ? executionName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
+    var fields = ['COMPONENT_ID', 'TASK_ID', 'NAME'];
+    var fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
+    return getResourcePropertyViaFallBack(execution, fieldRepos, fields) || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 function getResourceName(resource) {
     if (resource instanceof __1.Artifact) {
@@ -54,11 +63,8 @@ function getResourceDescription(resource) {
         fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
         fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'];
     }
-    var description = fields.reduce(function (value, key, i) {
-        var repo = fieldRepos[Number(key in fieldRepos[1])];
-        return value || getResourceProperty(resource, repo[key], !!i);
-    }, '');
-    return String(description) || '';
+    var description = getResourcePropertyViaFallBack(resource, fieldRepos, fields);
+    return description;
 }
 exports.getResourceDescription = getResourceDescription;
 function getTypeName(typeId, artifactTypes) {
