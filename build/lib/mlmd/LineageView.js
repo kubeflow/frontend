@@ -115,14 +115,23 @@ var LineageView = /** @class */ (function (_super) {
         return _this;
     }
     LineageView.prototype.render = function () {
-        if (!this.artifactTypes) {
+        if (!this.artifactTypes)
             return null;
-        }
+        var css = typestyle_1.stylesheet({
+            LineageExplorer: {
+                $nest: {
+                    '&&': { flexFlow: 'row' }
+                },
+                position: 'relative',
+                background: '#f3f2f4',
+                zIndex: 0,
+            },
+        });
         var columnNames = this.state.columnNames;
         var columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
         return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page) },
             React.createElement(LineageActionBar_1.LineageActionBar, { ref: this.actionBarRef, initialTarget: this.props.target, setLineageViewTarget: this.setTargetFromActionBar }),
-            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, 'LineageExplorer'), style: { flexFlow: 'row', overflow: 'auto', width: '100%', position: 'relative', background: '#f3f2f4', zIndex: 0 } },
+            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, css.LineageExplorer, 'LineageExplorer') },
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1] }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, title: "" + columnNames[2] }),
