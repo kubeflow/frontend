@@ -63,6 +63,20 @@ var actionBarCss = typestyle_1.stylesheet({
     actionButton: {
         color: Css_1.color.strong
     },
+    workspace: __assign(__assign({}, baseBreadcrumb), { fontStyle: 'italic' }),
+    workspaceSep: {
+        display: 'block',
+        color: '#3c3c3c',
+        $nest: {
+            '&::before': {
+                content: '""',
+                color: '#9f9f9f',
+                margin: '0 .75em',
+                border: '1px solid',
+                background: 'currentColor',
+            }
+        }
+    },
     breadcrumbInactive: __assign(__assign({ color: Css_1.color.grey }, baseBreadcrumb), { $nest: {
             '&:hover': {
                 textDecoration: 'underline',
@@ -106,7 +120,10 @@ var LineageActionBar = /** @class */ (function (_super) {
     };
     LineageActionBar.prototype.render = function () {
         var _this = this;
-        var breadcrumbs = [];
+        var breadcrumbs = [
+            React.createElement("span", { className: typestyle_1.classes(actionBarCss.workspace), key: 'workspace' }, Utils_1.getResourcePropertyViaFallBack(this.state.history[0], [Api_1.ArtifactProperties, Api_1.ArtifactCustomProperties], ['PIPELINE_NAME', 'WORKSPACE'])),
+            React.createElement("aside", { className: actionBarCss.workspaceSep }),
+        ];
         this.state.history.forEach(function (artifact, index) {
             var isActive = index === _this.state.history.length - 1;
             var onBreadcrumbClicked = function () {

@@ -30,6 +30,7 @@ export enum ExecutionProperties {
 /** Known Execution custom properties */
 export enum ExecutionCustomProperties {
   WORKSPACE = '__kf_workspace__',
+  RUN = '__kf_run__',
   RUN_ID = 'run_id', // TODO: Remove when switching to contexts
   TASK_ID = 'task_id',
 }
