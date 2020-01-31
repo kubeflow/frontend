@@ -118,7 +118,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
     async componentDidMount() {
         const $this = findDOMNode(this) as HTMLElement
         const [$next, $parent] = [$this.nextSibling, $this.parentElement] as HTMLElement[]
-        if (!$next) return console.log('Gave up', $this)
+        if (!$this || !$next) return
         await sleep(50) // So the browser has time to draw the elements (and have correct clientWidth values)
         const parentWidth = $parent.clientWidth
         const edgeGap = parentWidth - $next.clientWidth
