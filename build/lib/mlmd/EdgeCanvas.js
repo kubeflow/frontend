@@ -148,8 +148,8 @@ var EdgeCanvas = /** @class */ (function (_super) {
                     case 0:
                         $this = react_dom_1.findDOMNode(this);
                         _a = [$this.nextSibling, $this.parentElement], $next = _a[0], $parent = _a[1];
-                        if (!$next)
-                            return [2 /*return*/, console.log('Gave up', $this)];
+                        if (!$this || !$next)
+                            return [2 /*return*/];
                         return [4 /*yield*/, Utils_1.sleep(50)]; // So the browser has time to draw the elements (and have correct clientWidth values)
                     case 1:
                         _b.sent(); // So the browser has time to draw the elements (and have correct clientWidth values)
