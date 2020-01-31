@@ -47,7 +47,6 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         const cardOffset = CARD_SPACER_HEIGHT + CARD_TITLE_HEIGHT + cardContainerBorders;
         const {edgeGap, parentWidth} = this.state
         const viewWidth = Math.max(edgeGap, 0) + 2 * columnPadding;
-        console.log('Rendering with edgeGap', edgeGap)
 
         const css = stylesheet({
             edgeCanvas: {
@@ -59,6 +58,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
                 position: 'absolute',
                 width: viewWidth,
                 zIndex: -1,
+                transition: 'transform .25s',
                 $nest: {
                     svg: {
                         display: 'block',
@@ -122,7 +122,6 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         await sleep(50) // So the browser has time to draw the elements (and have correct clientWidth values)
         const parentWidth = $parent.clientWidth
         const edgeGap = parentWidth - $next.clientWidth
-        console.log('Scroll Width', `${parentWidth} - ${$next.clientWidth}`, edgeGap, $this)
         if (edgeGap === this.state.edgeGap) return
         this.setState({edgeGap, parentWidth})
     }

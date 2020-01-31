@@ -37,6 +37,7 @@ var LineageCardColumn = /** @class */ (function (_super) {
                 width: '20%',
                 maxWidth: '20%',
                 minWidth: 'max(20%, 170px)',
+                boxSizing: 'border-box',
                 $nest: {
                     h2: {
                         color: grey_1.default[600],
