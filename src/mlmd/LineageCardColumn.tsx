@@ -2,7 +2,6 @@ import grey from '@material-ui/core/colors/grey';
 import React from 'react';
 import {classes, stylesheet} from 'typestyle';
 import {LineageCard} from './LineageCard';
-import {px} from './LineageCss';
 import {LineageCardType, LineageRow} from './LineageTypes';
 import {EdgeCanvas} from './EdgeCanvas';
 import {Artifact} from "..";
@@ -16,8 +15,7 @@ export interface LineageCardColumnProps {
   type: LineageCardType;
   title: string;
   cards: CardDetails[];
-  cardWidth: number;
-  edgeWidth: number;
+  columnPadding: number;
   reverseBindings?: boolean;
   skipEdgeCanvas?: boolean;
   setLineageViewTarget?(artifact: Artifact): void
@@ -25,15 +23,15 @@ export interface LineageCardColumnProps {
 
 export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
   public render(): JSX.Element | null {
-    const {cardWidth, edgeWidth, type, title} = this.props;
+    const {columnPadding, type, title} = this.props;
 
     const css = stylesheet({
       mainColumn: {
         display: 'inline-block',
         justifyContent: 'center',
         minHeight: '100%',
-        padding: `0 ${edgeWidth  / 2}px`,
-        width: px(cardWidth),
+        padding: `0 ${columnPadding}px`,
+        width: '20%',
         $nest: {
           h2: {
             color: grey[600],
@@ -47,13 +45,14 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         }
       },
       columnBody: {
-        width: px(cardWidth),
+        position: 'relative',
+        width: '100%',
       },
       columnHeader: {
         height: '40px',
         margin: '10px 0px',
         textAlign: 'left',
-        width: px(cardWidth),
+        width: '100%',
       }
     });
 
@@ -72,7 +71,6 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
     const isNotFirstEl = i > 0;
     return <LineageCard
       key={i}
-      cardWidth={this.props.cardWidth}
       title={det.title}
       type={this.props.type}
       addSpacer={isNotFirstEl}
@@ -82,15 +80,14 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
     />;
   }
   private drawColumnContent(): JSX.Element {
-    const {cards, cardWidth, edgeWidth, skipEdgeCanvas} = this.props;
+    const {cards, columnPadding, skipEdgeCanvas} = this.props;
 
     return <React.Fragment>
       {
         skipEdgeCanvas ? null :
           <EdgeCanvas
             cards={cards}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             reverseEdges={!!this.props.reverseBindings}
           />
       }

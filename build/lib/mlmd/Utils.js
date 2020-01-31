@@ -37,6 +37,11 @@ function getExecutionName(execution) {
         getResourceProperty(execution, Api_1.ExecutionCustomProperties.TASK_ID, true);
     return executionName ? executionName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
 }
+/**
+ * Promisified sleep operation
+ * @param t Time to sleep for in ms
+ */
+exports.sleep = function (t) { return new Promise(function (res) { return setTimeout(res, t); }); };
 function getResourceName(resource) {
     if (resource instanceof __1.Artifact) {
         return getArtifactName(resource);
