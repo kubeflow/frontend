@@ -92,7 +92,6 @@ var EdgeCanvas = /** @class */ (function (_super) {
         var cardOffset = LineageCss_1.CARD_SPACER_HEIGHT + LineageCard_1.CARD_TITLE_HEIGHT + cardContainerBorders;
         var _b = this.state, edgeGap = _b.edgeGap, parentWidth = _b.parentWidth;
         var viewWidth = Math.max(edgeGap, 0) + 2 * columnPadding;
-        console.log('Rendering with edgeGap', edgeGap);
         var css = typestyle_1.stylesheet({
             edgeCanvas: {
                 border: 0,
@@ -103,6 +102,7 @@ var EdgeCanvas = /** @class */ (function (_super) {
                 position: 'absolute',
                 width: viewWidth,
                 zIndex: -1,
+                transition: 'transform .25s',
                 $nest: {
                     svg: {
                         display: 'block',
@@ -155,7 +155,6 @@ var EdgeCanvas = /** @class */ (function (_super) {
                         _b.sent(); // So the browser has time to draw the elements (and have correct clientWidth values)
                         parentWidth = $parent.clientWidth;
                         edgeGap = parentWidth - $next.clientWidth;
-                        console.log('Scroll Width', parentWidth + " - " + $next.clientWidth, edgeGap, $this);
                         if (edgeGap === this.state.edgeGap)
                             return [2 /*return*/];
                         this.setState({ edgeGap: edgeGap, parentWidth: parentWidth });

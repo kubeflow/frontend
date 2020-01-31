@@ -34,6 +34,7 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         width: '20%',
         maxWidth: '20%',
         minWidth: 'max(20%, 170px)',
+        boxSizing: 'border-box',
         $nest: {
           h2: {
             color: grey[600],
