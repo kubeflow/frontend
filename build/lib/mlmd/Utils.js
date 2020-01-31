@@ -45,15 +45,19 @@ function getResourceName(resource) {
 }
 exports.getResourceName = getResourceName;
 function getResourceDescription(resource) {
-    var description;
+    var fields, fieldRepos;
     if (resource instanceof __1.Artifact) {
-        description = getResourceProperty(resource, Api_1.ArtifactProperties.PIPELINE_NAME)
-            || getResourceProperty(resource, Api_1.ArtifactCustomProperties.WORKSPACE, true);
+        fieldRepos = [Api_1.ArtifactProperties, Api_1.ArtifactCustomProperties];
+        fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'];
     }
     else {
-        description = getResourceProperty(resource, Api_1.ExecutionProperties.PIPELINE_NAME)
-            || getResourceProperty(resource, Api_1.ExecutionCustomProperties.WORKSPACE, true);
+        fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
+        fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'];
     }
+    var description = fields.reduce(function (value, key, i) {
+        var repo = fieldRepos[Number(key in fieldRepos[1])];
+        return value || getResourceProperty(resource, repo[key], !!i);
+    }, '');
     return String(description) || '';
 }
 exports.getResourceDescription = getResourceDescription;

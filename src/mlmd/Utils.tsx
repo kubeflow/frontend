@@ -55,14 +55,18 @@ export function getResourceName(resource: Artifact | Execution): string {
 }
 
 export function getResourceDescription(resource: Artifact | Execution): string {
-  let description;
+  let fields: string[], fieldRepos: Array<typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties>;
   if (resource instanceof Artifact) {
-    description = getResourceProperty(resource, ArtifactProperties.PIPELINE_NAME)
-      || getResourceProperty(resource, ArtifactCustomProperties.WORKSPACE, true);
+    fieldRepos = [ArtifactProperties, ArtifactCustomProperties]
+    fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
   } else {
-    description = getResourceProperty(resource, ExecutionProperties.PIPELINE_NAME)
-      || getResourceProperty(resource, ExecutionCustomProperties.WORKSPACE, true);
+    fieldRepos = [ExecutionProperties, ExecutionCustomProperties]
+    fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
   }
+  const description = fields.reduce((value: string, key: string, i: number) => {
+    const repo = fieldRepos[Number(key in fieldRepos[1])]
+    return value || getResourceProperty(resource, repo[key], !!i)
+  }, '')
   return String(description) || '';
 }
 

@@ -32,6 +32,7 @@ var ExecutionProperties;
 var ExecutionCustomProperties;
 (function (ExecutionCustomProperties) {
     ExecutionCustomProperties["WORKSPACE"] = "__kf_workspace__";
+    ExecutionCustomProperties["RUN"] = "__kf_run__";
     ExecutionCustomProperties["RUN_ID"] = "run_id";
     ExecutionCustomProperties["TASK_ID"] = "task_id";
 })(ExecutionCustomProperties = exports.ExecutionCustomProperties || (exports.ExecutionCustomProperties = {}));
