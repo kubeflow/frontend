@@ -137,7 +137,7 @@ var EdgeCanvas = /** @class */ (function (_super) {
             lastNodePositions[lastNode] += cardOffset;
         });
         var edgeCanvasClasses = typestyle_1.classes(css.edgeCanvas, reverseEdges && 'edgeCanvasReverse');
-        Utils_1.sleep(50).then(this.componentDidMount.bind(this));
+        Utils_1.sleep(1).then(this.componentDidMount.bind(this));
         return React.createElement("div", { className: edgeCanvasClasses }, edgeLines);
     };
     EdgeCanvas.prototype.componentDidMount = function () {
@@ -150,7 +150,7 @@ var EdgeCanvas = /** @class */ (function (_super) {
                         _a = [$this.nextSibling, $this.parentElement], $next = _a[0], $parent = _a[1];
                         if (!$this || !$next)
                             return [2 /*return*/];
-                        return [4 /*yield*/, Utils_1.sleep(50)]; // So the browser has time to draw the elements (and have correct clientWidth values)
+                        return [4 /*yield*/, Utils_1.sleep(1)]; // So the browser has time to draw the elements (and have correct clientWidth values)
                     case 1:
                         _b.sent(); // So the browser has time to draw the elements (and have correct clientWidth values)
                         parentWidth = $parent.clientWidth;

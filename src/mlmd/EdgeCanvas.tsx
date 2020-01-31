@@ -111,7 +111,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         });
 
         const edgeCanvasClasses = classes(css.edgeCanvas, reverseEdges && 'edgeCanvasReverse');
-        sleep(50).then(this.componentDidMount.bind(this))
+        sleep(1).then(this.componentDidMount.bind(this))
         return <div className={edgeCanvasClasses}>{edgeLines}</div>
     }
 
@@ -119,7 +119,7 @@ export class EdgeCanvas extends React.Component<EdgeCanvasProps, EdgeCanvasState
         const $this = findDOMNode(this) as HTMLElement
         const [$next, $parent] = [$this.nextSibling, $this.parentElement] as HTMLElement[]
         if (!$this || !$next) return
-        await sleep(50) // So the browser has time to draw the elements (and have correct clientWidth values)
+        await sleep(1) // So the browser has time to draw the elements (and have correct clientWidth values)
         const parentWidth = $parent.clientWidth
         const edgeGap = parentWidth - $next.clientWidth
         if (edgeGap === this.state.edgeGap) return
