@@ -44,16 +44,13 @@ const isInputEvent = (event: Event) =>
 const isOutputEvent = (event: Event) =>
   [Event.Type.OUTPUT.valueOf(), Event.Type.DECLARED_OUTPUT.valueOf()].includes(event.getType());
 
-/** Default size used when cardWidth prop is unset. */
-const DEFAULT_CARD_WIDTH = 210;
-
-/** Default size used when edgeWidth prop is unset. */
-const DEFAULT_EDGE_WIDTH = 80;
+/** Default size used when columnPadding prop is unset. */
+const DEFAULT_COLUMN_PADDING = 40;
 
 export interface LineageViewProps {
   target: Artifact;
   cardWidth?: number;
-  edgeWidth?: number;
+  columnPadding?: number;
   buildResourceDetailsPageRoute(resource: LineageResource, typeName: string): string
 }
 
@@ -100,8 +97,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     }
 
     const {columnNames} = this.state;
-    const cardWidth = this.props.cardWidth || DEFAULT_CARD_WIDTH;
-    const edgeWidth = this.props.edgeWidth || DEFAULT_EDGE_WIDTH;
+    const columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
     return (
       <div className={classes(commonCss.page)}>
         <LineageActionBar ref={this.actionBarRef} initialTarget={this.props.target} setLineageViewTarget={this.setTargetFromActionBar} />
@@ -110,29 +106,25 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             type='artifact'
             cards={this.buildArtifactCards(this.state.inputArtifacts)}
             title={`${columnNames[0]}`}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             setLineageViewTarget={this.setTargetFromLineageCard}
           />
           <LineageCardColumn
             type='execution'
             cards={this.buildExecutionCards(this.state.inputExecutions)}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             title={`${columnNames[1]}`}
           />
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards([this.state.target], /* isTarget= */ true)}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             title={`${columnNames[2]}`}
           />
           <LineageCardColumn
             type='execution'
             cards={this.buildExecutionCards(this.state.outputExecutions)}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             reverseBindings={true}
             title={`${columnNames[3]}`}
           />
@@ -140,8 +132,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             type='artifact'
             cards={this.buildArtifactCards(this.state.outputArtifacts)}
             reverseBindings={true}
-            cardWidth={cardWidth}
-            edgeWidth={edgeWidth}
+            columnPadding={columnPadding}
             title={`${columnNames[4]}`}
             setLineageViewTarget={this.setTargetFromLineageCard}
           />

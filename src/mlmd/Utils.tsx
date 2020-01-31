@@ -66,6 +66,12 @@ function getExecutionName(execution: Execution): string {
   ) || UNNAMED_RESOURCE_DISPLAY_NAME
 }
 
+/**
+ * Promisified sleep operation
+ * @param t Time to sleep for in ms
+ */
+export const sleep = (t: number): Promise<void> => new Promise(res => setTimeout(res, t))
+
 export function getResourceName(resource: Artifact | Execution): string {
   if (resource instanceof Artifact) {
     return getArtifactName(resource);
