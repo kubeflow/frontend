@@ -21,10 +21,14 @@ import {
   GetArtifactsResponse,
   GetChildrenContextsByContextRequest,
   GetChildrenContextsByContextResponse,
+  GetContextByTypeAndNameRequest,
+  GetContextByTypeAndNameResponse,
   GetContextTypeRequest,
   GetContextTypeResponse,
   GetContextTypesByIDRequest,
   GetContextTypesByIDResponse,
+  GetContextTypesRequest,
+  GetContextTypesResponse,
   GetContextsByArtifactRequest,
   GetContextsByArtifactResponse,
   GetContextsByExecutionRequest,
@@ -80,8 +84,8 @@ import {
 
 export class MetadataStoreServiceClient {
   constructor (hostname: string,
-               credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               credentials: null | { [index: string]: string; },
+               options: null | { [index: string]: string; });
 
   putArtifacts(
     request: PutArtifactsRequest,
@@ -216,6 +220,13 @@ export class MetadataStoreServiceClient {
                response: GetContextTypesByIDResponse) => void
   ): grpcWeb.ClientReadableStream<GetContextTypesByIDResponse>;
 
+  getContextTypes(
+    request: GetContextTypesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: GetContextTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<GetContextTypesResponse>;
+
   getArtifacts(
     request: GetArtifactsRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -278,6 +289,13 @@ export class MetadataStoreServiceClient {
     callback: (err: grpcWeb.Error,
                response: GetContextsByTypeResponse) => void
   ): grpcWeb.ClientReadableStream<GetContextsByTypeResponse>;
+
+  getContextByTypeAndName(
+    request: GetContextByTypeAndNameRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: GetContextByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<GetContextByTypeAndNameResponse>;
 
   getArtifactsByURI(
     request: GetArtifactsByURIRequest,
@@ -346,8 +364,8 @@ export class MetadataStoreServiceClient {
 
 export class MetadataStoreServicePromiseClient {
   constructor (hostname: string,
-               credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               credentials: null | { [index: string]: string; },
+               options: null | { [index: string]: string; });
 
   putArtifacts(
     request: PutArtifactsRequest,
@@ -444,6 +462,11 @@ export class MetadataStoreServicePromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<GetContextTypesByIDResponse>;
 
+  getContextTypes(
+    request: GetContextTypesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<GetContextTypesResponse>;
+
   getArtifacts(
     request: GetArtifactsRequest,
     metadata?: grpcWeb.Metadata
@@ -488,6 +511,11 @@ export class MetadataStoreServicePromiseClient {
     request: GetContextsByTypeRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<GetContextsByTypeResponse>;
+
+  getContextByTypeAndName(
+    request: GetContextByTypeAndNameRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<GetContextByTypeAndNameResponse>;
 
   getArtifactsByURI(
     request: GetArtifactsByURIRequest,
