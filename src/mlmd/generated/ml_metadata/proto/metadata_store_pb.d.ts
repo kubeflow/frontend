@@ -3,15 +3,12 @@ import * as jspb from "google-protobuf"
 export class Value extends jspb.Message {
   getIntValue(): number;
   setIntValue(value: number): void;
-  hasIntValue(): boolean;
 
   getDoubleValue(): number;
   setDoubleValue(value: number): void;
-  hasDoubleValue(): boolean;
 
   getStringValue(): string;
   setStringValue(value: string): void;
-  hasStringValue(): boolean;
 
   getValueCase(): Value.ValueCase;
 
@@ -54,9 +51,6 @@ export class Artifact extends jspb.Message {
   getCustomPropertiesMap(): jspb.Map<string, Value>;
   clearCustomPropertiesMap(): void;
 
-  getState(): Artifact.State;
-  setState(value: Artifact.State): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Artifact.AsObject;
   static toObject(includeInstance: boolean, msg: Artifact): Artifact.AsObject;
@@ -72,15 +66,6 @@ export namespace Artifact {
     uri: string,
     propertiesMap: Array<[string, Value.AsObject]>,
     customPropertiesMap: Array<[string, Value.AsObject]>,
-    state: Artifact.State,
-  }
-
-  export enum State { 
-    UNKNOWN = 0,
-    PENDING = 1,
-    LIVE = 2,
-    MARKED_FOR_DELETION = 3,
-    DELETED = 4,
   }
 }
 
@@ -167,11 +152,9 @@ export namespace Event {
     export class Step extends jspb.Message {
       getIndex(): number;
       setIndex(value: number): void;
-      hasIndex(): boolean;
 
       getKey(): string;
       setKey(value: string): void;
-      hasKey(): boolean;
 
       getValueCase(): Step.ValueCase;
 
@@ -205,8 +188,6 @@ export namespace Event {
     DECLARED_INPUT = 2,
     INPUT = 3,
     OUTPUT = 4,
-    INTERNAL_INPUT = 5,
-    INTERNAL_OUTPUT = 6,
   }
 }
 
@@ -250,7 +231,6 @@ export namespace Execution {
     COMPLETE = 3,
     FAILED = 4,
     CACHED = 5,
-    CANCELED = 6,
   }
 }
 
@@ -423,49 +403,41 @@ export class ArtifactStructType extends jspb.Message {
   setSimple(value?: ArtifactType): void;
   hasSimple(): boolean;
   clearSimple(): void;
-  hasSimple(): boolean;
 
   getUnionType(): UnionArtifactStructType | undefined;
   setUnionType(value?: UnionArtifactStructType): void;
   hasUnionType(): boolean;
   clearUnionType(): void;
-  hasUnionType(): boolean;
 
   getIntersection(): IntersectionArtifactStructType | undefined;
   setIntersection(value?: IntersectionArtifactStructType): void;
   hasIntersection(): boolean;
   clearIntersection(): void;
-  hasIntersection(): boolean;
 
   getList(): ListArtifactStructType | undefined;
   setList(value?: ListArtifactStructType): void;
   hasList(): boolean;
   clearList(): void;
-  hasList(): boolean;
 
   getNone(): NoneArtifactStructType | undefined;
   setNone(value?: NoneArtifactStructType): void;
   hasNone(): boolean;
   clearNone(): void;
-  hasNone(): boolean;
 
   getAny(): AnyArtifactStructType | undefined;
   setAny(value?: AnyArtifactStructType): void;
   hasAny(): boolean;
   clearAny(): void;
-  hasAny(): boolean;
 
   getTuple(): TupleArtifactStructType | undefined;
   setTuple(value?: TupleArtifactStructType): void;
   hasTuple(): boolean;
   clearTuple(): void;
-  hasTuple(): boolean;
 
   getDict(): DictArtifactStructType | undefined;
   setDict(value?: DictArtifactStructType): void;
   hasDict(): boolean;
   clearDict(): void;
-  hasDict(): boolean;
 
   getKindCase(): ArtifactStructType.KindCase;
 
@@ -668,14 +640,6 @@ export class MySQLDatabaseConfig extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): void;
 
-  getSocket(): string;
-  setSocket(value: string): void;
-
-  getSslOptions(): MySQLDatabaseConfig.SSLOptions | undefined;
-  setSslOptions(value?: MySQLDatabaseConfig.SSLOptions): void;
-  hasSslOptions(): boolean;
-  clearSslOptions(): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MySQLDatabaseConfig.AsObject;
   static toObject(includeInstance: boolean, msg: MySQLDatabaseConfig): MySQLDatabaseConfig.AsObject;
@@ -691,48 +655,7 @@ export namespace MySQLDatabaseConfig {
     database: string,
     user: string,
     password: string,
-    socket: string,
-    sslOptions?: MySQLDatabaseConfig.SSLOptions.AsObject,
   }
-
-  export class SSLOptions extends jspb.Message {
-    getKey(): string;
-    setKey(value: string): void;
-
-    getCert(): string;
-    setCert(value: string): void;
-
-    getCa(): string;
-    setCa(value: string): void;
-
-    getCapath(): string;
-    setCapath(value: string): void;
-
-    getCipher(): string;
-    setCipher(value: string): void;
-
-    getVerifyServerCert(): boolean;
-    setVerifyServerCert(value: boolean): void;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): SSLOptions.AsObject;
-    static toObject(includeInstance: boolean, msg: SSLOptions): SSLOptions.AsObject;
-    static serializeBinaryToWriter(message: SSLOptions, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): SSLOptions;
-    static deserializeBinaryFromReader(message: SSLOptions, reader: jspb.BinaryReader): SSLOptions;
-  }
-
-  export namespace SSLOptions {
-    export type AsObject = {
-      key: string,
-      cert: string,
-      ca: string,
-      capath: string,
-      cipher: string,
-      verifyServerCert: boolean,
-    }
-  }
-
 }
 
 export class SqliteMetadataSourceConfig extends jspb.Message {
@@ -764,46 +687,21 @@ export namespace SqliteMetadataSourceConfig {
   }
 }
 
-export class MigrationOptions extends jspb.Message {
-  getEnableUpgradeMigration(): boolean;
-  setEnableUpgradeMigration(value: boolean): void;
-
-  getDowngradeToSchemaVersion(): number;
-  setDowngradeToSchemaVersion(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MigrationOptions.AsObject;
-  static toObject(includeInstance: boolean, msg: MigrationOptions): MigrationOptions.AsObject;
-  static serializeBinaryToWriter(message: MigrationOptions, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MigrationOptions;
-  static deserializeBinaryFromReader(message: MigrationOptions, reader: jspb.BinaryReader): MigrationOptions;
-}
-
-export namespace MigrationOptions {
-  export type AsObject = {
-    enableUpgradeMigration: boolean,
-    downgradeToSchemaVersion: number,
-  }
-}
-
 export class ConnectionConfig extends jspb.Message {
   getFakeDatabase(): FakeDatabaseConfig | undefined;
   setFakeDatabase(value?: FakeDatabaseConfig): void;
   hasFakeDatabase(): boolean;
   clearFakeDatabase(): void;
-  hasFakeDatabase(): boolean;
 
   getMysql(): MySQLDatabaseConfig | undefined;
   setMysql(value?: MySQLDatabaseConfig): void;
   hasMysql(): boolean;
   clearMysql(): void;
-  hasMysql(): boolean;
 
   getSqlite(): SqliteMetadataSourceConfig | undefined;
   setSqlite(value?: SqliteMetadataSourceConfig): void;
   hasSqlite(): boolean;
   clearSqlite(): void;
-  hasSqlite(): boolean;
 
   getConfigCase(): ConnectionConfig.ConfigCase;
 
@@ -830,71 +728,11 @@ export namespace ConnectionConfig {
   }
 }
 
-export class MetadataStoreClientConfig extends jspb.Message {
-  getHost(): string;
-  setHost(value: string): void;
-
-  getPort(): number;
-  setPort(value: number): void;
-
-  getSslConfig(): MetadataStoreClientConfig.SSLConfig | undefined;
-  setSslConfig(value?: MetadataStoreClientConfig.SSLConfig): void;
-  hasSslConfig(): boolean;
-  clearSslConfig(): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MetadataStoreClientConfig.AsObject;
-  static toObject(includeInstance: boolean, msg: MetadataStoreClientConfig): MetadataStoreClientConfig.AsObject;
-  static serializeBinaryToWriter(message: MetadataStoreClientConfig, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MetadataStoreClientConfig;
-  static deserializeBinaryFromReader(message: MetadataStoreClientConfig, reader: jspb.BinaryReader): MetadataStoreClientConfig;
-}
-
-export namespace MetadataStoreClientConfig {
-  export type AsObject = {
-    host: string,
-    port: number,
-    sslConfig?: MetadataStoreClientConfig.SSLConfig.AsObject,
-  }
-
-  export class SSLConfig extends jspb.Message {
-    getClientKey(): string;
-    setClientKey(value: string): void;
-
-    getServerCert(): string;
-    setServerCert(value: string): void;
-
-    getCustomCa(): string;
-    setCustomCa(value: string): void;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): SSLConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: SSLConfig): SSLConfig.AsObject;
-    static serializeBinaryToWriter(message: SSLConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): SSLConfig;
-    static deserializeBinaryFromReader(message: SSLConfig, reader: jspb.BinaryReader): SSLConfig;
-  }
-
-  export namespace SSLConfig {
-    export type AsObject = {
-      clientKey: string,
-      serverCert: string,
-      customCa: string,
-    }
-  }
-
-}
-
 export class MetadataStoreServerConfig extends jspb.Message {
   getConnectionConfig(): ConnectionConfig | undefined;
   setConnectionConfig(value?: ConnectionConfig): void;
   hasConnectionConfig(): boolean;
   clearConnectionConfig(): void;
-
-  getMigrationOptions(): MigrationOptions | undefined;
-  setMigrationOptions(value?: MigrationOptions): void;
-  hasMigrationOptions(): boolean;
-  clearMigrationOptions(): void;
 
   getSslConfig(): MetadataStoreServerConfig.SSLConfig | undefined;
   setSslConfig(value?: MetadataStoreServerConfig.SSLConfig): void;
@@ -912,7 +750,6 @@ export class MetadataStoreServerConfig extends jspb.Message {
 export namespace MetadataStoreServerConfig {
   export type AsObject = {
     connectionConfig?: ConnectionConfig.AsObject,
-    migrationOptions?: MigrationOptions.AsObject,
     sslConfig?: MetadataStoreServerConfig.SSLConfig.AsObject,
   }
 
