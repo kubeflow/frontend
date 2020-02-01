@@ -39,10 +39,11 @@ export function getResourceProperty(resource: Artifact | Execution,
 export function getResourcePropertyViaFallBack(res: Artifact | Execution,
     fieldRepos: RepoType[],
     fields: string[]): string {
-    const prop = fields.reduce((value: string, key: string) =>
+    const prop = fields.reduce((value: string, field: string) =>
       value || fieldRepos.reduce((v: string, repo: RepoType, isCustomProp) =>
         v || (
-          key in repo && getResourceProperty(res, repo[key], !!isCustomProp)
+          // eslint-disable-next-line no-sequences
+          field in repo && getResourceProperty(res, repo[field], !!isCustomProp)
         ) as string
       , '')
     , '') || ''

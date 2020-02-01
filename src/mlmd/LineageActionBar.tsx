@@ -113,14 +113,13 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
 
     public render() {
         const breadcrumbs: JSX.Element[] = [
-            <span className={classes(actionBarCss.workspace)} key='workspace'>{(
-                console.log(this.state.history[0]),
+            <span className={classes(actionBarCss.workspace)} key='workspace'>{
                 getResourcePropertyViaFallBack(
                     this.state.history[0],
                     [ArtifactProperties, ArtifactCustomProperties],
                     ['PIPELINE_NAME', 'WORKSPACE'],
                 )
-            )}</span>,
+            }</span>,
             <aside className={actionBarCss.workspaceSep}></aside>,
         ];
         this.state.history.forEach((artifact: Artifact, index) => {

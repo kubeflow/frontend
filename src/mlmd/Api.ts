@@ -24,6 +24,7 @@ export enum ExecutionProperties {
   NAME = 'name', // currently not available in api, use component_id instead
   COMPONENT_ID = 'component_id',
   PIPELINE_NAME = 'pipeline_name',
+  RUN_ID = 'run_id',
   STATE = 'state',
 }
 

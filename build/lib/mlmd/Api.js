@@ -26,6 +26,7 @@ var ExecutionProperties;
     ExecutionProperties["NAME"] = "name";
     ExecutionProperties["COMPONENT_ID"] = "component_id";
     ExecutionProperties["PIPELINE_NAME"] = "pipeline_name";
+    ExecutionProperties["RUN_ID"] = "run_id";
     ExecutionProperties["STATE"] = "state";
 })(ExecutionProperties = exports.ExecutionProperties || (exports.ExecutionProperties = {}));
 /** Known Execution custom properties */
