@@ -1,5 +1,5 @@
 {
-  "name": "kubeflow-frontend",
+  "name": "@kubeflow/frontend",
   "version": "0.1.0",
   "description": "Shared libraries and components used by Kubeflow frontend projects.",
   "private": true,
