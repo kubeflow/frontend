@@ -39,6 +39,16 @@ proto.ml_metadata.MetadataStoreServiceClient =
    */
   this.hostname_ = hostname;
 
+  /**
+   * @private @const {?Object} The credentials to be used to connect
+   *    to the server
+   */
+  this.credentials_ = credentials;
+
+  /**
+   * @private @const {?Object} Options for the client
+   */
+  this.options_ = options;
 };
 
 
@@ -65,29 +75,17 @@ proto.ml_metadata.MetadataStoreServicePromiseClient =
    */
   this.hostname_ = hostname;
 
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutArtifactsRequest,
- *   !proto.ml_metadata.PutArtifactsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutArtifacts = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutArtifacts',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutArtifactsRequest,
-  proto.ml_metadata.PutArtifactsResponse,
   /**
-   * @param {!proto.ml_metadata.PutArtifactsRequest} request
-   * @return {!Uint8Array}
+   * @private @const {?Object} The credentials to be used to connect
+   *    to the server
    */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutArtifactsResponse.deserializeBinary
-);
+  this.credentials_ = credentials;
+
+  /**
+   * @private @const {?Object} Options for the client
+   */
+  this.options_ = options;
+};
 
 
 /**
@@ -98,10 +96,7 @@ const methodDescriptor_MetadataStoreService_PutArtifacts = new grpc.web.MethodDe
  */
 const methodInfo_MetadataStoreService_PutArtifacts = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutArtifactsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutArtifactsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutArtifactsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -125,7 +120,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifacts =
       '/ml_metadata.MetadataStoreService/PutArtifacts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutArtifacts,
+      methodInfo_MetadataStoreService_PutArtifacts,
       callback);
 };
 
@@ -144,30 +139,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifacts =
       '/ml_metadata.MetadataStoreService/PutArtifacts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutArtifacts);
+      methodInfo_MetadataStoreService_PutArtifacts);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutArtifactTypeRequest,
- *   !proto.ml_metadata.PutArtifactTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutArtifactType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutArtifactType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutArtifactTypeRequest,
-  proto.ml_metadata.PutArtifactTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutArtifactTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutArtifactTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -178,10 +151,7 @@ const methodDescriptor_MetadataStoreService_PutArtifactType = new grpc.web.Metho
  */
 const methodInfo_MetadataStoreService_PutArtifactType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutArtifactTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutArtifactTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutArtifactTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -205,7 +175,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifactType =
       '/ml_metadata.MetadataStoreService/PutArtifactType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutArtifactType,
+      methodInfo_MetadataStoreService_PutArtifactType,
       callback);
 };
 
@@ -224,30 +194,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifactType =
       '/ml_metadata.MetadataStoreService/PutArtifactType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutArtifactType);
+      methodInfo_MetadataStoreService_PutArtifactType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutExecutionsRequest,
- *   !proto.ml_metadata.PutExecutionsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutExecutions = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutExecutions',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutExecutionsRequest,
-  proto.ml_metadata.PutExecutionsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutExecutionsResponse.deserializeBinary
-);
 
 
 /**
@@ -258,10 +206,7 @@ const methodDescriptor_MetadataStoreService_PutExecutions = new grpc.web.MethodD
  */
 const methodInfo_MetadataStoreService_PutExecutions = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutExecutionsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutExecutionsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -285,7 +230,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutions =
       '/ml_metadata.MetadataStoreService/PutExecutions',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecutions,
+      methodInfo_MetadataStoreService_PutExecutions,
       callback);
 };
 
@@ -304,30 +249,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutions =
       '/ml_metadata.MetadataStoreService/PutExecutions',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecutions);
+      methodInfo_MetadataStoreService_PutExecutions);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutExecutionTypeRequest,
- *   !proto.ml_metadata.PutExecutionTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutExecutionType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutExecutionType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutExecutionTypeRequest,
-  proto.ml_metadata.PutExecutionTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutExecutionTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -338,10 +261,7 @@ const methodDescriptor_MetadataStoreService_PutExecutionType = new grpc.web.Meth
  */
 const methodInfo_MetadataStoreService_PutExecutionType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutExecutionTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutExecutionTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -365,7 +285,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutionType =
       '/ml_metadata.MetadataStoreService/PutExecutionType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecutionType,
+      methodInfo_MetadataStoreService_PutExecutionType,
       callback);
 };
 
@@ -384,30 +304,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutionType =
       '/ml_metadata.MetadataStoreService/PutExecutionType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecutionType);
+      methodInfo_MetadataStoreService_PutExecutionType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutEventsRequest,
- *   !proto.ml_metadata.PutEventsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutEvents = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutEvents',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutEventsRequest,
-  proto.ml_metadata.PutEventsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutEventsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutEventsResponse.deserializeBinary
-);
 
 
 /**
@@ -418,10 +316,7 @@ const methodDescriptor_MetadataStoreService_PutEvents = new grpc.web.MethodDescr
  */
 const methodInfo_MetadataStoreService_PutEvents = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutEventsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutEventsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutEventsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -445,7 +340,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putEvents =
       '/ml_metadata.MetadataStoreService/PutEvents',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutEvents,
+      methodInfo_MetadataStoreService_PutEvents,
       callback);
 };
 
@@ -464,30 +359,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putEvents =
       '/ml_metadata.MetadataStoreService/PutEvents',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutEvents);
+      methodInfo_MetadataStoreService_PutEvents);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutExecutionRequest,
- *   !proto.ml_metadata.PutExecutionResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutExecution = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutExecution',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutExecutionRequest,
-  proto.ml_metadata.PutExecutionResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutExecutionResponse.deserializeBinary
-);
 
 
 /**
@@ -498,10 +371,7 @@ const methodDescriptor_MetadataStoreService_PutExecution = new grpc.web.MethodDe
  */
 const methodInfo_MetadataStoreService_PutExecution = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutExecutionResponse,
-  /**
-   * @param {!proto.ml_metadata.PutExecutionRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutExecutionRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -525,7 +395,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecution =
       '/ml_metadata.MetadataStoreService/PutExecution',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecution,
+      methodInfo_MetadataStoreService_PutExecution,
       callback);
 };
 
@@ -544,30 +414,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecution =
       '/ml_metadata.MetadataStoreService/PutExecution',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutExecution);
+      methodInfo_MetadataStoreService_PutExecution);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutTypesRequest,
- *   !proto.ml_metadata.PutTypesResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutTypes = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutTypes',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutTypesRequest,
-  proto.ml_metadata.PutTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.PutTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutTypesResponse.deserializeBinary
-);
 
 
 /**
@@ -578,10 +426,7 @@ const methodDescriptor_MetadataStoreService_PutTypes = new grpc.web.MethodDescri
  */
 const methodInfo_MetadataStoreService_PutTypes = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.PutTypesRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutTypesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -605,7 +450,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putTypes =
       '/ml_metadata.MetadataStoreService/PutTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutTypes,
+      methodInfo_MetadataStoreService_PutTypes,
       callback);
 };
 
@@ -624,30 +469,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putTypes =
       '/ml_metadata.MetadataStoreService/PutTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutTypes);
+      methodInfo_MetadataStoreService_PutTypes);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutContextTypeRequest,
- *   !proto.ml_metadata.PutContextTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutContextType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutContextType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutContextTypeRequest,
-  proto.ml_metadata.PutContextTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutContextTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutContextTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -658,10 +481,7 @@ const methodDescriptor_MetadataStoreService_PutContextType = new grpc.web.Method
  */
 const methodInfo_MetadataStoreService_PutContextType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutContextTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.PutContextTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutContextTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -685,7 +505,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContextType =
       '/ml_metadata.MetadataStoreService/PutContextType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutContextType,
+      methodInfo_MetadataStoreService_PutContextType,
       callback);
 };
 
@@ -704,30 +524,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContextType =
       '/ml_metadata.MetadataStoreService/PutContextType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutContextType);
+      methodInfo_MetadataStoreService_PutContextType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutContextsRequest,
- *   !proto.ml_metadata.PutContextsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutContexts = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutContexts',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutContextsRequest,
-  proto.ml_metadata.PutContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutContextsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutContextsResponse.deserializeBinary
-);
 
 
 /**
@@ -738,10 +536,7 @@ const methodDescriptor_MetadataStoreService_PutContexts = new grpc.web.MethodDes
  */
 const methodInfo_MetadataStoreService_PutContexts = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutContextsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutContextsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -765,7 +560,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContexts =
       '/ml_metadata.MetadataStoreService/PutContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutContexts,
+      methodInfo_MetadataStoreService_PutContexts,
       callback);
 };
 
@@ -784,30 +579,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContexts =
       '/ml_metadata.MetadataStoreService/PutContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutContexts);
+      methodInfo_MetadataStoreService_PutContexts);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutAttributionsAndAssociationsRequest,
- *   !proto.ml_metadata.PutAttributionsAndAssociationsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutAttributionsAndAssociationsRequest,
-  proto.ml_metadata.PutAttributionsAndAssociationsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutAttributionsAndAssociationsResponse.deserializeBinary
-);
 
 
 /**
@@ -818,10 +591,7 @@ const methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations = new
  */
 const methodInfo_MetadataStoreService_PutAttributionsAndAssociations = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutAttributionsAndAssociationsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -845,7 +615,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putAttributionsAndAssocia
       '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations,
+      methodInfo_MetadataStoreService_PutAttributionsAndAssociations,
       callback);
 };
 
@@ -864,30 +634,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putAttributionsAnd
       '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations);
+      methodInfo_MetadataStoreService_PutAttributionsAndAssociations);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.PutParentContextsRequest,
- *   !proto.ml_metadata.PutParentContextsResponse>}
- */
-const methodDescriptor_MetadataStoreService_PutParentContexts = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/PutParentContexts',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.PutParentContextsRequest,
-  proto.ml_metadata.PutParentContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutParentContextsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.PutParentContextsResponse.deserializeBinary
-);
 
 
 /**
@@ -898,10 +646,7 @@ const methodDescriptor_MetadataStoreService_PutParentContexts = new grpc.web.Met
  */
 const methodInfo_MetadataStoreService_PutParentContexts = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.PutParentContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.PutParentContextsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.PutParentContextsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -925,7 +670,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putParentContexts =
       '/ml_metadata.MetadataStoreService/PutParentContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutParentContexts,
+      methodInfo_MetadataStoreService_PutParentContexts,
       callback);
 };
 
@@ -944,30 +689,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putParentContexts 
       '/ml_metadata.MetadataStoreService/PutParentContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_PutParentContexts);
+      methodInfo_MetadataStoreService_PutParentContexts);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactTypeRequest,
- *   !proto.ml_metadata.GetArtifactTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactTypeRequest,
-  proto.ml_metadata.GetArtifactTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -978,10 +701,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactType = new grpc.web.Metho
  */
 const methodInfo_MetadataStoreService_GetArtifactType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1005,7 +725,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactType =
       '/ml_metadata.MetadataStoreService/GetArtifactType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactType,
+      methodInfo_MetadataStoreService_GetArtifactType,
       callback);
 };
 
@@ -1024,30 +744,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactType =
       '/ml_metadata.MetadataStoreService/GetArtifactType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactType);
+      methodInfo_MetadataStoreService_GetArtifactType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactTypesByIDRequest,
- *   !proto.ml_metadata.GetArtifactTypesByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactTypesByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactTypesByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactTypesByIDRequest,
-  proto.ml_metadata.GetArtifactTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactTypesByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -1058,10 +756,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactTypesByID = new grpc.web.
  */
 const methodInfo_MetadataStoreService_GetArtifactTypesByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1085,7 +780,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypesByID =
       '/ml_metadata.MetadataStoreService/GetArtifactTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactTypesByID,
+      methodInfo_MetadataStoreService_GetArtifactTypesByID,
       callback);
 };
 
@@ -1104,30 +799,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypesBy
       '/ml_metadata.MetadataStoreService/GetArtifactTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactTypesByID);
+      methodInfo_MetadataStoreService_GetArtifactTypesByID);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactTypesRequest,
- *   !proto.ml_metadata.GetArtifactTypesResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactTypes = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactTypes',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactTypesRequest,
-  proto.ml_metadata.GetArtifactTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactTypesResponse.deserializeBinary
-);
 
 
 /**
@@ -1138,10 +811,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactTypes = new grpc.web.Meth
  */
 const methodInfo_MetadataStoreService_GetArtifactTypes = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactTypesRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactTypesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1165,7 +835,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypes =
       '/ml_metadata.MetadataStoreService/GetArtifactTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactTypes,
+      methodInfo_MetadataStoreService_GetArtifactTypes,
       callback);
 };
 
@@ -1184,30 +854,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypes =
       '/ml_metadata.MetadataStoreService/GetArtifactTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactTypes);
+      methodInfo_MetadataStoreService_GetArtifactTypes);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionTypeRequest,
- *   !proto.ml_metadata.GetExecutionTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionTypeRequest,
-  proto.ml_metadata.GetExecutionTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -1218,10 +866,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionType = new grpc.web.Meth
  */
 const methodInfo_MetadataStoreService_GetExecutionType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1245,7 +890,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionType =
       '/ml_metadata.MetadataStoreService/GetExecutionType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionType,
+      methodInfo_MetadataStoreService_GetExecutionType,
       callback);
 };
 
@@ -1264,30 +909,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionType =
       '/ml_metadata.MetadataStoreService/GetExecutionType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionType);
+      methodInfo_MetadataStoreService_GetExecutionType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionTypesByIDRequest,
- *   !proto.ml_metadata.GetExecutionTypesByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionTypesByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionTypesByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionTypesByIDRequest,
-  proto.ml_metadata.GetExecutionTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionTypesByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -1298,10 +921,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionTypesByID = new grpc.web
  */
 const methodInfo_MetadataStoreService_GetExecutionTypesByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1325,7 +945,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypesByID =
       '/ml_metadata.MetadataStoreService/GetExecutionTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionTypesByID,
+      methodInfo_MetadataStoreService_GetExecutionTypesByID,
       callback);
 };
 
@@ -1344,30 +964,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypesB
       '/ml_metadata.MetadataStoreService/GetExecutionTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionTypesByID);
+      methodInfo_MetadataStoreService_GetExecutionTypesByID);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionTypesRequest,
- *   !proto.ml_metadata.GetExecutionTypesResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionTypes = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionTypes',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionTypesRequest,
-  proto.ml_metadata.GetExecutionTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionTypesResponse.deserializeBinary
-);
 
 
 /**
@@ -1378,10 +976,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionTypes = new grpc.web.Met
  */
 const methodInfo_MetadataStoreService_GetExecutionTypes = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionTypesResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionTypesRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionTypesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1405,7 +1000,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypes =
       '/ml_metadata.MetadataStoreService/GetExecutionTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionTypes,
+      methodInfo_MetadataStoreService_GetExecutionTypes,
       callback);
 };
 
@@ -1424,30 +1019,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypes 
       '/ml_metadata.MetadataStoreService/GetExecutionTypes',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionTypes);
+      methodInfo_MetadataStoreService_GetExecutionTypes);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextTypeRequest,
- *   !proto.ml_metadata.GetContextTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextTypeRequest,
-  proto.ml_metadata.GetContextTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -1458,10 +1031,7 @@ const methodDescriptor_MetadataStoreService_GetContextType = new grpc.web.Method
  */
 const methodInfo_MetadataStoreService_GetContextType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1485,7 +1055,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextType =
       '/ml_metadata.MetadataStoreService/GetContextType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextType,
+      methodInfo_MetadataStoreService_GetContextType,
       callback);
 };
 
@@ -1504,30 +1074,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextType =
       '/ml_metadata.MetadataStoreService/GetContextType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextType);
+      methodInfo_MetadataStoreService_GetContextType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextTypesByIDRequest,
- *   !proto.ml_metadata.GetContextTypesByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextTypesByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextTypesByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextTypesByIDRequest,
-  proto.ml_metadata.GetContextTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextTypesByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -1538,10 +1086,7 @@ const methodDescriptor_MetadataStoreService_GetContextTypesByID = new grpc.web.M
  */
 const methodInfo_MetadataStoreService_GetContextTypesByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextTypesByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextTypesByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextTypesByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1565,7 +1110,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypesByID =
       '/ml_metadata.MetadataStoreService/GetContextTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextTypesByID,
+      methodInfo_MetadataStoreService_GetContextTypesByID,
       callback);
 };
 
@@ -1584,30 +1129,63 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypesByI
       '/ml_metadata.MetadataStoreService/GetContextTypesByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextTypesByID);
+      methodInfo_MetadataStoreService_GetContextTypesByID);
 };
 
 
 /**
  * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactsRequest,
- *   !proto.ml_metadata.GetArtifactsResponse>}
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.GetContextTypesRequest,
+ *   !proto.ml_metadata.GetContextTypesResponse>}
  */
-const methodDescriptor_MetadataStoreService_GetArtifacts = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifacts',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactsRequest,
-  proto.ml_metadata.GetArtifactsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsRequest} request
-   * @return {!Uint8Array}
-   */
+const methodInfo_MetadataStoreService_GetContextTypes = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ml_metadata.GetContextTypesResponse,
+  /** @param {!proto.ml_metadata.GetContextTypesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ml_metadata.GetArtifactsResponse.deserializeBinary
+  proto.ml_metadata.GetContextTypesResponse.deserializeBinary
 );
+
+
+/**
+ * @param {!proto.ml_metadata.GetContextTypesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.GetContextTypesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.GetContextTypesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypes =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ml_metadata.MetadataStoreService/GetContextTypes',
+      request,
+      metadata || {},
+      methodInfo_MetadataStoreService_GetContextTypes,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ml_metadata.GetContextTypesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.GetContextTypesResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypes =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ml_metadata.MetadataStoreService/GetContextTypes',
+      request,
+      metadata || {},
+      methodInfo_MetadataStoreService_GetContextTypes);
+};
 
 
 /**
@@ -1618,10 +1196,7 @@ const methodDescriptor_MetadataStoreService_GetArtifacts = new grpc.web.MethodDe
  */
 const methodInfo_MetadataStoreService_GetArtifacts = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1645,7 +1220,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifacts =
       '/ml_metadata.MetadataStoreService/GetArtifacts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifacts,
+      methodInfo_MetadataStoreService_GetArtifacts,
       callback);
 };
 
@@ -1664,30 +1239,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifacts =
       '/ml_metadata.MetadataStoreService/GetArtifacts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifacts);
+      methodInfo_MetadataStoreService_GetArtifacts);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionsRequest,
- *   !proto.ml_metadata.GetExecutionsResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutions = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutions',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionsRequest,
-  proto.ml_metadata.GetExecutionsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionsResponse.deserializeBinary
-);
 
 
 /**
@@ -1698,10 +1251,7 @@ const methodDescriptor_MetadataStoreService_GetExecutions = new grpc.web.MethodD
  */
 const methodInfo_MetadataStoreService_GetExecutions = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1725,7 +1275,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutions =
       '/ml_metadata.MetadataStoreService/GetExecutions',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutions,
+      methodInfo_MetadataStoreService_GetExecutions,
       callback);
 };
 
@@ -1744,30 +1294,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutions =
       '/ml_metadata.MetadataStoreService/GetExecutions',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutions);
+      methodInfo_MetadataStoreService_GetExecutions);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextsRequest,
- *   !proto.ml_metadata.GetContextsResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContexts = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContexts',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextsRequest,
-  proto.ml_metadata.GetContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextsResponse.deserializeBinary
-);
 
 
 /**
@@ -1778,10 +1306,7 @@ const methodDescriptor_MetadataStoreService_GetContexts = new grpc.web.MethodDes
  */
 const methodInfo_MetadataStoreService_GetContexts = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1805,7 +1330,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContexts =
       '/ml_metadata.MetadataStoreService/GetContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContexts,
+      methodInfo_MetadataStoreService_GetContexts,
       callback);
 };
 
@@ -1824,30 +1349,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContexts =
       '/ml_metadata.MetadataStoreService/GetContexts',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContexts);
+      methodInfo_MetadataStoreService_GetContexts);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactsByIDRequest,
- *   !proto.ml_metadata.GetArtifactsByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactsByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactsByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactsByIDRequest,
-  proto.ml_metadata.GetArtifactsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactsByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -1858,10 +1361,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactsByID = new grpc.web.Meth
  */
 const methodInfo_MetadataStoreService_GetArtifactsByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactsByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1885,7 +1385,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByID =
       '/ml_metadata.MetadataStoreService/GetArtifactsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByID,
+      methodInfo_MetadataStoreService_GetArtifactsByID,
       callback);
 };
 
@@ -1904,30 +1404,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByID =
       '/ml_metadata.MetadataStoreService/GetArtifactsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByID);
+      methodInfo_MetadataStoreService_GetArtifactsByID);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionsByIDRequest,
- *   !proto.ml_metadata.GetExecutionsByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionsByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionsByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionsByIDRequest,
-  proto.ml_metadata.GetExecutionsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionsByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -1938,10 +1416,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionsByID = new grpc.web.Met
  */
 const methodInfo_MetadataStoreService_GetExecutionsByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionsByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -1965,7 +1440,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByID =
       '/ml_metadata.MetadataStoreService/GetExecutionsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByID,
+      methodInfo_MetadataStoreService_GetExecutionsByID,
       callback);
 };
 
@@ -1984,30 +1459,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByID 
       '/ml_metadata.MetadataStoreService/GetExecutionsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByID);
+      methodInfo_MetadataStoreService_GetExecutionsByID);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextsByIDRequest,
- *   !proto.ml_metadata.GetContextsByIDResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextsByID = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextsByID',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextsByIDRequest,
-  proto.ml_metadata.GetContextsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByIDRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextsByIDResponse.deserializeBinary
-);
 
 
 /**
@@ -2018,10 +1471,7 @@ const methodDescriptor_MetadataStoreService_GetContextsByID = new grpc.web.Metho
  */
 const methodInfo_MetadataStoreService_GetContextsByID = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextsByIDResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByIDRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextsByIDRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2045,7 +1495,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByID =
       '/ml_metadata.MetadataStoreService/GetContextsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByID,
+      methodInfo_MetadataStoreService_GetContextsByID,
       callback);
 };
 
@@ -2064,30 +1514,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByID =
       '/ml_metadata.MetadataStoreService/GetContextsByID',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByID);
+      methodInfo_MetadataStoreService_GetContextsByID);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactsByTypeRequest,
- *   !proto.ml_metadata.GetArtifactsByTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactsByType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactsByType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactsByTypeRequest,
-  proto.ml_metadata.GetArtifactsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactsByTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -2098,10 +1526,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactsByType = new grpc.web.Me
  */
 const methodInfo_MetadataStoreService_GetArtifactsByType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2125,7 +1550,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByType =
       '/ml_metadata.MetadataStoreService/GetArtifactsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByType,
+      methodInfo_MetadataStoreService_GetArtifactsByType,
       callback);
 };
 
@@ -2144,30 +1569,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByType
       '/ml_metadata.MetadataStoreService/GetArtifactsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByType);
+      methodInfo_MetadataStoreService_GetArtifactsByType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionsByTypeRequest,
- *   !proto.ml_metadata.GetExecutionsByTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionsByType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionsByType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionsByTypeRequest,
-  proto.ml_metadata.GetExecutionsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionsByTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -2178,10 +1581,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionsByType = new grpc.web.M
  */
 const methodInfo_MetadataStoreService_GetExecutionsByType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2205,7 +1605,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByType =
       '/ml_metadata.MetadataStoreService/GetExecutionsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByType,
+      methodInfo_MetadataStoreService_GetExecutionsByType,
       callback);
 };
 
@@ -2224,30 +1624,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByTyp
       '/ml_metadata.MetadataStoreService/GetExecutionsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByType);
+      methodInfo_MetadataStoreService_GetExecutionsByType);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextsByTypeRequest,
- *   !proto.ml_metadata.GetContextsByTypeResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextsByType = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextsByType',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextsByTypeRequest,
-  proto.ml_metadata.GetContextsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextsByTypeResponse.deserializeBinary
-);
 
 
 /**
@@ -2258,10 +1636,7 @@ const methodDescriptor_MetadataStoreService_GetContextsByType = new grpc.web.Met
  */
 const methodInfo_MetadataStoreService_GetContextsByType = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextsByTypeResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByTypeRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextsByTypeRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2285,7 +1660,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByType =
       '/ml_metadata.MetadataStoreService/GetContextsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByType,
+      methodInfo_MetadataStoreService_GetContextsByType,
       callback);
 };
 
@@ -2304,30 +1679,63 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByType 
       '/ml_metadata.MetadataStoreService/GetContextsByType',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByType);
+      methodInfo_MetadataStoreService_GetContextsByType);
 };
 
 
 /**
  * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactsByURIRequest,
- *   !proto.ml_metadata.GetArtifactsByURIResponse>}
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.GetContextByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetContextByTypeAndNameResponse>}
  */
-const methodDescriptor_MetadataStoreService_GetArtifactsByURI = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactsByURI',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactsByURIRequest,
-  proto.ml_metadata.GetArtifactsByURIResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByURIRequest} request
-   * @return {!Uint8Array}
-   */
+const methodInfo_MetadataStoreService_GetContextByTypeAndName = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ml_metadata.GetContextByTypeAndNameResponse,
+  /** @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ml_metadata.GetArtifactsByURIResponse.deserializeBinary
+  proto.ml_metadata.GetContextByTypeAndNameResponse.deserializeBinary
 );
+
+
+/**
+ * @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.GetContextByTypeAndNameResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.GetContextByTypeAndNameResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextByTypeAndName =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ml_metadata.MetadataStoreService/GetContextByTypeAndName',
+      request,
+      metadata || {},
+      methodInfo_MetadataStoreService_GetContextByTypeAndName,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.GetContextByTypeAndNameResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextByTypeAndName =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ml_metadata.MetadataStoreService/GetContextByTypeAndName',
+      request,
+      metadata || {},
+      methodInfo_MetadataStoreService_GetContextByTypeAndName);
+};
 
 
 /**
@@ -2338,10 +1746,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactsByURI = new grpc.web.Met
  */
 const methodInfo_MetadataStoreService_GetArtifactsByURI = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactsByURIResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByURIRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactsByURIRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2365,7 +1770,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByURI =
       '/ml_metadata.MetadataStoreService/GetArtifactsByURI',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByURI,
+      methodInfo_MetadataStoreService_GetArtifactsByURI,
       callback);
 };
 
@@ -2384,30 +1789,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByURI 
       '/ml_metadata.MetadataStoreService/GetArtifactsByURI',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByURI);
+      methodInfo_MetadataStoreService_GetArtifactsByURI);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetEventsByExecutionIDsRequest,
- *   !proto.ml_metadata.GetEventsByExecutionIDsResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetEventsByExecutionIDsRequest,
-  proto.ml_metadata.GetEventsByExecutionIDsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetEventsByExecutionIDsResponse.deserializeBinary
-);
 
 
 /**
@@ -2418,10 +1801,7 @@ const methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs = new grpc.w
  */
 const methodInfo_MetadataStoreService_GetEventsByExecutionIDs = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetEventsByExecutionIDsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2445,7 +1825,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByExecutionIDs =
       '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs,
+      methodInfo_MetadataStoreService_GetEventsByExecutionIDs,
       callback);
 };
 
@@ -2464,30 +1844,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByExecuti
       '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs);
+      methodInfo_MetadataStoreService_GetEventsByExecutionIDs);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetEventsByArtifactIDsRequest,
- *   !proto.ml_metadata.GetEventsByArtifactIDsResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetEventsByArtifactIDsRequest,
-  proto.ml_metadata.GetEventsByArtifactIDsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetEventsByArtifactIDsResponse.deserializeBinary
-);
 
 
 /**
@@ -2498,10 +1856,7 @@ const methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs = new grpc.we
  */
 const methodInfo_MetadataStoreService_GetEventsByArtifactIDs = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetEventsByArtifactIDsResponse,
-  /**
-   * @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2525,7 +1880,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByArtifactIDs =
       '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs,
+      methodInfo_MetadataStoreService_GetEventsByArtifactIDs,
       callback);
 };
 
@@ -2544,30 +1899,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByArtifac
       '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs);
+      methodInfo_MetadataStoreService_GetEventsByArtifactIDs);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextsByArtifactRequest,
- *   !proto.ml_metadata.GetContextsByArtifactResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextsByArtifact = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextsByArtifact',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextsByArtifactRequest,
-  proto.ml_metadata.GetContextsByArtifactResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByArtifactRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextsByArtifactResponse.deserializeBinary
-);
 
 
 /**
@@ -2578,10 +1911,7 @@ const methodDescriptor_MetadataStoreService_GetContextsByArtifact = new grpc.web
  */
 const methodInfo_MetadataStoreService_GetContextsByArtifact = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextsByArtifactResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByArtifactRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextsByArtifactRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2605,7 +1935,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByArtifact =
       '/ml_metadata.MetadataStoreService/GetContextsByArtifact',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByArtifact,
+      methodInfo_MetadataStoreService_GetContextsByArtifact,
       callback);
 };
 
@@ -2624,30 +1954,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByArtif
       '/ml_metadata.MetadataStoreService/GetContextsByArtifact',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByArtifact);
+      methodInfo_MetadataStoreService_GetContextsByArtifact);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetContextsByExecutionRequest,
- *   !proto.ml_metadata.GetContextsByExecutionResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetContextsByExecution = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetContextsByExecution',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetContextsByExecutionRequest,
-  proto.ml_metadata.GetContextsByExecutionResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByExecutionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetContextsByExecutionResponse.deserializeBinary
-);
 
 
 /**
@@ -2658,10 +1966,7 @@ const methodDescriptor_MetadataStoreService_GetContextsByExecution = new grpc.we
  */
 const methodInfo_MetadataStoreService_GetContextsByExecution = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetContextsByExecutionResponse,
-  /**
-   * @param {!proto.ml_metadata.GetContextsByExecutionRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetContextsByExecutionRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2685,7 +1990,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByExecution =
       '/ml_metadata.MetadataStoreService/GetContextsByExecution',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByExecution,
+      methodInfo_MetadataStoreService_GetContextsByExecution,
       callback);
 };
 
@@ -2704,30 +2009,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByExecu
       '/ml_metadata.MetadataStoreService/GetContextsByExecution',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetContextsByExecution);
+      methodInfo_MetadataStoreService_GetContextsByExecution);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetParentContextsByContextRequest,
- *   !proto.ml_metadata.GetParentContextsByContextResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetParentContextsByContext = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetParentContextsByContext',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetParentContextsByContextRequest,
-  proto.ml_metadata.GetParentContextsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetParentContextsByContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetParentContextsByContextResponse.deserializeBinary
-);
 
 
 /**
@@ -2738,10 +2021,7 @@ const methodDescriptor_MetadataStoreService_GetParentContextsByContext = new grp
  */
 const methodInfo_MetadataStoreService_GetParentContextsByContext = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetParentContextsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetParentContextsByContextRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetParentContextsByContextRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2765,7 +2045,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getParentContextsByContex
       '/ml_metadata.MetadataStoreService/GetParentContextsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetParentContextsByContext,
+      methodInfo_MetadataStoreService_GetParentContextsByContext,
       callback);
 };
 
@@ -2784,30 +2064,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getParentContextsB
       '/ml_metadata.MetadataStoreService/GetParentContextsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetParentContextsByContext);
+      methodInfo_MetadataStoreService_GetParentContextsByContext);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetChildrenContextsByContextRequest,
- *   !proto.ml_metadata.GetChildrenContextsByContextResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetChildrenContextsByContext = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetChildrenContextsByContextRequest,
-  proto.ml_metadata.GetChildrenContextsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetChildrenContextsByContextResponse.deserializeBinary
-);
 
 
 /**
@@ -2818,10 +2076,7 @@ const methodDescriptor_MetadataStoreService_GetChildrenContextsByContext = new g
  */
 const methodInfo_MetadataStoreService_GetChildrenContextsByContext = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetChildrenContextsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2845,7 +2100,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getChildrenContextsByCont
       '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetChildrenContextsByContext,
+      methodInfo_MetadataStoreService_GetChildrenContextsByContext,
       callback);
 };
 
@@ -2864,30 +2119,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getChildrenContext
       '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetChildrenContextsByContext);
+      methodInfo_MetadataStoreService_GetChildrenContextsByContext);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetArtifactsByContextRequest,
- *   !proto.ml_metadata.GetArtifactsByContextResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetArtifactsByContext = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetArtifactsByContext',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetArtifactsByContextRequest,
-  proto.ml_metadata.GetArtifactsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetArtifactsByContextResponse.deserializeBinary
-);
 
 
 /**
@@ -2898,10 +2131,7 @@ const methodDescriptor_MetadataStoreService_GetArtifactsByContext = new grpc.web
  */
 const methodInfo_MetadataStoreService_GetArtifactsByContext = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetArtifactsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetArtifactsByContextRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetArtifactsByContextRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -2925,7 +2155,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByContext =
       '/ml_metadata.MetadataStoreService/GetArtifactsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByContext,
+      methodInfo_MetadataStoreService_GetArtifactsByContext,
       callback);
 };
 
@@ -2944,30 +2174,8 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByCont
       '/ml_metadata.MetadataStoreService/GetArtifactsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetArtifactsByContext);
+      methodInfo_MetadataStoreService_GetArtifactsByContext);
 };
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ml_metadata.GetExecutionsByContextRequest,
- *   !proto.ml_metadata.GetExecutionsByContextResponse>}
- */
-const methodDescriptor_MetadataStoreService_GetExecutionsByContext = new grpc.web.MethodDescriptor(
-  '/ml_metadata.MetadataStoreService/GetExecutionsByContext',
-  grpc.web.MethodType.UNARY,
-  proto.ml_metadata.GetExecutionsByContextRequest,
-  proto.ml_metadata.GetExecutionsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ml_metadata.GetExecutionsByContextResponse.deserializeBinary
-);
 
 
 /**
@@ -2978,10 +2186,7 @@ const methodDescriptor_MetadataStoreService_GetExecutionsByContext = new grpc.we
  */
 const methodInfo_MetadataStoreService_GetExecutionsByContext = new grpc.web.AbstractClientBase.MethodInfo(
   proto.ml_metadata.GetExecutionsByContextResponse,
-  /**
-   * @param {!proto.ml_metadata.GetExecutionsByContextRequest} request
-   * @return {!Uint8Array}
-   */
+  /** @param {!proto.ml_metadata.GetExecutionsByContextRequest} request */
   function(request) {
     return request.serializeBinary();
   },
@@ -3005,7 +2210,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByContext =
       '/ml_metadata.MetadataStoreService/GetExecutionsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByContext,
+      methodInfo_MetadataStoreService_GetExecutionsByContext,
       callback);
 };
 
@@ -3024,7 +2229,7 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByCon
       '/ml_metadata.MetadataStoreService/GetExecutionsByContext',
       request,
       metadata || {},
-      methodDescriptor_MetadataStoreService_GetExecutionsByContext);
+      methodInfo_MetadataStoreService_GetExecutionsByContext);
 };
 
 

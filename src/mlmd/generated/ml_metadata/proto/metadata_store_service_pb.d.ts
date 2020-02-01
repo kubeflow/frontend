@@ -71,16 +71,19 @@ export class ArtifactStruct extends jspb.Message {
   setArtifact(value?: ArtifactAndType): void;
   hasArtifact(): boolean;
   clearArtifact(): void;
+  hasArtifact(): boolean;
 
   getMap(): ArtifactStructMap | undefined;
   setMap(value?: ArtifactStructMap): void;
   hasMap(): boolean;
   clearMap(): void;
+  hasMap(): boolean;
 
   getList(): ArtifactStructList | undefined;
   setList(value?: ArtifactStructList): void;
   hasList(): boolean;
   clearList(): void;
+  hasList(): boolean;
 
   getValueCase(): ArtifactStruct.ValueCase;
 
@@ -332,6 +335,11 @@ export class PutExecutionRequest extends jspb.Message {
   clearArtifactEventPairsList(): void;
   addArtifactEventPairs(value?: PutExecutionRequest.ArtifactAndEvent, index?: number): PutExecutionRequest.ArtifactAndEvent;
 
+  getContextsList(): Array<ml_metadata_proto_metadata_store_pb.Context>;
+  setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): void;
+  clearContextsList(): void;
+  addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutExecutionRequest.AsObject;
   static toObject(includeInstance: boolean, msg: PutExecutionRequest): PutExecutionRequest.AsObject;
@@ -344,6 +352,7 @@ export namespace PutExecutionRequest {
   export type AsObject = {
     execution?: ml_metadata_proto_metadata_store_pb.Execution.AsObject,
     artifactEventPairsList: Array<PutExecutionRequest.ArtifactAndEvent.AsObject>,
+    contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
   }
 
   export class ArtifactAndEvent extends jspb.Message {
@@ -383,6 +392,11 @@ export class PutExecutionResponse extends jspb.Message {
   clearArtifactIdsList(): void;
   addArtifactIds(value: number, index?: number): void;
 
+  getContextIdsList(): Array<number>;
+  setContextIdsList(value: Array<number>): void;
+  clearContextIdsList(): void;
+  addContextIds(value: number, index?: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutExecutionResponse.AsObject;
   static toObject(includeInstance: boolean, msg: PutExecutionResponse): PutExecutionResponse.AsObject;
@@ -395,6 +409,7 @@ export namespace PutExecutionResponse {
   export type AsObject = {
     executionId: number,
     artifactIdsList: Array<number>,
+    contextIdsList: Array<number>,
   }
 }
 
@@ -409,6 +424,20 @@ export class PutTypesRequest extends jspb.Message {
   clearExecutionTypesList(): void;
   addExecutionTypes(value?: ml_metadata_proto_metadata_store_pb.ExecutionType, index?: number): ml_metadata_proto_metadata_store_pb.ExecutionType;
 
+  getContextTypesList(): Array<ml_metadata_proto_metadata_store_pb.ContextType>;
+  setContextTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ContextType>): void;
+  clearContextTypesList(): void;
+  addContextTypes(value?: ml_metadata_proto_metadata_store_pb.ContextType, index?: number): ml_metadata_proto_metadata_store_pb.ContextType;
+
+  getCanAddFields(): boolean;
+  setCanAddFields(value: boolean): void;
+
+  getCanDeleteFields(): boolean;
+  setCanDeleteFields(value: boolean): void;
+
+  getAllFieldsMatch(): boolean;
+  setAllFieldsMatch(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutTypesRequest.AsObject;
   static toObject(includeInstance: boolean, msg: PutTypesRequest): PutTypesRequest.AsObject;
@@ -421,6 +450,10 @@ export namespace PutTypesRequest {
   export type AsObject = {
     artifactTypesList: Array<ml_metadata_proto_metadata_store_pb.ArtifactType.AsObject>,
     executionTypesList: Array<ml_metadata_proto_metadata_store_pb.ExecutionType.AsObject>,
+    contextTypesList: Array<ml_metadata_proto_metadata_store_pb.ContextType.AsObject>,
+    canAddFields: boolean,
+    canDeleteFields: boolean,
+    allFieldsMatch: boolean,
   }
 }
 
@@ -435,6 +468,11 @@ export class PutTypesResponse extends jspb.Message {
   clearExecutionTypeIdsList(): void;
   addExecutionTypeIds(value: number, index?: number): void;
 
+  getContextTypeIdsList(): Array<number>;
+  setContextTypeIdsList(value: Array<number>): void;
+  clearContextTypeIdsList(): void;
+  addContextTypeIds(value: number, index?: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PutTypesResponse.AsObject;
   static toObject(includeInstance: boolean, msg: PutTypesResponse): PutTypesResponse.AsObject;
@@ -447,6 +485,7 @@ export namespace PutTypesResponse {
   export type AsObject = {
     artifactTypeIdsList: Array<number>,
     executionTypeIdsList: Array<number>,
+    contextTypeIdsList: Array<number>,
   }
 }
 
@@ -904,6 +943,40 @@ export namespace GetExecutionTypesResponse {
   }
 }
 
+export class GetContextTypesRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetContextTypesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetContextTypesRequest): GetContextTypesRequest.AsObject;
+  static serializeBinaryToWriter(message: GetContextTypesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetContextTypesRequest;
+  static deserializeBinaryFromReader(message: GetContextTypesRequest, reader: jspb.BinaryReader): GetContextTypesRequest;
+}
+
+export namespace GetContextTypesRequest {
+  export type AsObject = {
+  }
+}
+
+export class GetContextTypesResponse extends jspb.Message {
+  getContextTypesList(): Array<ml_metadata_proto_metadata_store_pb.ContextType>;
+  setContextTypesList(value: Array<ml_metadata_proto_metadata_store_pb.ContextType>): void;
+  clearContextTypesList(): void;
+  addContextTypes(value?: ml_metadata_proto_metadata_store_pb.ContextType, index?: number): ml_metadata_proto_metadata_store_pb.ContextType;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetContextTypesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetContextTypesResponse): GetContextTypesResponse.AsObject;
+  static serializeBinaryToWriter(message: GetContextTypesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetContextTypesResponse;
+  static deserializeBinaryFromReader(message: GetContextTypesResponse, reader: jspb.BinaryReader): GetContextTypesResponse;
+}
+
+export namespace GetContextTypesResponse {
+  export type AsObject = {
+    contextTypesList: Array<ml_metadata_proto_metadata_store_pb.ContextType.AsObject>,
+  }
+}
+
 export class GetExecutionsByTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): void;
@@ -1327,6 +1400,48 @@ export class GetContextsByTypeResponse extends jspb.Message {
 export namespace GetContextsByTypeResponse {
   export type AsObject = {
     contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
+  }
+}
+
+export class GetContextByTypeAndNameRequest extends jspb.Message {
+  getTypeName(): string;
+  setTypeName(value: string): void;
+
+  getContextName(): string;
+  setContextName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetContextByTypeAndNameRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetContextByTypeAndNameRequest): GetContextByTypeAndNameRequest.AsObject;
+  static serializeBinaryToWriter(message: GetContextByTypeAndNameRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetContextByTypeAndNameRequest;
+  static deserializeBinaryFromReader(message: GetContextByTypeAndNameRequest, reader: jspb.BinaryReader): GetContextByTypeAndNameRequest;
+}
+
+export namespace GetContextByTypeAndNameRequest {
+  export type AsObject = {
+    typeName: string,
+    contextName: string,
+  }
+}
+
+export class GetContextByTypeAndNameResponse extends jspb.Message {
+  getContext(): ml_metadata_proto_metadata_store_pb.Context | undefined;
+  setContext(value?: ml_metadata_proto_metadata_store_pb.Context): void;
+  hasContext(): boolean;
+  clearContext(): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetContextByTypeAndNameResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetContextByTypeAndNameResponse): GetContextByTypeAndNameResponse.AsObject;
+  static serializeBinaryToWriter(message: GetContextByTypeAndNameResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetContextByTypeAndNameResponse;
+  static deserializeBinaryFromReader(message: GetContextByTypeAndNameResponse, reader: jspb.BinaryReader): GetContextByTypeAndNameResponse;
+}
+
+export namespace GetContextByTypeAndNameResponse {
+  export type AsObject = {
+    context?: ml_metadata_proto_metadata_store_pb.Context.AsObject,
   }
 }
 
