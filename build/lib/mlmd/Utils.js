@@ -29,9 +29,9 @@ function getResourceProperty(resource, propertyName, fromCustomProperties) {
 exports.getResourceProperty = getResourceProperty;
 function getResourcePropertyViaFallBack(res, fieldRepos, fields) {
     var prop = fields.reduce(function (value, key) {
-        var isCustomProp = key in fieldRepos[1];
-        var repo = fieldRepos[Number(isCustomProp)];
-        return value || getResourceProperty(res, repo[key], isCustomProp);
+        return value || fieldRepos.reduce(function (v, repo, isCustomProp) {
+            return v || (key in repo && getResourceProperty(res, repo[key], !!isCustomProp));
+        }, '');
     }, '') || '';
     return prop;
 }
