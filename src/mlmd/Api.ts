@@ -50,7 +50,7 @@ export interface ListRequest {
 export class Api {
 
   private static instance: Api;
-  private metadataServicePromiseClient = new MetadataStoreServicePromiseClient('');
+  private metadataServicePromiseClient = new MetadataStoreServicePromiseClient('', null, null);
 
   /**
    * Factory function to return an Api instance.
