@@ -11,6 +11,7 @@ export {
   Artifact,
   ArtifactType,
   Context,
+  ContextType,
   Event,
   Execution,
   ExecutionType,
