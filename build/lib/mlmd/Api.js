@@ -42,7 +42,7 @@ var ExecutionCustomProperties;
  */
 var Api = /** @class */ (function () {
     function Api() {
-        this.metadataServicePromiseClient = new __1.MetadataStoreServicePromiseClient('');
+        this.metadataServicePromiseClient = new __1.MetadataStoreServicePromiseClient('', null, null);
     }
     /**
      * Factory function to return an Api instance.
