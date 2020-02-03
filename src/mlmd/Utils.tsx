@@ -24,7 +24,7 @@ import {ArtifactTypeMap} from "./LineageApi";
 import {Artifact, Execution, Value} from '..';
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
-type RepoTypes = typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties
+type RepoType = typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties
 
 export function getResourceProperty(resource: Artifact | Execution,
     propertyName: string, fromCustomProperties = false): string | number | null {
@@ -37,13 +37,16 @@ export function getResourceProperty(resource: Artifact | Execution,
 }
 
 export function getResourcePropertyViaFallBack(res: Artifact | Execution,
-    fieldRepos: RepoTypes[],
+    fieldRepos: RepoType[],
     fields: string[]): string {
-    const prop = fields.reduce((value: string, key: string) => {
-      const isCustomProp = key in fieldRepos[1];
-      const repo = fieldRepos[Number(isCustomProp)];
-      return value || getResourceProperty(res, repo[key], isCustomProp)
-    }, '') || ''
+    const prop = fields.reduce((value: string, field: string) =>
+      value || fieldRepos.reduce((v: string, repo: RepoType, isCustomProp) =>
+        v || (
+          // eslint-disable-next-line no-sequences
+          field in repo && getResourceProperty(res, repo[field], !!isCustomProp)
+        ) as string
+      , '')
+    , '') || ''
     return prop as string;
 }
 
@@ -71,7 +74,7 @@ export function getResourceName(resource: Artifact | Execution): string {
 }
 
 export function getResourceDescription(resource: Artifact | Execution): string {
-  let fields: string[], fieldRepos: RepoTypes[];
+  let fields: string[], fieldRepos: RepoType[];
   if (resource instanceof Artifact) {
     fieldRepos = [ArtifactProperties, ArtifactCustomProperties]
     fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']

@@ -28,10 +28,12 @@ function getResourceProperty(resource, propertyName, fromCustomProperties) {
 }
 exports.getResourceProperty = getResourceProperty;
 function getResourcePropertyViaFallBack(res, fieldRepos, fields) {
-    var prop = fields.reduce(function (value, key) {
-        var isCustomProp = key in fieldRepos[1];
-        var repo = fieldRepos[Number(isCustomProp)];
-        return value || getResourceProperty(res, repo[key], isCustomProp);
+    var prop = fields.reduce(function (value, field) {
+        return value || fieldRepos.reduce(function (v, repo, isCustomProp) {
+            return v || (
+            // eslint-disable-next-line no-sequences
+            field in repo && getResourceProperty(res, repo[field], !!isCustomProp));
+        }, '');
     }, '') || '';
     return prop;
 }
