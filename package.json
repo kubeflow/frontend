@@ -7,18 +7,12 @@
   "dependencies": {
     "@material-ui/core": "^3.7.1",
     "@material-ui/icons": "^3.0.1",
-    "@types/lodash.groupby": "^4.6.6",
     "google-protobuf": "^3.11.2",
     "grpc-web": "^1.0.7",
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
     "lodash.isfunction": "^3.0.9",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.3.0",
-    "react-svg-line-chart": "^2.0.2",
-    "typestyle": "^2.0.4"
+    "react-svg-line-chart": "^2.0.2"
   },
   "scripts": {
     "build": "npx tsc --project tsconfig.lib.json",
@@ -69,6 +63,7 @@
     "@types/express": "^4.16.0",
     "@types/google-protobuf": "^3.7.2",
     "@types/jest": "^24.0.25",
+    "@types/lodash.groupby": "^4.6.6",
     "@types/node": "^12.0.2",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
@@ -77,9 +72,18 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
-    "typescript": "^3.7.4"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.3.1",
+    "typescript": "^3.7.4",
+    "typestyle": "^2.0.4"
   },
   "peerDependencies": {
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "react-router-dom": "^4.3.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typestyle": "^2.0.4"
   }
 }
