@@ -32,18 +32,16 @@ var LineageCardRow = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.rowContainerRef = React.createRef();
         _this.handleMouseEnter = function (e) {
-            if (!e || !e.target) {
+            if (!e || !e.target)
                 return;
-            }
             var element = e.target;
             if (element.className.match(/\browTitle\b/)) {
                 _this.showRadioHint(false);
             }
         };
         _this.handleMouseLeave = function (e) {
-            if (!e || !e.target) {
+            if (!e || !e.target)
                 return;
-            }
             var element = e.target;
             if (element.className.match(/\browTitle\b/)) {
                 _this.showRadioHint(true);

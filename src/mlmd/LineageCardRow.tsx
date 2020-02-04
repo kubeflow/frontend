@@ -236,9 +236,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!e || !e.target) {
-      return
-    }
+    if (!e || !e.target) return;
 
     const element = e.target as HTMLAnchorElement;
     if (element.className.match(/\browTitle\b/)) {
@@ -247,9 +245,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   };
 
   private handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!e || !e.target) {
-      return
-    }
+    if (!e || !e.target) return;
 
     const element = e.target as HTMLAnchorElement;
     if (element.className.match(/\browTitle\b/)) {
