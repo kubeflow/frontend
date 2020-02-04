@@ -48,6 +48,11 @@ function getExecutionName(execution) {
     var fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
     return getResourcePropertyViaFallBack(execution, fieldRepos, fields) || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
+/**
+ * Promisified sleep operation
+ * @param t Time to sleep for in ms
+ */
+exports.sleep = function (t) { return new Promise(function (res) { return setTimeout(res, t); }); };
 function getResourceName(resource) {
     if (resource instanceof __1.Artifact) {
         return getArtifactName(resource);

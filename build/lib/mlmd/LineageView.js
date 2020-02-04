@@ -91,10 +91,8 @@ var isInputEvent = function (event) {
 var isOutputEvent = function (event) {
     return [__1.Event.Type.OUTPUT.valueOf(), __1.Event.Type.DECLARED_OUTPUT.valueOf()].includes(event.getType());
 };
-/** Default size used when cardWidth prop is unset. */
-var DEFAULT_CARD_WIDTH = 210;
-/** Default size used when edgeWidth prop is unset. */
-var DEFAULT_EDGE_WIDTH = 80;
+/** Default size used when columnPadding prop is unset. */
+var DEFAULT_COLUMN_PADDING = 40;
 var LineageView = /** @class */ (function (_super) {
     __extends(LineageView, _super);
     function LineageView(props) {
@@ -117,20 +115,28 @@ var LineageView = /** @class */ (function (_super) {
         return _this;
     }
     LineageView.prototype.render = function () {
-        if (!this.artifactTypes) {
+        if (!this.artifactTypes)
             return null;
-        }
+        var css = typestyle_1.stylesheet({
+            LineageExplorer: {
+                $nest: {
+                    '&&': { flexFlow: 'row' }
+                },
+                position: 'relative',
+                background: '#f3f2f4',
+                zIndex: 0,
+            },
+        });
         var columnNames = this.state.columnNames;
-        var cardWidth = this.props.cardWidth || DEFAULT_CARD_WIDTH;
-        var edgeWidth = this.props.edgeWidth || DEFAULT_EDGE_WIDTH;
+        var columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
         return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page) },
             React.createElement(LineageActionBar_1.LineageActionBar, { ref: this.actionBarRef, initialTarget: this.props.target, setLineageViewTarget: this.setTargetFromActionBar }),
-            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, 'LineageExplorer'), style: { flexFlow: 'row', overflow: 'auto', width: '100%', position: 'relative', background: '#f3f2f4', zIndex: 0 } },
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], cardWidth: cardWidth, edgeWidth: edgeWidth, setLineageViewTarget: this.setTargetFromLineageCard }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[1] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[2] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), cardWidth: cardWidth, edgeWidth: edgeWidth, reverseBindings: true, title: "" + columnNames[3] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, cardWidth: cardWidth, edgeWidth: edgeWidth, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard }))));
+            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, css.LineageExplorer, 'LineageExplorer') },
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, title: "" + columnNames[2] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), columnPadding: columnPadding, reverseBindings: true, title: "" + columnNames[3] }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, columnPadding: columnPadding, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard }))));
     };
     LineageView.prototype.buildArtifactCards = function (artifacts, isTarget) {
         var _this = this;

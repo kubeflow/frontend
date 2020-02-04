@@ -52,7 +52,7 @@ var LineageCard = /** @class */ (function (_super) {
     }
     LineageCard.prototype.render = function () {
         var _this = this;
-        var _a = this.props, cardWidth = _a.cardWidth, title = _a.title, type = _a.type, rows = _a.rows, addSpacer = _a.addSpacer, isTarget = _a.isTarget, setLineageViewTarget = _a.setLineageViewTarget;
+        var _a = this.props, title = _a.title, type = _a.type, rows = _a.rows, addSpacer = _a.addSpacer, isTarget = _a.isTarget, setLineageViewTarget = _a.setLineageViewTarget;
         var isExecution = type === 'execution';
         var css = typestyle_1.stylesheet({
             addSpacer: {
@@ -62,7 +62,7 @@ var LineageCard = /** @class */ (function (_super) {
                 background: 'white',
                 border: "1px solid " + colors_1.grey[300],
                 borderRadius: LineageCss_1.px(CARD_RADIUS),
-                width: LineageCss_1.px(cardWidth),
+                maxWidth: LineageCss_1.px(285),
                 $nest: {
                     h3: {
                         color: colors_1.blue[600],

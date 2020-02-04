@@ -20,7 +20,6 @@ var grey_1 = __importDefault(require("@material-ui/core/colors/grey"));
 var react_1 = __importDefault(require("react"));
 var typestyle_1 = require("typestyle");
 var LineageCard_1 = require("./LineageCard");
-var LineageCss_1 = require("./LineageCss");
 var EdgeCanvas_1 = require("./EdgeCanvas");
 var LineageCardColumn = /** @class */ (function (_super) {
     __extends(LineageCardColumn, _super);
@@ -28,14 +27,17 @@ var LineageCardColumn = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LineageCardColumn.prototype.render = function () {
-        var _a = this.props, cardWidth = _a.cardWidth, edgeWidth = _a.edgeWidth, type = _a.type, title = _a.title;
+        var _a = this.props, columnPadding = _a.columnPadding, type = _a.type, title = _a.title;
         var css = typestyle_1.stylesheet({
             mainColumn: {
                 display: 'inline-block',
                 justifyContent: 'center',
                 minHeight: '100%',
-                padding: "0 " + edgeWidth / 2 + "px",
-                width: LineageCss_1.px(cardWidth),
+                padding: "0 " + columnPadding + "px",
+                width: '20%',
+                maxWidth: '20%',
+                minWidth: 'max(20%, 170px)',
+                boxSizing: 'border-box',
                 $nest: {
                     h2: {
                         color: grey_1.default[600],
@@ -49,13 +51,14 @@ var LineageCardColumn = /** @class */ (function (_super) {
                 }
             },
             columnBody: {
-                width: LineageCss_1.px(cardWidth),
+                position: 'relative',
+                width: '100%',
             },
             columnHeader: {
                 height: '40px',
                 margin: '10px 0px',
                 textAlign: 'left',
-                width: LineageCss_1.px(cardWidth),
+                width: '100%',
             }
         });
         return (react_1.default.createElement("div", { className: typestyle_1.classes(css.mainColumn, type) },
@@ -65,13 +68,13 @@ var LineageCardColumn = /** @class */ (function (_super) {
     };
     LineageCardColumn.prototype.jsxFromCardDetails = function (det, i) {
         var isNotFirstEl = i > 0;
-        return react_1.default.createElement(LineageCard_1.LineageCard, { key: i, cardWidth: this.props.cardWidth, title: det.title, type: this.props.type, addSpacer: isNotFirstEl, rows: det.elements, isTarget: /Target/i.test(this.props.title), setLineageViewTarget: this.props.setLineageViewTarget });
+        return react_1.default.createElement(LineageCard_1.LineageCard, { key: i, title: det.title, type: this.props.type, addSpacer: isNotFirstEl, rows: det.elements, isTarget: /Target/i.test(this.props.title), setLineageViewTarget: this.props.setLineageViewTarget });
     };
     LineageCardColumn.prototype.drawColumnContent = function () {
-        var _a = this.props, cards = _a.cards, cardWidth = _a.cardWidth, edgeWidth = _a.edgeWidth, skipEdgeCanvas = _a.skipEdgeCanvas;
+        var _a = this.props, cards = _a.cards, columnPadding = _a.columnPadding, skipEdgeCanvas = _a.skipEdgeCanvas;
         return react_1.default.createElement(react_1.default.Fragment, null,
             skipEdgeCanvas ? null :
-                react_1.default.createElement(EdgeCanvas_1.EdgeCanvas, { cards: cards, cardWidth: cardWidth, edgeWidth: edgeWidth, reverseEdges: !!this.props.reverseBindings }),
+                react_1.default.createElement(EdgeCanvas_1.EdgeCanvas, { cards: cards, columnPadding: columnPadding, reverseEdges: !!this.props.reverseBindings }),
             cards.map(this.jsxFromCardDetails.bind(this)));
     };
     return LineageCardColumn;
