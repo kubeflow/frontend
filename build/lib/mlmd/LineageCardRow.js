@@ -48,12 +48,8 @@ var LineageCardRow = /** @class */ (function (_super) {
             }
         };
         _this.showRadioHint = function (show) {
-            if (_this.props.isTarget) {
+            if (_this.props.isTarget || !_this.rowContainerRef.current)
                 return;
-            }
-            if (!_this.rowContainerRef.current) {
-                return;
-            }
             var rowContainer = _this.rowContainerRef.current;
             if (show) {
                 if (!rowContainer.classList.contains(CLICK_TARGET_CSS_NAME)) {

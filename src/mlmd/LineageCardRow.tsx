@@ -254,13 +254,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   };
 
   private showRadioHint = (show: boolean) => {
-    if (this.props.isTarget) {
-      return;
-    }
-
-    if (!this.rowContainerRef.current) {
-      return
-    }
+    if (this.props.isTarget || !this.rowContainerRef.current) return;
 
     const rowContainer = this.rowContainerRef.current;
 
