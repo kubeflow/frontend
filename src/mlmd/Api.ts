@@ -24,12 +24,14 @@ export enum ExecutionProperties {
   NAME = 'name', // currently not available in api, use component_id instead
   COMPONENT_ID = 'component_id',
   PIPELINE_NAME = 'pipeline_name',
+  RUN_ID = 'run_id',
   STATE = 'state',
 }
 
 /** Known Execution custom properties */
 export enum ExecutionCustomProperties {
   WORKSPACE = '__kf_workspace__',
+  RUN = '__kf_run__',
   RUN_ID = 'run_id', // TODO: Remove when switching to contexts
   TASK_ID = 'task_id',
 }
@@ -49,7 +51,7 @@ export interface ListRequest {
 export class Api {
 
   private static instance: Api;
-  private metadataServicePromiseClient = new MetadataStoreServicePromiseClient('');
+  private metadataServicePromiseClient = new MetadataStoreServicePromiseClient('', null, null);
 
   /**
    * Factory function to return an Api instance.

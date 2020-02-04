@@ -1,5 +1,5 @@
 {
-  "name": "kubeflow-frontend",
+  "name": "@kubeflow/frontend",
   "version": "0.1.0",
   "description": "Shared libraries and components used by Kubeflow frontend projects.",
   "private": true,
@@ -13,12 +13,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
     "lodash.isfunction": "^3.0.9",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.3.0",
-    "react-svg-line-chart": "^2.0.2",
-    "typestyle": "^2.0.4"
+    "react-svg-line-chart": "^2.0.2"
   },
   "scripts": {
     "build": "npx tsc --project tsconfig.lib.json",
@@ -77,9 +72,18 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
-    "typescript": "^3.7.4"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.3.1",
+    "typescript": "^3.7.4",
+    "typestyle": "^2.0.4"
   },
   "peerDependencies": {
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "react-router-dom": "^4.3.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typestyle": "^2.0.4"
   }
 }

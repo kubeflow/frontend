@@ -6,9 +6,9 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import {classes, stylesheet} from "typestyle";
 import {color, commonCss, fonts, padding} from "./Css";
 import {CSSProperties} from "typestyle/lib/types";
-import {getResourceProperty} from "./Utils";
+import {getResourceProperty, getResourcePropertyViaFallBack} from "./Utils";
 import {Artifact} from '..';
-import {ArtifactProperties} from "./Api";
+import {ArtifactProperties, ArtifactCustomProperties} from "./Api";
 
 const baseLinkButton: CSSProperties = {
     backgroundColor: "transparent",
@@ -28,6 +28,23 @@ const baseBreadcrumb = {
 const actionBarCss = stylesheet({
     actionButton: {
         color: color.strong
+    },
+    workspace: {
+        ...baseBreadcrumb,
+        fontStyle: 'italic',
+    },
+    workspaceSep: {
+        display: 'block',
+        color: '#3c3c3c',
+        $nest: {
+            '&::before': {
+                content: '""',
+                color: '#9f9f9f',
+                margin: '0 .75em',
+                border: '1px solid',
+                background: 'currentColor',
+            }
+        }
     },
     breadcrumbInactive: {
         color: color.grey,
@@ -95,7 +112,16 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
     }
 
     public render() {
-        const breadcrumbs: JSX.Element[] = [];
+        const breadcrumbs: JSX.Element[] = [
+            <span className={classes(actionBarCss.workspace)} key='workspace'>{
+                getResourcePropertyViaFallBack(
+                    this.state.history[0],
+                    [ArtifactProperties, ArtifactCustomProperties],
+                    ['PIPELINE_NAME', 'WORKSPACE'],
+                )
+            }</span>,
+            <aside className={actionBarCss.workspaceSep}></aside>,
+        ];
         this.state.history.forEach((artifact: Artifact, index) => {
             const isActive = index === this.state.history.length - 1;
             const onBreadcrumbClicked = () => {

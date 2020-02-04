@@ -26,12 +26,14 @@ var ExecutionProperties;
     ExecutionProperties["NAME"] = "name";
     ExecutionProperties["COMPONENT_ID"] = "component_id";
     ExecutionProperties["PIPELINE_NAME"] = "pipeline_name";
+    ExecutionProperties["RUN_ID"] = "run_id";
     ExecutionProperties["STATE"] = "state";
 })(ExecutionProperties = exports.ExecutionProperties || (exports.ExecutionProperties = {}));
 /** Known Execution custom properties */
 var ExecutionCustomProperties;
 (function (ExecutionCustomProperties) {
     ExecutionCustomProperties["WORKSPACE"] = "__kf_workspace__";
+    ExecutionCustomProperties["RUN"] = "__kf_run__";
     ExecutionCustomProperties["RUN_ID"] = "run_id";
     ExecutionCustomProperties["TASK_ID"] = "task_id";
 })(ExecutionCustomProperties = exports.ExecutionCustomProperties || (exports.ExecutionCustomProperties = {}));
@@ -40,7 +42,7 @@ var ExecutionCustomProperties;
  */
 var Api = /** @class */ (function () {
     function Api() {
-        this.metadataServicePromiseClient = new __1.MetadataStoreServicePromiseClient('');
+        this.metadataServicePromiseClient = new __1.MetadataStoreServicePromiseClient('', null, null);
     }
     /**
      * Factory function to return an Api instance.

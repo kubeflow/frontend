@@ -19,7 +19,6 @@ const cardTitleBase: CSSProperties = {
 };
 
 interface LineageCardProps {
-  cardWidth: number;
   title: string;
   type: LineageCardType;
   rows: LineageRow[];
@@ -30,7 +29,7 @@ interface LineageCardProps {
 
 export class LineageCard extends React.Component<LineageCardProps> {
   public render(): JSX.Element {
-    const {cardWidth, title, type, rows, addSpacer, isTarget, setLineageViewTarget} = this.props;
+    const {title, type, rows, addSpacer, isTarget, setLineageViewTarget} = this.props;
     const isExecution = type === 'execution';
 
     const css = stylesheet({
@@ -41,7 +40,7 @@ export class LineageCard extends React.Component<LineageCardProps> {
         background: 'white',
         border: `1px solid ${grey[300]}`,
         borderRadius: px(CARD_RADIUS),
-        width: px(cardWidth),
+        maxWidth: px(285),
         $nest: {
           h3: {
             color: blue[600],
