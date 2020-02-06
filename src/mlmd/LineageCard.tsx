@@ -84,7 +84,8 @@ export class LineageCard extends React.Component<LineageCardProps> {
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}
         isLastRow={i === rows.length-1}
-        hideRadio={isExecution || !!isTarget}
+        isTarget={isTarget}
+        hideRadio={isExecution}
         setLineageViewTarget={setLineageViewTarget}
       />
     );
