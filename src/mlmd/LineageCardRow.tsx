@@ -133,7 +133,6 @@ cssRaw(`
   position: absolute;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
-  cursor: pointer;
 }
 .cardRow .edgeRight {
   left: 100%;
@@ -179,9 +178,9 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   public render(): JSX.Element {
-    const {isLastRow, isTarget, type} = this.props;
-    const canTarget = !isTarget && type === 'artifact';
-    const cardRowClasses = classes('cardRow', isLastRow && 'lastRow', canTarget && 'clickTarget');
+    const {isLastRow} = this.props;
+    const cardRowClasses =
+      classes('cardRow', isLastRow && 'lastRow', this.canTarget() && 'clickTarget');
 
     return (
       <div
@@ -236,7 +235,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!e || !e.target) return;
+    if (!e || !e.target || !this.canTarget()) return;
 
     const element = e.target as HTMLAnchorElement;
     if (element.className.match(/\browTitle\b/)) {
@@ -245,7 +244,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   };
 
   private handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!e || !e.target) return;
+    if (!e || !e.target || !this.canTarget()) return;
 
     const element = e.target as HTMLAnchorElement;
     if (element.className.match(/\browTitle\b/)) {
@@ -268,4 +267,9 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
       }
     }
   };
+
+  private canTarget = () => {
+    const {isTarget, type} = this.props;
+    return !isTarget && type === 'artifact';
+  }
 }
