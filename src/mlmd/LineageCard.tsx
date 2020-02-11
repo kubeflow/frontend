@@ -62,9 +62,22 @@ export class LineageCard extends React.Component<LineageCardProps> {
         borderBottom: `${px(CARD_TITLE_BORDER_BOTTOM_HEIGHT)} solid ${grey[200]}`,
       },
       execution: {
-        borderRadius: px(CARD_RADIUS),
-        background: '#F8FBFF',
+        background: '#2C4A6D',
         border: '1px solid #CCE4FF',
+        $nest: {
+          h3: {
+            color: '#5DC2B8',
+          },
+          '.cardRow': {
+            borderBottom: '1px solid var(--grey-700)',
+          },
+          '.cardRow .rowTitle': {
+            color: 'white',
+          },
+          '.cardRow .rowDesc': {
+            color: 'var(--grey-500)',
+          },
+        },
       },
       executionCardTitle: {
         ...cardTitleBase,

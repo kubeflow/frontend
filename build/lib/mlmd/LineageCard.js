@@ -81,9 +81,22 @@ var LineageCard = /** @class */ (function (_super) {
             },
             cardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid " + colors_1.grey[200] }),
             execution: {
-                borderRadius: LineageCss_1.px(CARD_RADIUS),
-                background: '#F8FBFF',
+                background: '#2C4A6D',
                 border: '1px solid #CCE4FF',
+                $nest: {
+                    h3: {
+                        color: '#5DC2B8',
+                    },
+                    '.cardRow': {
+                        borderBottom: '1px solid var(--grey-700)',
+                    },
+                    '.cardRow .rowTitle': {
+                        color: 'white',
+                    },
+                    '.cardRow .rowDesc': {
+                        color: 'var(--grey-500)',
+                    },
+                },
             },
             executionCardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid transparent" }),
             target: {
