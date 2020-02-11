@@ -123,7 +123,7 @@ var LineageView = /** @class */ (function (_super) {
                     '&&': { flexFlow: 'row' }
                 },
                 position: 'relative',
-                background: '#f3f2f4',
+                background: '#F8F8F9',
                 zIndex: 0,
             },
         });
