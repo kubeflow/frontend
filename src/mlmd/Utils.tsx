@@ -20,10 +20,13 @@ import {
   ExecutionCustomProperties,
   ExecutionProperties,
 } from './Api';
-import {ArtifactTypeMap} from "./LineageApi";
+import {ArtifactTypeMap} from './LineageApi';
 import {Artifact, Execution, Value} from '..';
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
+const ARTIFACT_FIELD_REPOS = [ArtifactProperties, ArtifactCustomProperties];
+const EXECUTION_FIELD_REPOS = [ExecutionProperties, ExecutionCustomProperties];
+
 type RepoType = typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties
 
 export function getResourceProperty(resource: Artifact | Execution,
@@ -46,23 +49,20 @@ export function getResourcePropertyViaFallBack(res: Artifact | Execution,
           field in repo && getResourceProperty(res, repo[field], !!isCustomProp)
         ) as string
       , '')
-    , '') || ''
+    , '') || '';
     return prop as string;
 }
 
-function getArtifactName(artifact: Artifact): string {
-  const artifactName = getResourceProperty(artifact, ArtifactProperties.NAME) ||
-    getResourceProperty(artifact, ArtifactCustomProperties.NAME, true);
-  return artifactName ? artifactName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
+export function getArtifactName(artifact: Artifact): string {
+  return getResourcePropertyViaFallBack(artifact, ARTIFACT_FIELD_REPOS, ['NAME'])
+    || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 
 function getExecutionName(execution: Execution): string {
-  const fields = ['COMPONENT_ID', 'TASK_ID', 'NAME']
-  const fieldRepos = [ExecutionProperties, ExecutionCustomProperties]
   return getResourcePropertyViaFallBack(
     execution,
-    fieldRepos,
-    fields
+    EXECUTION_FIELD_REPOS,
+    ['COMPONENT_ID', 'TASK_ID', 'NAME']
   ) || UNNAMED_RESOURCE_DISPLAY_NAME
 }
 
@@ -70,7 +70,7 @@ function getExecutionName(execution: Execution): string {
  * Promisified sleep operation
  * @param t Time to sleep for in ms
  */
-export const sleep = (t: number): Promise<void> => new Promise(res => setTimeout(res, t))
+export const sleep = (t: number): Promise<void> => new Promise(res => setTimeout(res, t));
 
 export function getResourceName(resource: Artifact | Execution): string {
   if (resource instanceof Artifact) {
@@ -80,20 +80,11 @@ export function getResourceName(resource: Artifact | Execution): string {
 }
 
 export function getResourceDescription(resource: Artifact | Execution): string {
-  let fields: string[], fieldRepos: RepoType[];
-  if (resource instanceof Artifact) {
-    fieldRepos = [ArtifactProperties, ArtifactCustomProperties]
-    fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
-  } else {
-    fieldRepos = [ExecutionProperties, ExecutionCustomProperties]
-    fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
-  }
-  const description = getResourcePropertyViaFallBack(
+  return getResourcePropertyViaFallBack(
     resource,
-    fieldRepos,
-    fields,
-  )
-  return description;
+    resource instanceof Artifact ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS,
+    ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'],
+  );
 }
 
 export function getTypeName(typeId: number, artifactTypes: ArtifactTypeMap): string {

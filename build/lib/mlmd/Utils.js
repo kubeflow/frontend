@@ -18,6 +18,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Api_1 = require("./Api");
 var __1 = require("..");
 var UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
+var ARTIFACT_FIELD_REPOS = [Api_1.ArtifactProperties, Api_1.ArtifactCustomProperties];
+var EXECUTION_FIELD_REPOS = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
 function getResourceProperty(resource, propertyName, fromCustomProperties) {
     if (fromCustomProperties === void 0) { fromCustomProperties = false; }
     var props = fromCustomProperties
@@ -39,14 +41,12 @@ function getResourcePropertyViaFallBack(res, fieldRepos, fields) {
 }
 exports.getResourcePropertyViaFallBack = getResourcePropertyViaFallBack;
 function getArtifactName(artifact) {
-    var artifactName = getResourceProperty(artifact, Api_1.ArtifactProperties.NAME) ||
-        getResourceProperty(artifact, Api_1.ArtifactCustomProperties.NAME, true);
-    return artifactName ? artifactName.toString() : UNNAMED_RESOURCE_DISPLAY_NAME;
+    return getResourcePropertyViaFallBack(artifact, ARTIFACT_FIELD_REPOS, ['NAME'])
+        || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
+exports.getArtifactName = getArtifactName;
 function getExecutionName(execution) {
-    var fields = ['COMPONENT_ID', 'TASK_ID', 'NAME'];
-    var fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
-    return getResourcePropertyViaFallBack(execution, fieldRepos, fields) || UNNAMED_RESOURCE_DISPLAY_NAME;
+    return getResourcePropertyViaFallBack(execution, EXECUTION_FIELD_REPOS, ['COMPONENT_ID', 'TASK_ID', 'NAME']) || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
 /**
  * Promisified sleep operation
@@ -61,17 +61,7 @@ function getResourceName(resource) {
 }
 exports.getResourceName = getResourceName;
 function getResourceDescription(resource) {
-    var fields, fieldRepos;
-    if (resource instanceof __1.Artifact) {
-        fieldRepos = [Api_1.ArtifactProperties, Api_1.ArtifactCustomProperties];
-        fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'];
-    }
-    else {
-        fieldRepos = [Api_1.ExecutionProperties, Api_1.ExecutionCustomProperties];
-        fields = ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'];
-    }
-    var description = getResourcePropertyViaFallBack(resource, fieldRepos, fields);
-    return description;
+    return getResourcePropertyViaFallBack(resource, resource instanceof __1.Artifact ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS, ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']);
 }
 exports.getResourceDescription = getResourceDescription;
 function getTypeName(typeId, artifactTypes) {
