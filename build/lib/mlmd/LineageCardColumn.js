@@ -21,6 +21,8 @@ var react_1 = __importDefault(require("react"));
 var typestyle_1 = require("typestyle");
 var LineageCard_1 = require("./LineageCard");
 var EdgeCanvas_1 = require("./EdgeCanvas");
+var ControlledEdgeCanvas_1 = require("./ControlledEdgeCanvas");
+var LineageCss_1 = require("./LineageCss");
 var LineageCardColumn = /** @class */ (function (_super) {
     __extends(LineageCardColumn, _super);
     function LineageCardColumn() {
@@ -34,9 +36,7 @@ var LineageCardColumn = /** @class */ (function (_super) {
                 justifyContent: 'center',
                 minHeight: '100%',
                 padding: "0 " + columnPadding + "px",
-                width: '20%',
-                maxWidth: '20%',
-                minWidth: 'max(20%, 170px)',
+                width: this.props.columnWidth,
                 boxSizing: 'border-box',
                 $nest: {
                     h2: {
@@ -71,11 +71,56 @@ var LineageCardColumn = /** @class */ (function (_super) {
         return react_1.default.createElement(LineageCard_1.LineageCard, { key: i, title: det.title, type: this.props.type, addSpacer: isNotFirstEl, rows: det.elements, isTarget: /Target/i.test(this.props.title), setLineageViewTarget: this.props.setLineageViewTarget });
     };
     LineageCardColumn.prototype.drawColumnContent = function () {
-        var _a = this.props, cards = _a.cards, columnPadding = _a.columnPadding, skipEdgeCanvas = _a.skipEdgeCanvas;
+        var _a = this.props, cards = _a.cards, columnPadding = _a.columnPadding, columnWidth = _a.columnWidth, skipEdgeCanvas = _a.skipEdgeCanvas;
+        var edgeWidth = columnPadding * 2;
+        var cardWidth = columnWidth - edgeWidth;
+        var edgeCanvases = [];
+        if (this.props.outputExecutionToOutputArtifactMap) {
+            edgeCanvases = this.buildOutputExecutionToOutputArtifactEdgeCanvases(this.props.outputExecutionToOutputArtifactMap, cards, edgeWidth, cardWidth);
+        }
+        else {
+            edgeCanvases.push(react_1.default.createElement(EdgeCanvas_1.EdgeCanvas, { cardWidth: cardWidth, edgeWidth: edgeWidth, cards: cards, reverseEdges: !!this.props.reverseBindings }));
+        }
         return react_1.default.createElement(react_1.default.Fragment, null,
-            skipEdgeCanvas ? null :
-                react_1.default.createElement(EdgeCanvas_1.EdgeCanvas, { cards: cards, columnPadding: columnPadding, reverseEdges: !!this.props.reverseBindings }),
+            skipEdgeCanvas ? null : edgeCanvases,
             cards.map(this.jsxFromCardDetails.bind(this)));
+    };
+    LineageCardColumn.prototype.buildOutputExecutionToOutputArtifactEdgeCanvases = function (outputExecutionToOutputArtifactMap, artifactCards, edgeWidth, cardWidth) {
+        var _this = this;
+        var edgeCanvases = [];
+        var artifactIdToCardMap = new Map();
+        artifactCards.forEach(function (card, index) {
+            card.elements.forEach(function (row) {
+                artifactIdToCardMap.set(row.resource.getId(), index);
+            });
+        });
+        // Offset relative to the top of the column
+        var artifactOffset = 0;
+        var artifactCardIndex;
+        var executionCardIndex = 0;
+        outputExecutionToOutputArtifactMap.forEach(function (artifactIds) {
+            var executionCardTop = (LineageCss_1.CARD_ROW_HEIGHT + EdgeCanvas_1.CARD_OFFSET) * executionCardIndex;
+            edgeCanvases.push(react_1.default.createElement(ControlledEdgeCanvas_1.ControlledEdgeCanvas, { cardWidth: cardWidth, edgeWidth: edgeWidth, reverseEdges: !!_this.props.reverseBindings, artifactIds: artifactIds, artifactToCardMap: artifactIdToCardMap, offset: artifactOffset - executionCardTop, outputExecutionToOutputArtifactMap: outputExecutionToOutputArtifactMap, top: executionCardTop }));
+            // Advance starting artifact offset.
+            artifactIds.forEach(function (artifactId) {
+                if (artifactCardIndex === null) {
+                    artifactCardIndex = artifactIdToCardMap.get(artifactId);
+                    return;
+                }
+                var newArtifactIndex = artifactIdToCardMap.get(artifactId);
+                if (artifactCardIndex === newArtifactIndex) {
+                    // Next artifact row is on the same card
+                    artifactOffset += EdgeCanvas_1.CARD_OFFSET;
+                }
+                else {
+                    // Next artifact row is on the next card
+                    artifactOffset += LineageCss_1.CARD_ROW_HEIGHT + EdgeCanvas_1.CARD_OFFSET;
+                }
+                artifactCardIndex = newArtifactIndex;
+            });
+            executionCardIndex++;
+        });
+        return edgeCanvases;
     };
     return LineageCardColumn;
 }(react_1.default.Component));

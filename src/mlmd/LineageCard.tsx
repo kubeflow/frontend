@@ -4,13 +4,14 @@ import {classes, stylesheet} from 'typestyle';
 import {CSSProperties} from 'typestyle/lib/types';
 import {LineageCardRow} from './LineageCardRow';
 import {LineageRow, LineageCardType} from './LineageTypes';
-import {CARD_SPACER_HEIGHT, px} from './LineageCss';
+import {
+  CARD_RADIUS,
+  CARD_SPACER_HEIGHT,
+  CARD_TITLE_BASE_HEIGHT,
+  CARD_TITLE_BORDER_BOTTOM_HEIGHT,
+  px,
+} from './LineageCss';
 import {Artifact} from "..";
-
-const CARD_RADIUS = 6;
-const CARD_TITLE_BASE_HEIGHT = 40;
-const CARD_TITLE_BORDER_BOTTOM_HEIGHT = 1;
-export const CARD_TITLE_HEIGHT = CARD_TITLE_BASE_HEIGHT + CARD_TITLE_BORDER_BOTTOM_HEIGHT;
 
 const cardTitleBase: CSSProperties = {
   borderTopLeftRadius: '4px',

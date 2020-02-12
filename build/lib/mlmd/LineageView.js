@@ -93,20 +93,33 @@ var isOutputEvent = function (event) {
 };
 /** Default size used when columnPadding prop is unset. */
 var DEFAULT_COLUMN_PADDING = 40;
+var LINEAGE_VIEW_CSS = typestyle_1.stylesheet({
+    LineageExplorer: {
+        $nest: {
+            '&&': { flexFlow: 'row' }
+        },
+        position: 'relative',
+        background: '#F8F8F9',
+        zIndex: 0,
+    },
+});
 var LineageView = /** @class */ (function (_super) {
     __extends(LineageView, _super);
     function LineageView(props) {
         var _this = _super.call(this, props) || this;
+        _this.containerRef = React.createRef();
         _this.metadataStoreService = Api_1.Api.getInstance().metadataStoreService;
         _this.actionBarRef = React.createRef();
         _this.state = {
+            columnWidth: 0,
             columnNames: ['Input Artifact', '', 'Target', '', 'Output Artifact'],
             columnTypes: ['ipa', 'ipx', 'target', 'opx', 'opa'],
-            target: props.target,
             inputArtifacts: [],
             inputExecutions: [],
-            outputExecutions: [],
             outputArtifacts: [],
+            outputExecutionToOutputArtifactMap: new Map(),
+            outputExecutions: [],
+            target: props.target,
         };
         _this.loadData = _this.loadData.bind(_this);
         _this.setTargetFromActionBar = _this.setTargetFromActionBar.bind(_this);
@@ -114,57 +127,67 @@ var LineageView = /** @class */ (function (_super) {
         _this.loadData(_this.props.target.getId());
         return _this;
     }
-    LineageView.prototype.render = function () {
-        if (!this.artifactTypes)
-            return null;
-        var css = typestyle_1.stylesheet({
-            LineageExplorer: {
-                $nest: {
-                    '&&': { flexFlow: 'row' }
-                },
-                position: 'relative',
-                background: '#F8F8F9',
-                zIndex: 0,
-            },
+    LineageView.prototype.componentDidMount = function () {
+        if (!this.containerRef || !this.containerRef.current) {
+            return;
+        }
+        this.setState({
+            columnWidth: this.containerRef.current.clientWidth / 5
         });
+    };
+    LineageView.prototype.render = function () {
+        if (!this.artifactTypes) {
+            return (
+            // Return an empty page to allow componentDidMount() to measure the width.
+            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page), ref: this.containerRef }));
+        }
         var columnNames = this.state.columnNames;
         var columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
-        return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page) },
+        return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page), ref: this.containerRef },
             React.createElement(LineageActionBar_1.LineageActionBar, { ref: this.actionBarRef, initialTarget: this.props.target, setLineageViewTarget: this.setTargetFromActionBar }),
-            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, css.LineageExplorer, 'LineageExplorer') },
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, title: "" + columnNames[2] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), columnPadding: columnPadding, reverseBindings: true, title: "" + columnNames[3] }),
-                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), reverseBindings: true, columnPadding: columnPadding, title: "" + columnNames[4], setLineageViewTarget: this.setTargetFromLineageCard }))));
+            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, LINEAGE_VIEW_CSS.LineageExplorer, 'LineageExplorer') },
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnWidth: this.state.columnWidth, columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1], columnWidth: this.state.columnWidth }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, skipEdgeCanvas: true /* Canvas will be drawn by the next canvas's reverse edges. */, title: "" + columnNames[2], columnWidth: this.state.columnWidth }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.outputExecutions), columnPadding: columnPadding, reverseBindings: true, title: "" + columnNames[3], columnWidth: this.state.columnWidth }),
+                React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.outputArtifacts), columnPadding: columnPadding, columnWidth: this.state.columnWidth, outputExecutionToOutputArtifactMap: this.state.outputExecutionToOutputArtifactMap, reverseBindings: true, setLineageViewTarget: this.setTargetFromLineageCard, title: "" + columnNames[4] }))));
     };
     LineageView.prototype.buildArtifactCards = function (artifacts, isTarget) {
         var _this = this;
         if (isTarget === void 0) { isTarget = false; }
-        var artifactsByTypeId = lodash_groupby_1.default(artifacts, function (artifact) { return (artifact.getTypeId()); });
-        return Object.keys(artifactsByTypeId).map(function (typeId) {
-            var artifactTypeName = Utils_1.getTypeName(Number(typeId), _this.artifactTypes);
-            var artifacts = artifactsByTypeId[typeId];
-            return {
-                title: artifactTypeName,
-                elements: artifacts.map(function (artifact) { return ({
-                    resource: artifact,
-                    resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(artifact, artifactTypeName),
-                    prev: !isTarget || _this.state.inputExecutions.length > 0,
-                    next: !isTarget || _this.state.outputExecutions.length > 0,
-                }); })
-            };
+        var orderedCardsByType = [];
+        var currentType;
+        var currentTypeName;
+        var currentCard;
+        artifacts.forEach(function (artifact) {
+            if (!currentType || artifact.getTypeId() !== currentType) {
+                // Create a new card
+                currentType = artifact.getTypeId();
+                currentTypeName = Utils_1.getTypeName(Number(currentType), _this.artifactTypes);
+                currentCard = {
+                    title: currentTypeName,
+                    elements: []
+                };
+                orderedCardsByType.push(currentCard);
+            }
+            currentCard.elements.push({
+                resource: artifact,
+                resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(artifact, currentTypeName),
+                prev: !isTarget || _this.state.inputExecutions.length > 0,
+                next: !isTarget || _this.state.outputExecutions.length > 0,
+            });
         });
+        return orderedCardsByType;
     };
     LineageView.prototype.buildExecutionCards = function (executions) {
         var _this = this;
-        var executionsByTypeId = lodash_groupby_1.default(executions, function (execution) { return (execution.getTypeId()); });
+        var executionsByTypeId = lodash_groupby_1.default(executions, function (e) { return (e.getTypeId()); });
         return Object.keys(executionsByTypeId).map(function (typeId) {
             var executionTypeName = Utils_1.getTypeName(Number(typeId), _this.executionTypes);
-            var executions = executionsByTypeId[typeId];
+            var executionsForType = executionsByTypeId[typeId];
             return {
                 title: executionTypeName,
-                elements: executions.map(function (execution) { return ({
+                elements: executionsForType.map(function (execution) { return ({
                     resource: execution,
                     resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
                     prev: true,
@@ -175,7 +198,7 @@ var LineageView = /** @class */ (function (_super) {
     };
     LineageView.prototype.loadData = function (targetId) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, targetArtifactEvents, executionTypes, artifactTypes, outputExecutionIds, inputExecutionIds, _i, targetArtifactEvents_1, event_1, executionId, _b, outputExecutions, inputExecutions, _c, inputExecutionEvents, outputExecutionEvents, inputExecutionInputArtifactIds, outputExecutionOutputArtifactIds, _d, inputArtifacts, outputArtifacts;
+            var _a, targetArtifactEvents, executionTypes, artifactTypes, outputExecutionIds, inputExecutionIds, _i, targetArtifactEvents_1, event_1, executionId, _b, outputExecutions, inputExecutions, _c, inputExecutionEvents, outputExecutionEvents, inputExecutionInputArtifactIds, outputExecutionToOutputArtifactMap, outputExecutionOutputArtifactIds, _d, inputArtifacts, outputArtifacts;
             return __generator(this, function (_e) {
                 switch (_e.label) {
                     case 0: return [4 /*yield*/, Promise.all([
@@ -220,12 +243,22 @@ var LineageView = /** @class */ (function (_super) {
                             }
                             inputExecutionInputArtifactIds.push(event.getArtifactId());
                         });
+                        outputExecutionToOutputArtifactMap = new Map();
                         outputExecutionOutputArtifactIds = [];
                         outputExecutionEvents.forEach(function (event) {
                             if (!isOutputEvent(event)) {
                                 return;
                             }
-                            outputExecutionOutputArtifactIds.push(event.getArtifactId());
+                            var executionId = event.getExecutionId();
+                            if (!outputExecutionToOutputArtifactMap.get(executionId)) {
+                                outputExecutionToOutputArtifactMap.set(executionId, []);
+                            }
+                            var artifactId = event.getArtifactId();
+                            outputExecutionOutputArtifactIds.push(artifactId);
+                            var artifacts = outputExecutionToOutputArtifactMap.get(executionId);
+                            if (artifacts) {
+                                artifacts.push(artifactId);
+                            }
                         });
                         return [4 /*yield*/, Promise.all([
                                 this.getArtifacts(inputExecutionInputArtifactIds),
@@ -234,7 +267,11 @@ var LineageView = /** @class */ (function (_super) {
                     case 4:
                         _d = _e.sent(), inputArtifacts = _d[0], outputArtifacts = _d[1];
                         this.setState({
-                            inputArtifacts: inputArtifacts, inputExecutions: inputExecutions, outputArtifacts: outputArtifacts, outputExecutions: outputExecutions,
+                            inputArtifacts: inputArtifacts,
+                            inputExecutions: inputExecutions,
+                            outputArtifacts: outputArtifacts,
+                            outputExecutionToOutputArtifactMap: outputExecutionToOutputArtifactMap,
+                            outputExecutions: outputExecutions,
                         });
                         return [2 /*return*/, ''];
                 }
