@@ -52,6 +52,7 @@ exports.LineageView = LineageView_1.LineageView;
 var Utils_1 = require("./mlmd/Utils");
 exports.getMetadataValue = Utils_1.getMetadataValue;
 exports.getResourceProperty = Utils_1.getResourceProperty;
+exports.getResourcePropertyViaFallBack = Utils_1.getResourcePropertyViaFallBack;
 exports.getTypeName = Utils_1.getTypeName;
 var Utils_2 = require("./common/Utils");
 exports.logger = Utils_2.logger;
