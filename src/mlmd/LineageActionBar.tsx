@@ -6,7 +6,10 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import {classes, stylesheet} from "typestyle";
 import {color, commonCss, fonts, padding} from "./Css";
 import {CSSProperties} from "typestyle/lib/types";
-import {getResourceProperty, getResourcePropertyViaFallBack} from "./Utils";
+import {
+    getArtifactName,
+    getResourcePropertyViaFallBack,
+} from './Utils';
 import {Artifact} from '..';
 import {ArtifactProperties, ArtifactCustomProperties} from "./Api";
 
@@ -134,10 +137,7 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
                 disabled={isActive}
                 onClick={onBreadcrumbClicked}
               >
-                  {
-                      // TODO: Resolve how to handle Artifacts logged with no name
-                      getResourceProperty(artifact, ArtifactProperties.NAME) || '(unnamed)'
-                  }
+                  {getArtifactName(artifact)}
               </button>
             );
             if (!isActive) {
