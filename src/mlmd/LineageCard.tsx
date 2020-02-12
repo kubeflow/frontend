@@ -77,6 +77,9 @@ export class LineageCard extends React.Component<LineageCardProps> {
           '.cardRow .rowDesc': {
             color: 'var(--grey-500)',
           },
+          ".cardRow [class^='edge']": {
+            background: '#5DC2B8',
+          },
         },
       },
       executionCardTitle: {

@@ -96,6 +96,9 @@ var LineageCard = /** @class */ (function (_super) {
                     '.cardRow .rowDesc': {
                         color: 'var(--grey-500)',
                     },
+                    ".cardRow [class^='edge']": {
+                        background: '#5DC2B8',
+                    },
                 },
             },
             executionCardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid transparent" }),
