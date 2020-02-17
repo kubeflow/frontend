@@ -124,10 +124,11 @@ var LineageView = /** @class */ (function (_super) {
         _this.loadData = _this.loadData.bind(_this);
         _this.setTargetFromActionBar = _this.setTargetFromActionBar.bind(_this);
         _this.setTargetFromLineageCard = _this.setTargetFromLineageCard.bind(_this);
+        _this.setColumnWidth = _this.setColumnWidth.bind(_this);
         _this.loadData(_this.props.target.getId());
         return _this;
     }
-    LineageView.prototype.componentDidMount = function () {
+    LineageView.prototype.setColumnWidth = function () {
         if (!this.containerRef || !this.containerRef.current) {
             return;
         }
@@ -135,10 +136,17 @@ var LineageView = /** @class */ (function (_super) {
             columnWidth: this.containerRef.current.clientWidth / 5
         });
     };
+    LineageView.prototype.componentDidMount = function () {
+        this.setColumnWidth();
+        window.addEventListener('resize', this.setColumnWidth);
+    };
+    LineageView.prototype.componentWillUnmount = function () {
+        window.removeEventListener('resize', this.setColumnWidth);
+    };
     LineageView.prototype.render = function () {
-        if (!this.artifactTypes) {
+        if (!this.artifactTypes || !this.state.columnWidth) {
             return (
-            // Return an empty page to allow componentDidMount() to measure the width.
+            // Return an empty page to allow componentDidMount() to measure the flex container.
             React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page), ref: this.containerRef }));
         }
         var columnNames = this.state.columnNames;

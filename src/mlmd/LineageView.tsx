@@ -110,10 +110,11 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     this.loadData = this.loadData.bind(this);
     this.setTargetFromActionBar = this.setTargetFromActionBar.bind(this);
     this.setTargetFromLineageCard = this.setTargetFromLineageCard.bind(this);
+    this.setColumnWidth = this.setColumnWidth.bind(this);
     this.loadData(this.props.target.getId());
   }
 
-  public componentDidMount(): void {
+  private setColumnWidth(): void {
     if (!this.containerRef || !this.containerRef.current) {
       return;
     }
@@ -123,10 +124,19 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     });
   }
 
+  public componentDidMount(): void {
+    this.setColumnWidth();
+    window.addEventListener('resize', this.setColumnWidth)
+  }
+
+  public componentWillUnmount(): void {
+    window.removeEventListener('resize', this.setColumnWidth)
+  }
+
   public render(): JSX.Element | null {
-    if (!this.artifactTypes) {
+    if (!this.artifactTypes || !this.state.columnWidth) {
       return (
-        // Return an empty page to allow componentDidMount() to measure the width.
+        // Return an empty page to allow componentDidMount() to measure the flex container.
         <div className={classes(commonCss.page)} ref={this.containerRef}/>
       );
     }
