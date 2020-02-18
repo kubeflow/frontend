@@ -50,8 +50,8 @@ const actionBarCss = stylesheet({
         }
     },
     breadcrumbContainer: {
-        alignItems: 'center !important',
-        display: 'flex !important',
+        alignItems: 'center',
+        display: 'flex',
         flexShrink: 1,
         overflow: 'hidden',
     },

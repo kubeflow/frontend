@@ -41,7 +41,6 @@ export class LineageCard extends React.Component<LineageCardProps> {
         background: 'white',
         border: `1px solid ${grey[300]}`,
         borderRadius: px(CARD_RADIUS),
-        maxWidth: px(285),
         $nest: {
           h3: {
             color: blue[600],

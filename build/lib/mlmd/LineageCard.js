@@ -58,7 +58,6 @@ var LineageCard = /** @class */ (function (_super) {
                 background: 'white',
                 border: "1px solid " + colors_1.grey[300],
                 borderRadius: LineageCss_1.px(LineageCss_1.CARD_RADIUS),
-                maxWidth: LineageCss_1.px(285),
                 $nest: {
                     h3: {
                         color: colors_1.blue[600],
