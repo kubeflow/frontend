@@ -49,6 +49,12 @@ const actionBarCss = stylesheet({
             }
         }
     },
+    breadcrumbContainer: {
+        alignItems: 'center !important',
+        display: 'flex !important',
+        flexShrink: 1,
+        overflow: 'hidden',
+    },
     breadcrumbInactive: {
         color: color.grey,
         ...baseBreadcrumb,
@@ -123,7 +129,7 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
                     ['PIPELINE_NAME', 'WORKSPACE'],
                 )
             }</span>,
-            <aside className={actionBarCss.workspaceSep}></aside>,
+            <aside className={actionBarCss.workspaceSep} />,
         ];
         this.state.history.forEach((artifact: Artifact, index) => {
             const isActive = index === this.state.history.length - 1;
@@ -148,7 +154,7 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
         return (
           <div
             className={classes(actionBarCss.container, padding(25, 'lr'), commonCss.flex)}>
-              <div className={classes(commonCss.flex)}>{breadcrumbs}</div>
+              <div className={classes(actionBarCss.breadcrumbContainer)}>{breadcrumbs}</div>
               <div>
                   <Button
                     className={classes(actionBarCss.actionButton)}

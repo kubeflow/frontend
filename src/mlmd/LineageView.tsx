@@ -114,23 +114,13 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     this.loadData(this.props.target.getId());
   }
 
-  private setColumnWidth(): void {
-    if (!this.containerRef || !this.containerRef.current) {
-      return;
-    }
-
-    this.setState({
-      columnWidth: this.containerRef.current.clientWidth / 5
-    });
-  }
-
   public componentDidMount(): void {
     this.setColumnWidth();
-    window.addEventListener('resize', this.setColumnWidth)
+    window.addEventListener('resize', this.setColumnWidth);
   }
 
   public componentWillUnmount(): void {
-    window.removeEventListener('resize', this.setColumnWidth)
+    window.removeEventListener('resize', this.setColumnWidth);
   }
 
   public render(): JSX.Element | null {
@@ -383,5 +373,15 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
 
     const response = await this.metadataStoreService.getEventsByArtifactIDs(request);
     return response.getEventsList();
+  }
+
+  private setColumnWidth(): void {
+    if (!this.containerRef || !this.containerRef.current) {
+      return;
+    }
+
+    this.setState({
+      columnWidth: this.containerRef.current.clientWidth / 5
+    });
   }
 }

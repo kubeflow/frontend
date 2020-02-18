@@ -128,14 +128,6 @@ var LineageView = /** @class */ (function (_super) {
         _this.loadData(_this.props.target.getId());
         return _this;
     }
-    LineageView.prototype.setColumnWidth = function () {
-        if (!this.containerRef || !this.containerRef.current) {
-            return;
-        }
-        this.setState({
-            columnWidth: this.containerRef.current.clientWidth / 5
-        });
-    };
     LineageView.prototype.componentDidMount = function () {
         this.setColumnWidth();
         window.addEventListener('resize', this.setColumnWidth);
@@ -371,6 +363,14 @@ var LineageView = /** @class */ (function (_super) {
                         return [2 /*return*/, response.getEventsList()];
                 }
             });
+        });
+    };
+    LineageView.prototype.setColumnWidth = function () {
+        if (!this.containerRef || !this.containerRef.current) {
+            return;
+        }
+        this.setState({
+            columnWidth: this.containerRef.current.clientWidth / 5
         });
     };
     return LineageView;
