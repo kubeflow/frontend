@@ -36,14 +36,10 @@ var React = __importStar(require("react"));
 var typestyle_1 = require("typestyle");
 var LineageCardRow_1 = require("./LineageCardRow");
 var LineageCss_1 = require("./LineageCss");
-var CARD_RADIUS = 6;
-var CARD_TITLE_BASE_HEIGHT = 40;
-var CARD_TITLE_BORDER_BOTTOM_HEIGHT = 1;
-exports.CARD_TITLE_HEIGHT = CARD_TITLE_BASE_HEIGHT + CARD_TITLE_BORDER_BOTTOM_HEIGHT;
 var cardTitleBase = {
     borderTopLeftRadius: '4px',
     borderTopRightRadius: '4px',
-    height: LineageCss_1.px(CARD_TITLE_BASE_HEIGHT),
+    height: LineageCss_1.px(LineageCss_1.CARD_TITLE_BASE_HEIGHT),
 };
 var LineageCard = /** @class */ (function (_super) {
     __extends(LineageCard, _super);
@@ -61,8 +57,7 @@ var LineageCard = /** @class */ (function (_super) {
             cardContainer: {
                 background: 'white',
                 border: "1px solid " + colors_1.grey[300],
-                borderRadius: LineageCss_1.px(CARD_RADIUS),
-                maxWidth: LineageCss_1.px(285),
+                borderRadius: LineageCss_1.px(LineageCss_1.CARD_RADIUS),
                 $nest: {
                     h3: {
                         color: colors_1.blue[600],
@@ -79,7 +74,7 @@ var LineageCard = /** @class */ (function (_super) {
                     }
                 }
             },
-            cardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid " + colors_1.grey[200] }),
+            cardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(LineageCss_1.CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid " + colors_1.grey[200] }),
             execution: {
                 background: '#2C4A6D',
                 border: '1px solid #CCE4FF',
@@ -101,7 +96,7 @@ var LineageCard = /** @class */ (function (_super) {
                     },
                 },
             },
-            executionCardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid transparent" }),
+            executionCardTitle: __assign(__assign({}, cardTitleBase), { borderBottom: LineageCss_1.px(LineageCss_1.CARD_TITLE_BORDER_BOTTOM_HEIGHT) + " solid transparent" }),
             target: {
                 border: "2px solid " + colors_1.blue[500],
             }

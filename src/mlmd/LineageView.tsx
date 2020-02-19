@@ -51,10 +51,12 @@ export interface LineageViewProps {
   target: Artifact;
   cardWidth?: number;
   columnPadding?: number;
-  buildResourceDetailsPageRoute(resource: LineageResource, typeName: string): string
+  buildResourceDetailsPageRoute(resource: LineageResource, typeName: string): string;
 }
 
 interface LineageViewState {
+  // Dynamic value set to 1/5th of the view width.
+  columnWidth: number;
   columnNames: string[];
   columnTypes: string[];
   artifactTypes?: Map<number, ArtifactType>;
@@ -64,10 +66,28 @@ interface LineageViewState {
   target: Artifact;
   outputExecutions: Execution[];
   outputArtifacts: Artifact[];
+
+  // A Map from output execution id to the list of output artifact ids it should be connected to.
+  // Used to construct the reverse bindings from the Output Artifacts column to the Output
+  // Executions column. This column is unique because the artifacts point to different
+  // executions instead of just one.
+  outputExecutionToOutputArtifactMap: Map<number, number[]>;
 }
+
+const LINEAGE_VIEW_CSS = stylesheet({
+  LineageExplorer: {
+    $nest: {
+      '&&': {flexFlow: 'row'}
+    },
+    position: 'relative',
+    background: '#F8F8F9',
+    zIndex: 0,
+  },
+});
 
 export class LineageView extends React.Component<LineageViewProps, LineageViewState> {
   private readonly actionBarRef: React.Ref<LineageActionBar>;
+  private readonly containerRef: React.RefObject<HTMLDivElement> = React.createRef();
   private readonly metadataStoreService: MetadataStoreServicePromiseClient;
   private artifactTypes: Map<number, ArtifactType>;
   private executionTypes: Map<number, ExecutionType>;
@@ -77,43 +97,55 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     this.metadataStoreService = Api.getInstance().metadataStoreService;
     this.actionBarRef = React.createRef<LineageActionBar>();
     this.state = {
+      columnWidth: 0,
       columnNames: ['Input Artifact', '', 'Target', '', 'Output Artifact'],
       columnTypes: ['ipa', 'ipx', 'target', 'opx', 'opa'],
-      target: props.target,
       inputArtifacts: [],
       inputExecutions: [],
-      outputExecutions: [],
       outputArtifacts: [],
+      outputExecutionToOutputArtifactMap: new Map<number, number[]>(),
+      outputExecutions: [],
+      target: props.target,
     };
     this.loadData = this.loadData.bind(this);
     this.setTargetFromActionBar = this.setTargetFromActionBar.bind(this);
     this.setTargetFromLineageCard = this.setTargetFromLineageCard.bind(this);
+    this.setColumnWidth = this.setColumnWidth.bind(this);
     this.loadData(this.props.target.getId());
   }
 
-  public render(): JSX.Element | null {
-    if (!this.artifactTypes) return null;
+  public componentDidMount(): void {
+    this.setColumnWidth();
+    window.addEventListener('resize', this.setColumnWidth);
+  }
 
-    const css = stylesheet({
-      LineageExplorer: {
-        $nest: {
-          '&&': {flexFlow: 'row'}
-        },
-        position: 'relative',
-        background: '#F8F8F9',
-        zIndex: 0,
-      },
-    })
+  public componentWillUnmount(): void {
+    window.removeEventListener('resize', this.setColumnWidth);
+  }
+
+  public render(): JSX.Element | null {
+    if (!this.artifactTypes || !this.state.columnWidth) {
+      return (
+        // Return an empty page to allow componentDidMount() to measure the flex container.
+        <div className={classes(commonCss.page)} ref={this.containerRef}/>
+      );
+    }
+
     const {columnNames} = this.state;
     const columnPadding = this.props.columnPadding || DEFAULT_COLUMN_PADDING;
     return (
-      <div className={classes(commonCss.page)}>
-        <LineageActionBar ref={this.actionBarRef} initialTarget={this.props.target} setLineageViewTarget={this.setTargetFromActionBar} />
-        <div className={classes(commonCss.page, css.LineageExplorer, 'LineageExplorer')}>
+      <div className={classes(commonCss.page)} ref={this.containerRef}>
+        <LineageActionBar
+          ref={this.actionBarRef}
+          initialTarget={this.props.target}
+          setLineageViewTarget={this.setTargetFromActionBar}
+        />
+        <div className={classes(commonCss.page, LINEAGE_VIEW_CSS.LineageExplorer, 'LineageExplorer')}>
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.inputArtifacts)}
             title={`${columnNames[0]}`}
+            columnWidth={this.state.columnWidth}
             columnPadding={columnPadding}
             setLineageViewTarget={this.setTargetFromLineageCard}
           />
@@ -122,12 +154,15 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             cards={this.buildExecutionCards(this.state.inputExecutions)}
             columnPadding={columnPadding}
             title={`${columnNames[1]}`}
+            columnWidth={this.state.columnWidth}
           />
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards([this.state.target], /* isTarget= */ true)}
             columnPadding={columnPadding}
+            skipEdgeCanvas={true /* Canvas will be drawn by the next canvas's reverse edges. */}
             title={`${columnNames[2]}`}
+            columnWidth={this.state.columnWidth}
           />
           <LineageCardColumn
             type='execution'
@@ -135,14 +170,17 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
             columnPadding={columnPadding}
             reverseBindings={true}
             title={`${columnNames[3]}`}
+            columnWidth={this.state.columnWidth}
           />
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.outputArtifacts)}
-            reverseBindings={true}
             columnPadding={columnPadding}
-            title={`${columnNames[4]}`}
+            columnWidth={this.state.columnWidth}
+            outputExecutionToOutputArtifactMap={this.state.outputExecutionToOutputArtifactMap}
+            reverseBindings={true}
             setLineageViewTarget={this.setTargetFromLineageCard}
+            title={`${columnNames[4]}`}
           />
         </div>
       </div>
@@ -150,38 +188,51 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   }
 
   private buildArtifactCards(artifacts: Artifact[], isTarget: boolean = false): CardDetails[] {
-    const artifactsByTypeId = groupBy(artifacts, (artifact) => (artifact.getTypeId()));
-    return Object.keys(artifactsByTypeId).map((typeId) => {
-      const artifactTypeName = getTypeName(Number(typeId), this.artifactTypes);
-      const artifacts = artifactsByTypeId[typeId];
-      return {
-        title: artifactTypeName,
-        elements: artifacts.map((artifact) => ({
-          resource: artifact,
-          resourceDetailsPageRoute:
-            this.props.buildResourceDetailsPageRoute(artifact, artifactTypeName),
-          prev: !isTarget || this.state.inputExecutions.length > 0,
-          next: !isTarget || this.state.outputExecutions.length > 0,
-          })
-        )
-      };
+    const orderedCardsByType: CardDetails[] = [];
+
+    let currentType: number;
+    let currentTypeName: string;
+    let currentCard: CardDetails;
+
+    artifacts.forEach((artifact) => {
+      if (!currentType || artifact.getTypeId() !== currentType) {
+        // Create a new card
+        currentType = artifact.getTypeId();
+        currentTypeName = getTypeName(Number(currentType), this.artifactTypes);
+        currentCard = {
+          title: currentTypeName,
+          elements: []
+        };
+        orderedCardsByType.push(currentCard);
+      }
+
+      currentCard.elements.push({
+        resource: artifact,
+        resourceDetailsPageRoute:
+          this.props.buildResourceDetailsPageRoute(artifact, currentTypeName),
+        prev: !isTarget || this.state.inputExecutions.length > 0,
+        next: !isTarget || this.state.outputExecutions.length > 0,
+      });
     });
+
+    return orderedCardsByType;
   }
 
   private buildExecutionCards(executions: Execution[]): CardDetails[] {
-    const executionsByTypeId = groupBy(executions, (execution) => (execution.getTypeId()));
+    const executionsByTypeId = groupBy(executions, (e) => (e.getTypeId()));
+
     return Object.keys(executionsByTypeId).map((typeId) => {
       const executionTypeName = getTypeName(Number(typeId), this.executionTypes);
-      const executions = executionsByTypeId[typeId];
+      const executionsForType = executionsByTypeId[typeId];
       return {
         title: executionTypeName,
-        elements: executions.map((execution) => ({
+        elements: executionsForType.map((execution) => ({
           resource: execution,
-          resourceDetailsPageRoute: this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
+          resourceDetailsPageRoute:
+            this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
           prev: true,
           next: true,
-          })
-        )
+        }))
       };
     });
   }
@@ -231,13 +282,29 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
       inputExecutionInputArtifactIds.push(event.getArtifactId());
     });
 
+    // This map ensures that output artifacts are fetched in an order that is sorted by the
+    // connected output execution.
+    const outputExecutionToOutputArtifactMap: Map<number, number[]> = new Map();
+
     const outputExecutionOutputArtifactIds: number[] = [];
+
     outputExecutionEvents.forEach((event) => {
       if (!isOutputEvent(event)) {
         return;
       }
 
-      outputExecutionOutputArtifactIds.push(event.getArtifactId());
+      const executionId = event.getExecutionId();
+      if (!outputExecutionToOutputArtifactMap.get(executionId)) {
+        outputExecutionToOutputArtifactMap.set(executionId, []);
+      }
+
+      const artifactId = event.getArtifactId();
+      outputExecutionOutputArtifactIds.push(artifactId);
+
+      const artifacts = outputExecutionToOutputArtifactMap.get(executionId);
+      if (artifacts) {
+        artifacts.push(artifactId);
+      }
     });
 
     const [inputArtifacts, outputArtifacts] = await Promise.all([
@@ -246,7 +313,11 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     ]);
 
     this.setState({
-      inputArtifacts, inputExecutions, outputArtifacts, outputExecutions,
+      inputArtifacts,
+      inputExecutions,
+      outputArtifacts,
+      outputExecutionToOutputArtifactMap,
+      outputExecutions,
     });
     return '';
   }
@@ -269,7 +340,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     this.setState({
       target,
     });
-    this.loadData(target.getId())
+    this.loadData(target.getId());
   }
 
   private async getExecutions(executionIds: number[]): Promise<Execution[]> {
@@ -302,5 +373,15 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
 
     const response = await this.metadataStoreService.getEventsByArtifactIDs(request);
     return response.getEventsList();
+  }
+
+  private setColumnWidth(): void {
+    if (!this.containerRef || !this.containerRef.current) {
+      return;
+    }
+
+    this.setState({
+      columnWidth: this.containerRef.current.clientWidth / 5
+    });
   }
 }

@@ -77,6 +77,12 @@ var actionBarCss = typestyle_1.stylesheet({
             }
         }
     },
+    breadcrumbContainer: {
+        alignItems: 'center',
+        display: 'flex',
+        flexShrink: 1,
+        overflow: 'hidden',
+    },
     breadcrumbInactive: __assign(__assign({ color: Css_1.color.grey }, baseBreadcrumb), { $nest: {
             '&:hover': {
                 textDecoration: 'underline',
@@ -135,7 +141,7 @@ var LineageActionBar = /** @class */ (function (_super) {
             }
         });
         return (React.createElement("div", { className: typestyle_1.classes(actionBarCss.container, Css_1.padding(25, 'lr'), Css_1.commonCss.flex) },
-            React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.flex) }, breadcrumbs),
+            React.createElement("div", { className: typestyle_1.classes(actionBarCss.breadcrumbContainer) }, breadcrumbs),
             React.createElement("div", null,
                 React.createElement(Button_1.default, { className: typestyle_1.classes(actionBarCss.actionButton), disabled: false, onClick: this.reset },
                     React.createElement(Replay_1.default, null),

@@ -11,6 +11,7 @@
     "google-protobuf": "^3.11.2",
     "grpc-web": "^1.0.7",
     "lodash.debounce": "^4.0.8",
+    "lodash.flatten": "^4.4.0",
     "lodash.groupby": "^4.6.0",
     "lodash.isfunction": "^3.0.9",
     "react-svg-line-chart": "^2.0.2"
