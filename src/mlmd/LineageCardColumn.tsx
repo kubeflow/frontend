@@ -26,6 +26,9 @@ export interface LineageCardColumnProps {
   setLineageViewTarget?(artifact: Artifact): void;
 }
 
+const NEXT_ITEM_SAME_CARD_OFFSET = CARD_ROW_HEIGHT;
+const NEXT_ITEM_NEXT_CARD_OFFSET = CARD_ROW_HEIGHT + CARD_OFFSET;
+
 export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
   public render(): JSX.Element | null {
     const {columnPadding, type, title} = this.props;
@@ -156,10 +159,10 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         executionCardIndex = executionIdToCardMap.get(executionId);
         if (previousExecutionCardIndex == executionCardIndex) {
           // Next execution is on the same card
-          executionOffset += CARD_ROW_HEIGHT;
+          executionOffset += NEXT_ITEM_SAME_CARD_OFFSET;
         } else {
           // Next execution is on the next card
-          executionOffset += CARD_ROW_HEIGHT + CARD_OFFSET;
+          executionOffset += NEXT_ITEM_NEXT_CARD_OFFSET;
         }
       }
 
@@ -186,10 +189,10 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         const newArtifactIndex = artifactIdToCardMap.get(artifactId);
         if (artifactCardIndex === newArtifactIndex) {
           // Next artifact row is on the same card
-          artifactOffset += CARD_ROW_HEIGHT;
+          artifactOffset += NEXT_ITEM_SAME_CARD_OFFSET;
         } else {
           // Next artifact row is on the next card
-          artifactOffset += CARD_ROW_HEIGHT + CARD_OFFSET;
+          artifactOffset += NEXT_ITEM_NEXT_CARD_OFFSET;
         }
         artifactCardIndex = newArtifactIndex;
       });

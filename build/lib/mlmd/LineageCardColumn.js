@@ -23,6 +23,8 @@ var LineageCard_1 = require("./LineageCard");
 var EdgeCanvas_1 = require("./EdgeCanvas");
 var ControlledEdgeCanvas_1 = require("./ControlledEdgeCanvas");
 var LineageCss_1 = require("./LineageCss");
+var NEXT_ITEM_SAME_CARD_OFFSET = LineageCss_1.CARD_ROW_HEIGHT;
+var NEXT_ITEM_NEXT_CARD_OFFSET = LineageCss_1.CARD_ROW_HEIGHT + EdgeCanvas_1.CARD_OFFSET;
 var LineageCardColumn = /** @class */ (function (_super) {
     __extends(LineageCardColumn, _super);
     function LineageCardColumn() {
@@ -112,11 +114,11 @@ var LineageCardColumn = /** @class */ (function (_super) {
                 executionCardIndex = executionIdToCardMap.get(executionId);
                 if (previousExecutionCardIndex == executionCardIndex) {
                     // Next execution is on the same card
-                    executionOffset += LineageCss_1.CARD_ROW_HEIGHT;
+                    executionOffset += NEXT_ITEM_SAME_CARD_OFFSET;
                 }
                 else {
                     // Next execution is on the next card
-                    executionOffset += LineageCss_1.CARD_ROW_HEIGHT + EdgeCanvas_1.CARD_OFFSET;
+                    executionOffset += NEXT_ITEM_NEXT_CARD_OFFSET;
                 }
             }
             edgeCanvases.push(react_1.default.createElement(ControlledEdgeCanvas_1.ControlledEdgeCanvas, { cardWidth: cardWidth, edgeWidth: edgeWidth, reverseEdges: !!_this.props.reverseBindings, artifactIds: artifactIds, artifactToCardMap: artifactIdToCardMap, offset: artifactOffset - executionOffset, outputExecutionToOutputArtifactMap: outputExecutionToOutputArtifactMap, top: executionOffset }));
@@ -129,11 +131,11 @@ var LineageCardColumn = /** @class */ (function (_super) {
                 var newArtifactIndex = artifactIdToCardMap.get(artifactId);
                 if (artifactCardIndex === newArtifactIndex) {
                     // Next artifact row is on the same card
-                    artifactOffset += LineageCss_1.CARD_ROW_HEIGHT;
+                    artifactOffset += NEXT_ITEM_SAME_CARD_OFFSET;
                 }
                 else {
                     // Next artifact row is on the next card
-                    artifactOffset += LineageCss_1.CARD_ROW_HEIGHT + EdgeCanvas_1.CARD_OFFSET;
+                    artifactOffset += NEXT_ITEM_NEXT_CARD_OFFSET;
                 }
                 artifactCardIndex = newArtifactIndex;
             });
