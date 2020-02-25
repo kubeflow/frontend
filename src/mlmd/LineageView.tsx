@@ -175,6 +175,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.outputArtifacts)}
+            connectedCards={this.buildExecutionCards(this.state.outputExecutions)}
             columnPadding={columnPadding}
             columnWidth={this.state.columnWidth}
             outputExecutionToOutputArtifactMap={this.state.outputExecutionToOutputArtifactMap}

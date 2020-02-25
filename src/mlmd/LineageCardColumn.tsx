@@ -17,6 +17,7 @@ export interface LineageCardColumnProps {
   type: LineageCardType;
   title: string;
   cards: CardDetails[];
+  connectedCards?: CardDetails[];
   columnWidth: number;
   columnPadding: number;
   reverseBindings?: boolean;
@@ -92,10 +93,11 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
 
     let edgeCanvases: JSX.Element[] = [];
 
-    if (this.props.outputExecutionToOutputArtifactMap) {
+    if (this.props.outputExecutionToOutputArtifactMap && this.props.connectedCards) {
       edgeCanvases = this.buildOutputExecutionToOutputArtifactEdgeCanvases(
         this.props.outputExecutionToOutputArtifactMap,
         cards,
+        this.props.connectedCards,
         edgeWidth,
         cardWidth,
       )
@@ -119,6 +121,7 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
   private buildOutputExecutionToOutputArtifactEdgeCanvases(
     outputExecutionToOutputArtifactMap: Map<number, number[]>,
     artifactCards: CardDetails[],
+    executionCards: CardDetails[],
     edgeWidth: number,
     cardWidth: number,
   ): JSX.Element[] {
@@ -131,13 +134,34 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
       });
     });
 
-    // Offset relative to the top of the column
-    let artifactOffset = 0;
-    let artifactCardIndex: number | undefined;
-    let executionCardIndex = 0;
+    const executionIdToCardMap = new Map<number, number>();
+    executionCards.forEach((card, index) => {
+      card.elements.forEach((row) => {
+        executionIdToCardMap.set(row.resource.getId(), index);
+      });
+    });
 
-    outputExecutionToOutputArtifactMap.forEach((artifactIds) => {
-      const executionCardTop = (CARD_ROW_HEIGHT + CARD_OFFSET) * executionCardIndex;
+    // Offset of the top of the card relative to the top of the column
+    let artifactOffset = 0;
+    let executionOffset = 0;
+
+    let artifactCardIndex: number | undefined;
+
+    let executionIndex = 0;
+    let executionCardIndex: number | undefined;
+    let previousExecutionCardIndex: number | undefined;
+
+    outputExecutionToOutputArtifactMap.forEach((artifactIds, executionId) => {
+      if (executionIndex > 0) {
+        executionCardIndex = executionIdToCardMap.get(executionId);
+        if (previousExecutionCardIndex == executionCardIndex) {
+          // Next execution is on the same card
+          executionOffset += CARD_ROW_HEIGHT;
+        } else {
+          // Next execution is on the next card
+          executionOffset += CARD_ROW_HEIGHT + CARD_OFFSET;
+        }
+      }
 
       edgeCanvases.push(
         <ControlledEdgeCanvas
@@ -146,9 +170,9 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
           reverseEdges={!!this.props.reverseBindings}
           artifactIds={artifactIds}
           artifactToCardMap={artifactIdToCardMap}
-          offset={artifactOffset - executionCardTop}
+          offset={artifactOffset - executionOffset}
           outputExecutionToOutputArtifactMap={outputExecutionToOutputArtifactMap}
-          top={executionCardTop}
+          top={executionOffset}
         />
       );
 
@@ -162,7 +186,7 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         const newArtifactIndex = artifactIdToCardMap.get(artifactId);
         if (artifactCardIndex === newArtifactIndex) {
           // Next artifact row is on the same card
-          artifactOffset += CARD_OFFSET;
+          artifactOffset += CARD_ROW_HEIGHT;
         } else {
           // Next artifact row is on the next card
           artifactOffset += CARD_ROW_HEIGHT + CARD_OFFSET;
@@ -170,7 +194,9 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
         artifactCardIndex = newArtifactIndex;
       });
 
-      executionCardIndex++;
+      previousExecutionCardIndex = executionIdToCardMap.get(executionId);
+
+      executionIndex++;
     });
 
     return edgeCanvases
