@@ -63,8 +63,8 @@ var LineageCardRow = /** @class */ (function (_super) {
             }
         };
         _this.canTarget = function () {
-            var _a = _this.props, isTarget = _a.isTarget, type = _a.type;
-            return !isTarget && type === 'artifact';
+            var _a = _this.props, isTarget = _a.isTarget, typedResource = _a.typedResource;
+            return !isTarget && typedResource.type === 'artifact';
         };
         _this.handleClick = _this.handleClick.bind(_this);
         return _this;
@@ -81,8 +81,8 @@ var LineageCardRow = /** @class */ (function (_super) {
         return (React.createElement("div", { className: cardRowClasses, ref: this.rowContainerRef, onClick: this.handleClick },
             this.checkRadio(),
             React.createElement("footer", null,
-                React.createElement(react_router_dom_1.Link, { className: 'rowTitle', to: this.props.resourceDetailsRoute, onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseLeave }, Utils_1.getResourceName(this.props.resource)),
-                React.createElement("p", { className: 'rowDesc' }, Utils_1.getResourceDescription(this.props.resource))),
+                React.createElement(react_router_dom_1.Link, { className: 'rowTitle', to: this.props.resourceDetailsRoute, onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseLeave }, Utils_1.getResourceName(this.props.typedResource)),
+                React.createElement("p", { className: 'rowDesc' }, Utils_1.getResourceDescription(this.props.typedResource))),
             this.checkEdgeAffordances()));
     };
     LineageCardRow.prototype.checkRadio = function () {
@@ -94,9 +94,9 @@ var LineageCardRow = /** @class */ (function (_super) {
             React.createElement("input", { type: 'radio', className: 'form-radio hover-hint', name: '', value: '', onClick: this.handleClick, checked: true, readOnly: true })));
     };
     LineageCardRow.prototype.handleClick = function () {
-        if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact'))
+        if (!this.props.setLineageViewTarget || !(this.props.typedResource.type === 'artifact'))
             return;
-        this.props.setLineageViewTarget(this.props.resource);
+        this.props.setLineageViewTarget(this.props.typedResource.resource);
     };
     return LineageCardRow;
 }(React.Component));

@@ -32,6 +32,7 @@ var ExecutionProperties;
 /** Known Execution custom properties */
 var ExecutionCustomProperties;
 (function (ExecutionCustomProperties) {
+    ExecutionCustomProperties["NAME"] = "name";
     ExecutionCustomProperties["WORKSPACE"] = "__kf_workspace__";
     ExecutionCustomProperties["RUN"] = "__kf_run__";
     ExecutionCustomProperties["RUN_ID"] = "run_id";

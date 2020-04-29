@@ -4,13 +4,16 @@
 import {Artifact, Execution} from "..";
 
 export type LineageCardType = 'artifact' | 'execution';
-export interface LineageRow {
+export type LineageRow = {
     prev?: boolean;
     next?: boolean;
-    resource: LineageResource;
+    typedResource: LineageTypedResource;
     resourceDetailsPageRoute: string;
-}
+};
 
 export type LineageResource = Artifact | Execution;
+export type LineageTypedResource =
+    | { type: 'artifact', resource: Artifact }
+    | { type: 'execution', resource: Execution };
 
 export const DEFAULT_LINEAGE_CARD_TYPE = 'artifact' as LineageCardType;

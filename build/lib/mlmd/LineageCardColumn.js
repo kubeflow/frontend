@@ -93,13 +93,13 @@ var LineageCardColumn = /** @class */ (function (_super) {
         var artifactIdToCardMap = new Map();
         artifactCards.forEach(function (card, index) {
             card.elements.forEach(function (row) {
-                artifactIdToCardMap.set(row.resource.getId(), index);
+                artifactIdToCardMap.set(row.typedResource.resource.getId(), index);
             });
         });
         var executionIdToCardMap = new Map();
         executionCards.forEach(function (card, index) {
             card.elements.forEach(function (row) {
-                executionIdToCardMap.set(row.resource.getId(), index);
+                executionIdToCardMap.set(row.typedResource.resource.getId(), index);
             });
         });
         // Offset of the top of the card relative to the top of the column

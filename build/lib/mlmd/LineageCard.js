@@ -47,7 +47,6 @@ var LineageCard = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LineageCard.prototype.render = function () {
-        var _this = this;
         var _a = this.props, title = _a.title, type = _a.type, rows = _a.rows, addSpacer = _a.addSpacer, isTarget = _a.isTarget, setLineageViewTarget = _a.setLineageViewTarget;
         var isExecution = type === 'execution';
         var css = typestyle_1.stylesheet({
@@ -102,7 +101,7 @@ var LineageCard = /** @class */ (function (_super) {
             }
         });
         var listCardRows = function () { return rows.map(function (r, i) {
-            return React.createElement(LineageCardRow_1.LineageCardRow, { key: i, resource: r.resource, resourceDetailsRoute: r.resourceDetailsPageRoute, type: _this.props.type, leftAffordance: !!r.prev, rightAffordance: !!r.next, isLastRow: i === rows.length - 1, isTarget: isTarget, hideRadio: isExecution, setLineageViewTarget: setLineageViewTarget });
+            return React.createElement(LineageCardRow_1.LineageCardRow, { key: i, typedResource: r.typedResource, resourceDetailsRoute: r.resourceDetailsPageRoute, leftAffordance: !!r.prev, rightAffordance: !!r.next, isLastRow: i === rows.length - 1, isTarget: isTarget, hideRadio: isExecution, setLineageViewTarget: setLineageViewTarget });
         }); };
         var cardContainerClasses = typestyle_1.classes(css.cardContainer, css[type], // css.execution
         addSpacer ? css.addSpacer : '', isTarget ? css.target : '');

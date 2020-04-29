@@ -208,7 +208,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
       }
 
       currentCard.elements.push({
-        resource: artifact,
+        typedResource: { type: 'artifact', resource: artifact },
         resourceDetailsPageRoute:
           this.props.buildResourceDetailsPageRoute(artifact, currentTypeName),
         prev: !isTarget || this.state.inputExecutions.length > 0,
@@ -228,7 +228,10 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
       return {
         title: executionTypeName,
         elements: executionsForType.map((execution) => ({
-          resource: execution,
+          typedResource: {
+            type: 'execution',
+            resource: execution,
+          },
           resourceDetailsPageRoute:
             this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
           prev: true,

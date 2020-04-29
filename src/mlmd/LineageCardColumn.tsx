@@ -133,14 +133,14 @@ export class LineageCardColumn extends React.Component<LineageCardColumnProps> {
     const artifactIdToCardMap = new Map<number, number>();
     artifactCards.forEach((card, index) => {
       card.elements.forEach((row) => {
-        artifactIdToCardMap.set(row.resource.getId(), index);
+        artifactIdToCardMap.set(row.typedResource.resource.getId(), index);
       });
     });
 
     const executionIdToCardMap = new Map<number, number>();
     executionCards.forEach((card, index) => {
       card.elements.forEach((row) => {
-        executionIdToCardMap.set(row.resource.getId(), index);
+        executionIdToCardMap.set(row.typedResource.resource.getId(), index);
       });
     });
 

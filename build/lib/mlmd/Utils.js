@@ -48,20 +48,19 @@ exports.getArtifactName = getArtifactName;
 function getExecutionName(execution) {
     return getResourcePropertyViaFallBack(execution, EXECUTION_FIELD_REPOS, ['COMPONENT_ID', 'TASK_ID', 'NAME']) || UNNAMED_RESOURCE_DISPLAY_NAME;
 }
+function getResourceName(typedResource) {
+    return typedResource.type === 'artifact'
+        ? getArtifactName(typedResource.resource)
+        : getExecutionName(typedResource.resource);
+}
+exports.getResourceName = getResourceName;
 /**
  * Promisified sleep operation
  * @param t Time to sleep for in ms
  */
 exports.sleep = function (t) { return new Promise(function (res) { return setTimeout(res, t); }); };
-function getResourceName(resource) {
-    if (resource instanceof __1.Artifact) {
-        return getArtifactName(resource);
-    }
-    return getExecutionName(resource);
-}
-exports.getResourceName = getResourceName;
-function getResourceDescription(resource) {
-    return getResourcePropertyViaFallBack(resource, resource instanceof __1.Artifact ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS, ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']);
+function getResourceDescription(typedResource) {
+    return getResourcePropertyViaFallBack(typedResource.resource, typedResource.type === 'artifact' ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS, ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']);
 }
 exports.getResourceDescription = getResourceDescription;
 function getTypeName(typeId, artifactTypes) {

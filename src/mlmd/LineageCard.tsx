@@ -91,20 +91,19 @@ export class LineageCard extends React.Component<LineageCardProps> {
       }
     });
 
-    const listCardRows = () => rows.map((r, i) =>
-      <LineageCardRow
+    const listCardRows = () => rows.map((r, i) => {
+      return <LineageCardRow
         key={i}
-        resource={r.resource}
+        typedResource={r.typedResource}
         resourceDetailsRoute={r.resourceDetailsPageRoute}
-        type={this.props.type}
         leftAffordance={!!r.prev}
         rightAffordance={!!r.next}
-        isLastRow={i === rows.length-1}
+        isLastRow={i === rows.length - 1}
         isTarget={isTarget}
         hideRadio={isExecution}
         setLineageViewTarget={setLineageViewTarget}
-      />
-    );
+      />;
+    });
 
     const cardContainerClasses =
       classes(

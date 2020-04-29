@@ -171,7 +171,7 @@ var LineageView = /** @class */ (function (_super) {
                 orderedCardsByType.push(currentCard);
             }
             currentCard.elements.push({
-                resource: artifact,
+                typedResource: { type: 'artifact', resource: artifact },
                 resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(artifact, currentTypeName),
                 prev: !isTarget || _this.state.inputExecutions.length > 0,
                 next: !isTarget || _this.state.outputExecutions.length > 0,
@@ -188,7 +188,10 @@ var LineageView = /** @class */ (function (_super) {
             return {
                 title: executionTypeName,
                 elements: executionsForType.map(function (execution) { return ({
-                    resource: execution,
+                    typedResource: {
+                        type: 'execution',
+                        resource: execution,
+                    },
                     resourceDetailsPageRoute: _this.props.buildResourceDetailsPageRoute(execution, executionTypeName),
                     prev: true,
                     next: true,
