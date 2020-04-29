@@ -18,7 +18,7 @@
 import groupBy from 'lodash.groupby';
 import * as React from 'react';
 import {classes, stylesheet} from 'typestyle';
-import {commonCss} from './Css';
+import {commonCss, zIndex} from './Css';
 import {LineageCardColumn, CardDetails} from './LineageCardColumn';
 import {LineageActionBar} from './LineageActionBar';
 import {
@@ -38,6 +38,7 @@ import {getArtifactTypes, getExecutionTypes} from './LineageApi';
 import {getTypeName} from './Utils';
 import {Api} from "./Api";
 import {LineageResource} from "./LineageTypes";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const isInputEvent = (event: Event) =>
   [Event.Type.INPUT.valueOf(), Event.Type.DECLARED_INPUT.valueOf()].includes(event.getType());
@@ -56,6 +57,7 @@ export interface LineageViewProps {
 
 interface LineageViewState {
   // Dynamic value set to 1/5th of the view width.
+  loading: boolean;
   columnWidth: number;
   columnNames: string[];
   columnTypes: string[];
@@ -97,6 +99,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     this.metadataStoreService = Api.getInstance().metadataStoreService;
     this.actionBarRef = React.createRef<LineageActionBar>();
     this.state = {
+      loading: true,
       columnWidth: 0,
       columnNames: ['Input Artifact', '', 'Target', '', 'Output Artifact'],
       columnTypes: ['ipa', 'ipx', 'target', 'opx', 'opa'],
@@ -141,6 +144,14 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
           setLineageViewTarget={this.setTargetFromActionBar}
         />
         <div className={classes(commonCss.page, LINEAGE_VIEW_CSS.LineageExplorer, 'LineageExplorer')}>
+          {this.state.loading && <>
+            <div className={commonCss.busyOverlay} />
+            <CircularProgress
+              size={25}
+              className={commonCss.absoluteCenter}
+              style={{ zIndex: zIndex.BUSY_OVERLAY }}
+            />
+          </>}
           <LineageCardColumn
             type='artifact'
             cards={this.buildArtifactCards(this.state.inputArtifacts)}
@@ -242,6 +253,9 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   }
 
   private async loadData(targetId: number): Promise<string> {
+    this.setState({
+      loading: true,
+    });
     const [targetArtifactEvents, executionTypes, artifactTypes] = await Promise.all([
       this.getArtifactEvents([targetId]),
       getExecutionTypes(this.metadataStoreService),
@@ -317,6 +331,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
     ]);
 
     this.setState({
+      loading: false,
       inputArtifacts,
       inputExecutions,
       outputArtifacts,
@@ -341,10 +356,11 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
   }
 
   private set target(target: Artifact) {
-    this.setState({
-      target,
+    this.loadData(target.getId()).then(() => {
+      this.setState({
+        target,
+      });
     });
-    this.loadData(target.getId());
   }
 
   private async getExecutions(executionIds: number[]): Promise<Execution[]> {
