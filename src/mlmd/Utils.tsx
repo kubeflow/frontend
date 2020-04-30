@@ -83,7 +83,7 @@ export function getResourceDescription(typedResource: LineageTypedResource): str
   return getResourcePropertyViaFallBack(
     typedResource.resource,
     typedResource.type === 'artifact' ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS,
-    ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
+    ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'],
   );
 }
 
