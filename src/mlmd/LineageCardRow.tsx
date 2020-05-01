@@ -150,7 +150,7 @@ cssRaw(`
 
 const CLICK_TARGET_CSS_NAME = 'clickTarget';
 
-type LineageCardRowProps  = {
+interface LineageCardRowProps {
   leftAffordance: boolean;
   rightAffordance: boolean;
   hideRadio: boolean;

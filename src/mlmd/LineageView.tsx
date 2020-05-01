@@ -208,7 +208,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
       }
 
       currentCard.elements.push({
-        typedResource: { type: 'artifact', resource: artifact },
+        typedResource: {type: 'artifact', resource: artifact},
         resourceDetailsPageRoute:
           this.props.buildResourceDetailsPageRoute(artifact, currentTypeName),
         prev: !isTarget || this.state.inputExecutions.length > 0,

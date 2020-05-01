@@ -22,7 +22,7 @@ import {
 } from './Api';
 import {ArtifactTypeMap} from './LineageApi';
 import {Artifact, Execution, Value} from '..';
-import { LineageTypedResource } from './LineageTypes';
+import {LineageTypedResource} from './LineageTypes';
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
 const ARTIFACT_FIELD_REPOS = [ArtifactProperties, ArtifactCustomProperties];
