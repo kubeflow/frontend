@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Link} from "react-router-dom";
 import {classes, cssRaw} from "typestyle";
-import {LineageCardType, LineageResource} from "./LineageTypes";
+import {LineageTypedResource} from "./LineageTypes";
 import {getResourceDescription, getResourceName} from "./Utils";
 import {Artifact} from "..";
 
@@ -156,11 +156,10 @@ interface LineageCardRowProps {
   hideRadio: boolean;
   isLastRow: boolean;
   isTarget?: boolean;
-  resource: LineageResource;
+  typedResource: LineageTypedResource;
   resourceDetailsRoute: string;
-  type: LineageCardType;
   setLineageViewTarget?(artifact: Artifact): void
-}
+};
 
 export class LineageCardRow extends React.Component<LineageCardRowProps> {
   private rowContainerRef: React.RefObject<HTMLDivElement> = React.createRef();
@@ -191,9 +190,9 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
         {this.checkRadio()}
         <footer>
           <Link className={'rowTitle'} to={this.props.resourceDetailsRoute} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-            {getResourceName(this.props.resource)}
+            {getResourceName(this.props.typedResource)}
           </Link>
-          <p className='rowDesc'>{getResourceDescription(this.props.resource)}</p>
+          <p className='rowDesc'>{getResourceDescription(this.props.typedResource)}</p>
         </footer>
         {this.checkEdgeAffordances()}
       </div>
@@ -230,8 +229,8 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   }
 
   private handleClick() {
-    if (!this.props.setLineageViewTarget || !(this.props.type === 'artifact')) return;
-    this.props.setLineageViewTarget(this.props.resource as Artifact);
+    if (!this.props.setLineageViewTarget || !(this.props.typedResource.type === 'artifact')) return;
+    this.props.setLineageViewTarget(this.props.typedResource.resource as Artifact);
   }
 
   private handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -269,7 +268,7 @@ export class LineageCardRow extends React.Component<LineageCardRowProps> {
   };
 
   private canTarget = () => {
-    const {isTarget, type} = this.props;
-    return !isTarget && type === 'artifact';
+    const {isTarget, typedResource} = this.props;
+    return !isTarget && typedResource.type === 'artifact';
   }
 }
