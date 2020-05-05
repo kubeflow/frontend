@@ -308,6 +308,7 @@ var LineageView = /** @class */ (function (_super) {
         set: function (target) {
             var _this = this;
             this.loadData(target.getId()).then(function () {
+                // Target column should be updated in the same frame as other loaded data.
                 _this.setState({
                     target: target,
                 });

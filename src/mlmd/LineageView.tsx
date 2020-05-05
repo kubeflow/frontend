@@ -357,6 +357,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
 
   private set target(target: Artifact) {
     this.loadData(target.getId()).then(() => {
+      // Target column should be updated in the same frame as other loaded data.
       this.setState({
         target,
       });
