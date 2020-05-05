@@ -312,6 +312,11 @@ var LineageView = /** @class */ (function (_super) {
                 _this.setState({
                     target: target,
                 });
+            }, function (error) {
+                console.error("Failed to load related data for artifact: " + Utils_1.getArtifactName(target) + ". Details:", error);
+                _this.setState({
+                    loading: false,
+                });
             });
         },
         enumerable: true,

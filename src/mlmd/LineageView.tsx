@@ -35,7 +35,7 @@ import {
 } from '..';
 import {RefObject} from 'react';
 import {getArtifactTypes, getExecutionTypes} from './LineageApi';
-import {getTypeName} from './Utils';
+import {getTypeName, getArtifactName} from './Utils';
 import {Api} from "./Api";
 import {LineageResource} from "./LineageTypes";
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -360,6 +360,11 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
       // Target column should be updated in the same frame as other loaded data.
       this.setState({
         target,
+      });
+    }, (error) => {
+      console.error(`Failed to load related data for artifact: ${getArtifactName(target)}. Details:`, error);
+      this.setState({
+        loading: false,
       });
     });
   }
