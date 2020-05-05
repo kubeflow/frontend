@@ -22,7 +22,7 @@ import {
 } from './Api';
 import {ArtifactTypeMap} from './LineageApi';
 import {Artifact, Execution, Value} from '..';
-import { LineageTypedResource } from './LineageTypes';
+import {LineageTypedResource} from './LineageTypes';
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
 const ARTIFACT_FIELD_REPOS = [ArtifactProperties, ArtifactCustomProperties];
@@ -83,7 +83,7 @@ export function getResourceDescription(typedResource: LineageTypedResource): str
   return getResourcePropertyViaFallBack(
     typedResource.resource,
     typedResource.type === 'artifact' ? ARTIFACT_FIELD_REPOS : EXECUTION_FIELD_REPOS,
-    ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE']
+    ['RUN_ID', 'RUN', 'PIPELINE_NAME', 'WORKSPACE'],
   );
 }
 

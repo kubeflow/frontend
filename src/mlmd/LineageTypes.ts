@@ -13,7 +13,7 @@ export type LineageRow = {
 
 export type LineageResource = Artifact | Execution;
 export type LineageTypedResource =
-    | { type: 'artifact', resource: Artifact }
-    | { type: 'execution', resource: Execution };
+    | {type: 'artifact', resource: Artifact}
+    | {type: 'execution', resource: Execution};
 
 export const DEFAULT_LINEAGE_CARD_TYPE = 'artifact' as LineageCardType;
