@@ -9,7 +9,7 @@ export interface LineageRow {
     next?: boolean;
     typedResource: LineageTypedResource;
     resourceDetailsPageRoute: string;
-};
+}
 
 export type LineageResource = Artifact | Execution;
 export type LineageTypedResource =

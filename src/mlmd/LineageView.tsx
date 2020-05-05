@@ -56,8 +56,8 @@ export interface LineageViewProps {
 }
 
 interface LineageViewState {
-  // Dynamic value set to 1/5th of the view width.
   loading: boolean;
+  // Dynamic value set to 1/5th of the view width.
   columnWidth: number;
   columnNames: string[];
   columnTypes: string[];
