@@ -179,8 +179,18 @@ exports[`LineageActionBar Adds the artifact to the history state and DOM when pu
     className="container_f1yr4rqx f1hokyrp flex_f16jawj4"
   >
     <div
-      className="flex_f16jawj4"
+      className="breadcrumbContainer_f1smi13a"
     >
+      <span
+        className="workspace_f1ef3ffs"
+        key="workspace"
+      >
+        workspace-1
+      </span>
+      <aside
+        className="workspaceSep_fxn0smu"
+        key="workspace-sep"
+      />
       <button
         className="breadcrumbInactive_fpmo3t"
         disabled={false}
@@ -447,8 +457,18 @@ exports[`LineageActionBar Renders correctly for a given initial target 1`] = `
   className="container_f1yr4rqx f1hokyrp flex_f16jawj4"
 >
   <div
-    className="flex_f16jawj4"
+    className="breadcrumbContainer_f1smi13a"
   >
+    <span
+      className="workspace_f1ef3ffs"
+      key="workspace"
+    >
+      workspace-1
+    </span>
+    <aside
+      className="workspaceSep_fxn0smu"
+      key="workspace-sep"
+    />
     <button
       className="breadcrumbActive_f19xmdz7"
       disabled={true}
@@ -832,8 +852,18 @@ exports[`LineageActionBar Sets history to the initial prop when the reset button
     className="container_f1yr4rqx f1hokyrp flex_f16jawj4"
   >
     <div
-      className="flex_f16jawj4"
+      className="breadcrumbContainer_f1smi13a"
     >
+      <span
+        className="workspace_f1ef3ffs"
+        key="workspace"
+      >
+        workspace-1
+      </span>
+      <aside
+        className="workspaceSep_fxn0smu"
+        key="workspace-sep"
+      />
       <button
         className="breadcrumbActive_f19xmdz7"
         disabled={true}
@@ -1392,8 +1422,18 @@ exports[`LineageActionBar Updates the LineageView target model when an inactive 
     className="container_f1yr4rqx f1hokyrp flex_f16jawj4"
   >
     <div
-      className="flex_f16jawj4"
+      className="breadcrumbContainer_f1smi13a"
     >
+      <span
+        className="workspace_f1ef3ffs"
+        key="workspace"
+      >
+        workspace-1
+      </span>
+      <aside
+        className="workspaceSep_fxn0smu"
+        key="workspace-sep"
+      />
       <button
         className="breadcrumbActive_f19xmdz7"
         disabled={true}
