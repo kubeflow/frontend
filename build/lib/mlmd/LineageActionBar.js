@@ -128,7 +128,7 @@ var LineageActionBar = /** @class */ (function (_super) {
         var _this = this;
         var breadcrumbs = [
             React.createElement("span", { className: typestyle_1.classes(actionBarCss.workspace), key: 'workspace' }, Utils_1.getResourcePropertyViaFallBack(this.state.history[0], [Api_1.ArtifactProperties, Api_1.ArtifactCustomProperties], ['PIPELINE_NAME', 'WORKSPACE'])),
-            React.createElement("aside", { className: actionBarCss.workspaceSep }),
+            React.createElement("aside", { key: 'workspace-sep', className: actionBarCss.workspaceSep }),
         ];
         this.state.history.forEach(function (artifact, index) {
             var isActive = index === _this.state.history.length - 1;

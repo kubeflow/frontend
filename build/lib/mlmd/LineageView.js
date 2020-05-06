@@ -85,6 +85,7 @@ var __1 = require("..");
 var LineageApi_1 = require("./LineageApi");
 var Utils_1 = require("./Utils");
 var Api_1 = require("./Api");
+var CircularProgress_1 = __importDefault(require("@material-ui/core/CircularProgress"));
 var isInputEvent = function (event) {
     return [__1.Event.Type.INPUT.valueOf(), __1.Event.Type.DECLARED_INPUT.valueOf()].includes(event.getType());
 };
@@ -111,6 +112,7 @@ var LineageView = /** @class */ (function (_super) {
         _this.metadataStoreService = Api_1.Api.getInstance().metadataStoreService;
         _this.actionBarRef = React.createRef();
         _this.state = {
+            loading: true,
             columnWidth: 0,
             columnNames: ['Input Artifact', '', 'Target', '', 'Output Artifact'],
             columnTypes: ['ipa', 'ipx', 'target', 'opx', 'opa'],
@@ -146,6 +148,9 @@ var LineageView = /** @class */ (function (_super) {
         return (React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page), ref: this.containerRef },
             React.createElement(LineageActionBar_1.LineageActionBar, { ref: this.actionBarRef, initialTarget: this.props.target, setLineageViewTarget: this.setTargetFromActionBar }),
             React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, LINEAGE_VIEW_CSS.LineageExplorer, 'LineageExplorer') },
+                this.state.loading && React.createElement(React.Fragment, null,
+                    React.createElement("div", { className: Css_1.commonCss.busyOverlay }),
+                    React.createElement(CircularProgress_1.default, { size: 48, className: Css_1.commonCss.absoluteCenter, style: { zIndex: Css_1.zIndex.BUSY_OVERLAY } })),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnWidth: this.state.columnWidth, columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1], columnWidth: this.state.columnWidth }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, skipEdgeCanvas: true /* Canvas will be drawn by the next canvas's reverse edges. */, title: "" + columnNames[2], columnWidth: this.state.columnWidth }),
@@ -204,11 +209,15 @@ var LineageView = /** @class */ (function (_super) {
             var _a, targetArtifactEvents, executionTypes, artifactTypes, outputExecutionIds, inputExecutionIds, _i, targetArtifactEvents_1, event_1, executionId, _b, outputExecutions, inputExecutions, _c, inputExecutionEvents, outputExecutionEvents, inputExecutionInputArtifactIds, outputExecutionToOutputArtifactMap, outputExecutionOutputArtifactIds, _d, inputArtifacts, outputArtifacts;
             return __generator(this, function (_e) {
                 switch (_e.label) {
-                    case 0: return [4 /*yield*/, Promise.all([
-                            this.getArtifactEvents([targetId]),
-                            LineageApi_1.getExecutionTypes(this.metadataStoreService),
-                            LineageApi_1.getArtifactTypes(this.metadataStoreService),
-                        ])];
+                    case 0:
+                        this.setState({
+                            loading: true,
+                        });
+                        return [4 /*yield*/, Promise.all([
+                                this.getArtifactEvents([targetId]),
+                                LineageApi_1.getExecutionTypes(this.metadataStoreService),
+                                LineageApi_1.getArtifactTypes(this.metadataStoreService),
+                            ])];
                     case 1:
                         _a = _e.sent(), targetArtifactEvents = _a[0], executionTypes = _a[1], artifactTypes = _a[2];
                         Object.assign(this, { artifactTypes: artifactTypes, executionTypes: executionTypes });
@@ -270,6 +279,7 @@ var LineageView = /** @class */ (function (_super) {
                     case 4:
                         _d = _e.sent(), inputArtifacts = _d[0], outputArtifacts = _d[1];
                         this.setState({
+                            loading: false,
                             inputArtifacts: inputArtifacts,
                             inputExecutions: inputExecutions,
                             outputArtifacts: outputArtifacts,
@@ -296,10 +306,18 @@ var LineageView = /** @class */ (function (_super) {
     };
     Object.defineProperty(LineageView.prototype, "target", {
         set: function (target) {
-            this.setState({
-                target: target,
+            var _this = this;
+            this.loadData(target.getId()).then(function () {
+                // Target column should be updated in the same frame as other loaded data.
+                _this.setState({
+                    target: target,
+                });
+            }, function (error) {
+                console.error("Failed to load related data for artifact: " + Utils_1.getArtifactName(target) + ". Details:", error);
+                _this.setState({
+                    loading: false,
+                });
             });
-            this.loadData(target.getId());
         },
         enumerable: true,
         configurable: true

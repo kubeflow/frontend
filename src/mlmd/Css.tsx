@@ -259,9 +259,9 @@ export const theme = createMuiTheme({
 
 export const commonCss = stylesheet({
   absoluteCenter: {
-    left: 'calc(50% - 15px)',
+    left: 'calc(50% - 24px)',
     position: 'absolute',
-    top: 'calc(50% - 15px)',
+    top: 'calc(50% - 24px)',
   },
   busyOverlay: {
     backgroundColor: '#ffffffaa',

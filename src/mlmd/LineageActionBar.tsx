@@ -129,7 +129,7 @@ export class LineageActionBar extends React.Component<LineageActionBarProps, Lin
                     ['PIPELINE_NAME', 'WORKSPACE'],
                 )
             }</span>,
-            <aside className={actionBarCss.workspaceSep} />,
+            <aside key='workspace-sep' className={actionBarCss.workspaceSep} />,
         ];
         this.state.history.forEach((artifact: Artifact, index) => {
             const isActive = index === this.state.history.length - 1;
