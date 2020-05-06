@@ -184,9 +184,9 @@ exports.theme = createMuiTheme_1.default({
 });
 exports.commonCss = typestyle_1.stylesheet({
     absoluteCenter: {
-        left: 'calc(50% - 15px)',
+        left: 'calc(50% - 24px)',
         position: 'absolute',
-        top: 'calc(50% - 15px)',
+        top: 'calc(50% - 24px)',
     },
     busyOverlay: {
         backgroundColor: '#ffffffaa',

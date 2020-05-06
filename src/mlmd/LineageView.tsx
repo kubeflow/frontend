@@ -147,7 +147,7 @@ export class LineageView extends React.Component<LineageViewProps, LineageViewSt
           {this.state.loading && <>
             <div className={commonCss.busyOverlay} />
             <CircularProgress
-              size={25}
+              size={48}
               className={commonCss.absoluteCenter}
               style={{ zIndex: zIndex.BUSY_OVERLAY }}
             />

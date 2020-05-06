@@ -150,7 +150,7 @@ var LineageView = /** @class */ (function (_super) {
             React.createElement("div", { className: typestyle_1.classes(Css_1.commonCss.page, LINEAGE_VIEW_CSS.LineageExplorer, 'LineageExplorer') },
                 this.state.loading && React.createElement(React.Fragment, null,
                     React.createElement("div", { className: Css_1.commonCss.busyOverlay }),
-                    React.createElement(CircularProgress_1.default, { size: 25, className: Css_1.commonCss.absoluteCenter, style: { zIndex: Css_1.zIndex.BUSY_OVERLAY } })),
+                    React.createElement(CircularProgress_1.default, { size: 48, className: Css_1.commonCss.absoluteCenter, style: { zIndex: Css_1.zIndex.BUSY_OVERLAY } })),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards(this.state.inputArtifacts), title: "" + columnNames[0], columnWidth: this.state.columnWidth, columnPadding: columnPadding, setLineageViewTarget: this.setTargetFromLineageCard }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'execution', cards: this.buildExecutionCards(this.state.inputExecutions), columnPadding: columnPadding, title: "" + columnNames[1], columnWidth: this.state.columnWidth }),
                 React.createElement(LineageCardColumn_1.LineageCardColumn, { type: 'artifact', cards: this.buildArtifactCards([this.state.target], /* isTarget= */ true), columnPadding: columnPadding, skipEdgeCanvas: true /* Canvas will be drawn by the next canvas's reverse edges. */, title: "" + columnNames[2], columnWidth: this.state.columnWidth }),
