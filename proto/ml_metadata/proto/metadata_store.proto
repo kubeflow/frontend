@@ -27,12 +27,17 @@ message Value {
 }
 
 message Artifact {
-  // The id of the artifact.
+  // Output only. The globally unique server generated id of the artifact.
   optional int64 id = 1;
-  // The id of an ArtifactType.
-  // Type must be specified when an artifact is created, and it cannot be
-  // changed.
+  // The client provided name of the artifact. This field is optional. If set,
+  // it must be unique among all the artifacts of the same artifact type within
+  // a database instance and cannot be changed once set.
+  optional string name = 7;
+  // The id of an ArtifactType. This needs to be specified when an artifact is
+  // created, and it cannot be changed.
   optional int64 type_id = 2;
+  // Output only. The name of an ArtifactType.
+  optional string type = 8;
   // The uniform resource identifier of the physical artifact.
   // May be empty if there is no physical artifact.
   optional string uri = 3;
@@ -55,8 +60,13 @@ message Artifact {
     DELETED = 4;
   }
 
-  // Currently not supported: support coming soon (see b/145751019).
+  // The state of the artifact known to the system.
   optional State state = 6;
+  // Output only. Create time of the artifact in millisecond since epoch.
+  optional int64 create_time_since_epoch = 9;
+  // Output only. Last update time of the artifact since epoch in millisecond
+  // since epoch.
+  optional int64 last_update_time_since_epoch = 10;
 }
 
 // TODO(martinz): consider moving this inside some message, to avoid having
@@ -192,11 +202,18 @@ message Event {
 }
 
 message Execution {
-  // The id of the execution.
+  // Output only. The globally unique server generated id of the execution.
   optional int64 id = 1;
+  // The client provided name of the execution. This field is optional. If set,
+  // it must be unique among all the executions of the same artifact type within
+  // a database instance and cannot be changed once set.
+  optional string name = 6;
+  // The id of an ExecutionType. This needs to be specified when an execution is
+  // created, and it cannot be changed.
   // The id of an ExecutionType.
-  // The ExecutionType must be specified and cannot be changed.
   optional int64 type_id = 2;
+  // Output only. The name of an ExecutionType.
+  optional string type = 7;
   // The state of the Execution. The state transitions are
   //   NEW -> RUNNING -> COMPLETE | CACHED | FAILED | CANCELED
   // CACHED means the execution is skipped due to cached results.
@@ -213,13 +230,17 @@ message Execution {
     CACHED = 5;
     CANCELED = 6;
   }
-  // The last known state of an execution.
+  // The last known state of an execution in the system.
   optional State last_known_state = 3;
   // Properties of the Execution.
   // Properties must be specified in the ExecutionType.
   map<string, Value> properties = 4;
   // User provided custom properties which are not defined by its type.
   map<string, Value> custom_properties = 5;
+  // Output only. Create time of the execution in millisecond since epoch.
+  optional int64 create_time_since_epoch = 8;
+  // Output only. Last update time of the execution in millisecond since epoch.
+  optional int64 last_update_time_since_epoch = 9;
 }
 
 message ExecutionType {
@@ -268,17 +289,24 @@ message ContextType {
 }
 
 message Context {
-  // The id of the context instance.
+  // Output Only. The globally unique server generated id of the context.
   optional int64 id = 1;
-  // The id of its ContextType. ContextType must be specified when a context is
+  // The client provided name of the context. It must be unique within a
+  // database instance.
+  optional string name = 3;
+  // The id of a ContextType. This needs to be specified when a context is
   // created, and it cannot be changed.
   optional int64 type_id = 2;
-  // The unique user given name of the Context.
-  optional string name = 3;
+  // Output only. The name of a ContextType.
+  optional string type = 6;
   // Values of the properties, which must be specified in the ContextType.
   map<string, Value> properties = 4;
   // User provided custom properties which are not defined by its type.
   map<string, Value> custom_properties = 5;
+  // Output only. Create time of the context in millisecond since epoch.
+  optional int64 create_time_since_epoch = 7;
+  // Output only. Last update time of the context in millisecond since epoch.
+  optional int64 last_update_time_since_epoch = 8;
 }
 
 // the Attribution edges between Context and Artifact instances.
@@ -519,6 +547,11 @@ message MigrationOptions {
   reserved 1;
 }
 
+message RetryOptions {
+  // The max number of retries when transaction returns Aborted error.
+  optional int64 max_num_retries = 1;
+}
+
 message ConnectionConfig {
   // Configuration for a new connection.
   oneof config {
@@ -526,6 +559,12 @@ message ConnectionConfig {
     MySQLDatabaseConfig mysql = 2;
     SqliteMetadataSourceConfig sqlite = 3;
   }
+
+  // Options for overwriting the default retry setting when MLMD transactions
+  // returning Aborted error.
+  // The setting is currently available for python client library only.
+  // TODO(b/154862807) set the setting in transaction executor.
+  optional RetryOptions retry_options = 4;
 }
 
 // Configuration for the gRPC metadata store client.
@@ -575,4 +614,57 @@ message MetadataStoreServerConfig {
   // Configuration for a secure gRPC channel.
   // If not given, insecure connection is used.
   optional SSLConfig ssl_config = 2;
+}
+
+// ListOperationOptions represents the set of options and predicates to be
+// used for List operations on Artifacts, Executions and Contexts.
+message ListOperationOptions {
+  // Max number of resources to return in the result. A value of zero results in
+  // returning a default number of resources determined by the API
+  // implementation.
+  // The API implementation also enforces an upper-bound of 100, and picks the
+  // minimum between this value and the one specified here.
+  optional int32 max_result_size = 1;
+
+  message OrderByField {
+    // Supported fields for Ordering.
+    enum Field {
+      FIELD_UNSPECIFIED = 0;
+      CREATE_TIME = 1;
+      LAST_UPDATE_TIME = 2;
+      ID = 3;
+    }
+
+    // Field to order.
+    optional Field field = 1 [default = ID];
+
+    // Direction of ordering.
+    optional bool is_asc = 2 [default = true];
+  }
+
+  // Ordering field.
+  optional OrderByField order_by_field = 2;
+
+  // Identifies the next page of results.
+  optional string next_page_token = 3;
+}
+
+// Encapsulates information to identify the next page of resources in
+// ListOperation.
+message ListOperationNextPageToken {
+  // Id offset within the resultset to start next page.
+  // Id offset is always stored as Id is the unique field used to break ties for
+  // fields that might have duplicate entries. For e.g. there could be two
+  // resources with same create time to break the tie in ordering, id offset is
+  // used.
+  optional int64 id_offset = 1;
+
+  // Offset value of the order by field. If ID is used this value is same as
+  // id_offset.
+  optional int64 field_offset = 2;
+
+  // Options set in the first call to ListOperation. This ensures that if
+  // next_page_token is set by the caller then ListPipelineJobs API will always
+  // use options set in the first call.
+  optional ListOperationOptions set_options = 3;
 }
