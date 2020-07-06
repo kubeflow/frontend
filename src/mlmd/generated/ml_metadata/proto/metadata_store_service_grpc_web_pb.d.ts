@@ -3,6 +3,8 @@ import * as grpcWeb from 'grpc-web';
 import * as ml_metadata_proto_metadata_store_pb from '../../ml_metadata/proto/metadata_store_pb';
 
 import {
+  GetArtifactByTypeAndNameRequest,
+  GetArtifactByTypeAndNameResponse,
   GetArtifactTypeRequest,
   GetArtifactTypeResponse,
   GetArtifactTypesByIDRequest,
@@ -43,6 +45,8 @@ import {
   GetEventsByArtifactIDsResponse,
   GetEventsByExecutionIDsRequest,
   GetEventsByExecutionIDsResponse,
+  GetExecutionByTypeAndNameRequest,
+  GetExecutionByTypeAndNameResponse,
   GetExecutionTypeRequest,
   GetExecutionTypeResponse,
   GetExecutionTypesByIDRequest,
@@ -84,8 +88,8 @@ import {
 
 export class MetadataStoreServiceClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   putArtifacts(
     request: PutArtifactsRequest,
@@ -290,6 +294,20 @@ export class MetadataStoreServiceClient {
                response: GetContextsByTypeResponse) => void
   ): grpcWeb.ClientReadableStream<GetContextsByTypeResponse>;
 
+  getArtifactByTypeAndName(
+    request: GetArtifactByTypeAndNameRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: GetArtifactByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<GetArtifactByTypeAndNameResponse>;
+
+  getExecutionByTypeAndName(
+    request: GetExecutionByTypeAndNameRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: GetExecutionByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<GetExecutionByTypeAndNameResponse>;
+
   getContextByTypeAndName(
     request: GetContextByTypeAndNameRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -364,8 +382,8 @@ export class MetadataStoreServiceClient {
 
 export class MetadataStoreServicePromiseClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   putArtifacts(
     request: PutArtifactsRequest,
@@ -511,6 +529,16 @@ export class MetadataStoreServicePromiseClient {
     request: GetContextsByTypeRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<GetContextsByTypeResponse>;
+
+  getArtifactByTypeAndName(
+    request: GetArtifactByTypeAndNameRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<GetArtifactByTypeAndNameResponse>;
+
+  getExecutionByTypeAndName(
+    request: GetExecutionByTypeAndNameRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<GetExecutionByTypeAndNameResponse>;
 
   getContextByTypeAndName(
     request: GetContextByTypeAndNameRequest,

@@ -71,19 +71,16 @@ export class ArtifactStruct extends jspb.Message {
   setArtifact(value?: ArtifactAndType): void;
   hasArtifact(): boolean;
   clearArtifact(): void;
-  hasArtifact(): boolean;
 
   getMap(): ArtifactStructMap | undefined;
   setMap(value?: ArtifactStructMap): void;
   hasMap(): boolean;
   clearMap(): void;
-  hasMap(): boolean;
 
   getList(): ArtifactStructList | undefined;
   setList(value?: ArtifactStructList): void;
   hasList(): boolean;
   clearList(): void;
-  hasList(): boolean;
 
   getValueCase(): ArtifactStruct.ValueCase;
 
@@ -691,6 +688,48 @@ export namespace GetArtifactsByTypeResponse {
   }
 }
 
+export class GetArtifactByTypeAndNameRequest extends jspb.Message {
+  getTypeName(): string;
+  setTypeName(value: string): void;
+
+  getArtifactName(): string;
+  setArtifactName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetArtifactByTypeAndNameRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetArtifactByTypeAndNameRequest): GetArtifactByTypeAndNameRequest.AsObject;
+  static serializeBinaryToWriter(message: GetArtifactByTypeAndNameRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetArtifactByTypeAndNameRequest;
+  static deserializeBinaryFromReader(message: GetArtifactByTypeAndNameRequest, reader: jspb.BinaryReader): GetArtifactByTypeAndNameRequest;
+}
+
+export namespace GetArtifactByTypeAndNameRequest {
+  export type AsObject = {
+    typeName: string,
+    artifactName: string,
+  }
+}
+
+export class GetArtifactByTypeAndNameResponse extends jspb.Message {
+  getArtifact(): ml_metadata_proto_metadata_store_pb.Artifact | undefined;
+  setArtifact(value?: ml_metadata_proto_metadata_store_pb.Artifact): void;
+  hasArtifact(): boolean;
+  clearArtifact(): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetArtifactByTypeAndNameResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetArtifactByTypeAndNameResponse): GetArtifactByTypeAndNameResponse.AsObject;
+  static serializeBinaryToWriter(message: GetArtifactByTypeAndNameResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetArtifactByTypeAndNameResponse;
+  static deserializeBinaryFromReader(message: GetArtifactByTypeAndNameResponse, reader: jspb.BinaryReader): GetArtifactByTypeAndNameResponse;
+}
+
+export namespace GetArtifactByTypeAndNameResponse {
+  export type AsObject = {
+    artifact?: ml_metadata_proto_metadata_store_pb.Artifact.AsObject,
+  }
+}
+
 export class GetArtifactsByIDRequest extends jspb.Message {
   getArtifactIdsList(): Array<number>;
   setArtifactIdsList(value: Array<number>): void;
@@ -766,8 +805,10 @@ export namespace GetArtifactsResponse {
 }
 
 export class GetArtifactsByURIRequest extends jspb.Message {
-  getUri(): string;
-  setUri(value: string): void;
+  getUrisList(): Array<string>;
+  setUrisList(value: Array<string>): void;
+  clearUrisList(): void;
+  addUris(value: string, index?: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByURIRequest.AsObject;
@@ -779,7 +820,7 @@ export class GetArtifactsByURIRequest extends jspb.Message {
 
 export namespace GetArtifactsByURIRequest {
   export type AsObject = {
-    uri: string,
+    urisList: Array<string>,
   }
 }
 
@@ -1012,6 +1053,48 @@ export class GetExecutionsByTypeResponse extends jspb.Message {
 export namespace GetExecutionsByTypeResponse {
   export type AsObject = {
     executionsList: Array<ml_metadata_proto_metadata_store_pb.Execution.AsObject>,
+  }
+}
+
+export class GetExecutionByTypeAndNameRequest extends jspb.Message {
+  getTypeName(): string;
+  setTypeName(value: string): void;
+
+  getExecutionName(): string;
+  setExecutionName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetExecutionByTypeAndNameRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetExecutionByTypeAndNameRequest): GetExecutionByTypeAndNameRequest.AsObject;
+  static serializeBinaryToWriter(message: GetExecutionByTypeAndNameRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetExecutionByTypeAndNameRequest;
+  static deserializeBinaryFromReader(message: GetExecutionByTypeAndNameRequest, reader: jspb.BinaryReader): GetExecutionByTypeAndNameRequest;
+}
+
+export namespace GetExecutionByTypeAndNameRequest {
+  export type AsObject = {
+    typeName: string,
+    executionName: string,
+  }
+}
+
+export class GetExecutionByTypeAndNameResponse extends jspb.Message {
+  getExecution(): ml_metadata_proto_metadata_store_pb.Execution | undefined;
+  setExecution(value?: ml_metadata_proto_metadata_store_pb.Execution): void;
+  hasExecution(): boolean;
+  clearExecution(): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetExecutionByTypeAndNameResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetExecutionByTypeAndNameResponse): GetExecutionByTypeAndNameResponse.AsObject;
+  static serializeBinaryToWriter(message: GetExecutionByTypeAndNameResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetExecutionByTypeAndNameResponse;
+  static deserializeBinaryFromReader(message: GetExecutionByTypeAndNameResponse, reader: jspb.BinaryReader): GetExecutionByTypeAndNameResponse;
+}
+
+export namespace GetExecutionByTypeAndNameResponse {
+  export type AsObject = {
+    execution?: ml_metadata_proto_metadata_store_pb.Execution.AsObject,
   }
 }
 
