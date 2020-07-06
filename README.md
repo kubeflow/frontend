@@ -38,19 +38,13 @@ the Protocol Buffer compiler, `protoc`, being in the system PATH.
 
 If a file in `proto/` is modified or you need to manually re-generate the protos, you'll need to:
 
-* Add `protoc` to your systemPATH
-* Add `protoc-gen-grpc-web` to your system PATH
+* Add `protoc` to your system PATH ([download](https://github.com/protocolbuffers/protobuf/releases))
+* Add `protoc-gen-grpc-web` to your system PATH ([download](https://github.com/grpc/grpc-web/releases))
 * Generate new protos by running
 
 ```bash
 npm run build:protos
 ```
-
-See [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)
-for a pre-built binary of `protoc`.
-
-See [https://github.com/grpc/grpc-web/releases](https://github.com/grpc/grpc-web/releases)
-for a pre-built binary of `protoc-gen-grpc-web`.
 
 The script run by `npm run build:protos` can be read or modified at `scripts/gen_grpc_web_protos.js`.
 
