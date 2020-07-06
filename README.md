@@ -38,8 +38,8 @@ the Protocol Buffer compiler, `protoc`, being in the system PATH.
 
 If a file in `proto/` is modified or you need to manually re-generate the protos, you'll need to:
 
-* Add `protoc` to your system PATH ([download](https://github.com/protocolbuffers/protobuf/releases))
-* Add `protoc-gen-grpc-web` to your system PATH ([download](https://github.com/grpc/grpc-web/releases))
+* Add `protoc` ([download](https://github.com/protocolbuffers/protobuf/releases)) to your system PATH
+* Add `protoc-gen-grpc-web` ([download](https://github.com/grpc/grpc-web/releases)) to your system PATH
 * Generate new protos by running
 
 ```bash
