@@ -38,21 +38,24 @@ the Protocol Buffer compiler, `protoc`, being in the system PATH.
 
 If a file in `proto/` is modified or you need to manually re-generate the protos, you'll need to:
 
-* Add `protoc` ([download](https://github.com/protocolbuffers/protobuf/releases)) to your system PATH
-* Add `protoc-gen-grpc-web` ([download](https://github.com/grpc/grpc-web/releases)) to your system PATH
+* Add `protoc` ([download](https://github.com/protocolbuffers/protobuf/releases)) to your system
+  PATH
+* Add `protoc-gen-grpc-web` ([download](https://github.com/grpc/grpc-web/releases)) to your system
+  PATH
 * Generate new protos by running
 
 ```bash
 npm run build:protos
 ```
 
-The script run by `npm run build:protos` can be read or modified at `scripts/gen_grpc_web_protos.js`.
+The current TypeScript proto library was generated with `protoc-gen-grpc-web` version 1.0.7 with
+`protoc` version 3.10.1.
 
-Protocol Buffers for the `mlmd` module are taken from an earlier commit hash of the `ml_metadata`
+The script run by `npm run build:protos` can be found at `scripts/gen_grpc_web_protos.js`.
+
+Protocol Buffers for the `proto/ml_metadata` are built against version 0.22.1 of the `ml_metadata`
 proto package from
 [google/ml-metadata](https://github.com/google/ml-metadata/tree/master/ml_metadata/proto).
-
-The current version is 0.22.1.
 
 ## Testing
 
