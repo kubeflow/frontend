@@ -3,15 +3,12 @@ import * as jspb from "google-protobuf"
 export class Value extends jspb.Message {
   getIntValue(): number;
   setIntValue(value: number): void;
-  hasIntValue(): boolean;
 
   getDoubleValue(): number;
   setDoubleValue(value: number): void;
-  hasDoubleValue(): boolean;
 
   getStringValue(): string;
   setStringValue(value: string): void;
-  hasStringValue(): boolean;
 
   getValueCase(): Value.ValueCase;
 
@@ -42,8 +39,14 @@ export class Artifact extends jspb.Message {
   getId(): number;
   setId(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   getTypeId(): number;
   setTypeId(value: number): void;
+
+  getType(): string;
+  setType(value: string): void;
 
   getUri(): string;
   setUri(value: string): void;
@@ -57,6 +60,12 @@ export class Artifact extends jspb.Message {
   getState(): Artifact.State;
   setState(value: Artifact.State): void;
 
+  getCreateTimeSinceEpoch(): number;
+  setCreateTimeSinceEpoch(value: number): void;
+
+  getLastUpdateTimeSinceEpoch(): number;
+  setLastUpdateTimeSinceEpoch(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Artifact.AsObject;
   static toObject(includeInstance: boolean, msg: Artifact): Artifact.AsObject;
@@ -68,11 +77,15 @@ export class Artifact extends jspb.Message {
 export namespace Artifact {
   export type AsObject = {
     id: number,
+    name: string,
     typeId: number,
+    type: string,
     uri: string,
     propertiesMap: Array<[string, Value.AsObject]>,
     customPropertiesMap: Array<[string, Value.AsObject]>,
     state: Artifact.State,
+    createTimeSinceEpoch: number,
+    lastUpdateTimeSinceEpoch: number,
   }
 
   export enum State { 
@@ -167,11 +180,9 @@ export namespace Event {
     export class Step extends jspb.Message {
       getIndex(): number;
       setIndex(value: number): void;
-      hasIndex(): boolean;
 
       getKey(): string;
       setKey(value: string): void;
-      hasKey(): boolean;
 
       getValueCase(): Step.ValueCase;
 
@@ -214,8 +225,14 @@ export class Execution extends jspb.Message {
   getId(): number;
   setId(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   getTypeId(): number;
   setTypeId(value: number): void;
+
+  getType(): string;
+  setType(value: string): void;
 
   getLastKnownState(): Execution.State;
   setLastKnownState(value: Execution.State): void;
@@ -225,6 +242,12 @@ export class Execution extends jspb.Message {
 
   getCustomPropertiesMap(): jspb.Map<string, Value>;
   clearCustomPropertiesMap(): void;
+
+  getCreateTimeSinceEpoch(): number;
+  setCreateTimeSinceEpoch(value: number): void;
+
+  getLastUpdateTimeSinceEpoch(): number;
+  setLastUpdateTimeSinceEpoch(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Execution.AsObject;
@@ -237,10 +260,14 @@ export class Execution extends jspb.Message {
 export namespace Execution {
   export type AsObject = {
     id: number,
+    name: string,
     typeId: number,
+    type: string,
     lastKnownState: Execution.State,
     propertiesMap: Array<[string, Value.AsObject]>,
     customPropertiesMap: Array<[string, Value.AsObject]>,
+    createTimeSinceEpoch: number,
+    lastUpdateTimeSinceEpoch: number,
   }
 
   export enum State { 
@@ -322,17 +349,26 @@ export class Context extends jspb.Message {
   getId(): number;
   setId(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   getTypeId(): number;
   setTypeId(value: number): void;
 
-  getName(): string;
-  setName(value: string): void;
+  getType(): string;
+  setType(value: string): void;
 
   getPropertiesMap(): jspb.Map<string, Value>;
   clearPropertiesMap(): void;
 
   getCustomPropertiesMap(): jspb.Map<string, Value>;
   clearCustomPropertiesMap(): void;
+
+  getCreateTimeSinceEpoch(): number;
+  setCreateTimeSinceEpoch(value: number): void;
+
+  getLastUpdateTimeSinceEpoch(): number;
+  setLastUpdateTimeSinceEpoch(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Context.AsObject;
@@ -345,10 +381,13 @@ export class Context extends jspb.Message {
 export namespace Context {
   export type AsObject = {
     id: number,
-    typeId: number,
     name: string,
+    typeId: number,
+    type: string,
     propertiesMap: Array<[string, Value.AsObject]>,
     customPropertiesMap: Array<[string, Value.AsObject]>,
+    createTimeSinceEpoch: number,
+    lastUpdateTimeSinceEpoch: number,
   }
 }
 
@@ -423,49 +462,41 @@ export class ArtifactStructType extends jspb.Message {
   setSimple(value?: ArtifactType): void;
   hasSimple(): boolean;
   clearSimple(): void;
-  hasSimple(): boolean;
 
   getUnionType(): UnionArtifactStructType | undefined;
   setUnionType(value?: UnionArtifactStructType): void;
   hasUnionType(): boolean;
   clearUnionType(): void;
-  hasUnionType(): boolean;
 
   getIntersection(): IntersectionArtifactStructType | undefined;
   setIntersection(value?: IntersectionArtifactStructType): void;
   hasIntersection(): boolean;
   clearIntersection(): void;
-  hasIntersection(): boolean;
 
   getList(): ListArtifactStructType | undefined;
   setList(value?: ListArtifactStructType): void;
   hasList(): boolean;
   clearList(): void;
-  hasList(): boolean;
 
   getNone(): NoneArtifactStructType | undefined;
   setNone(value?: NoneArtifactStructType): void;
   hasNone(): boolean;
   clearNone(): void;
-  hasNone(): boolean;
 
   getAny(): AnyArtifactStructType | undefined;
   setAny(value?: AnyArtifactStructType): void;
   hasAny(): boolean;
   clearAny(): void;
-  hasAny(): boolean;
 
   getTuple(): TupleArtifactStructType | undefined;
   setTuple(value?: TupleArtifactStructType): void;
   hasTuple(): boolean;
   clearTuple(): void;
-  hasTuple(): boolean;
 
   getDict(): DictArtifactStructType | undefined;
   setDict(value?: DictArtifactStructType): void;
   hasDict(): boolean;
   clearDict(): void;
-  hasDict(): boolean;
 
   getKindCase(): ArtifactStructType.KindCase;
 
@@ -786,24 +817,44 @@ export namespace MigrationOptions {
   }
 }
 
+export class RetryOptions extends jspb.Message {
+  getMaxNumRetries(): number;
+  setMaxNumRetries(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RetryOptions.AsObject;
+  static toObject(includeInstance: boolean, msg: RetryOptions): RetryOptions.AsObject;
+  static serializeBinaryToWriter(message: RetryOptions, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RetryOptions;
+  static deserializeBinaryFromReader(message: RetryOptions, reader: jspb.BinaryReader): RetryOptions;
+}
+
+export namespace RetryOptions {
+  export type AsObject = {
+    maxNumRetries: number,
+  }
+}
+
 export class ConnectionConfig extends jspb.Message {
   getFakeDatabase(): FakeDatabaseConfig | undefined;
   setFakeDatabase(value?: FakeDatabaseConfig): void;
   hasFakeDatabase(): boolean;
   clearFakeDatabase(): void;
-  hasFakeDatabase(): boolean;
 
   getMysql(): MySQLDatabaseConfig | undefined;
   setMysql(value?: MySQLDatabaseConfig): void;
   hasMysql(): boolean;
   clearMysql(): void;
-  hasMysql(): boolean;
 
   getSqlite(): SqliteMetadataSourceConfig | undefined;
   setSqlite(value?: SqliteMetadataSourceConfig): void;
   hasSqlite(): boolean;
   clearSqlite(): void;
-  hasSqlite(): boolean;
+
+  getRetryOptions(): RetryOptions | undefined;
+  setRetryOptions(value?: RetryOptions): void;
+  hasRetryOptions(): boolean;
+  clearRetryOptions(): void;
 
   getConfigCase(): ConnectionConfig.ConfigCase;
 
@@ -820,6 +871,7 @@ export namespace ConnectionConfig {
     fakeDatabase?: FakeDatabaseConfig.AsObject,
     mysql?: MySQLDatabaseConfig.AsObject,
     sqlite?: SqliteMetadataSourceConfig.AsObject,
+    retryOptions?: RetryOptions.AsObject,
   }
 
   export enum ConfigCase { 
@@ -946,6 +998,92 @@ export namespace MetadataStoreServerConfig {
     }
   }
 
+}
+
+export class ListOperationOptions extends jspb.Message {
+  getMaxResultSize(): number;
+  setMaxResultSize(value: number): void;
+
+  getOrderByField(): ListOperationOptions.OrderByField | undefined;
+  setOrderByField(value?: ListOperationOptions.OrderByField): void;
+  hasOrderByField(): boolean;
+  clearOrderByField(): void;
+
+  getNextPageToken(): string;
+  setNextPageToken(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListOperationOptions.AsObject;
+  static toObject(includeInstance: boolean, msg: ListOperationOptions): ListOperationOptions.AsObject;
+  static serializeBinaryToWriter(message: ListOperationOptions, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListOperationOptions;
+  static deserializeBinaryFromReader(message: ListOperationOptions, reader: jspb.BinaryReader): ListOperationOptions;
+}
+
+export namespace ListOperationOptions {
+  export type AsObject = {
+    maxResultSize: number,
+    orderByField?: ListOperationOptions.OrderByField.AsObject,
+    nextPageToken: string,
+  }
+
+  export class OrderByField extends jspb.Message {
+    getField(): ListOperationOptions.OrderByField.Field;
+    setField(value: ListOperationOptions.OrderByField.Field): void;
+
+    getIsAsc(): boolean;
+    setIsAsc(value: boolean): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): OrderByField.AsObject;
+    static toObject(includeInstance: boolean, msg: OrderByField): OrderByField.AsObject;
+    static serializeBinaryToWriter(message: OrderByField, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): OrderByField;
+    static deserializeBinaryFromReader(message: OrderByField, reader: jspb.BinaryReader): OrderByField;
+  }
+
+  export namespace OrderByField {
+    export type AsObject = {
+      field: ListOperationOptions.OrderByField.Field,
+      isAsc: boolean,
+    }
+
+    export enum Field { 
+      FIELD_UNSPECIFIED = 0,
+      CREATE_TIME = 1,
+      LAST_UPDATE_TIME = 2,
+      ID = 3,
+    }
+  }
+
+}
+
+export class ListOperationNextPageToken extends jspb.Message {
+  getIdOffset(): number;
+  setIdOffset(value: number): void;
+
+  getFieldOffset(): number;
+  setFieldOffset(value: number): void;
+
+  getSetOptions(): ListOperationOptions | undefined;
+  setSetOptions(value?: ListOperationOptions): void;
+  hasSetOptions(): boolean;
+  clearSetOptions(): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListOperationNextPageToken.AsObject;
+  static toObject(includeInstance: boolean, msg: ListOperationNextPageToken): ListOperationNextPageToken.AsObject;
+  static serializeBinaryToWriter(message: ListOperationNextPageToken, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListOperationNextPageToken;
+  static deserializeBinaryFromReader(message: ListOperationNextPageToken, reader: jspb.BinaryReader): ListOperationNextPageToken;
+}
+
+export namespace ListOperationNextPageToken {
+  export type AsObject = {
+    idOffset: number,
+    fieldOffset: number,
+    setOptions?: ListOperationOptions.AsObject,
+  }
 }
 
 export enum PropertyType { 
