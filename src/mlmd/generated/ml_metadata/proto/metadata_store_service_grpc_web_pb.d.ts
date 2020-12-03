@@ -8,13 +8,6 @@ export class MetadataStoreServiceClient {
                credentials?: null | { [index: string]: string; },
                options?: null | { [index: string]: any; });
 
-  putArtifacts(
-    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse) => void
-  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
-
   putArtifactType(
     request: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -22,19 +15,40 @@ export class MetadataStoreServiceClient {
                response: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse) => void
   ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse>;
 
-  putExecutions(
-    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse) => void
-  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
-
   putExecutionType(
     request: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
                response: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse) => void
   ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse>;
+
+  putContextType(
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
+
+  putTypes(
+    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
+
+  putArtifacts(
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
+
+  putExecutions(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
 
   putEvents(
     request: ml_metadata_proto_metadata_store_service_pb.PutEventsRequest,
@@ -49,20 +63,6 @@ export class MetadataStoreServiceClient {
     callback: (err: grpcWeb.Error,
                response: ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse) => void
   ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse>;
-
-  putTypes(
-    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ml_metadata_proto_metadata_store_service_pb.PutTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
-
-  putContextType(
-    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
 
   putContexts(
     request: ml_metadata_proto_metadata_store_service_pb.PutContextsRequest,
@@ -302,25 +302,35 @@ export class MetadataStoreServicePromiseClient {
                credentials?: null | { [index: string]: string; },
                options?: null | { [index: string]: any; });
 
-  putArtifacts(
-    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
-
   putArtifactType(
     request: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse>;
 
-  putExecutions(
-    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
-
   putExecutionType(
     request: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse>;
+
+  putContextType(
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
+
+  putTypes(
+    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
+
+  putArtifacts(
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
+
+  putExecutions(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
 
   putEvents(
     request: ml_metadata_proto_metadata_store_service_pb.PutEventsRequest,
@@ -331,16 +341,6 @@ export class MetadataStoreServicePromiseClient {
     request: ml_metadata_proto_metadata_store_service_pb.PutExecutionRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse>;
-
-  putTypes(
-    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
-
-  putContextType(
-    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
 
   putContexts(
     request: ml_metadata_proto_metadata_store_service_pb.PutContextsRequest,

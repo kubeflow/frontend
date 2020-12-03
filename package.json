@@ -21,6 +21,7 @@
     "build": "npx tsc --project tsconfig.lib.json",
     "build:all": "npm run build:protos && npx tsc --project tsconfig.lib.json",
     "build:protos": "node scripts/gen_grpc_web_protos.js",
+    "build:replace": "node scripts/replace_protos.js",
     "build:watch": "npx tsc --project tsconfig.lib.json --watch",
     "eject": "cross-env EXTEND_ESLINT=true react-scripts eject",
     "test": "cross-env TZ='America/New_York' EXTEND_ESLINT=true react-scripts test --env=jsdom",
