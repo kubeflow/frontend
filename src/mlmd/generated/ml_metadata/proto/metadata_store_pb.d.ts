@@ -1,14 +1,16 @@
-import * as jspb from "google-protobuf"
+import * as jspb from 'google-protobuf'
+
+
 
 export class Value extends jspb.Message {
   getIntValue(): number;
-  setIntValue(value: number): void;
+  setIntValue(value: number): Value;
 
   getDoubleValue(): number;
-  setDoubleValue(value: number): void;
+  setDoubleValue(value: number): Value;
 
   getStringValue(): string;
-  setStringValue(value: string): void;
+  setStringValue(value: string): Value;
 
   getValueCase(): Value.ValueCase;
 
@@ -37,34 +39,34 @@ export namespace Value {
 
 export class Artifact extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): Artifact;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): Artifact;
 
   getTypeId(): number;
-  setTypeId(value: number): void;
+  setTypeId(value: number): Artifact;
 
   getType(): string;
-  setType(value: string): void;
+  setType(value: string): Artifact;
 
   getUri(): string;
-  setUri(value: string): void;
+  setUri(value: string): Artifact;
 
   getPropertiesMap(): jspb.Map<string, Value>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): Artifact;
 
   getCustomPropertiesMap(): jspb.Map<string, Value>;
-  clearCustomPropertiesMap(): void;
+  clearCustomPropertiesMap(): Artifact;
 
   getState(): Artifact.State;
-  setState(value: Artifact.State): void;
+  setState(value: Artifact.State): Artifact;
 
   getCreateTimeSinceEpoch(): number;
-  setCreateTimeSinceEpoch(value: number): void;
+  setCreateTimeSinceEpoch(value: number): Artifact;
 
   getLastUpdateTimeSinceEpoch(): number;
-  setLastUpdateTimeSinceEpoch(value: number): void;
+  setLastUpdateTimeSinceEpoch(value: number): Artifact;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Artifact.AsObject;
@@ -99,13 +101,13 @@ export namespace Artifact {
 
 export class ArtifactType extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): ArtifactType;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): ArtifactType;
 
   getPropertiesMap(): jspb.Map<string, PropertyType>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): ArtifactType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ArtifactType.AsObject;
@@ -125,21 +127,21 @@ export namespace ArtifactType {
 
 export class Event extends jspb.Message {
   getArtifactId(): number;
-  setArtifactId(value: number): void;
+  setArtifactId(value: number): Event;
 
   getExecutionId(): number;
-  setExecutionId(value: number): void;
+  setExecutionId(value: number): Event;
 
   getPath(): Event.Path | undefined;
-  setPath(value?: Event.Path): void;
+  setPath(value?: Event.Path): Event;
   hasPath(): boolean;
-  clearPath(): void;
+  clearPath(): Event;
 
   getType(): Event.Type;
-  setType(value: Event.Type): void;
+  setType(value: Event.Type): Event;
 
   getMillisecondsSinceEpoch(): number;
-  setMillisecondsSinceEpoch(value: number): void;
+  setMillisecondsSinceEpoch(value: number): Event;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Event.AsObject;
@@ -160,8 +162,8 @@ export namespace Event {
 
   export class Path extends jspb.Message {
     getStepsList(): Array<Event.Path.Step>;
-    setStepsList(value: Array<Event.Path.Step>): void;
-    clearStepsList(): void;
+    setStepsList(value: Array<Event.Path.Step>): Path;
+    clearStepsList(): Path;
     addSteps(value?: Event.Path.Step, index?: number): Event.Path.Step;
 
     serializeBinary(): Uint8Array;
@@ -179,10 +181,10 @@ export namespace Event {
 
     export class Step extends jspb.Message {
       getIndex(): number;
-      setIndex(value: number): void;
+      setIndex(value: number): Step;
 
       getKey(): string;
-      setKey(value: string): void;
+      setKey(value: string): Step;
 
       getValueCase(): Step.ValueCase;
 
@@ -223,31 +225,31 @@ export namespace Event {
 
 export class Execution extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): Execution;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): Execution;
 
   getTypeId(): number;
-  setTypeId(value: number): void;
+  setTypeId(value: number): Execution;
 
   getType(): string;
-  setType(value: string): void;
+  setType(value: string): Execution;
 
   getLastKnownState(): Execution.State;
-  setLastKnownState(value: Execution.State): void;
+  setLastKnownState(value: Execution.State): Execution;
 
   getPropertiesMap(): jspb.Map<string, Value>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): Execution;
 
   getCustomPropertiesMap(): jspb.Map<string, Value>;
-  clearCustomPropertiesMap(): void;
+  clearCustomPropertiesMap(): Execution;
 
   getCreateTimeSinceEpoch(): number;
-  setCreateTimeSinceEpoch(value: number): void;
+  setCreateTimeSinceEpoch(value: number): Execution;
 
   getLastUpdateTimeSinceEpoch(): number;
-  setLastUpdateTimeSinceEpoch(value: number): void;
+  setLastUpdateTimeSinceEpoch(value: number): Execution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Execution.AsObject;
@@ -283,23 +285,23 @@ export namespace Execution {
 
 export class ExecutionType extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): ExecutionType;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): ExecutionType;
 
   getPropertiesMap(): jspb.Map<string, PropertyType>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): ExecutionType;
 
   getInputType(): ArtifactStructType | undefined;
-  setInputType(value?: ArtifactStructType): void;
+  setInputType(value?: ArtifactStructType): ExecutionType;
   hasInputType(): boolean;
-  clearInputType(): void;
+  clearInputType(): ExecutionType;
 
   getOutputType(): ArtifactStructType | undefined;
-  setOutputType(value?: ArtifactStructType): void;
+  setOutputType(value?: ArtifactStructType): ExecutionType;
   hasOutputType(): boolean;
-  clearOutputType(): void;
+  clearOutputType(): ExecutionType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExecutionType.AsObject;
@@ -321,13 +323,13 @@ export namespace ExecutionType {
 
 export class ContextType extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): ContextType;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): ContextType;
 
   getPropertiesMap(): jspb.Map<string, PropertyType>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): ContextType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ContextType.AsObject;
@@ -347,28 +349,28 @@ export namespace ContextType {
 
 export class Context extends jspb.Message {
   getId(): number;
-  setId(value: number): void;
+  setId(value: number): Context;
 
   getName(): string;
-  setName(value: string): void;
+  setName(value: string): Context;
 
   getTypeId(): number;
-  setTypeId(value: number): void;
+  setTypeId(value: number): Context;
 
   getType(): string;
-  setType(value: string): void;
+  setType(value: string): Context;
 
   getPropertiesMap(): jspb.Map<string, Value>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): Context;
 
   getCustomPropertiesMap(): jspb.Map<string, Value>;
-  clearCustomPropertiesMap(): void;
+  clearCustomPropertiesMap(): Context;
 
   getCreateTimeSinceEpoch(): number;
-  setCreateTimeSinceEpoch(value: number): void;
+  setCreateTimeSinceEpoch(value: number): Context;
 
   getLastUpdateTimeSinceEpoch(): number;
-  setLastUpdateTimeSinceEpoch(value: number): void;
+  setLastUpdateTimeSinceEpoch(value: number): Context;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Context.AsObject;
@@ -393,10 +395,10 @@ export namespace Context {
 
 export class Attribution extends jspb.Message {
   getArtifactId(): number;
-  setArtifactId(value: number): void;
+  setArtifactId(value: number): Attribution;
 
   getContextId(): number;
-  setContextId(value: number): void;
+  setContextId(value: number): Attribution;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Attribution.AsObject;
@@ -415,10 +417,10 @@ export namespace Attribution {
 
 export class Association extends jspb.Message {
   getExecutionId(): number;
-  setExecutionId(value: number): void;
+  setExecutionId(value: number): Association;
 
   getContextId(): number;
-  setContextId(value: number): void;
+  setContextId(value: number): Association;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Association.AsObject;
@@ -437,10 +439,10 @@ export namespace Association {
 
 export class ParentContext extends jspb.Message {
   getChildId(): number;
-  setChildId(value: number): void;
+  setChildId(value: number): ParentContext;
 
   getParentId(): number;
-  setParentId(value: number): void;
+  setParentId(value: number): ParentContext;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ParentContext.AsObject;
@@ -459,44 +461,44 @@ export namespace ParentContext {
 
 export class ArtifactStructType extends jspb.Message {
   getSimple(): ArtifactType | undefined;
-  setSimple(value?: ArtifactType): void;
+  setSimple(value?: ArtifactType): ArtifactStructType;
   hasSimple(): boolean;
-  clearSimple(): void;
+  clearSimple(): ArtifactStructType;
 
   getUnionType(): UnionArtifactStructType | undefined;
-  setUnionType(value?: UnionArtifactStructType): void;
+  setUnionType(value?: UnionArtifactStructType): ArtifactStructType;
   hasUnionType(): boolean;
-  clearUnionType(): void;
+  clearUnionType(): ArtifactStructType;
 
   getIntersection(): IntersectionArtifactStructType | undefined;
-  setIntersection(value?: IntersectionArtifactStructType): void;
+  setIntersection(value?: IntersectionArtifactStructType): ArtifactStructType;
   hasIntersection(): boolean;
-  clearIntersection(): void;
+  clearIntersection(): ArtifactStructType;
 
   getList(): ListArtifactStructType | undefined;
-  setList(value?: ListArtifactStructType): void;
+  setList(value?: ListArtifactStructType): ArtifactStructType;
   hasList(): boolean;
-  clearList(): void;
+  clearList(): ArtifactStructType;
 
   getNone(): NoneArtifactStructType | undefined;
-  setNone(value?: NoneArtifactStructType): void;
+  setNone(value?: NoneArtifactStructType): ArtifactStructType;
   hasNone(): boolean;
-  clearNone(): void;
+  clearNone(): ArtifactStructType;
 
   getAny(): AnyArtifactStructType | undefined;
-  setAny(value?: AnyArtifactStructType): void;
+  setAny(value?: AnyArtifactStructType): ArtifactStructType;
   hasAny(): boolean;
-  clearAny(): void;
+  clearAny(): ArtifactStructType;
 
   getTuple(): TupleArtifactStructType | undefined;
-  setTuple(value?: TupleArtifactStructType): void;
+  setTuple(value?: TupleArtifactStructType): ArtifactStructType;
   hasTuple(): boolean;
-  clearTuple(): void;
+  clearTuple(): ArtifactStructType;
 
   getDict(): DictArtifactStructType | undefined;
-  setDict(value?: DictArtifactStructType): void;
+  setDict(value?: DictArtifactStructType): ArtifactStructType;
   hasDict(): boolean;
-  clearDict(): void;
+  clearDict(): ArtifactStructType;
 
   getKindCase(): ArtifactStructType.KindCase;
 
@@ -535,8 +537,8 @@ export namespace ArtifactStructType {
 
 export class UnionArtifactStructType extends jspb.Message {
   getCandidatesList(): Array<ArtifactStructType>;
-  setCandidatesList(value: Array<ArtifactStructType>): void;
-  clearCandidatesList(): void;
+  setCandidatesList(value: Array<ArtifactStructType>): UnionArtifactStructType;
+  clearCandidatesList(): UnionArtifactStructType;
   addCandidates(value?: ArtifactStructType, index?: number): ArtifactStructType;
 
   serializeBinary(): Uint8Array;
@@ -555,8 +557,8 @@ export namespace UnionArtifactStructType {
 
 export class IntersectionArtifactStructType extends jspb.Message {
   getConstraintsList(): Array<ArtifactStructType>;
-  setConstraintsList(value: Array<ArtifactStructType>): void;
-  clearConstraintsList(): void;
+  setConstraintsList(value: Array<ArtifactStructType>): IntersectionArtifactStructType;
+  clearConstraintsList(): IntersectionArtifactStructType;
   addConstraints(value?: ArtifactStructType, index?: number): ArtifactStructType;
 
   serializeBinary(): Uint8Array;
@@ -575,9 +577,9 @@ export namespace IntersectionArtifactStructType {
 
 export class ListArtifactStructType extends jspb.Message {
   getElement(): ArtifactStructType | undefined;
-  setElement(value?: ArtifactStructType): void;
+  setElement(value?: ArtifactStructType): ListArtifactStructType;
   hasElement(): boolean;
-  clearElement(): void;
+  clearElement(): ListArtifactStructType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListArtifactStructType.AsObject;
@@ -623,8 +625,8 @@ export namespace AnyArtifactStructType {
 
 export class TupleArtifactStructType extends jspb.Message {
   getElementsList(): Array<ArtifactStructType>;
-  setElementsList(value: Array<ArtifactStructType>): void;
-  clearElementsList(): void;
+  setElementsList(value: Array<ArtifactStructType>): TupleArtifactStructType;
+  clearElementsList(): TupleArtifactStructType;
   addElements(value?: ArtifactStructType, index?: number): ArtifactStructType;
 
   serializeBinary(): Uint8Array;
@@ -643,15 +645,15 @@ export namespace TupleArtifactStructType {
 
 export class DictArtifactStructType extends jspb.Message {
   getPropertiesMap(): jspb.Map<string, ArtifactStructType>;
-  clearPropertiesMap(): void;
+  clearPropertiesMap(): DictArtifactStructType;
 
   getNoneTypeNotRequired(): boolean;
-  setNoneTypeNotRequired(value: boolean): void;
+  setNoneTypeNotRequired(value: boolean): DictArtifactStructType;
 
   getExtraPropertiesType(): ArtifactStructType | undefined;
-  setExtraPropertiesType(value?: ArtifactStructType): void;
+  setExtraPropertiesType(value?: ArtifactStructType): DictArtifactStructType;
   hasExtraPropertiesType(): boolean;
-  clearExtraPropertiesType(): void;
+  clearExtraPropertiesType(): DictArtifactStructType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DictArtifactStructType.AsObject;
@@ -685,27 +687,27 @@ export namespace FakeDatabaseConfig {
 
 export class MySQLDatabaseConfig extends jspb.Message {
   getHost(): string;
-  setHost(value: string): void;
+  setHost(value: string): MySQLDatabaseConfig;
 
   getPort(): number;
-  setPort(value: number): void;
+  setPort(value: number): MySQLDatabaseConfig;
 
   getDatabase(): string;
-  setDatabase(value: string): void;
+  setDatabase(value: string): MySQLDatabaseConfig;
 
   getUser(): string;
-  setUser(value: string): void;
+  setUser(value: string): MySQLDatabaseConfig;
 
   getPassword(): string;
-  setPassword(value: string): void;
+  setPassword(value: string): MySQLDatabaseConfig;
 
   getSocket(): string;
-  setSocket(value: string): void;
+  setSocket(value: string): MySQLDatabaseConfig;
 
   getSslOptions(): MySQLDatabaseConfig.SSLOptions | undefined;
-  setSslOptions(value?: MySQLDatabaseConfig.SSLOptions): void;
+  setSslOptions(value?: MySQLDatabaseConfig.SSLOptions): MySQLDatabaseConfig;
   hasSslOptions(): boolean;
-  clearSslOptions(): void;
+  clearSslOptions(): MySQLDatabaseConfig;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MySQLDatabaseConfig.AsObject;
@@ -728,22 +730,22 @@ export namespace MySQLDatabaseConfig {
 
   export class SSLOptions extends jspb.Message {
     getKey(): string;
-    setKey(value: string): void;
+    setKey(value: string): SSLOptions;
 
     getCert(): string;
-    setCert(value: string): void;
+    setCert(value: string): SSLOptions;
 
     getCa(): string;
-    setCa(value: string): void;
+    setCa(value: string): SSLOptions;
 
     getCapath(): string;
-    setCapath(value: string): void;
+    setCapath(value: string): SSLOptions;
 
     getCipher(): string;
-    setCipher(value: string): void;
+    setCipher(value: string): SSLOptions;
 
     getVerifyServerCert(): boolean;
-    setVerifyServerCert(value: boolean): void;
+    setVerifyServerCert(value: boolean): SSLOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SSLOptions.AsObject;
@@ -768,10 +770,10 @@ export namespace MySQLDatabaseConfig {
 
 export class SqliteMetadataSourceConfig extends jspb.Message {
   getFilenameUri(): string;
-  setFilenameUri(value: string): void;
+  setFilenameUri(value: string): SqliteMetadataSourceConfig;
 
   getConnectionMode(): SqliteMetadataSourceConfig.ConnectionMode;
-  setConnectionMode(value: SqliteMetadataSourceConfig.ConnectionMode): void;
+  setConnectionMode(value: SqliteMetadataSourceConfig.ConnectionMode): SqliteMetadataSourceConfig;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SqliteMetadataSourceConfig.AsObject;
@@ -797,10 +799,10 @@ export namespace SqliteMetadataSourceConfig {
 
 export class MigrationOptions extends jspb.Message {
   getEnableUpgradeMigration(): boolean;
-  setEnableUpgradeMigration(value: boolean): void;
+  setEnableUpgradeMigration(value: boolean): MigrationOptions;
 
   getDowngradeToSchemaVersion(): number;
-  setDowngradeToSchemaVersion(value: number): void;
+  setDowngradeToSchemaVersion(value: number): MigrationOptions;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MigrationOptions.AsObject;
@@ -819,7 +821,7 @@ export namespace MigrationOptions {
 
 export class RetryOptions extends jspb.Message {
   getMaxNumRetries(): number;
-  setMaxNumRetries(value: number): void;
+  setMaxNumRetries(value: number): RetryOptions;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RetryOptions.AsObject;
@@ -837,24 +839,24 @@ export namespace RetryOptions {
 
 export class ConnectionConfig extends jspb.Message {
   getFakeDatabase(): FakeDatabaseConfig | undefined;
-  setFakeDatabase(value?: FakeDatabaseConfig): void;
+  setFakeDatabase(value?: FakeDatabaseConfig): ConnectionConfig;
   hasFakeDatabase(): boolean;
-  clearFakeDatabase(): void;
+  clearFakeDatabase(): ConnectionConfig;
 
   getMysql(): MySQLDatabaseConfig | undefined;
-  setMysql(value?: MySQLDatabaseConfig): void;
+  setMysql(value?: MySQLDatabaseConfig): ConnectionConfig;
   hasMysql(): boolean;
-  clearMysql(): void;
+  clearMysql(): ConnectionConfig;
 
   getSqlite(): SqliteMetadataSourceConfig | undefined;
-  setSqlite(value?: SqliteMetadataSourceConfig): void;
+  setSqlite(value?: SqliteMetadataSourceConfig): ConnectionConfig;
   hasSqlite(): boolean;
-  clearSqlite(): void;
+  clearSqlite(): ConnectionConfig;
 
   getRetryOptions(): RetryOptions | undefined;
-  setRetryOptions(value?: RetryOptions): void;
+  setRetryOptions(value?: RetryOptions): ConnectionConfig;
   hasRetryOptions(): boolean;
-  clearRetryOptions(): void;
+  clearRetryOptions(): ConnectionConfig;
 
   getConfigCase(): ConnectionConfig.ConfigCase;
 
@@ -884,15 +886,15 @@ export namespace ConnectionConfig {
 
 export class MetadataStoreClientConfig extends jspb.Message {
   getHost(): string;
-  setHost(value: string): void;
+  setHost(value: string): MetadataStoreClientConfig;
 
   getPort(): number;
-  setPort(value: number): void;
+  setPort(value: number): MetadataStoreClientConfig;
 
   getSslConfig(): MetadataStoreClientConfig.SSLConfig | undefined;
-  setSslConfig(value?: MetadataStoreClientConfig.SSLConfig): void;
+  setSslConfig(value?: MetadataStoreClientConfig.SSLConfig): MetadataStoreClientConfig;
   hasSslConfig(): boolean;
-  clearSslConfig(): void;
+  clearSslConfig(): MetadataStoreClientConfig;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MetadataStoreClientConfig.AsObject;
@@ -911,13 +913,13 @@ export namespace MetadataStoreClientConfig {
 
   export class SSLConfig extends jspb.Message {
     getClientKey(): string;
-    setClientKey(value: string): void;
+    setClientKey(value: string): SSLConfig;
 
     getServerCert(): string;
-    setServerCert(value: string): void;
+    setServerCert(value: string): SSLConfig;
 
     getCustomCa(): string;
-    setCustomCa(value: string): void;
+    setCustomCa(value: string): SSLConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SSLConfig.AsObject;
@@ -939,19 +941,19 @@ export namespace MetadataStoreClientConfig {
 
 export class MetadataStoreServerConfig extends jspb.Message {
   getConnectionConfig(): ConnectionConfig | undefined;
-  setConnectionConfig(value?: ConnectionConfig): void;
+  setConnectionConfig(value?: ConnectionConfig): MetadataStoreServerConfig;
   hasConnectionConfig(): boolean;
-  clearConnectionConfig(): void;
+  clearConnectionConfig(): MetadataStoreServerConfig;
 
   getMigrationOptions(): MigrationOptions | undefined;
-  setMigrationOptions(value?: MigrationOptions): void;
+  setMigrationOptions(value?: MigrationOptions): MetadataStoreServerConfig;
   hasMigrationOptions(): boolean;
-  clearMigrationOptions(): void;
+  clearMigrationOptions(): MetadataStoreServerConfig;
 
   getSslConfig(): MetadataStoreServerConfig.SSLConfig | undefined;
-  setSslConfig(value?: MetadataStoreServerConfig.SSLConfig): void;
+  setSslConfig(value?: MetadataStoreServerConfig.SSLConfig): MetadataStoreServerConfig;
   hasSslConfig(): boolean;
-  clearSslConfig(): void;
+  clearSslConfig(): MetadataStoreServerConfig;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MetadataStoreServerConfig.AsObject;
@@ -970,16 +972,16 @@ export namespace MetadataStoreServerConfig {
 
   export class SSLConfig extends jspb.Message {
     getServerKey(): string;
-    setServerKey(value: string): void;
+    setServerKey(value: string): SSLConfig;
 
     getServerCert(): string;
-    setServerCert(value: string): void;
+    setServerCert(value: string): SSLConfig;
 
     getCustomCa(): string;
-    setCustomCa(value: string): void;
+    setCustomCa(value: string): SSLConfig;
 
     getClientVerify(): boolean;
-    setClientVerify(value: boolean): void;
+    setClientVerify(value: boolean): SSLConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SSLConfig.AsObject;
@@ -1002,15 +1004,15 @@ export namespace MetadataStoreServerConfig {
 
 export class ListOperationOptions extends jspb.Message {
   getMaxResultSize(): number;
-  setMaxResultSize(value: number): void;
+  setMaxResultSize(value: number): ListOperationOptions;
 
   getOrderByField(): ListOperationOptions.OrderByField | undefined;
-  setOrderByField(value?: ListOperationOptions.OrderByField): void;
+  setOrderByField(value?: ListOperationOptions.OrderByField): ListOperationOptions;
   hasOrderByField(): boolean;
-  clearOrderByField(): void;
+  clearOrderByField(): ListOperationOptions;
 
   getNextPageToken(): string;
-  setNextPageToken(value: string): void;
+  setNextPageToken(value: string): ListOperationOptions;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListOperationOptions.AsObject;
@@ -1029,10 +1031,10 @@ export namespace ListOperationOptions {
 
   export class OrderByField extends jspb.Message {
     getField(): ListOperationOptions.OrderByField.Field;
-    setField(value: ListOperationOptions.OrderByField.Field): void;
+    setField(value: ListOperationOptions.OrderByField.Field): OrderByField;
 
     getIsAsc(): boolean;
-    setIsAsc(value: boolean): void;
+    setIsAsc(value: boolean): OrderByField;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): OrderByField.AsObject;
@@ -1060,15 +1062,15 @@ export namespace ListOperationOptions {
 
 export class ListOperationNextPageToken extends jspb.Message {
   getIdOffset(): number;
-  setIdOffset(value: number): void;
+  setIdOffset(value: number): ListOperationNextPageToken;
 
   getFieldOffset(): number;
-  setFieldOffset(value: number): void;
+  setFieldOffset(value: number): ListOperationNextPageToken;
 
   getSetOptions(): ListOperationOptions | undefined;
-  setSetOptions(value?: ListOperationOptions): void;
+  setSetOptions(value?: ListOperationOptions): ListOperationNextPageToken;
   hasSetOptions(): boolean;
-  clearSetOptions(): void;
+  clearSetOptions(): ListOperationNextPageToken;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListOperationNextPageToken.AsObject;

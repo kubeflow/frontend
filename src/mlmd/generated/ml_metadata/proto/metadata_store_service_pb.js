@@ -7,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -2941,8 +2943,10 @@ proto.ml_metadata.PutArtifactsResponse.deserializeBinaryFromReader = function(ms
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addArtifactIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addArtifactIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -3700,8 +3704,10 @@ proto.ml_metadata.PutExecutionsResponse.deserializeBinaryFromReader = function(m
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addExecutionIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addExecutionIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -5032,12 +5038,16 @@ proto.ml_metadata.PutExecutionResponse.deserializeBinaryFromReader = function(ms
       msg.setExecutionId(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addArtifactIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addArtifactIds(values[i]);
+      }
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addContextIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addContextIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -5691,16 +5701,22 @@ proto.ml_metadata.PutTypesResponse.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addArtifactTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addArtifactTypeIds(values[i]);
+      }
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addExecutionTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addExecutionTypeIds(values[i]);
+      }
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addContextTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addContextTypeIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -6546,8 +6562,10 @@ proto.ml_metadata.PutContextsResponse.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addContextIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addContextIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -7932,8 +7950,10 @@ proto.ml_metadata.GetArtifactsByIDRequest.deserializeBinaryFromReader = function
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addArtifactIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addArtifactIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -10823,8 +10843,10 @@ proto.ml_metadata.GetExecutionsByIDRequest.deserializeBinaryFromReader = functio
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addExecutionIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addExecutionIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -11438,8 +11460,10 @@ proto.ml_metadata.GetEventsByExecutionIDsRequest.deserializeBinaryFromReader = f
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addExecutionIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addExecutionIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -11754,8 +11778,10 @@ proto.ml_metadata.GetEventsByArtifactIDsRequest.deserializeBinaryFromReader = fu
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addArtifactIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addArtifactIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -12070,8 +12096,10 @@ proto.ml_metadata.GetArtifactTypesByIDRequest.deserializeBinaryFromReader = func
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addTypeIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -12386,8 +12414,10 @@ proto.ml_metadata.GetExecutionTypesByIDRequest.deserializeBinaryFromReader = fun
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addTypeIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -13001,8 +13031,10 @@ proto.ml_metadata.GetContextTypesByIDRequest.deserializeBinaryFromReader = funct
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addTypeIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addTypeIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -14233,8 +14265,10 @@ proto.ml_metadata.GetContextsByIDRequest.deserializeBinaryFromReader = function(
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.addContextIds(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addContextIds(values[i]);
+      }
       break;
     default:
       reader.skipField();

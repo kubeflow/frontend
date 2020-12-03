@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -136,7 +140,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifacts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutArtifactsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifacts =
     function(request, metadata) {
@@ -216,7 +220,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifactType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutArtifactTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifactType =
     function(request, metadata) {
@@ -296,7 +300,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutions =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutExecutionsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutions =
     function(request, metadata) {
@@ -376,7 +380,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutionType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutExecutionTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutionType =
     function(request, metadata) {
@@ -456,7 +460,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putEvents =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutEventsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putEvents =
     function(request, metadata) {
@@ -536,7 +540,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecution =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutExecutionResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecution =
     function(request, metadata) {
@@ -616,7 +620,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putTypes =
     function(request, metadata) {
@@ -696,7 +700,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContextType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutContextTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContextType =
     function(request, metadata) {
@@ -776,7 +780,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContexts =
     function(request, metadata) {
@@ -856,7 +860,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putAttributionsAndAssocia
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutAttributionsAndAssociationsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putAttributionsAndAssociations =
     function(request, metadata) {
@@ -936,7 +940,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putParentContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutParentContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putParentContexts =
     function(request, metadata) {
@@ -1016,7 +1020,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactType =
     function(request, metadata) {
@@ -1096,7 +1100,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypesByID =
     function(request, metadata) {
@@ -1176,7 +1180,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypes =
     function(request, metadata) {
@@ -1256,7 +1260,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionType =
     function(request, metadata) {
@@ -1336,7 +1340,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypesByID =
     function(request, metadata) {
@@ -1416,7 +1420,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypes =
     function(request, metadata) {
@@ -1496,7 +1500,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextType =
     function(request, metadata) {
@@ -1576,7 +1580,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypesByID =
     function(request, metadata) {
@@ -1656,7 +1660,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypes =
     function(request, metadata) {
@@ -1736,7 +1740,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifacts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifacts =
     function(request, metadata) {
@@ -1816,7 +1820,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutions =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutions =
     function(request, metadata) {
@@ -1896,7 +1900,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContexts =
     function(request, metadata) {
@@ -1976,7 +1980,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByID =
     function(request, metadata) {
@@ -2056,7 +2060,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByID =
     function(request, metadata) {
@@ -2136,7 +2140,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByID =
     function(request, metadata) {
@@ -2216,7 +2220,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByType =
     function(request, metadata) {
@@ -2296,7 +2300,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByType =
     function(request, metadata) {
@@ -2376,7 +2380,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByType =
     function(request, metadata) {
@@ -2456,7 +2460,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactByTypeAndName 
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactByTypeAndNameResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactByTypeAndName =
     function(request, metadata) {
@@ -2536,7 +2540,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionByTypeAndName
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionByTypeAndNameResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionByTypeAndName =
     function(request, metadata) {
@@ -2616,7 +2620,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextByTypeAndName =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextByTypeAndNameResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextByTypeAndName =
     function(request, metadata) {
@@ -2696,7 +2700,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByURI =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByURIResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByURI =
     function(request, metadata) {
@@ -2776,7 +2780,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByExecutionIDs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetEventsByExecutionIDsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByExecutionIDs =
     function(request, metadata) {
@@ -2856,7 +2860,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByArtifactIDs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetEventsByArtifactIDsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByArtifactIDs =
     function(request, metadata) {
@@ -2936,7 +2940,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByArtifact =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByArtifactResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByArtifact =
     function(request, metadata) {
@@ -3016,7 +3020,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByExecution =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByExecutionResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByExecution =
     function(request, metadata) {
@@ -3096,7 +3100,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getParentContextsByContex
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetParentContextsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getParentContextsByContext =
     function(request, metadata) {
@@ -3176,7 +3180,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getChildrenContextsByCont
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetChildrenContextsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getChildrenContextsByContext =
     function(request, metadata) {
@@ -3256,7 +3260,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByContext =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByContext =
     function(request, metadata) {
@@ -3336,7 +3340,7 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByContext =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByContext =
     function(request, metadata) {
