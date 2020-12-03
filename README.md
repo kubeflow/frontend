@@ -45,7 +45,7 @@ If a file in `proto/` is modified or you need to manually re-generate the protos
 * Generate new protos by running
 
 ```bash
-npm run build:protos
+npm run build:protos -- {mlmd_versions}
 ```
 
 The script run by `npm run build:protos` can be found at `scripts/gen_grpc_web_protos.js`.
@@ -53,7 +53,7 @@ The script run by `npm run build:protos` can be found at `scripts/gen_grpc_web_p
 The current TypeScript proto library was generated with `protoc-gen-grpc-web` version 1.0.7 with
 `protoc` version 3.10.1.
 
-The Protocol Buffers in `proto/ml_metadata` are taken from the master branch(v0.25.1) of the `ml_metadata` proto
+The Protocol Buffers in `proto/ml_metadata` are taken from the target version(v0.25.1 by default) of the `ml_metadata` proto
 package from
 [google/ml-metadata](https://github.com/google/ml-metadata/tree/master/ml_metadata/proto).
 

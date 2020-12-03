@@ -14,7 +14,8 @@
     "lodash.flatten": "^4.4.0",
     "lodash.groupby": "^4.6.0",
     "lodash.isfunction": "^3.0.9",
-    "react-svg-line-chart": "^2.0.2"
+    "react-svg-line-chart": "^2.0.2",
+    "request": "^2.88.2"
   },
   "scripts": {
     "build": "npx tsc --project tsconfig.lib.json",

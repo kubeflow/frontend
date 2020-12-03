@@ -1,6 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const {spawn} = require('child_process');
+const replace_protos = require("./replace_protos");
+
+// Replace existing proto files
+const default_mlmd_version = "0.25.1";
+const mlmd_version = process.argv.slice(2)[0] || default_mlmd_version;
+console.log("Ready to replace mlmd files with version: " + mlmd_version);
+replace_protos.replace_proto_files(mlmd_version);
 
 // TODO: Build process should remove the existing generated proto definitions.
 const OUT_DIR = path.join(__dirname, '..', 'src', 'mlmd', 'generated');

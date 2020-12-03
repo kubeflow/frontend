@@ -567,6 +567,13 @@ message ConnectionConfig {
   optional RetryOptions retry_options = 4;
 }
 
+// A list of supported GRPC arguments defined in:
+// https://grpc.github.io/grpc/core/group__grpc__arg__keys.html
+message GrpcChannelArguments {
+  // Maximum message length in bytes per response that the channel can receive.
+  optional int64 max_receive_message_length = 1;
+}
+
 // Configuration for the gRPC metadata store client.
 message MetadataStoreClientConfig {
   // The hostname or IP address of the gRPC server. Must be specified.
@@ -590,6 +597,16 @@ message MetadataStoreClientConfig {
   // Configuration for a secure gRPC channel.
   // If not given, insecure connection is used.
   optional SSLConfig ssl_config = 3;
+
+  // GRPC channel creation arguments.
+  optional GrpcChannelArguments channel_arguments = 4;
+
+  // Time duration that a client is willing to wait for a reply from the server.
+  // If unset, the timeout is considered infinite. When the field is specified,
+  // Grpc APIs would return DeadlineExceededError when server does not respond
+  // within `client_timeout_sec`. Floating point valued, in seconds.
+  optional double client_timeout_sec = 5;
+
 }
 
 // Configuration for the gRPC metadata store server.
@@ -619,12 +636,11 @@ message MetadataStoreServerConfig {
 // ListOperationOptions represents the set of options and predicates to be
 // used for List operations on Artifacts, Executions and Contexts.
 message ListOperationOptions {
-  // Max number of resources to return in the result. A value of zero results in
-  // returning a default number of resources determined by the API
-  // implementation.
+  // Max number of resources to return in the result. A value of zero or less
+  // results in a InvalidArgumentError.
   // The API implementation also enforces an upper-bound of 100, and picks the
   // minimum between this value and the one specified here.
-  optional int32 max_result_size = 1;
+  optional int32 max_result_size = 1 [default = 20];
 
   message OrderByField {
     // Supported fields for Ordering.
@@ -647,16 +663,19 @@ message ListOperationOptions {
 
   // Identifies the next page of results.
   optional string next_page_token = 3;
+
 }
 
 // Encapsulates information to identify the next page of resources in
 // ListOperation.
 message ListOperationNextPageToken {
   // Id offset within the resultset to start next page.
-  // Id offset is always stored as Id is the unique field used to break ties for
-  // fields that might have duplicate entries. For e.g. there could be two
-  // resources with same create time to break the tie in ordering, id offset is
-  // used.
+  // Id offset is returned as Id is the unique field used to break ties for
+  // fields that might have duplicate entries, e.g. there could be two
+  // resources with same last_update_time. In such cases to  break the tie in
+  // ordering, id offset is used. Also if during the calls, the node is updated,
+  // and its last_update_time has been changed, running the pagination query
+  // again, the updated node will moved to earlier pages.
   optional int64 id_offset = 1;
 
   // Offset value of the order by field. If ID is used this value is same as
