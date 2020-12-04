@@ -1,594 +1,511 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as ml_metadata_proto_metadata_store_pb from '../../ml_metadata/proto/metadata_store_pb';
+import * as ml_metadata_proto_metadata_store_service_pb from '../../ml_metadata/proto/metadata_store_service_pb';
 
-import {
-  GetArtifactByTypeAndNameRequest,
-  GetArtifactByTypeAndNameResponse,
-  GetArtifactTypeRequest,
-  GetArtifactTypeResponse,
-  GetArtifactTypesByIDRequest,
-  GetArtifactTypesByIDResponse,
-  GetArtifactTypesRequest,
-  GetArtifactTypesResponse,
-  GetArtifactsByContextRequest,
-  GetArtifactsByContextResponse,
-  GetArtifactsByIDRequest,
-  GetArtifactsByIDResponse,
-  GetArtifactsByTypeRequest,
-  GetArtifactsByTypeResponse,
-  GetArtifactsByURIRequest,
-  GetArtifactsByURIResponse,
-  GetArtifactsRequest,
-  GetArtifactsResponse,
-  GetChildrenContextsByContextRequest,
-  GetChildrenContextsByContextResponse,
-  GetContextByTypeAndNameRequest,
-  GetContextByTypeAndNameResponse,
-  GetContextTypeRequest,
-  GetContextTypeResponse,
-  GetContextTypesByIDRequest,
-  GetContextTypesByIDResponse,
-  GetContextTypesRequest,
-  GetContextTypesResponse,
-  GetContextsByArtifactRequest,
-  GetContextsByArtifactResponse,
-  GetContextsByExecutionRequest,
-  GetContextsByExecutionResponse,
-  GetContextsByIDRequest,
-  GetContextsByIDResponse,
-  GetContextsByTypeRequest,
-  GetContextsByTypeResponse,
-  GetContextsRequest,
-  GetContextsResponse,
-  GetEventsByArtifactIDsRequest,
-  GetEventsByArtifactIDsResponse,
-  GetEventsByExecutionIDsRequest,
-  GetEventsByExecutionIDsResponse,
-  GetExecutionByTypeAndNameRequest,
-  GetExecutionByTypeAndNameResponse,
-  GetExecutionTypeRequest,
-  GetExecutionTypeResponse,
-  GetExecutionTypesByIDRequest,
-  GetExecutionTypesByIDResponse,
-  GetExecutionTypesRequest,
-  GetExecutionTypesResponse,
-  GetExecutionsByContextRequest,
-  GetExecutionsByContextResponse,
-  GetExecutionsByIDRequest,
-  GetExecutionsByIDResponse,
-  GetExecutionsByTypeRequest,
-  GetExecutionsByTypeResponse,
-  GetExecutionsRequest,
-  GetExecutionsResponse,
-  GetParentContextsByContextRequest,
-  GetParentContextsByContextResponse,
-  PutArtifactTypeRequest,
-  PutArtifactTypeResponse,
-  PutArtifactsRequest,
-  PutArtifactsResponse,
-  PutAttributionsAndAssociationsRequest,
-  PutAttributionsAndAssociationsResponse,
-  PutContextTypeRequest,
-  PutContextTypeResponse,
-  PutContextsRequest,
-  PutContextsResponse,
-  PutEventsRequest,
-  PutEventsResponse,
-  PutExecutionRequest,
-  PutExecutionResponse,
-  PutExecutionTypeRequest,
-  PutExecutionTypeResponse,
-  PutExecutionsRequest,
-  PutExecutionsResponse,
-  PutParentContextsRequest,
-  PutParentContextsResponse,
-  PutTypesRequest,
-  PutTypesResponse} from './metadata_store_service_pb';
 
 export class MetadataStoreServiceClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
-
-  putArtifacts(
-    request: PutArtifactsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PutArtifactsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutArtifactsResponse>;
+               options?: null | { [index: string]: any; });
 
   putArtifactType(
-    request: PutArtifactTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutArtifactTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<PutArtifactTypeResponse>;
-
-  putExecutions(
-    request: PutExecutionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PutExecutionsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutExecutionsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse>;
 
   putExecutionType(
-    request: PutExecutionTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutExecutionTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<PutExecutionTypeResponse>;
-
-  putEvents(
-    request: PutEventsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PutEventsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutEventsResponse>;
-
-  putExecution(
-    request: PutExecutionRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PutExecutionResponse) => void
-  ): grpcWeb.ClientReadableStream<PutExecutionResponse>;
-
-  putTypes(
-    request: PutTypesRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PutTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<PutTypesResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse>;
 
   putContextType(
-    request: PutContextTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutContextTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<PutContextTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
+
+  putTypes(
+    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
+
+  putArtifacts(
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
+
+  putExecutions(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
+
+  putEvents(
+    request: ml_metadata_proto_metadata_store_service_pb.PutEventsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutEventsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutEventsResponse>;
+
+  putExecution(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse>;
 
   putContexts(
-    request: PutContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutContextsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutContextsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutContextsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutContextsResponse>;
 
   putAttributionsAndAssociations(
-    request: PutAttributionsAndAssociationsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutAttributionsAndAssociationsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutAttributionsAndAssociationsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutAttributionsAndAssociationsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutAttributionsAndAssociationsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutAttributionsAndAssociationsResponse>;
 
   putParentContexts(
-    request: PutParentContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutParentContextsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: PutParentContextsResponse) => void
-  ): grpcWeb.ClientReadableStream<PutParentContextsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.PutParentContextsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.PutParentContextsResponse>;
 
   getArtifactType(
-    request: GetArtifactTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypeResponse>;
 
   getArtifactTypesByID(
-    request: GetArtifactTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactTypesByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactTypesByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesByIDResponse>;
 
   getArtifactTypes(
-    request: GetArtifactTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactTypesResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesResponse>;
 
   getExecutionType(
-    request: GetExecutionTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypeResponse>;
 
   getExecutionTypesByID(
-    request: GetExecutionTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionTypesByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionTypesByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesByIDResponse>;
 
   getExecutionTypes(
-    request: GetExecutionTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionTypesResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesResponse>;
 
   getContextType(
-    request: GetContextTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextTypeResponse>;
 
   getContextTypesByID(
-    request: GetContextTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypesByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextTypesByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextTypesByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextTypesByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextTypesByIDResponse>;
 
   getContextTypes(
-    request: GetContextTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextTypesResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextTypesResponse>;
 
   getArtifacts(
-    request: GetArtifactsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactsResponse>;
 
   getExecutions(
-    request: GetExecutionsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionsResponse>;
 
   getContexts(
-    request: GetContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextsResponse>;
 
   getArtifactsByID(
-    request: GetArtifactsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactsByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactsByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByIDResponse>;
 
   getExecutionsByID(
-    request: GetExecutionsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionsByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionsByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByIDResponse>;
 
   getContextsByID(
-    request: GetContextsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByIDRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextsByIDResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextsByIDResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextsByIDResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextsByIDResponse>;
 
   getArtifactsByType(
-    request: GetArtifactsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactsByTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactsByTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByTypeResponse>;
 
   getExecutionsByType(
-    request: GetExecutionsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionsByTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionsByTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByTypeResponse>;
 
   getContextsByType(
-    request: GetContextsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextsByTypeResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextsByTypeResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextsByTypeResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextsByTypeResponse>;
 
   getArtifactByTypeAndName(
-    request: GetArtifactByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactByTypeAndNameRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactByTypeAndNameResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactByTypeAndNameResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactByTypeAndNameResponse>;
 
   getExecutionByTypeAndName(
-    request: GetExecutionByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionByTypeAndNameRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionByTypeAndNameResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionByTypeAndNameResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionByTypeAndNameResponse>;
 
   getContextByTypeAndName(
-    request: GetContextByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextByTypeAndNameRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextByTypeAndNameResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextByTypeAndNameResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextByTypeAndNameResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextByTypeAndNameResponse>;
 
   getArtifactsByURI(
-    request: GetArtifactsByURIRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByURIRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactsByURIResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactsByURIResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByURIResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByURIResponse>;
 
   getEventsByExecutionIDs(
-    request: GetEventsByExecutionIDsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetEventsByExecutionIDsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetEventsByExecutionIDsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetEventsByExecutionIDsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetEventsByExecutionIDsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetEventsByExecutionIDsResponse>;
 
   getEventsByArtifactIDs(
-    request: GetEventsByArtifactIDsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetEventsByArtifactIDsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetEventsByArtifactIDsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetEventsByArtifactIDsResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetEventsByArtifactIDsResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetEventsByArtifactIDsResponse>;
 
   getContextsByArtifact(
-    request: GetContextsByArtifactRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByArtifactRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextsByArtifactResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextsByArtifactResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextsByArtifactResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextsByArtifactResponse>;
 
   getContextsByExecution(
-    request: GetContextsByExecutionRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByExecutionRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetContextsByExecutionResponse) => void
-  ): grpcWeb.ClientReadableStream<GetContextsByExecutionResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetContextsByExecutionResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetContextsByExecutionResponse>;
 
   getParentContextsByContext(
-    request: GetParentContextsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetParentContextsByContextRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetParentContextsByContextResponse) => void
-  ): grpcWeb.ClientReadableStream<GetParentContextsByContextResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetParentContextsByContextResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetParentContextsByContextResponse>;
 
   getChildrenContextsByContext(
-    request: GetChildrenContextsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetChildrenContextsByContextRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetChildrenContextsByContextResponse) => void
-  ): grpcWeb.ClientReadableStream<GetChildrenContextsByContextResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetChildrenContextsByContextResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetChildrenContextsByContextResponse>;
 
   getArtifactsByContext(
-    request: GetArtifactsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByContextRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetArtifactsByContextResponse) => void
-  ): grpcWeb.ClientReadableStream<GetArtifactsByContextResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByContextResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByContextResponse>;
 
   getExecutionsByContext(
-    request: GetExecutionsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByContextRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: GetExecutionsByContextResponse) => void
-  ): grpcWeb.ClientReadableStream<GetExecutionsByContextResponse>;
+               response: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByContextResponse) => void
+  ): grpcWeb.ClientReadableStream<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByContextResponse>;
 
 }
 
 export class MetadataStoreServicePromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
-
-  putArtifacts(
-    request: PutArtifactsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<PutArtifactsResponse>;
+               options?: null | { [index: string]: any; });
 
   putArtifactType(
-    request: PutArtifactTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutArtifactTypeResponse>;
-
-  putExecutions(
-    request: PutExecutionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<PutExecutionsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutArtifactTypeResponse>;
 
   putExecutionType(
-    request: PutExecutionTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutExecutionTypeResponse>;
-
-  putEvents(
-    request: PutEventsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<PutEventsResponse>;
-
-  putExecution(
-    request: PutExecutionRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<PutExecutionResponse>;
-
-  putTypes(
-    request: PutTypesRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<PutTypesResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionTypeResponse>;
 
   putContextType(
-    request: PutContextTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutContextTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutContextTypeResponse>;
+
+  putTypes(
+    request: ml_metadata_proto_metadata_store_service_pb.PutTypesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutTypesResponse>;
+
+  putArtifacts(
+    request: ml_metadata_proto_metadata_store_service_pb.PutArtifactsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutArtifactsResponse>;
+
+  putExecutions(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionsResponse>;
+
+  putEvents(
+    request: ml_metadata_proto_metadata_store_service_pb.PutEventsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutEventsResponse>;
+
+  putExecution(
+    request: ml_metadata_proto_metadata_store_service_pb.PutExecutionRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutExecutionResponse>;
 
   putContexts(
-    request: PutContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutContextsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutContextsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutContextsResponse>;
 
   putAttributionsAndAssociations(
-    request: PutAttributionsAndAssociationsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutAttributionsAndAssociationsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutAttributionsAndAssociationsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutAttributionsAndAssociationsResponse>;
 
   putParentContexts(
-    request: PutParentContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.PutParentContextsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PutParentContextsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.PutParentContextsResponse>;
 
   getArtifactType(
-    request: GetArtifactTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypeResponse>;
 
   getArtifactTypesByID(
-    request: GetArtifactTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactTypesByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesByIDResponse>;
 
   getArtifactTypes(
-    request: GetArtifactTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactTypesResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactTypesResponse>;
 
   getExecutionType(
-    request: GetExecutionTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypeResponse>;
 
   getExecutionTypesByID(
-    request: GetExecutionTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionTypesByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesByIDResponse>;
 
   getExecutionTypes(
-    request: GetExecutionTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionTypesResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionTypesResponse>;
 
   getContextType(
-    request: GetContextTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextTypeResponse>;
 
   getContextTypesByID(
-    request: GetContextTypesByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypesByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextTypesByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextTypesByIDResponse>;
 
   getContextTypes(
-    request: GetContextTypesRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextTypesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextTypesResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextTypesResponse>;
 
   getArtifacts(
-    request: GetArtifactsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactsResponse>;
 
   getExecutions(
-    request: GetExecutionsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionsResponse>;
 
   getContexts(
-    request: GetContextsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextsResponse>;
 
   getArtifactsByID(
-    request: GetArtifactsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactsByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByIDResponse>;
 
   getExecutionsByID(
-    request: GetExecutionsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionsByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByIDResponse>;
 
   getContextsByID(
-    request: GetContextsByIDRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByIDRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextsByIDResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextsByIDResponse>;
 
   getArtifactsByType(
-    request: GetArtifactsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactsByTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByTypeResponse>;
 
   getExecutionsByType(
-    request: GetExecutionsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionsByTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByTypeResponse>;
 
   getContextsByType(
-    request: GetContextsByTypeRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByTypeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextsByTypeResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextsByTypeResponse>;
 
   getArtifactByTypeAndName(
-    request: GetArtifactByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactByTypeAndNameRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactByTypeAndNameResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactByTypeAndNameResponse>;
 
   getExecutionByTypeAndName(
-    request: GetExecutionByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionByTypeAndNameRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionByTypeAndNameResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionByTypeAndNameResponse>;
 
   getContextByTypeAndName(
-    request: GetContextByTypeAndNameRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextByTypeAndNameRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextByTypeAndNameResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextByTypeAndNameResponse>;
 
   getArtifactsByURI(
-    request: GetArtifactsByURIRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByURIRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactsByURIResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByURIResponse>;
 
   getEventsByExecutionIDs(
-    request: GetEventsByExecutionIDsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetEventsByExecutionIDsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetEventsByExecutionIDsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetEventsByExecutionIDsResponse>;
 
   getEventsByArtifactIDs(
-    request: GetEventsByArtifactIDsRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetEventsByArtifactIDsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetEventsByArtifactIDsResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetEventsByArtifactIDsResponse>;
 
   getContextsByArtifact(
-    request: GetContextsByArtifactRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByArtifactRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextsByArtifactResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextsByArtifactResponse>;
 
   getContextsByExecution(
-    request: GetContextsByExecutionRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetContextsByExecutionRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetContextsByExecutionResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetContextsByExecutionResponse>;
 
   getParentContextsByContext(
-    request: GetParentContextsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetParentContextsByContextRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetParentContextsByContextResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetParentContextsByContextResponse>;
 
   getChildrenContextsByContext(
-    request: GetChildrenContextsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetChildrenContextsByContextRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetChildrenContextsByContextResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetChildrenContextsByContextResponse>;
 
   getArtifactsByContext(
-    request: GetArtifactsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetArtifactsByContextRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetArtifactsByContextResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetArtifactsByContextResponse>;
 
   getExecutionsByContext(
-    request: GetExecutionsByContextRequest,
+    request: ml_metadata_proto_metadata_store_service_pb.GetExecutionsByContextRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetExecutionsByContextResponse>;
+  ): Promise<ml_metadata_proto_metadata_store_service_pb.GetExecutionsByContextResponse>;
 
 }
 

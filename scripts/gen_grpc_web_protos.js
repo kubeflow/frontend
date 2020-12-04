@@ -33,4 +33,3 @@ protocProcess.on('close', code => {
   if (code) return;
   console.log(`Protos succesfully generated.`)
 });
-

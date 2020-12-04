@@ -14,12 +14,14 @@
     "lodash.flatten": "^4.4.0",
     "lodash.groupby": "^4.6.0",
     "lodash.isfunction": "^3.0.9",
-    "react-svg-line-chart": "^2.0.2"
+    "react-svg-line-chart": "^2.0.2",
+    "request": "^2.88.2"
   },
   "scripts": {
     "build": "npx tsc --project tsconfig.lib.json",
     "build:all": "npm run build:protos && npx tsc --project tsconfig.lib.json",
     "build:protos": "node scripts/gen_grpc_web_protos.js",
+    "build:replace": "node scripts/replace_protos.js",
     "build:watch": "npx tsc --project tsconfig.lib.json --watch",
     "eject": "cross-env EXTEND_ESLINT=true react-scripts eject",
     "test": "cross-env TZ='America/New_York' EXTEND_ESLINT=true react-scripts test --env=jsdom",
