@@ -43,16 +43,24 @@ If a file in `proto/` is modified or you need to manually re-generate the protos
 * Add `protoc-gen-grpc-web` ([download](https://github.com/grpc/grpc-web/releases)) to your system
   PATH
 * Replace `metadata_store.proto` and `metadata_store_service.proto` proto files with target mlmd version by running
-```bash
-npm run build:replace -- {mlmd_versions}
-// example:
-// npm run build:replace -- 0.25.1
-```
+
+  ```bash
+  npm run build:replace -- {mlmd_versions}
+  // example:
+  // npm run build:replace -- 0.25.1
+  ```
+
 * Generate new protos by running
 
-```bash
-npm run build:protos
-```
+  ```bash
+  npm run build:protos
+  ```
+
+* Build lib
+
+  ```bash
+  npm run build
+  ```
 
 The script run by `npm run build:replace` can be found at `scripts/replace_protos.js`.
 The script run by `npm run build:protos` can be found at `scripts/gen_grpc_web_protos.js`.
@@ -75,9 +83,11 @@ npm test
 ---
 
 ## Development
+
 If you're not a developer on this project, and don't plan on modifying the source, you can stop reading now :)
 
-#### Assumptions
+### Assumptions
+
 - You are using `PowerShell` or a `bash`-like shell
 - Assuming your `$PWD` is in this repo locally
 - Your parent folder looks like
@@ -86,7 +96,8 @@ If you're not a developer on this project, and don't plan on modifying the sourc
 metadata    frontend     <other-irrelevant-folder>
 ```
 
-#### Linking this libary to metadata
+### Linking this libary to metadata
+
 ```bash
 pushd ../metadata/frontend      # Change context to the MLMD Repo
 npm i ../../frontend            # NPM link this library locally (will make a symlink)
@@ -96,7 +107,8 @@ popd                            # Back to where we were
 
 ***Note**: Make sure to remove the symlink in `../metadata/frontend/<this-package>` and running `npm i` again in `../metadata/frontend` to undo the linking*
 
-#### Development workflow (_in 3 terminals_)
+### Development workflow (_in 3 terminals_)
+
 Start 3 terminals and run:
 
 | Components TS Compiler | Metadata Local Server | Proxy to Metadata server (for MLMD proxy)
