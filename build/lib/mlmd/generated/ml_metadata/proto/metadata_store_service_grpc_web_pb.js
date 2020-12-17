@@ -4,6 +4,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 var grpc = {};
 grpc.web = require('grpc-web');
 var ml_metadata_proto_metadata_store_pb = require('../../ml_metadata/proto/metadata_store_pb.js');
@@ -30,15 +32,6 @@ proto.ml_metadata.MetadataStoreServiceClient =
          * @private @const {string} The hostname
          */
         this.hostname_ = hostname;
-        /**
-         * @private @const {?Object} The credentials to be used to connect
-         *    to the server
-         */
-        this.credentials_ = credentials;
-        /**
-         * @private @const {?Object} Options for the client
-         */
-        this.options_ = options;
     };
 /**
  * @param {string} hostname
@@ -61,55 +54,21 @@ proto.ml_metadata.MetadataStoreServicePromiseClient =
          * @private @const {string} The hostname
          */
         this.hostname_ = hostname;
-        /**
-         * @private @const {?Object} The credentials to be used to connect
-         *    to the server
-         */
-        this.credentials_ = credentials;
-        /**
-         * @private @const {?Object} Options for the client
-         */
-        this.options_ = options;
     };
 /**
  * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ml_metadata.PutArtifactsRequest,
- *   !proto.ml_metadata.PutArtifactsResponse>}
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutArtifactTypeRequest,
+ *   !proto.ml_metadata.PutArtifactTypeResponse>}
  */
-var methodInfo_MetadataStoreService_PutArtifacts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutArtifactsResponse, 
-/** @param {!proto.ml_metadata.PutArtifactsRequest} request */
+var methodDescriptor_MetadataStoreService_PutArtifactType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutArtifactType', grpc.web.MethodType.UNARY, proto.ml_metadata.PutArtifactTypeRequest, proto.ml_metadata.PutArtifactTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.PutArtifactTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
-}, proto.ml_metadata.PutArtifactsResponse.deserializeBinary);
-/**
- * @param {!proto.ml_metadata.PutArtifactsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutArtifactsResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutArtifactsResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifacts =
-    function (request, metadata, callback) {
-        return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutArtifacts', request, metadata || {}, methodInfo_MetadataStoreService_PutArtifacts, callback);
-    };
-/**
- * @param {!proto.ml_metadata.PutArtifactsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ml_metadata.PutArtifactsResponse>}
- *     A native promise that resolves to the response
- */
-proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifacts =
-    function (request, metadata) {
-        return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutArtifacts', request, metadata || {}, methodInfo_MetadataStoreService_PutArtifacts);
-    };
+}, proto.ml_metadata.PutArtifactTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -117,7 +76,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifacts =
  *   !proto.ml_metadata.PutArtifactTypeResponse>}
  */
 var methodInfo_MetadataStoreService_PutArtifactType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutArtifactTypeResponse, 
-/** @param {!proto.ml_metadata.PutArtifactTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutArtifactTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutArtifactTypeResponse.deserializeBinary);
@@ -134,7 +96,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifactType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutArtifactType', request, metadata || {}, methodInfo_MetadataStoreService_PutArtifactType, callback);
+            '/ml_metadata.MetadataStoreService/PutArtifactType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutArtifactType, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutArtifactTypeRequest} request The
@@ -142,52 +104,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifactType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutArtifactTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifactType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutArtifactType', request, metadata || {}, methodInfo_MetadataStoreService_PutArtifactType);
+            '/ml_metadata.MetadataStoreService/PutArtifactType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutArtifactType);
     };
 /**
  * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ml_metadata.PutExecutionsRequest,
- *   !proto.ml_metadata.PutExecutionsResponse>}
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutExecutionTypeRequest,
+ *   !proto.ml_metadata.PutExecutionTypeResponse>}
  */
-var methodInfo_MetadataStoreService_PutExecutions = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutExecutionsResponse, 
-/** @param {!proto.ml_metadata.PutExecutionsRequest} request */
+var methodDescriptor_MetadataStoreService_PutExecutionType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutExecutionType', grpc.web.MethodType.UNARY, proto.ml_metadata.PutExecutionTypeRequest, proto.ml_metadata.PutExecutionTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.PutExecutionTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
-}, proto.ml_metadata.PutExecutionsResponse.deserializeBinary);
-/**
- * @param {!proto.ml_metadata.PutExecutionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutExecutionsResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutExecutionsResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutions =
-    function (request, metadata, callback) {
-        return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecutions', request, metadata || {}, methodInfo_MetadataStoreService_PutExecutions, callback);
-    };
-/**
- * @param {!proto.ml_metadata.PutExecutionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ml_metadata.PutExecutionsResponse>}
- *     A native promise that resolves to the response
- */
-proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutions =
-    function (request, metadata) {
-        return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecutions', request, metadata || {}, methodInfo_MetadataStoreService_PutExecutions);
-    };
+}, proto.ml_metadata.PutExecutionTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -195,7 +132,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutions =
  *   !proto.ml_metadata.PutExecutionTypeResponse>}
  */
 var methodInfo_MetadataStoreService_PutExecutionType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutExecutionTypeResponse, 
-/** @param {!proto.ml_metadata.PutExecutionTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutExecutionTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutExecutionTypeResponse.deserializeBinary);
@@ -212,7 +152,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutionType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecutionType', request, metadata || {}, methodInfo_MetadataStoreService_PutExecutionType, callback);
+            '/ml_metadata.MetadataStoreService/PutExecutionType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecutionType, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutExecutionTypeRequest} request The
@@ -220,130 +160,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutionType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutExecutionTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutionType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecutionType', request, metadata || {}, methodInfo_MetadataStoreService_PutExecutionType);
+            '/ml_metadata.MetadataStoreService/PutExecutionType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecutionType);
     };
 /**
  * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ml_metadata.PutEventsRequest,
- *   !proto.ml_metadata.PutEventsResponse>}
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutContextTypeRequest,
+ *   !proto.ml_metadata.PutContextTypeResponse>}
  */
-var methodInfo_MetadataStoreService_PutEvents = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutEventsResponse, 
-/** @param {!proto.ml_metadata.PutEventsRequest} request */
+var methodDescriptor_MetadataStoreService_PutContextType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutContextType', grpc.web.MethodType.UNARY, proto.ml_metadata.PutContextTypeRequest, proto.ml_metadata.PutContextTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.PutContextTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
-}, proto.ml_metadata.PutEventsResponse.deserializeBinary);
-/**
- * @param {!proto.ml_metadata.PutEventsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutEventsResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutEventsResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ml_metadata.MetadataStoreServiceClient.prototype.putEvents =
-    function (request, metadata, callback) {
-        return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutEvents', request, metadata || {}, methodInfo_MetadataStoreService_PutEvents, callback);
-    };
-/**
- * @param {!proto.ml_metadata.PutEventsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ml_metadata.PutEventsResponse>}
- *     A native promise that resolves to the response
- */
-proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putEvents =
-    function (request, metadata) {
-        return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutEvents', request, metadata || {}, methodInfo_MetadataStoreService_PutEvents);
-    };
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ml_metadata.PutExecutionRequest,
- *   !proto.ml_metadata.PutExecutionResponse>}
- */
-var methodInfo_MetadataStoreService_PutExecution = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutExecutionResponse, 
-/** @param {!proto.ml_metadata.PutExecutionRequest} request */
-function (request) {
-    return request.serializeBinary();
-}, proto.ml_metadata.PutExecutionResponse.deserializeBinary);
-/**
- * @param {!proto.ml_metadata.PutExecutionRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutExecutionResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutExecutionResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecution =
-    function (request, metadata, callback) {
-        return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecution', request, metadata || {}, methodInfo_MetadataStoreService_PutExecution, callback);
-    };
-/**
- * @param {!proto.ml_metadata.PutExecutionRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ml_metadata.PutExecutionResponse>}
- *     A native promise that resolves to the response
- */
-proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecution =
-    function (request, metadata) {
-        return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutExecution', request, metadata || {}, methodInfo_MetadataStoreService_PutExecution);
-    };
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ml_metadata.PutTypesRequest,
- *   !proto.ml_metadata.PutTypesResponse>}
- */
-var methodInfo_MetadataStoreService_PutTypes = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutTypesResponse, 
-/** @param {!proto.ml_metadata.PutTypesRequest} request */
-function (request) {
-    return request.serializeBinary();
-}, proto.ml_metadata.PutTypesResponse.deserializeBinary);
-/**
- * @param {!proto.ml_metadata.PutTypesRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutTypesResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutTypesResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ml_metadata.MetadataStoreServiceClient.prototype.putTypes =
-    function (request, metadata, callback) {
-        return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutTypes', request, metadata || {}, methodInfo_MetadataStoreService_PutTypes, callback);
-    };
-/**
- * @param {!proto.ml_metadata.PutTypesRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ml_metadata.PutTypesResponse>}
- *     A native promise that resolves to the response
- */
-proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putTypes =
-    function (request, metadata) {
-        return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutTypes', request, metadata || {}, methodInfo_MetadataStoreService_PutTypes);
-    };
+}, proto.ml_metadata.PutContextTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -351,7 +188,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putTypes =
  *   !proto.ml_metadata.PutContextTypeResponse>}
  */
 var methodInfo_MetadataStoreService_PutContextType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutContextTypeResponse, 
-/** @param {!proto.ml_metadata.PutContextTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutContextTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutContextTypeResponse.deserializeBinary);
@@ -368,7 +208,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putContextType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutContextType', request, metadata || {}, methodInfo_MetadataStoreService_PutContextType, callback);
+            '/ml_metadata.MetadataStoreService/PutContextType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutContextType, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutContextTypeRequest} request The
@@ -376,13 +216,307 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContextType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutContextTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContextType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutContextType', request, metadata || {}, methodInfo_MetadataStoreService_PutContextType);
+            '/ml_metadata.MetadataStoreService/PutContextType', request, metadata || {}, methodDescriptor_MetadataStoreService_PutContextType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutTypesRequest,
+ *   !proto.ml_metadata.PutTypesResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutTypes = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutTypes', grpc.web.MethodType.UNARY, proto.ml_metadata.PutTypesRequest, proto.ml_metadata.PutTypesResponse, 
+/**
+ * @param {!proto.ml_metadata.PutTypesRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutTypesResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.PutTypesRequest,
+ *   !proto.ml_metadata.PutTypesResponse>}
+ */
+var methodInfo_MetadataStoreService_PutTypes = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutTypesResponse, 
+/**
+ * @param {!proto.ml_metadata.PutTypesRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutTypesResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.PutTypesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutTypesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutTypesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.putTypes =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_PutTypes, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.PutTypesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.PutTypesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putTypes =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_PutTypes);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutArtifactsRequest,
+ *   !proto.ml_metadata.PutArtifactsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutArtifacts = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutArtifacts', grpc.web.MethodType.UNARY, proto.ml_metadata.PutArtifactsRequest, proto.ml_metadata.PutArtifactsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutArtifactsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutArtifactsResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.PutArtifactsRequest,
+ *   !proto.ml_metadata.PutArtifactsResponse>}
+ */
+var methodInfo_MetadataStoreService_PutArtifacts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutArtifactsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutArtifactsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutArtifactsResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.PutArtifactsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutArtifactsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutArtifactsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.putArtifacts =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutArtifacts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutArtifacts, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.PutArtifactsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.PutArtifactsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putArtifacts =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutArtifacts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutArtifacts);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutExecutionsRequest,
+ *   !proto.ml_metadata.PutExecutionsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutExecutions = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutExecutions', grpc.web.MethodType.UNARY, proto.ml_metadata.PutExecutionsRequest, proto.ml_metadata.PutExecutionsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutExecutionsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutExecutionsResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.PutExecutionsRequest,
+ *   !proto.ml_metadata.PutExecutionsResponse>}
+ */
+var methodInfo_MetadataStoreService_PutExecutions = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutExecutionsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutExecutionsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutExecutionsResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.PutExecutionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutExecutionsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutExecutionsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecutions =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutExecutions', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecutions, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.PutExecutionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.PutExecutionsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecutions =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutExecutions', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecutions);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutEventsRequest,
+ *   !proto.ml_metadata.PutEventsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutEvents = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutEvents', grpc.web.MethodType.UNARY, proto.ml_metadata.PutEventsRequest, proto.ml_metadata.PutEventsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutEventsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutEventsResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.PutEventsRequest,
+ *   !proto.ml_metadata.PutEventsResponse>}
+ */
+var methodInfo_MetadataStoreService_PutEvents = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutEventsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutEventsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutEventsResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.PutEventsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutEventsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutEventsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.putEvents =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutEvents', request, metadata || {}, methodDescriptor_MetadataStoreService_PutEvents, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.PutEventsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.PutEventsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putEvents =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutEvents', request, metadata || {}, methodDescriptor_MetadataStoreService_PutEvents);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutExecutionRequest,
+ *   !proto.ml_metadata.PutExecutionResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutExecution = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutExecution', grpc.web.MethodType.UNARY, proto.ml_metadata.PutExecutionRequest, proto.ml_metadata.PutExecutionResponse, 
+/**
+ * @param {!proto.ml_metadata.PutExecutionRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutExecutionResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.PutExecutionRequest,
+ *   !proto.ml_metadata.PutExecutionResponse>}
+ */
+var methodInfo_MetadataStoreService_PutExecution = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutExecutionResponse, 
+/**
+ * @param {!proto.ml_metadata.PutExecutionRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutExecutionResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.PutExecutionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.PutExecutionResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.PutExecutionResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.putExecution =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutExecution', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecution, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.PutExecutionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.PutExecutionResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putExecution =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/PutExecution', request, metadata || {}, methodDescriptor_MetadataStoreService_PutExecution);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutContextsRequest,
+ *   !proto.ml_metadata.PutContextsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutContexts = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutContexts', grpc.web.MethodType.UNARY, proto.ml_metadata.PutContextsRequest, proto.ml_metadata.PutContextsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutContextsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutContextsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -390,7 +524,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContextType =
  *   !proto.ml_metadata.PutContextsResponse>}
  */
 var methodInfo_MetadataStoreService_PutContexts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutContextsResponse, 
-/** @param {!proto.ml_metadata.PutContextsRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutContextsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutContextsResponse.deserializeBinary);
@@ -407,7 +544,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putContexts =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutContexts', request, metadata || {}, methodInfo_MetadataStoreService_PutContexts, callback);
+            '/ml_metadata.MetadataStoreService/PutContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutContexts, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutContextsRequest} request The
@@ -415,13 +552,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContexts =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutContexts', request, metadata || {}, methodInfo_MetadataStoreService_PutContexts);
+            '/ml_metadata.MetadataStoreService/PutContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutContexts);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutAttributionsAndAssociationsRequest,
+ *   !proto.ml_metadata.PutAttributionsAndAssociationsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations', grpc.web.MethodType.UNARY, proto.ml_metadata.PutAttributionsAndAssociationsRequest, proto.ml_metadata.PutAttributionsAndAssociationsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutAttributionsAndAssociationsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -429,7 +580,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putContexts =
  *   !proto.ml_metadata.PutAttributionsAndAssociationsResponse>}
  */
 var methodInfo_MetadataStoreService_PutAttributionsAndAssociations = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutAttributionsAndAssociationsResponse, 
-/** @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutAttributionsAndAssociationsResponse.deserializeBinary);
@@ -446,7 +600,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putAttributionsAndAssociations =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations', request, metadata || {}, methodInfo_MetadataStoreService_PutAttributionsAndAssociations, callback);
+            '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations', request, metadata || {}, methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutAttributionsAndAssociationsRequest} request The
@@ -454,13 +608,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putAttributionsAndAssocia
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutAttributionsAndAssociationsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putAttributionsAndAssociations =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations', request, metadata || {}, methodInfo_MetadataStoreService_PutAttributionsAndAssociations);
+            '/ml_metadata.MetadataStoreService/PutAttributionsAndAssociations', request, metadata || {}, methodDescriptor_MetadataStoreService_PutAttributionsAndAssociations);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.PutParentContextsRequest,
+ *   !proto.ml_metadata.PutParentContextsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_PutParentContexts = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/PutParentContexts', grpc.web.MethodType.UNARY, proto.ml_metadata.PutParentContextsRequest, proto.ml_metadata.PutParentContextsResponse, 
+/**
+ * @param {!proto.ml_metadata.PutParentContextsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.PutParentContextsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -468,7 +636,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putAttributionsAnd
  *   !proto.ml_metadata.PutParentContextsResponse>}
  */
 var methodInfo_MetadataStoreService_PutParentContexts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.PutParentContextsResponse, 
-/** @param {!proto.ml_metadata.PutParentContextsRequest} request */
+/**
+ * @param {!proto.ml_metadata.PutParentContextsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.PutParentContextsResponse.deserializeBinary);
@@ -485,7 +656,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.putParentContexts =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutParentContexts', request, metadata || {}, methodInfo_MetadataStoreService_PutParentContexts, callback);
+            '/ml_metadata.MetadataStoreService/PutParentContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutParentContexts, callback);
     };
 /**
  * @param {!proto.ml_metadata.PutParentContextsRequest} request The
@@ -493,13 +664,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.putParentContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.PutParentContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putParentContexts =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/PutParentContexts', request, metadata || {}, methodInfo_MetadataStoreService_PutParentContexts);
+            '/ml_metadata.MetadataStoreService/PutParentContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_PutParentContexts);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactTypeRequest,
+ *   !proto.ml_metadata.GetArtifactTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactTypeRequest, proto.ml_metadata.GetArtifactTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -507,7 +692,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.putParentContexts 
  *   !proto.ml_metadata.GetArtifactTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactTypeResponse, 
-/** @param {!proto.ml_metadata.GetArtifactTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactTypeResponse.deserializeBinary);
@@ -524,7 +712,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactType', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactType, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactTypeRequest} request The
@@ -532,13 +720,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactType', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactType);
+            '/ml_metadata.MetadataStoreService/GetArtifactType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactTypesByIDRequest,
+ *   !proto.ml_metadata.GetArtifactTypesByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactTypesByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactTypesByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactTypesByIDRequest, proto.ml_metadata.GetArtifactTypesByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactTypesByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -546,7 +748,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactType =
  *   !proto.ml_metadata.GetArtifactTypesByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactTypesByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactTypesByIDResponse, 
-/** @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactTypesByIDResponse.deserializeBinary);
@@ -563,7 +768,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypesByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactTypesByID, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactTypesByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactTypesByIDRequest} request The
@@ -571,13 +776,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypesByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactTypesByID);
+            '/ml_metadata.MetadataStoreService/GetArtifactTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactTypesByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactTypesRequest,
+ *   !proto.ml_metadata.GetArtifactTypesResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactTypes = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactTypes', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactTypesRequest, proto.ml_metadata.GetArtifactTypesResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypesRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactTypesResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -585,7 +804,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypesBy
  *   !proto.ml_metadata.GetArtifactTypesResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactTypes = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactTypesResponse, 
-/** @param {!proto.ml_metadata.GetArtifactTypesRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactTypesRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactTypesResponse.deserializeBinary);
@@ -602,7 +824,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypes =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactTypes, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactTypes, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactTypesRequest} request The
@@ -610,13 +832,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypes =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactTypes);
+            '/ml_metadata.MetadataStoreService/GetArtifactTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactTypes);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionTypeRequest,
+ *   !proto.ml_metadata.GetExecutionTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionTypeRequest, proto.ml_metadata.GetExecutionTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -624,7 +860,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactTypes =
  *   !proto.ml_metadata.GetExecutionTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionTypeResponse, 
-/** @param {!proto.ml_metadata.GetExecutionTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionTypeResponse.deserializeBinary);
@@ -641,7 +880,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionType', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionType, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionTypeRequest} request The
@@ -649,13 +888,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionType', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionType);
+            '/ml_metadata.MetadataStoreService/GetExecutionType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionTypesByIDRequest,
+ *   !proto.ml_metadata.GetExecutionTypesByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionTypesByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionTypesByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionTypesByIDRequest, proto.ml_metadata.GetExecutionTypesByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionTypesByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -663,7 +916,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionType =
  *   !proto.ml_metadata.GetExecutionTypesByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionTypesByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionTypesByIDResponse, 
-/** @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionTypesByIDResponse.deserializeBinary);
@@ -680,7 +936,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypesByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionTypesByID, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionTypesByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionTypesByIDRequest} request The
@@ -688,13 +944,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypesByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionTypesByID);
+            '/ml_metadata.MetadataStoreService/GetExecutionTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionTypesByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionTypesRequest,
+ *   !proto.ml_metadata.GetExecutionTypesResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionTypes = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionTypes', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionTypesRequest, proto.ml_metadata.GetExecutionTypesResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypesRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionTypesResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -702,7 +972,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypesB
  *   !proto.ml_metadata.GetExecutionTypesResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionTypes = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionTypesResponse, 
-/** @param {!proto.ml_metadata.GetExecutionTypesRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionTypesRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionTypesResponse.deserializeBinary);
@@ -719,7 +992,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypes =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionTypes, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionTypes, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionTypesRequest} request The
@@ -727,13 +1000,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypes =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionTypes);
+            '/ml_metadata.MetadataStoreService/GetExecutionTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionTypes);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextTypeRequest,
+ *   !proto.ml_metadata.GetContextTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextTypeRequest, proto.ml_metadata.GetContextTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -741,7 +1028,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionTypes 
  *   !proto.ml_metadata.GetContextTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextTypeResponse, 
-/** @param {!proto.ml_metadata.GetContextTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextTypeResponse.deserializeBinary);
@@ -758,7 +1048,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextType', request, metadata || {}, methodInfo_MetadataStoreService_GetContextType, callback);
+            '/ml_metadata.MetadataStoreService/GetContextType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextTypeRequest} request The
@@ -766,13 +1056,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextType', request, metadata || {}, methodInfo_MetadataStoreService_GetContextType);
+            '/ml_metadata.MetadataStoreService/GetContextType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextTypesByIDRequest,
+ *   !proto.ml_metadata.GetContextTypesByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextTypesByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextTypesByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextTypesByIDRequest, proto.ml_metadata.GetContextTypesByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextTypesByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -780,7 +1084,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextType =
  *   !proto.ml_metadata.GetContextTypesByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextTypesByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextTypesByIDResponse, 
-/** @param {!proto.ml_metadata.GetContextTypesByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextTypesByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextTypesByIDResponse.deserializeBinary);
@@ -797,7 +1104,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypesByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetContextTypesByID, callback);
+            '/ml_metadata.MetadataStoreService/GetContextTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextTypesByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextTypesByIDRequest} request The
@@ -805,13 +1112,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypesByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypesByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypesByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextTypesByID', request, metadata || {}, methodInfo_MetadataStoreService_GetContextTypesByID);
+            '/ml_metadata.MetadataStoreService/GetContextTypesByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextTypesByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextTypesRequest,
+ *   !proto.ml_metadata.GetContextTypesResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextTypes = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextTypes', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextTypesRequest, proto.ml_metadata.GetContextTypesResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextTypesRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextTypesResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -819,7 +1140,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypesByI
  *   !proto.ml_metadata.GetContextTypesResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextTypes = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextTypesResponse, 
-/** @param {!proto.ml_metadata.GetContextTypesRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextTypesRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextTypesResponse.deserializeBinary);
@@ -836,7 +1160,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypes =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetContextTypes, callback);
+            '/ml_metadata.MetadataStoreService/GetContextTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextTypes, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextTypesRequest} request The
@@ -844,13 +1168,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextTypes =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypes =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextTypes', request, metadata || {}, methodInfo_MetadataStoreService_GetContextTypes);
+            '/ml_metadata.MetadataStoreService/GetContextTypes', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextTypes);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactsRequest,
+ *   !proto.ml_metadata.GetArtifactsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifacts = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifacts', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactsRequest, proto.ml_metadata.GetArtifactsResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -858,7 +1196,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextTypes =
  *   !proto.ml_metadata.GetArtifactsResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifacts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactsResponse, 
-/** @param {!proto.ml_metadata.GetArtifactsRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactsResponse.deserializeBinary);
@@ -875,7 +1216,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifacts =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifacts', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifacts, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifacts', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifacts, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactsRequest} request The
@@ -883,13 +1224,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifacts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifacts =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifacts', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifacts);
+            '/ml_metadata.MetadataStoreService/GetArtifacts', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifacts);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionsRequest,
+ *   !proto.ml_metadata.GetExecutionsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutions = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutions', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionsRequest, proto.ml_metadata.GetExecutionsResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -897,7 +1252,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifacts =
  *   !proto.ml_metadata.GetExecutionsResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutions = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionsResponse, 
-/** @param {!proto.ml_metadata.GetExecutionsRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionsResponse.deserializeBinary);
@@ -914,7 +1272,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutions =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutions', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutions, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutions', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutions, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionsRequest} request The
@@ -922,13 +1280,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutions =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutions =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutions', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutions);
+            '/ml_metadata.MetadataStoreService/GetExecutions', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutions);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextsRequest,
+ *   !proto.ml_metadata.GetContextsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContexts = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContexts', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextsRequest, proto.ml_metadata.GetContextsResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -936,7 +1308,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutions =
  *   !proto.ml_metadata.GetContextsResponse>}
  */
 var methodInfo_MetadataStoreService_GetContexts = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextsResponse, 
-/** @param {!proto.ml_metadata.GetContextsRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextsResponse.deserializeBinary);
@@ -953,7 +1328,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContexts =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContexts', request, metadata || {}, methodInfo_MetadataStoreService_GetContexts, callback);
+            '/ml_metadata.MetadataStoreService/GetContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContexts, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextsRequest} request The
@@ -961,13 +1336,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContexts =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContexts =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContexts', request, metadata || {}, methodInfo_MetadataStoreService_GetContexts);
+            '/ml_metadata.MetadataStoreService/GetContexts', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContexts);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactsByIDRequest,
+ *   !proto.ml_metadata.GetArtifactsByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactsByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactsByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactsByIDRequest, proto.ml_metadata.GetArtifactsByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactsByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -975,7 +1364,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContexts =
  *   !proto.ml_metadata.GetArtifactsByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactsByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactsByIDResponse, 
-/** @param {!proto.ml_metadata.GetArtifactsByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactsByIDResponse.deserializeBinary);
@@ -992,7 +1384,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByID, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactsByIDRequest} request The
@@ -1000,13 +1392,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByID);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionsByIDRequest,
+ *   !proto.ml_metadata.GetExecutionsByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionsByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionsByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionsByIDRequest, proto.ml_metadata.GetExecutionsByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionsByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1014,7 +1420,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByID =
  *   !proto.ml_metadata.GetExecutionsByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionsByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionsByIDResponse, 
-/** @param {!proto.ml_metadata.GetExecutionsByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionsByIDResponse.deserializeBinary);
@@ -1031,7 +1440,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByID, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionsByIDRequest} request The
@@ -1039,13 +1448,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByID);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextsByIDRequest,
+ *   !proto.ml_metadata.GetContextsByIDResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextsByID = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextsByID', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextsByIDRequest, proto.ml_metadata.GetContextsByIDResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextsByIDRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextsByIDResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1053,7 +1476,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByID 
  *   !proto.ml_metadata.GetContextsByIDResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextsByID = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextsByIDResponse, 
-/** @param {!proto.ml_metadata.GetContextsByIDRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextsByIDRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextsByIDResponse.deserializeBinary);
@@ -1070,7 +1496,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByID =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByID, callback);
+            '/ml_metadata.MetadataStoreService/GetContextsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByID, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextsByIDRequest} request The
@@ -1078,13 +1504,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByID =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByIDResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByID =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByID', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByID);
+            '/ml_metadata.MetadataStoreService/GetContextsByID', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByID);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactsByTypeRequest,
+ *   !proto.ml_metadata.GetArtifactsByTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactsByType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactsByType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactsByTypeRequest, proto.ml_metadata.GetArtifactsByTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactsByTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1092,7 +1532,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByID =
  *   !proto.ml_metadata.GetArtifactsByTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactsByType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactsByTypeResponse, 
-/** @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactsByTypeResponse.deserializeBinary);
@@ -1109,7 +1552,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByType, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactsByTypeRequest} request The
@@ -1117,13 +1560,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByType);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionsByTypeRequest,
+ *   !proto.ml_metadata.GetExecutionsByTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionsByType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionsByType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionsByTypeRequest, proto.ml_metadata.GetExecutionsByTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionsByTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1131,7 +1588,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByType
  *   !proto.ml_metadata.GetExecutionsByTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionsByType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionsByTypeResponse, 
-/** @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionsByTypeResponse.deserializeBinary);
@@ -1148,7 +1608,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByType, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionsByTypeRequest} request The
@@ -1156,13 +1616,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByType);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextsByTypeRequest,
+ *   !proto.ml_metadata.GetContextsByTypeResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextsByType = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextsByType', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextsByTypeRequest, proto.ml_metadata.GetContextsByTypeResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextsByTypeResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1170,7 +1644,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByTyp
  *   !proto.ml_metadata.GetContextsByTypeResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextsByType = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextsByTypeResponse, 
-/** @param {!proto.ml_metadata.GetContextsByTypeRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextsByTypeRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextsByTypeResponse.deserializeBinary);
@@ -1187,7 +1664,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByType =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByType, callback);
+            '/ml_metadata.MetadataStoreService/GetContextsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByType, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextsByTypeRequest} request The
@@ -1195,13 +1672,139 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByType =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByTypeResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByType =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByType', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByType);
+            '/ml_metadata.MetadataStoreService/GetContextsByType', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByType);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetArtifactByTypeAndNameResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactByTypeAndName = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactByTypeAndName', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactByTypeAndNameRequest, proto.ml_metadata.GetArtifactByTypeAndNameResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactByTypeAndNameResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.GetArtifactByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetArtifactByTypeAndNameResponse>}
+ */
+var methodInfo_MetadataStoreService_GetArtifactByTypeAndName = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactByTypeAndNameResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactByTypeAndNameResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.GetArtifactByTypeAndNameResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.GetArtifactByTypeAndNameResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactByTypeAndName =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/GetArtifactByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactByTypeAndName, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.GetArtifactByTypeAndNameResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactByTypeAndName =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/GetArtifactByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactByTypeAndName);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetExecutionByTypeAndNameResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionByTypeAndName = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionByTypeAndName', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionByTypeAndNameRequest, proto.ml_metadata.GetExecutionByTypeAndNameResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionByTypeAndNameResponse.deserializeBinary);
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ml_metadata.GetExecutionByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetExecutionByTypeAndNameResponse>}
+ */
+var methodInfo_MetadataStoreService_GetExecutionByTypeAndName = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionByTypeAndNameResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionByTypeAndNameResponse.deserializeBinary);
+/**
+ * @param {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ml_metadata.GetExecutionByTypeAndNameResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ml_metadata.GetExecutionByTypeAndNameResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionByTypeAndName =
+    function (request, metadata, callback) {
+        return this.client_.rpcCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/GetExecutionByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionByTypeAndName, callback);
+    };
+/**
+ * @param {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ml_metadata.GetExecutionByTypeAndNameResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionByTypeAndName =
+    function (request, metadata) {
+        return this.client_.unaryCall(this.hostname_ +
+            '/ml_metadata.MetadataStoreService/GetExecutionByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionByTypeAndName);
+    };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextByTypeAndNameRequest,
+ *   !proto.ml_metadata.GetContextByTypeAndNameResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextByTypeAndName = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextByTypeAndName', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextByTypeAndNameRequest, proto.ml_metadata.GetContextByTypeAndNameResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextByTypeAndNameResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1209,7 +1812,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByType 
  *   !proto.ml_metadata.GetContextByTypeAndNameResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextByTypeAndName = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextByTypeAndNameResponse, 
-/** @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextByTypeAndNameResponse.deserializeBinary);
@@ -1226,7 +1832,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextByTypeAndName =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextByTypeAndName', request, metadata || {}, methodInfo_MetadataStoreService_GetContextByTypeAndName, callback);
+            '/ml_metadata.MetadataStoreService/GetContextByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextByTypeAndName, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextByTypeAndNameRequest} request The
@@ -1234,13 +1840,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextByTypeAndName =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextByTypeAndNameResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextByTypeAndName =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextByTypeAndName', request, metadata || {}, methodInfo_MetadataStoreService_GetContextByTypeAndName);
+            '/ml_metadata.MetadataStoreService/GetContextByTypeAndName', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextByTypeAndName);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactsByURIRequest,
+ *   !proto.ml_metadata.GetArtifactsByURIResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactsByURI = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactsByURI', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactsByURIRequest, proto.ml_metadata.GetArtifactsByURIResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByURIRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactsByURIResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1248,7 +1868,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextByTypeAn
  *   !proto.ml_metadata.GetArtifactsByURIResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactsByURI = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactsByURIResponse, 
-/** @param {!proto.ml_metadata.GetArtifactsByURIRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByURIRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactsByURIResponse.deserializeBinary);
@@ -1265,7 +1888,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByURI =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByURI', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByURI, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByURI', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByURI, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactsByURIRequest} request The
@@ -1273,13 +1896,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByURI =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByURIResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByURI =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByURI', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByURI);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByURI', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByURI);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetEventsByExecutionIDsRequest,
+ *   !proto.ml_metadata.GetEventsByExecutionIDsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs', grpc.web.MethodType.UNARY, proto.ml_metadata.GetEventsByExecutionIDsRequest, proto.ml_metadata.GetEventsByExecutionIDsResponse, 
+/**
+ * @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetEventsByExecutionIDsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1287,7 +1924,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByURI 
  *   !proto.ml_metadata.GetEventsByExecutionIDsResponse>}
  */
 var methodInfo_MetadataStoreService_GetEventsByExecutionIDs = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetEventsByExecutionIDsResponse, 
-/** @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetEventsByExecutionIDsResponse.deserializeBinary);
@@ -1304,7 +1944,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByExecutionIDs =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs', request, metadata || {}, methodInfo_MetadataStoreService_GetEventsByExecutionIDs, callback);
+            '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs', request, metadata || {}, methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetEventsByExecutionIDsRequest} request The
@@ -1312,13 +1952,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByExecutionIDs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetEventsByExecutionIDsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByExecutionIDs =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs', request, metadata || {}, methodInfo_MetadataStoreService_GetEventsByExecutionIDs);
+            '/ml_metadata.MetadataStoreService/GetEventsByExecutionIDs', request, metadata || {}, methodDescriptor_MetadataStoreService_GetEventsByExecutionIDs);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetEventsByArtifactIDsRequest,
+ *   !proto.ml_metadata.GetEventsByArtifactIDsResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs', grpc.web.MethodType.UNARY, proto.ml_metadata.GetEventsByArtifactIDsRequest, proto.ml_metadata.GetEventsByArtifactIDsResponse, 
+/**
+ * @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetEventsByArtifactIDsResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1326,7 +1980,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByExecuti
  *   !proto.ml_metadata.GetEventsByArtifactIDsResponse>}
  */
 var methodInfo_MetadataStoreService_GetEventsByArtifactIDs = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetEventsByArtifactIDsResponse, 
-/** @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetEventsByArtifactIDsResponse.deserializeBinary);
@@ -1343,7 +2000,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByArtifactIDs =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs', request, metadata || {}, methodInfo_MetadataStoreService_GetEventsByArtifactIDs, callback);
+            '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs', request, metadata || {}, methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetEventsByArtifactIDsRequest} request The
@@ -1351,13 +2008,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getEventsByArtifactIDs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetEventsByArtifactIDsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByArtifactIDs =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs', request, metadata || {}, methodInfo_MetadataStoreService_GetEventsByArtifactIDs);
+            '/ml_metadata.MetadataStoreService/GetEventsByArtifactIDs', request, metadata || {}, methodDescriptor_MetadataStoreService_GetEventsByArtifactIDs);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextsByArtifactRequest,
+ *   !proto.ml_metadata.GetContextsByArtifactResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextsByArtifact = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextsByArtifact', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextsByArtifactRequest, proto.ml_metadata.GetContextsByArtifactResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextsByArtifactRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextsByArtifactResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1365,7 +2036,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getEventsByArtifac
  *   !proto.ml_metadata.GetContextsByArtifactResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextsByArtifact = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextsByArtifactResponse, 
-/** @param {!proto.ml_metadata.GetContextsByArtifactRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextsByArtifactRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextsByArtifactResponse.deserializeBinary);
@@ -1382,7 +2056,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByArtifact =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByArtifact', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByArtifact, callback);
+            '/ml_metadata.MetadataStoreService/GetContextsByArtifact', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByArtifact, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextsByArtifactRequest} request The
@@ -1390,13 +2064,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByArtifact =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByArtifactResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByArtifact =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByArtifact', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByArtifact);
+            '/ml_metadata.MetadataStoreService/GetContextsByArtifact', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByArtifact);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetContextsByExecutionRequest,
+ *   !proto.ml_metadata.GetContextsByExecutionResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetContextsByExecution = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetContextsByExecution', grpc.web.MethodType.UNARY, proto.ml_metadata.GetContextsByExecutionRequest, proto.ml_metadata.GetContextsByExecutionResponse, 
+/**
+ * @param {!proto.ml_metadata.GetContextsByExecutionRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetContextsByExecutionResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1404,7 +2092,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByArtif
  *   !proto.ml_metadata.GetContextsByExecutionResponse>}
  */
 var methodInfo_MetadataStoreService_GetContextsByExecution = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetContextsByExecutionResponse, 
-/** @param {!proto.ml_metadata.GetContextsByExecutionRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetContextsByExecutionRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetContextsByExecutionResponse.deserializeBinary);
@@ -1421,7 +2112,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByExecution =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByExecution', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByExecution, callback);
+            '/ml_metadata.MetadataStoreService/GetContextsByExecution', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByExecution, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetContextsByExecutionRequest} request The
@@ -1429,13 +2120,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getContextsByExecution =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetContextsByExecutionResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByExecution =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetContextsByExecution', request, metadata || {}, methodInfo_MetadataStoreService_GetContextsByExecution);
+            '/ml_metadata.MetadataStoreService/GetContextsByExecution', request, metadata || {}, methodDescriptor_MetadataStoreService_GetContextsByExecution);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetParentContextsByContextRequest,
+ *   !proto.ml_metadata.GetParentContextsByContextResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetParentContextsByContext = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetParentContextsByContext', grpc.web.MethodType.UNARY, proto.ml_metadata.GetParentContextsByContextRequest, proto.ml_metadata.GetParentContextsByContextResponse, 
+/**
+ * @param {!proto.ml_metadata.GetParentContextsByContextRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetParentContextsByContextResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1443,7 +2148,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getContextsByExecu
  *   !proto.ml_metadata.GetParentContextsByContextResponse>}
  */
 var methodInfo_MetadataStoreService_GetParentContextsByContext = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetParentContextsByContextResponse, 
-/** @param {!proto.ml_metadata.GetParentContextsByContextRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetParentContextsByContextRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetParentContextsByContextResponse.deserializeBinary);
@@ -1460,7 +2168,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getParentContextsByContext =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetParentContextsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetParentContextsByContext, callback);
+            '/ml_metadata.MetadataStoreService/GetParentContextsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetParentContextsByContext, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetParentContextsByContextRequest} request The
@@ -1468,13 +2176,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getParentContextsByContex
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetParentContextsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getParentContextsByContext =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetParentContextsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetParentContextsByContext);
+            '/ml_metadata.MetadataStoreService/GetParentContextsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetParentContextsByContext);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetChildrenContextsByContextRequest,
+ *   !proto.ml_metadata.GetChildrenContextsByContextResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetChildrenContextsByContext = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetChildrenContextsByContext', grpc.web.MethodType.UNARY, proto.ml_metadata.GetChildrenContextsByContextRequest, proto.ml_metadata.GetChildrenContextsByContextResponse, 
+/**
+ * @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetChildrenContextsByContextResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1482,7 +2204,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getParentContextsB
  *   !proto.ml_metadata.GetChildrenContextsByContextResponse>}
  */
 var methodInfo_MetadataStoreService_GetChildrenContextsByContext = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetChildrenContextsByContextResponse, 
-/** @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetChildrenContextsByContextResponse.deserializeBinary);
@@ -1499,7 +2224,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getChildrenContextsByContext =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetChildrenContextsByContext, callback);
+            '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetChildrenContextsByContext, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetChildrenContextsByContextRequest} request The
@@ -1507,13 +2232,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getChildrenContextsByCont
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetChildrenContextsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getChildrenContextsByContext =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetChildrenContextsByContext);
+            '/ml_metadata.MetadataStoreService/GetChildrenContextsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetChildrenContextsByContext);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetArtifactsByContextRequest,
+ *   !proto.ml_metadata.GetArtifactsByContextResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetArtifactsByContext = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetArtifactsByContext', grpc.web.MethodType.UNARY, proto.ml_metadata.GetArtifactsByContextRequest, proto.ml_metadata.GetArtifactsByContextResponse, 
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByContextRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetArtifactsByContextResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1521,7 +2260,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getChildrenContext
  *   !proto.ml_metadata.GetArtifactsByContextResponse>}
  */
 var methodInfo_MetadataStoreService_GetArtifactsByContext = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetArtifactsByContextResponse, 
-/** @param {!proto.ml_metadata.GetArtifactsByContextRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetArtifactsByContextRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetArtifactsByContextResponse.deserializeBinary);
@@ -1538,7 +2280,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByContext =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByContext, callback);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByContext, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetArtifactsByContextRequest} request The
@@ -1546,13 +2288,27 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getArtifactsByContext =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetArtifactsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByContext =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetArtifactsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetArtifactsByContext);
+            '/ml_metadata.MetadataStoreService/GetArtifactsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetArtifactsByContext);
     };
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ml_metadata.GetExecutionsByContextRequest,
+ *   !proto.ml_metadata.GetExecutionsByContextResponse>}
+ */
+var methodDescriptor_MetadataStoreService_GetExecutionsByContext = new grpc.web.MethodDescriptor('/ml_metadata.MetadataStoreService/GetExecutionsByContext', grpc.web.MethodType.UNARY, proto.ml_metadata.GetExecutionsByContextRequest, proto.ml_metadata.GetExecutionsByContextResponse, 
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByContextRequest} request
+ * @return {!Uint8Array}
+ */
+function (request) {
+    return request.serializeBinary();
+}, proto.ml_metadata.GetExecutionsByContextResponse.deserializeBinary);
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
@@ -1560,7 +2316,10 @@ proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getArtifactsByCont
  *   !proto.ml_metadata.GetExecutionsByContextResponse>}
  */
 var methodInfo_MetadataStoreService_GetExecutionsByContext = new grpc.web.AbstractClientBase.MethodInfo(proto.ml_metadata.GetExecutionsByContextResponse, 
-/** @param {!proto.ml_metadata.GetExecutionsByContextRequest} request */
+/**
+ * @param {!proto.ml_metadata.GetExecutionsByContextRequest} request
+ * @return {!Uint8Array}
+ */
 function (request) {
     return request.serializeBinary();
 }, proto.ml_metadata.GetExecutionsByContextResponse.deserializeBinary);
@@ -1577,7 +2336,7 @@ function (request) {
 proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByContext =
     function (request, metadata, callback) {
         return this.client_.rpcCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByContext, callback);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByContext, callback);
     };
 /**
  * @param {!proto.ml_metadata.GetExecutionsByContextRequest} request The
@@ -1585,12 +2344,12 @@ proto.ml_metadata.MetadataStoreServiceClient.prototype.getExecutionsByContext =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ml_metadata.GetExecutionsByContextResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.ml_metadata.MetadataStoreServicePromiseClient.prototype.getExecutionsByContext =
     function (request, metadata) {
         return this.client_.unaryCall(this.hostname_ +
-            '/ml_metadata.MetadataStoreService/GetExecutionsByContext', request, metadata || {}, methodInfo_MetadataStoreService_GetExecutionsByContext);
+            '/ml_metadata.MetadataStoreService/GetExecutionsByContext', request, metadata || {}, methodDescriptor_MetadataStoreService_GetExecutionsByContext);
     };
 module.exports = proto.ml_metadata;
 //# sourceMappingURL=metadata_store_service_grpc_web_pb.js.map
