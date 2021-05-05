@@ -79,6 +79,8 @@ function getMetadataValue(value) {
             return value.getIntValue();
         case __1.Value.ValueCase.STRING_VALUE:
             return value.getStringValue();
+        case __1.Value.ValueCase.STRUCT_VALUE:
+            return value.getStructValue();
         case __1.Value.ValueCase.VALUE_NOT_SET:
             return '';
     }

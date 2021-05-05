@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -6704,7 +6705,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactsByTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -6740,6 +6742,10 @@ proto.ml_metadata.GetArtifactsByTypeRequest.deserializeBinaryFromReader = functi
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -6769,6 +6775,10 @@ proto.ml_metadata.GetArtifactsByTypeRequest.serializeBinaryToWriter = function (
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -6797,6 +6807,34 @@ proto.ml_metadata.GetArtifactsByTypeRequest.prototype.clearTypeName = function (
  */
 proto.ml_metadata.GetArtifactsByTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetArtifactsByTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetArtifactsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetArtifactsByTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetArtifactsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetArtifactsByTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetArtifactsByTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 2) != null;
 };
 /**
  * List of repeated fields within this message type.
@@ -6955,6 +6993,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
     proto.ml_metadata.GetArtifactByTypeAndNameRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
             typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
             artifactName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
@@ -6991,6 +7030,10 @@ proto.ml_metadata.GetArtifactByTypeAndNameRequest.deserializeBinaryFromReader = 
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 3:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             case 2:
                 var value = /** @type {string} */ (reader.readString());
                 msg.setArtifactName(value);
@@ -7024,6 +7067,10 @@ proto.ml_metadata.GetArtifactByTypeAndNameRequest.serializeBinaryToWriter = func
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 3));
+    if (f != null) {
+        writer.writeString(3, f);
+    }
     f = /** @type {string} */ (jspb.Message.getField(message, 2));
     if (f != null) {
         writer.writeString(2, f);
@@ -7056,6 +7103,34 @@ proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.clearTypeName = func
  */
 proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 3;
+ * @return {string}
+ */
+proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 3, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetArtifactByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 3, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetArtifactByTypeAndNameRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 3) != null;
 };
 /**
  * optional string artifact_name = 2;
@@ -8326,7 +8401,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetArtifactTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -8362,6 +8438,10 @@ proto.ml_metadata.GetArtifactTypeRequest.deserializeBinaryFromReader = function 
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -8391,6 +8471,10 @@ proto.ml_metadata.GetArtifactTypeRequest.serializeBinaryToWriter = function (mes
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -8419,6 +8503,34 @@ proto.ml_metadata.GetArtifactTypeRequest.prototype.clearTypeName = function () {
  */
 proto.ml_metadata.GetArtifactTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetArtifactTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetArtifactTypeRequest} returns this
+ */
+proto.ml_metadata.GetArtifactTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetArtifactTypeRequest} returns this
+ */
+proto.ml_metadata.GetArtifactTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetArtifactTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 2) != null;
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
@@ -9205,7 +9317,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionsByTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -9241,6 +9354,10 @@ proto.ml_metadata.GetExecutionsByTypeRequest.deserializeBinaryFromReader = funct
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -9270,6 +9387,10 @@ proto.ml_metadata.GetExecutionsByTypeRequest.serializeBinaryToWriter = function 
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -9298,6 +9419,34 @@ proto.ml_metadata.GetExecutionsByTypeRequest.prototype.clearTypeName = function 
  */
 proto.ml_metadata.GetExecutionsByTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetExecutionsByTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetExecutionsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetExecutionsByTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetExecutionsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetExecutionsByTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetExecutionsByTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 2) != null;
 };
 /**
  * List of repeated fields within this message type.
@@ -9456,6 +9605,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
     proto.ml_metadata.GetExecutionByTypeAndNameRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
             typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
             executionName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
@@ -9492,6 +9642,10 @@ proto.ml_metadata.GetExecutionByTypeAndNameRequest.deserializeBinaryFromReader =
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 3:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             case 2:
                 var value = /** @type {string} */ (reader.readString());
                 msg.setExecutionName(value);
@@ -9525,6 +9679,10 @@ proto.ml_metadata.GetExecutionByTypeAndNameRequest.serializeBinaryToWriter = fun
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 3));
+    if (f != null) {
+        writer.writeString(3, f);
+    }
     f = /** @type {string} */ (jspb.Message.getField(message, 2));
     if (f != null) {
         writer.writeString(2, f);
@@ -9557,6 +9715,34 @@ proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.clearTypeName = fun
  */
 proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 3;
+ * @return {string}
+ */
+proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 3, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetExecutionByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 3, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetExecutionByTypeAndNameRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 3) != null;
 };
 /**
  * optional string execution_name = 2;
@@ -9994,7 +10180,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetExecutionTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -10030,6 +10217,10 @@ proto.ml_metadata.GetExecutionTypeRequest.deserializeBinaryFromReader = function
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -10059,6 +10250,10 @@ proto.ml_metadata.GetExecutionTypeRequest.serializeBinaryToWriter = function (me
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -10087,6 +10282,34 @@ proto.ml_metadata.GetExecutionTypeRequest.prototype.clearTypeName = function () 
  */
 proto.ml_metadata.GetExecutionTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetExecutionTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetExecutionTypeRequest} returns this
+ */
+proto.ml_metadata.GetExecutionTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetExecutionTypeRequest} returns this
+ */
+proto.ml_metadata.GetExecutionTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetExecutionTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 2) != null;
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
@@ -11273,7 +11496,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -11309,6 +11533,10 @@ proto.ml_metadata.GetContextTypeRequest.deserializeBinaryFromReader = function (
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -11338,6 +11566,10 @@ proto.ml_metadata.GetContextTypeRequest.serializeBinaryToWriter = function (mess
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -11366,6 +11598,34 @@ proto.ml_metadata.GetContextTypeRequest.prototype.clearTypeName = function () {
  */
 proto.ml_metadata.GetContextTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetContextTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetContextTypeRequest} returns this
+ */
+proto.ml_metadata.GetContextTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetContextTypeRequest} returns this
+ */
+proto.ml_metadata.GetContextTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetContextTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 2) != null;
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
@@ -12063,7 +12323,9 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByTypeRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f
+            typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            options: (f = msg.getOptions()) && ml_metadata_proto_metadata_store_pb.ListOperationOptions.toObject(includeInstance, f),
+            typeVersion: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -12099,6 +12361,15 @@ proto.ml_metadata.GetContextsByTypeRequest.deserializeBinaryFromReader = functio
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 2:
+                var value = new ml_metadata_proto_metadata_store_pb.ListOperationOptions;
+                reader.readMessage(value, ml_metadata_proto_metadata_store_pb.ListOperationOptions.deserializeBinaryFromReader);
+                msg.setOptions(value);
+                break;
+            case 3:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -12128,6 +12399,14 @@ proto.ml_metadata.GetContextsByTypeRequest.serializeBinaryToWriter = function (m
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = message.getOptions();
+    if (f != null) {
+        writer.writeMessage(2, f, ml_metadata_proto_metadata_store_pb.ListOperationOptions.serializeBinaryToWriter);
+    }
+    f = /** @type {string} */ (jspb.Message.getField(message, 3));
+    if (f != null) {
+        writer.writeString(3, f);
+    }
 };
 /**
  * optional string type_name = 1;
@@ -12156,6 +12435,62 @@ proto.ml_metadata.GetContextsByTypeRequest.prototype.clearTypeName = function ()
  */
 proto.ml_metadata.GetContextsByTypeRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional ListOperationOptions options = 2;
+ * @return {?proto.ml_metadata.ListOperationOptions}
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.getOptions = function () {
+    return /** @type{?proto.ml_metadata.ListOperationOptions} */ (jspb.Message.getWrapperField(this, ml_metadata_proto_metadata_store_pb.ListOperationOptions, 2));
+};
+/**
+ * @param {?proto.ml_metadata.ListOperationOptions|undefined} value
+ * @return {!proto.ml_metadata.GetContextsByTypeRequest} returns this
+*/
+proto.ml_metadata.GetContextsByTypeRequest.prototype.setOptions = function (value) {
+    return jspb.Message.setWrapperField(this, 2, value);
+};
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.ml_metadata.GetContextsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.clearOptions = function () {
+    return this.setOptions(undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.hasOptions = function () {
+    return jspb.Message.getField(this, 2) != null;
+};
+/**
+ * optional string type_version = 3;
+ * @return {string}
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetContextsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 3, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetContextsByTypeRequest} returns this
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 3, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetContextsByTypeRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 3) != null;
 };
 /**
  * List of repeated fields within this message type.
@@ -12190,7 +12525,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.ml_metadata.GetContextsByTypeResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance)
+            contextsList: jspb.Message.toObjectList(msg.getContextsList(), ml_metadata_proto_metadata_store_pb.Context.toObject, includeInstance),
+            nextPageToken: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -12227,6 +12563,10 @@ proto.ml_metadata.GetContextsByTypeResponse.deserializeBinaryFromReader = functi
                 reader.readMessage(value, ml_metadata_proto_metadata_store_pb.Context.deserializeBinaryFromReader);
                 msg.addContexts(value);
                 break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setNextPageToken(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -12255,6 +12595,10 @@ proto.ml_metadata.GetContextsByTypeResponse.serializeBinaryToWriter = function (
     f = message.getContextsList();
     if (f.length > 0) {
         writer.writeRepeatedMessage(1, f, ml_metadata_proto_metadata_store_pb.Context.serializeBinaryToWriter);
+    }
+    f = /** @type {string} */ (jspb.Message.getField(message, 2));
+    if (f != null) {
+        writer.writeString(2, f);
     }
 };
 /**
@@ -12286,6 +12630,34 @@ proto.ml_metadata.GetContextsByTypeResponse.prototype.addContexts = function (op
 proto.ml_metadata.GetContextsByTypeResponse.prototype.clearContextsList = function () {
     return this.setContextsList([]);
 };
+/**
+ * optional string next_page_token = 2;
+ * @return {string}
+ */
+proto.ml_metadata.GetContextsByTypeResponse.prototype.getNextPageToken = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetContextsByTypeResponse} returns this
+ */
+proto.ml_metadata.GetContextsByTypeResponse.prototype.setNextPageToken = function (value) {
+    return jspb.Message.setField(this, 2, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetContextsByTypeResponse} returns this
+ */
+proto.ml_metadata.GetContextsByTypeResponse.prototype.clearNextPageToken = function () {
+    return jspb.Message.setField(this, 2, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetContextsByTypeResponse.prototype.hasNextPageToken = function () {
+    return jspb.Message.getField(this, 2) != null;
+};
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
      * Creates an object representation of this proto.
@@ -12314,6 +12686,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
     proto.ml_metadata.GetContextByTypeAndNameRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
             typeName: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+            typeVersion: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
             contextName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
         };
         if (includeInstance) {
@@ -12350,6 +12723,10 @@ proto.ml_metadata.GetContextByTypeAndNameRequest.deserializeBinaryFromReader = f
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTypeName(value);
                 break;
+            case 3:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTypeVersion(value);
+                break;
             case 2:
                 var value = /** @type {string} */ (reader.readString());
                 msg.setContextName(value);
@@ -12383,6 +12760,10 @@ proto.ml_metadata.GetContextByTypeAndNameRequest.serializeBinaryToWriter = funct
     if (f != null) {
         writer.writeString(1, f);
     }
+    f = /** @type {string} */ (jspb.Message.getField(message, 3));
+    if (f != null) {
+        writer.writeString(3, f);
+    }
     f = /** @type {string} */ (jspb.Message.getField(message, 2));
     if (f != null) {
         writer.writeString(2, f);
@@ -12415,6 +12796,34 @@ proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.clearTypeName = funct
  */
 proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.hasTypeName = function () {
     return jspb.Message.getField(this, 1) != null;
+};
+/**
+ * optional string type_version = 3;
+ * @return {string}
+ */
+proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.getTypeVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.ml_metadata.GetContextByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.setTypeVersion = function (value) {
+    return jspb.Message.setField(this, 3, value);
+};
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ml_metadata.GetContextByTypeAndNameRequest} returns this
+ */
+proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.clearTypeVersion = function () {
+    return jspb.Message.setField(this, 3, undefined);
+};
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ml_metadata.GetContextByTypeAndNameRequest.prototype.hasTypeVersion = function () {
+    return jspb.Message.getField(this, 3) != null;
 };
 /**
  * optional string context_name = 2;

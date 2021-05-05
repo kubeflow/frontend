@@ -23,6 +23,7 @@ import {
 import {ArtifactTypeMap} from './LineageApi';
 import {Artifact, Execution, Value} from '..';
 import {LineageTypedResource} from './LineageTypes';
+import {Struct} from "google-protobuf/google/protobuf/struct_pb";
 
 const UNNAMED_RESOURCE_DISPLAY_NAME = '(unnamed)';
 const ARTIFACT_FIELD_REPOS = [ArtifactProperties, ArtifactCustomProperties];
@@ -31,7 +32,7 @@ const EXECUTION_FIELD_REPOS = [ExecutionProperties, ExecutionCustomProperties];
 type RepoType = typeof ArtifactCustomProperties | typeof ArtifactProperties | typeof ExecutionCustomProperties | typeof ExecutionProperties
 
 export function getResourceProperty(resource: Artifact | Execution,
-    propertyName: string, fromCustomProperties = false): string | number | null {
+    propertyName: string, fromCustomProperties = false): string | number | Struct | null {
   const props = fromCustomProperties
       ? resource.getCustomPropertiesMap()
       : resource.getPropertiesMap();
@@ -92,7 +93,7 @@ export function getTypeName(typeId: number, artifactTypes: ArtifactTypeMap): str
     artifactTypes.get(typeId!)!.getName() : String(typeId);
 }
 
-export function getMetadataValue(value?: Value): string | number {
+export function getMetadataValue(value?: Value): string | number |Struct | undefined {
   if (!value) {
     return '';
   }
@@ -104,6 +105,8 @@ export function getMetadataValue(value?: Value): string | number {
       return value.getIntValue();
     case Value.ValueCase.STRING_VALUE:
       return value.getStringValue();
+    case Value.ValueCase.STRUCT_VALUE:
+      return value.getStructValue();
     case Value.ValueCase.VALUE_NOT_SET:
       return '';
   }
