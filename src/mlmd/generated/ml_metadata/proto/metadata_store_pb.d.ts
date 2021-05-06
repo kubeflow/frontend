@@ -1,5 +1,6 @@
 import * as jspb from 'google-protobuf'
 
+import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
 
 
 export class Value extends jspb.Message {
@@ -11,6 +12,11 @@ export class Value extends jspb.Message {
 
   getStringValue(): string;
   setStringValue(value: string): Value;
+
+  getStructValue(): google_protobuf_struct_pb.Struct | undefined;
+  setStructValue(value?: google_protobuf_struct_pb.Struct): Value;
+  hasStructValue(): boolean;
+  clearStructValue(): Value;
 
   getValueCase(): Value.ValueCase;
 
@@ -27,6 +33,7 @@ export namespace Value {
     intValue: number,
     doubleValue: number,
     stringValue: string,
+    structValue?: google_protobuf_struct_pb.Struct.AsObject,
   }
 
   export enum ValueCase { 
@@ -34,6 +41,7 @@ export namespace Value {
     INT_VALUE = 1,
     DOUBLE_VALUE = 2,
     STRING_VALUE = 3,
+    STRUCT_VALUE = 4,
   }
 }
 
@@ -106,6 +114,12 @@ export class ArtifactType extends jspb.Message {
   getName(): string;
   setName(value: string): ArtifactType;
 
+  getVersion(): string;
+  setVersion(value: string): ArtifactType;
+
+  getDescription(): string;
+  setDescription(value: string): ArtifactType;
+
   getPropertiesMap(): jspb.Map<string, PropertyType>;
   clearPropertiesMap(): ArtifactType;
 
@@ -121,6 +135,8 @@ export namespace ArtifactType {
   export type AsObject = {
     id: number,
     name: string,
+    version: string,
+    description: string,
     propertiesMap: Array<[string, PropertyType]>,
   }
 }
@@ -290,6 +306,12 @@ export class ExecutionType extends jspb.Message {
   getName(): string;
   setName(value: string): ExecutionType;
 
+  getVersion(): string;
+  setVersion(value: string): ExecutionType;
+
+  getDescription(): string;
+  setDescription(value: string): ExecutionType;
+
   getPropertiesMap(): jspb.Map<string, PropertyType>;
   clearPropertiesMap(): ExecutionType;
 
@@ -315,6 +337,8 @@ export namespace ExecutionType {
   export type AsObject = {
     id: number,
     name: string,
+    version: string,
+    description: string,
     propertiesMap: Array<[string, PropertyType]>,
     inputType?: ArtifactStructType.AsObject,
     outputType?: ArtifactStructType.AsObject,
@@ -327,6 +351,12 @@ export class ContextType extends jspb.Message {
 
   getName(): string;
   setName(value: string): ContextType;
+
+  getVersion(): string;
+  setVersion(value: string): ContextType;
+
+  getDescription(): string;
+  setDescription(value: string): ContextType;
 
   getPropertiesMap(): jspb.Map<string, PropertyType>;
   clearPropertiesMap(): ContextType;
@@ -343,6 +373,8 @@ export namespace ContextType {
   export type AsObject = {
     id: number,
     name: string,
+    version: string,
+    description: string,
     propertiesMap: Array<[string, PropertyType]>,
   }
 }
@@ -456,6 +488,74 @@ export namespace ParentContext {
   export type AsObject = {
     childId: number,
     parentId: number,
+  }
+}
+
+export class LineageGraph extends jspb.Message {
+  getArtifactTypesList(): Array<ArtifactType>;
+  setArtifactTypesList(value: Array<ArtifactType>): LineageGraph;
+  clearArtifactTypesList(): LineageGraph;
+  addArtifactTypes(value?: ArtifactType, index?: number): ArtifactType;
+
+  getExecutionTypesList(): Array<ExecutionType>;
+  setExecutionTypesList(value: Array<ExecutionType>): LineageGraph;
+  clearExecutionTypesList(): LineageGraph;
+  addExecutionTypes(value?: ExecutionType, index?: number): ExecutionType;
+
+  getContextTypesList(): Array<ContextType>;
+  setContextTypesList(value: Array<ContextType>): LineageGraph;
+  clearContextTypesList(): LineageGraph;
+  addContextTypes(value?: ContextType, index?: number): ContextType;
+
+  getArtifactsList(): Array<Artifact>;
+  setArtifactsList(value: Array<Artifact>): LineageGraph;
+  clearArtifactsList(): LineageGraph;
+  addArtifacts(value?: Artifact, index?: number): Artifact;
+
+  getExecutionsList(): Array<Execution>;
+  setExecutionsList(value: Array<Execution>): LineageGraph;
+  clearExecutionsList(): LineageGraph;
+  addExecutions(value?: Execution, index?: number): Execution;
+
+  getContextsList(): Array<Context>;
+  setContextsList(value: Array<Context>): LineageGraph;
+  clearContextsList(): LineageGraph;
+  addContexts(value?: Context, index?: number): Context;
+
+  getEventsList(): Array<Event>;
+  setEventsList(value: Array<Event>): LineageGraph;
+  clearEventsList(): LineageGraph;
+  addEvents(value?: Event, index?: number): Event;
+
+  getAttributionsList(): Array<Attribution>;
+  setAttributionsList(value: Array<Attribution>): LineageGraph;
+  clearAttributionsList(): LineageGraph;
+  addAttributions(value?: Attribution, index?: number): Attribution;
+
+  getAssociationsList(): Array<Association>;
+  setAssociationsList(value: Array<Association>): LineageGraph;
+  clearAssociationsList(): LineageGraph;
+  addAssociations(value?: Association, index?: number): Association;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LineageGraph.AsObject;
+  static toObject(includeInstance: boolean, msg: LineageGraph): LineageGraph.AsObject;
+  static serializeBinaryToWriter(message: LineageGraph, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LineageGraph;
+  static deserializeBinaryFromReader(message: LineageGraph, reader: jspb.BinaryReader): LineageGraph;
+}
+
+export namespace LineageGraph {
+  export type AsObject = {
+    artifactTypesList: Array<ArtifactType.AsObject>,
+    executionTypesList: Array<ExecutionType.AsObject>,
+    contextTypesList: Array<ContextType.AsObject>,
+    artifactsList: Array<Artifact.AsObject>,
+    executionsList: Array<Execution.AsObject>,
+    contextsList: Array<Context.AsObject>,
+    eventsList: Array<Event.AsObject>,
+    attributionsList: Array<Attribution.AsObject>,
+    associationsList: Array<Association.AsObject>,
   }
 }
 
@@ -1121,4 +1221,5 @@ export enum PropertyType {
   INT = 1,
   DOUBLE = 2,
   STRING = 3,
+  STRUCT = 4,
 }

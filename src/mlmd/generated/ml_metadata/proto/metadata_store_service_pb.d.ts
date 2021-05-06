@@ -721,6 +721,9 @@ export class GetArtifactsByTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetArtifactsByTypeRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetArtifactsByTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactsByTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetArtifactsByTypeRequest): GetArtifactsByTypeRequest.AsObject;
@@ -732,6 +735,7 @@ export class GetArtifactsByTypeRequest extends jspb.Message {
 export namespace GetArtifactsByTypeRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
   }
 }
 
@@ -759,6 +763,9 @@ export class GetArtifactByTypeAndNameRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetArtifactByTypeAndNameRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetArtifactByTypeAndNameRequest;
+
   getArtifactName(): string;
   setArtifactName(value: string): GetArtifactByTypeAndNameRequest;
 
@@ -773,6 +780,7 @@ export class GetArtifactByTypeAndNameRequest extends jspb.Message {
 export namespace GetArtifactByTypeAndNameRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
     artifactName: string,
   }
 }
@@ -969,6 +977,9 @@ export class GetArtifactTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetArtifactTypeRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetArtifactTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetArtifactTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetArtifactTypeRequest): GetArtifactTypeRequest.AsObject;
@@ -980,6 +991,7 @@ export class GetArtifactTypeRequest extends jspb.Message {
 export namespace GetArtifactTypeRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
   }
 }
 
@@ -1109,6 +1121,9 @@ export class GetExecutionsByTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetExecutionsByTypeRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetExecutionsByTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionsByTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetExecutionsByTypeRequest): GetExecutionsByTypeRequest.AsObject;
@@ -1120,6 +1135,7 @@ export class GetExecutionsByTypeRequest extends jspb.Message {
 export namespace GetExecutionsByTypeRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
   }
 }
 
@@ -1147,6 +1163,9 @@ export class GetExecutionByTypeAndNameRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetExecutionByTypeAndNameRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetExecutionByTypeAndNameRequest;
+
   getExecutionName(): string;
   setExecutionName(value: string): GetExecutionByTypeAndNameRequest;
 
@@ -1161,6 +1180,7 @@ export class GetExecutionByTypeAndNameRequest extends jspb.Message {
 export namespace GetExecutionByTypeAndNameRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
     executionName: string,
   }
 }
@@ -1229,6 +1249,9 @@ export class GetExecutionTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetExecutionTypeRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetExecutionTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetExecutionTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetExecutionTypeRequest): GetExecutionTypeRequest.AsObject;
@@ -1240,6 +1263,7 @@ export class GetExecutionTypeRequest extends jspb.Message {
 export namespace GetExecutionTypeRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
   }
 }
 
@@ -1427,6 +1451,9 @@ export class GetContextTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetContextTypeRequest;
 
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetContextTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetContextTypeRequest): GetContextTypeRequest.AsObject;
@@ -1438,6 +1465,7 @@ export class GetContextTypeRequest extends jspb.Message {
 export namespace GetContextTypeRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
   }
 }
 
@@ -1549,6 +1577,14 @@ export class GetContextsByTypeRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetContextsByTypeRequest;
 
+  getOptions(): ml_metadata_proto_metadata_store_pb.ListOperationOptions | undefined;
+  setOptions(value?: ml_metadata_proto_metadata_store_pb.ListOperationOptions): GetContextsByTypeRequest;
+  hasOptions(): boolean;
+  clearOptions(): GetContextsByTypeRequest;
+
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetContextsByTypeRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByTypeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetContextsByTypeRequest): GetContextsByTypeRequest.AsObject;
@@ -1560,6 +1596,8 @@ export class GetContextsByTypeRequest extends jspb.Message {
 export namespace GetContextsByTypeRequest {
   export type AsObject = {
     typeName: string,
+    options?: ml_metadata_proto_metadata_store_pb.ListOperationOptions.AsObject,
+    typeVersion: string,
   }
 }
 
@@ -1568,6 +1606,9 @@ export class GetContextsByTypeResponse extends jspb.Message {
   setContextsList(value: Array<ml_metadata_proto_metadata_store_pb.Context>): GetContextsByTypeResponse;
   clearContextsList(): GetContextsByTypeResponse;
   addContexts(value?: ml_metadata_proto_metadata_store_pb.Context, index?: number): ml_metadata_proto_metadata_store_pb.Context;
+
+  getNextPageToken(): string;
+  setNextPageToken(value: string): GetContextsByTypeResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetContextsByTypeResponse.AsObject;
@@ -1580,12 +1621,16 @@ export class GetContextsByTypeResponse extends jspb.Message {
 export namespace GetContextsByTypeResponse {
   export type AsObject = {
     contextsList: Array<ml_metadata_proto_metadata_store_pb.Context.AsObject>,
+    nextPageToken: string,
   }
 }
 
 export class GetContextByTypeAndNameRequest extends jspb.Message {
   getTypeName(): string;
   setTypeName(value: string): GetContextByTypeAndNameRequest;
+
+  getTypeVersion(): string;
+  setTypeVersion(value: string): GetContextByTypeAndNameRequest;
 
   getContextName(): string;
   setContextName(value: string): GetContextByTypeAndNameRequest;
@@ -1601,6 +1646,7 @@ export class GetContextByTypeAndNameRequest extends jspb.Message {
 export namespace GetContextByTypeAndNameRequest {
   export type AsObject = {
     typeName: string,
+    typeVersion: string,
     contextName: string,
   }
 }
