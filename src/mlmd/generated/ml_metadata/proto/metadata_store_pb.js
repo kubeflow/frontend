@@ -2,7 +2,6 @@
 /**
  * @fileoverview
  * @enhanceable
- * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -831,7 +830,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.ml_metadata.ListOperationNextPageToken = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.ml_metadata.ListOperationNextPageToken.repeatedFields_, null);
 };
 goog.inherits(proto.ml_metadata.ListOperationNextPageToken, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -10832,6 +10831,13 @@ proto.ml_metadata.ListOperationOptions.prototype.hasNextPageToken = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.ml_metadata.ListOperationNextPageToken.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -10865,7 +10871,8 @@ proto.ml_metadata.ListOperationNextPageToken.toObject = function(includeInstance
   var f, obj = {
     idOffset: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
     fieldOffset: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    setOptions: (f = msg.getSetOptions()) && proto.ml_metadata.ListOperationOptions.toObject(includeInstance, f)
+    setOptions: (f = msg.getSetOptions()) && proto.ml_metadata.ListOperationOptions.toObject(includeInstance, f),
+    listedIdsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -10914,6 +10921,12 @@ proto.ml_metadata.ListOperationNextPageToken.deserializeBinaryFromReader = funct
       var value = new proto.ml_metadata.ListOperationOptions;
       reader.readMessage(value,proto.ml_metadata.ListOperationOptions.deserializeBinaryFromReader);
       msg.setSetOptions(value);
+      break;
+    case 4:
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addListedIds(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -10964,6 +10977,13 @@ proto.ml_metadata.ListOperationNextPageToken.serializeBinaryToWriter = function(
       3,
       f,
       proto.ml_metadata.ListOperationOptions.serializeBinaryToWriter
+    );
+  }
+  f = message.getListedIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedInt64(
+      4,
+      f
     );
   }
 };
@@ -11075,6 +11095,43 @@ proto.ml_metadata.ListOperationNextPageToken.prototype.clearSetOptions = functio
  */
 proto.ml_metadata.ListOperationNextPageToken.prototype.hasSetOptions = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * repeated int64 listed_ids = 4;
+ * @return {!Array<number>}
+ */
+proto.ml_metadata.ListOperationNextPageToken.prototype.getListedIdsList = function() {
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.ml_metadata.ListOperationNextPageToken} returns this
+ */
+proto.ml_metadata.ListOperationNextPageToken.prototype.setListedIdsList = function(value) {
+  return jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {number} value
+ * @param {number=} opt_index
+ * @return {!proto.ml_metadata.ListOperationNextPageToken} returns this
+ */
+proto.ml_metadata.ListOperationNextPageToken.prototype.addListedIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.ml_metadata.ListOperationNextPageToken} returns this
+ */
+proto.ml_metadata.ListOperationNextPageToken.prototype.clearListedIdsList = function() {
+  return this.setListedIdsList([]);
 };
 
 

@@ -1200,6 +1200,11 @@ export class ListOperationNextPageToken extends jspb.Message {
   hasSetOptions(): boolean;
   clearSetOptions(): ListOperationNextPageToken;
 
+  getListedIdsList(): Array<number>;
+  setListedIdsList(value: Array<number>): ListOperationNextPageToken;
+  clearListedIdsList(): ListOperationNextPageToken;
+  addListedIds(value: number, index?: number): ListOperationNextPageToken;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListOperationNextPageToken.AsObject;
   static toObject(includeInstance: boolean, msg: ListOperationNextPageToken): ListOperationNextPageToken.AsObject;
@@ -1213,6 +1218,7 @@ export namespace ListOperationNextPageToken {
     idOffset: number,
     fieldOffset: number,
     setOptions?: ListOperationOptions.AsObject,
+    listedIdsList: Array<number>,
   }
 }
 
