@@ -1,3 +1,8 @@
+## :warning: **kubeflow/frontend is not maintained**
+
+This repository has been deprecated, and will be [archived](https://github.com/kubeflow/community/issues/479) soon (Nov 30th, 2021). Kubeflow Pipelines was the only user of this repository, and the corresponding usage lives in  https://github.com/kubeflow/pipelines/tree/master/frontend#mlmd-components now.
+
+
 # kubeflow/frontend
 
 Shared libraries and components used by Kubeflow frontend projects.
